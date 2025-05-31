@@ -3,11 +3,17 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from io import StringIO
+import argparse
+
+parser = argparse.ArgumentParser(description="Plot ns/op from benchstat CSV")
+parser.add_argument("csvfile", help="Path to benchstat CSV file")
+parser.add_argument("output", help="Output PNG file")
+args = parser.parse_args()
 
 rows = []
 file_labels = []
 
-with open("benchstat.csv") as f:
+with open(args.csvfile) as f:
     lines = f.readlines()
 
 # Step 1: Locate the sec/op section
@@ -63,5 +69,4 @@ plt.grid(True)
 plt.xscale("log")
 plt.yscale("log")
 plt.tight_layout()
-plt.savefig("plot.png")
-
+plt.savefig(args.output)

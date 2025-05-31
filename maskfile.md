@@ -2,23 +2,35 @@
 
 Use [mask](https://github.com/jacobdeichert/mask) to run.
 
-## benchmark
+## bench
+
+Runs all benchmarks and regenerates graphs.
 
 ```bash
-go test -bench '^BenchmarkDeduplication$' -timeout 30m -count 10 -benchmem ./... -args -test slice > dedup_slice.txt
-go test -bench '^BenchmarkDeduplication$' -count 10 -benchmem ./... -args -test slice_comparable >
-dedup_slice_comparable.txt
-go test -bench '^BenchmarkDeduplication$' -count 10 -benchmem ./... -args -test map > dedup_map.txt
+$MASK bench_one "BenchmarkDeduplication" "slice"
+$MASK bench_one "BenchmarkDeduplication" "slice_sort_inplace"
+$MASK bench_one "BenchmarkDeduplication" "map"
+$MASK benchstat "BenchmarkDeduplication"
+$MASK graph "BenchmarkDeduplication"
 ```
 
-## benchstat_csv
+## bench_one (benchname) (variant)
 
 ```bash
-benchstat -format csv dedup_slice.txt dedup_map.txt dedup_slice_comparable.txt > benchstat.csv
+echo "Running: $benchname $variant"
+go test -bench "^$benchname\$" -timeout 30m -count 10 -benchmem ./... -args -variant "$variant" > "$benchname-$variant.txt"
 ```
 
-## graph
+## benchstat (benchname)
 
 ```bash
-python3.11 plot.py
+benchstat "$benchname"*
+benchstat -format csv "$benchname"* > "$benchname.csv"
+```
+
+## graph (benchname)
+
+```bash
+python3.11 plot.py "$benchname.csv" "$benchname.png"
+echo "Wrote: $benchname.png"
 ```

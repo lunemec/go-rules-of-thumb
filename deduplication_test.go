@@ -1,23 +1,16 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"slices"
 	"sort"
 	"testing"
 )
 
-var test string
-
-func init() {
-	flag.StringVar(&test, "test", "", "specifies which sub-benchmark to run")
-}
-
 type deduplicateBench func(haystack []int) []int
 
 func BenchmarkDeduplication(b *testing.B) {
-	switch test {
+	switch variant {
 	case "slice":
 		for _, size := range sizes {
 			b.Run(
@@ -25,11 +18,11 @@ func BenchmarkDeduplication(b *testing.B) {
 				benchmarkDeduplicate(size, benchDeduplicateSlice),
 			)
 		}
-	case "slice_comparable":
+	case "slice_sort_inplace":
 		for _, size := range sizes {
 			b.Run(
 				fmt.Sprintf("size=%d", size),
-				benchmarkDeduplicate(size, benchDeduplicateSliceComparable),
+				benchmarkDeduplicate(size, benchDeduplicateSliceSortInplace),
 			)
 		}
 	case "map":
@@ -67,7 +60,7 @@ func benchDeduplicateSlice(haystack []int) []int {
 	return result
 }
 
-func benchDeduplicateSliceComparable(haystack []int) []int {
+func benchDeduplicateSliceSortInplace(haystack []int) []int {
 	// "borrowed" from https://go.dev/wiki/SliceTricks#in-place-deduplicate-comparable, thanks!
 	// Note sort + slices.Compact is the same thing.
 	sort.Ints(haystack)
