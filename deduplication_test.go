@@ -1,45 +1,74 @@
 package main
 
 import (
+	"flag"
 	"fmt"
+	"slices"
 	"sort"
 	"testing"
 )
 
-var Deduplicated []int
+var test string
+
+func init() {
+	flag.StringVar(&test, "test", "", "specifies which sub-benchmark to run")
+}
 
 type deduplicateBench func(haystack []int) []int
 
 func BenchmarkDeduplication(b *testing.B) {
-	for _, size := range sizes {
-		b.Run(
-			fmt.Sprintf("slice(%d)", size),
-			benchmarkDeduplicate(size, benchDeduplicateSlice),
-		)
-		b.Run(
-			fmt.Sprintf("map(%d)", size),
-			benchmarkDeduplicate(size, benchDeduplicateMap))
+	switch test {
+	case "slice":
+		for _, size := range sizes {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				benchmarkDeduplicate(size, benchDeduplicateSlice),
+			)
+		}
+	case "slice_comparable":
+		for _, size := range sizes {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				benchmarkDeduplicate(size, benchDeduplicateSliceComparable),
+			)
+		}
+	case "map":
+		for _, size := range sizes {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				benchmarkDeduplicate(size, benchDeduplicateMap),
+			)
+		}
+	default:
+		b.Errorf("speficy which test to run: -args -test slice|map|unique")
 	}
 }
 
 func benchmarkDeduplicate(size int, runF deduplicateBench) func(*testing.B) {
 	haystack := testingSlice(size)
 	return func(b *testing.B) {
-		var f []int
-
-		for n := 0; n < b.N; n++ {
+		for b.Loop() {
 			// Note: we need to copy to prevent runs pre-sorting
 			// arrays for each other.
 			h := make([]int, len(haystack))
 			copy(h, haystack)
-			f = runF(h)
+			runF(h)
 		}
-		Deduplicated = f
 	}
 }
 
 func benchDeduplicateSlice(haystack []int) []int {
-	// "borrowed" from https://github.com/golang/go/wiki/SliceTricks, thanks!
+	var result []int
+	for _, val := range haystack {
+		if !slices.Contains(result, val) {
+			result = append(result, val)
+		}
+	}
+	return result
+}
+
+func benchDeduplicateSliceComparable(haystack []int) []int {
+	// "borrowed" from https://go.dev/wiki/SliceTricks#in-place-deduplicate-comparable, thanks!
 	// Note sort + slices.Compact is the same thing.
 	sort.Ints(haystack)
 	j := 0

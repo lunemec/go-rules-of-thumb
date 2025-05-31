@@ -5,10 +5,6 @@ import (
 	"testing"
 )
 
-var (
-	IfSwitch bool
-)
-
 type ifSwitchBench func(int) bool
 
 func BenchmarkIfSwitch(b *testing.B) {
@@ -34,12 +30,9 @@ func benchmarkIfSwitch(runF ifSwitchBench) func(*testing.B) {
 	var input = 5
 
 	return func(b *testing.B) {
-		var f bool
-
-		for n := 0; n < b.N; n++ {
-			f = runF(input)
+		for b.Loop() {
+			runF(input)
 		}
-		IfSwitch = f
 	}
 }
 

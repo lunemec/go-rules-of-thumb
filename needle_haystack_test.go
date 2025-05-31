@@ -6,8 +6,6 @@ import (
 	"testing"
 )
 
-var Found bool
-
 type needleInHaystackBench func(checks int, needle int, haystack []int) bool
 
 func BenchmarkNeedleInAHaystack(b *testing.B) {
@@ -28,12 +26,10 @@ func benchmarkNeedleInAHaystack(size int, checks int, runF needleInHaystackBench
 	haystack := testingSlice(size)
 
 	return func(b *testing.B) {
-		var f bool
-		for n := 0; n < b.N; n++ {
+		for b.Loop() {
 			needle := rand.Intn(size)
-			f = runF(checks, needle, haystack)
+			runF(checks, needle, haystack)
 		}
-		Found = f
 	}
 }
 

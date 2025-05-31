@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"strconv"
 	"strings"
 	"sync"
 	"testing"
 )
-
-var Concat string
 
 type concatBench func(first string, nops int) string
 
@@ -42,13 +42,18 @@ func benchmarkConcat(strSize, nOps int, runF concatBench) func(*testing.B) {
 	teststr := testingString(strSize)
 
 	return func(b *testing.B) {
-		var f string
-
-		for n := 0; n < b.N; n++ {
-			f = runF(teststr, nOps)
+		for b.Loop() {
+			runF(teststr, nOps)
 		}
-		Concat = f
 	}
+}
+
+func testingString(size int) string {
+	var builder strings.Builder
+	for i := 0; i < size; i++ {
+		builder.WriteString(strconv.Itoa(rand.Intn(size)))
+	}
+	return builder.String()
 }
 
 func concatPlus(teststr string, nOps int) string {

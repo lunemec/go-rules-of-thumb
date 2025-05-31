@@ -5,8 +5,6 @@ import (
 	"testing"
 )
 
-var Append []int
-
 type appendBench func(first []int, second []int) []int
 
 func BenchmarkAppend(b *testing.B) {
@@ -37,12 +35,10 @@ func benchmarkAppend(sizeFirst, sizeSecond int, runF appendBench) func(*testing.
 	second := testingSlice(sizeSecond)
 
 	return func(b *testing.B) {
-		var f []int
 
-		for n := 0; n < b.N; n++ {
-			f = runF(first, second)
+		for b.Loop() {
+			runF(first, second)
 		}
-		Append = f
 	}
 }
 

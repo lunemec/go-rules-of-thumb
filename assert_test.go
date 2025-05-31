@@ -35,44 +35,39 @@ var (
 	Truth3 = true
 	Truth4 = true
 	Truth5 = true
-	Out    struct{}
 )
 
 func benchmarkNoAssert(b *testing.B) {
-	for n := 0; n < b.N; n++ {
+	for b.Loop() {
 		func() {
-			Out = struct{}{}
 		}()
 	}
 }
 
 func benchmarkAssert(b *testing.B) {
-	for n := 0; n < b.N; n++ {
+	for b.Loop() {
 		func() {
 			assert(Truth, "n must be larger than 0")
-			Out = struct{}{}
 		}()
 	}
 }
 
 func benchmarkAssert5(b *testing.B) {
-	for n := 0; n < b.N; n++ {
+	for b.Loop() {
 		func() {
 			assert(Truth, "n must be larger than 0")
 			assert(Truth2, "n must be larger than 0")
 			assert(Truth3, "n must be larger than 0")
 			assert(Truth4, "n must be larger than 0")
 			assert(Truth5, "n must be larger than 0")
-			Out = struct{}{}
 		}()
 	}
 }
 
 func benchmarkDeferAssert(b *testing.B) {
-	for n := 0; n < b.N; n++ {
+	for b.Loop() {
 		func() {
 			defer assert(Truth, "n must be larger than 0")
-			Out = struct{}{}
 		}()
 	}
 }

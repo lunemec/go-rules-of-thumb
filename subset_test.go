@@ -7,8 +7,6 @@ import (
 	"testing"
 )
 
-var Subset bool
-
 type subsetBench func(first []int, second []int) bool
 
 func BenchmarkSubset(b *testing.B) {
@@ -40,12 +38,9 @@ func benchmarkSubset(sizeFirst, sizeSecond int, runF subsetBench) func(*testing.
 	first := second[:sizeFirst]
 
 	return func(b *testing.B) {
-		var f bool
-
-		for n := 0; n < b.N; n++ {
-			f = runF(first, second)
+		for b.Loop() {
+			runF(first, second)
 		}
-		Subset = f
 	}
 }
 
