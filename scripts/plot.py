@@ -113,6 +113,9 @@ y_col = "ns_per_op"
 if "iterations" in df.columns:
     hue_col = "iterations"
     df[hue_col] = pd.to_numeric(df[hue_col], errors="coerce")
+elif "subset_size" in df.columns:
+    hue_col = "subset_size"
+    df[hue_col] = pd.to_numeric(df[hue_col], errors="coerce")
 else:
     hue_col = "implementation"
 

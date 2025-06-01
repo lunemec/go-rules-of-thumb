@@ -10,24 +10,45 @@ import (
 type subsetBench func(first []int, second []int) bool
 
 func BenchmarkSubset(b *testing.B) {
-	for _, sizeFirst := range sizes {
-		for _, sizeSecond := range sizes {
-			if sizeFirst > sizeSecond {
-				continue
+	switch variant {
+	case "slice":
+		for _, sizeFirst := range sizes {
+			for _, sizeSecond := range sizes {
+				if sizeFirst > sizeSecond {
+					continue
+				}
+				b.Run(
+					fmt.Sprintf("size=%d subset_size=%d", sizeFirst, sizeSecond),
+					benchmarkSubset(sizeFirst, sizeSecond, subsetSlice),
+				)
 			}
-			b.Run(
-				fmt.Sprintf("slice(%d)(%d)", sizeFirst, sizeSecond),
-				benchmarkSubset(sizeFirst, sizeSecond, subsetSlice),
-			)
-			b.Run(
-				fmt.Sprintf("slice_sort_binsearch(%d)(%d)", sizeFirst, sizeSecond),
-				benchmarkSubset(sizeFirst, sizeSecond, subsetSortBinSearch),
-			)
-			b.Run(
-				fmt.Sprintf("map(%d)(%d)", sizeFirst, sizeSecond),
-				benchmarkSubset(sizeFirst, sizeSecond, subsetMap),
-			)
 		}
+	case "map":
+		for _, sizeFirst := range sizes {
+			for _, sizeSecond := range sizes {
+				if sizeFirst > sizeSecond {
+					continue
+				}
+				b.Run(
+					fmt.Sprintf("size=%d subset_size=%d", sizeFirst, sizeSecond),
+					benchmarkSubset(sizeFirst, sizeSecond, subsetMap),
+				)
+			}
+		}
+	case "slice_sort_binsearch":
+		for _, sizeFirst := range sizes {
+			for _, sizeSecond := range sizes {
+				if sizeFirst > sizeSecond {
+					continue
+				}
+				b.Run(
+					fmt.Sprintf("size=%d subset_size=%d", sizeFirst, sizeSecond),
+					benchmarkSubset(sizeFirst, sizeSecond, subsetSortBinSearch),
+				)
+			}
+		}
+	default:
+		b.Errorf("speficy which test to run: -args -test map|slice|slice_sort_binsearch")
 	}
 }
 
@@ -71,7 +92,7 @@ func subsetSortBinSearch(first, second []int) bool {
 	// Need to copy because sort modifies the slice.
 	// This adds time to the execution, but it is ok because
 	// the other implementations don't have to do this.
-	var secondCopy = make([]int, len(second))
+	secondCopy := make([]int, len(second))
 	copy(secondCopy, second)
 	sort.Ints(secondCopy)
 

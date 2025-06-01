@@ -28,42 +28,12 @@ When is it more efficient to convert a _slice_ into a _map_ for locating an elem
 
 > **TL;DR**: use `map` when `len(haystack) > 100 && len(needles) > 100`
 
-Depending on size of the _haystack_ and number of _needles_, this will differ:
+![needle in a haystack graph](BenchmarkNeedleInAHaystack.png "Find element in set benchmark")
+Depending on size of the _haystack_ (size) and number of _needles_ (iterations), this will differ:
 
-| Type  | Haystack | Needles | ns/op        |     |
-| ----- | -------- | ------- | ------------ | --- |
-| slice | 10       | 10      | 46.90 ns/op  | ✅  |
-| map   | 10       | 10      | 203.2 ns/op  |
-| slice | 10       | 100     | 332.6 ns/op  | ✅  |
-| map   | 10       | 100     | 709.6 ns/op  |
-| slice | 10       | 500     | 1670 ns/op   | ✅  |
-| map   | 10       | 500     | 3119 ns/op   |
-| slice | 10       | 1000    | 3130 ns/op   | ✅  |
-| map   | 10       | 1000    | 6123 ns/op   |
-| slice | 100      | 10      | 244.1 ns/op  | ✅  |
-| map   | 100      | 10      | 2028 ns/op   |
-| slice | 100      | 100     | 2145 ns/op   | ✅  |
-| map   | 100      | 100     | 2550 ns/op   |
-| slice | 100      | 500     | 10919 ns/op  |
-| map   | 100      | 500     | 4795 ns/op   | ✅  |
-| slice | 100      | 1000    | 22762 ns/op  |
-| map   | 100      | 1000    | 7793 ns/op   | ✅  |
-| slice | 500      | 10      | 1099 ns/op   | ✅  |
-| map   | 500      | 10      | 9804 ns/op   |
-| slice | 500      | 100     | 10887 ns/op  |
-| map   | 500      | 100     | 10303 ns/op  | ✅  |
-| slice | 500      | 500     | 54101 ns/op  |
-| map   | 500      | 500     | 12983 ns/op  | ✅  |
-| slice | 500      | 1000    | 112415 ns/op |
-| map   | 500      | 1000    | 15738 ns/op  | ✅  |
-| slice | 1000     | 10      | 2187 ns/op   | ✅  |
-| map   | 1000     | 10      | 19861 ns/op  |
-| slice | 1000     | 100     | 20728 ns/op  |
-| map   | 1000     | 100     | 20219 ns/op  | ✅  |
-| slice | 1000     | 500     | 103448 ns/op |
-| map   | 1000     | 500     | 22292 ns/op  | ✅  |
-| slice | 1000     | 1000    | 207279 ns/op |
-| map   | 1000     | 1000    | 25299 ns/op  | ✅  |
+```
+TODO
+```
 
 ## Deduplication
 
@@ -72,7 +42,7 @@ When is it more efficient to deduplicate a `slice` as opposed to using a `map[]s
 > **TL;DR**: use `map` when `len(haystack) > 100`. If you must reduce allocations, use sort + in-place slice
 > deduplication. Suprisingly it is fast enough.
 
-![deduplication graphg](BenchmarkDeduplication.png "Deduplication variants performance")
+![deduplication graph](BenchmarkDeduplication.png "Deduplication variants performance")
 
 ```
                               │ BenchmarkDeduplication-map.txt │ BenchmarkDeduplication-slice_sort_inplace.txt │       BenchmarkDeduplication-slice.txt       │
