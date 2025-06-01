@@ -9,16 +9,26 @@ import (
 type needleInHaystackBench func(checks int, needle int, haystack []int) bool
 
 func BenchmarkNeedleInAHaystack(b *testing.B) {
-	for _, size := range sizes {
-		for _, nchecks := range needles {
-			b.Run(
-				fmt.Sprintf("slice(%d) needles(%d)", size, nchecks),
-				benchmarkNeedleInAHaystack(size, nchecks, benchNeedleInAHaystackSlice),
-			)
-			b.Run(
-				fmt.Sprintf("map(%d) needles(%d)", size, nchecks),
-				benchmarkNeedleInAHaystack(size, nchecks, benchNeedleInAHaystackMap))
+	switch variant {
+	case "slice":
+		for _, size := range sizes {
+			for _, nchecks := range needles {
+				b.Run(
+					fmt.Sprintf("size=%d iterations=%d", size, nchecks),
+					benchmarkNeedleInAHaystack(size, nchecks, benchNeedleInAHaystackSlice),
+				)
+			}
 		}
+	case "map":
+		for _, size := range sizes {
+			for _, nchecks := range needles {
+				b.Run(
+					fmt.Sprintf("size=%d iterations=%d", size, nchecks),
+					benchmarkNeedleInAHaystack(size, nchecks, benchNeedleInAHaystackMap))
+			}
+		}
+	default:
+		b.Errorf("speficy which test to run: -args -test slice|map")
 	}
 }
 
@@ -35,7 +45,7 @@ func benchmarkNeedleInAHaystack(size int, checks int, runF needleInHaystackBench
 
 func benchNeedleInAHaystackSlice(checks int, needle int, haystack []int) bool {
 	var f bool
-	for i := 0; i < checks; i++ {
+	for range checks {
 		f = needleInAHaystackSlice(needle, haystack)
 	}
 	return f
@@ -54,14 +64,14 @@ func needleInAHaystackSlice(needle int, haystack []int) bool {
 func benchNeedleInAHaystackMap(checks int, needle int, haystack []int) bool {
 	var f bool
 	mapHaystack := haystackToMap(haystack)
-	for i := 0; i < checks; i++ {
+	for range checks {
 		f = needleInAHaystackMap(needle, mapHaystack)
 	}
 	return f
 }
 
 func haystackToMap(haystack []int) map[int]struct{} {
-	var out = make(map[int]struct{}, len(haystack))
+	out := make(map[int]struct{}, len(haystack))
 	for _, v := range haystack {
 		out[v] = struct{}{}
 	}

@@ -6,12 +6,23 @@ Use [mask](https://github.com/jacobdeichert/mask) to run.
 
 Runs all benchmarks and regenerates graphs.
 
+###  deduplication
+
 ```bash
 $MASK bench_one "BenchmarkDeduplication" "slice"
 $MASK bench_one "BenchmarkDeduplication" "slice_sort_inplace"
 $MASK bench_one "BenchmarkDeduplication" "map"
 $MASK benchstat "BenchmarkDeduplication"
 $MASK graph "BenchmarkDeduplication"
+```
+
+###  needleInHaystack
+
+```bash
+$MASK bench_one "BenchmarkNeedleInAHaystack" "slice"
+$MASK bench_one "BenchmarkNeedleInAHaystack" "map"
+$MASK benchstat "BenchmarkNeedleInAHaystack"
+$MASK graph "BenchmarkNeedleInAHaystack"
 ```
 
 ## bench_one (benchname) (variant)

@@ -33,7 +33,7 @@ func BenchmarkDeduplication(b *testing.B) {
 			)
 		}
 	default:
-		b.Errorf("speficy which test to run: -args -test slice|map|unique")
+		b.Errorf("speficy which test to run: -args -test map|slice|slice_sort_inplace")
 	}
 }
 

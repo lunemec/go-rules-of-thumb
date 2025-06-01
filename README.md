@@ -401,4 +401,4 @@ BenchmarkRangeFunc/iter_func(1000)_iterations(1000)-8       127    9272349 ns/op
 ## Notes
 
 - More "Rules of thumb" will be added over time.
-- All benchmarks were conducted on a **Macbook Pro M1 (2020) 16GB RAM**, using **Go 1.21.3**.
+- All benchmarks were conducted on a **Macbook Pro M1 (2020) 16GB RAM**, using **Go 1.24.3**.
