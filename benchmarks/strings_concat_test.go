@@ -12,29 +12,54 @@ import (
 type concatBench func(first string, nops int) string
 
 func BenchmarkConcat(b *testing.B) {
-	for _, stringSize := range sizes {
-		for _, nOperations := range sizes {
-			b.Run(
-				fmt.Sprintf("plus_sign(%d) ops:(%d)", stringSize, nOperations),
-				benchmarkConcat(stringSize, nOperations, concatPlus),
-			)
-			b.Run(
-				fmt.Sprintf("sprintf(%d) ops:(%d)", stringSize, nOperations),
-				benchmarkConcat(stringSize, nOperations, concatSprintf),
-			)
-			b.Run(
-				fmt.Sprintf("strings_join(%d) ops:(%d)", stringSize, nOperations),
-				benchmarkConcat(stringSize, nOperations, concatJoin),
-			)
-			b.Run(
-				fmt.Sprintf("strings_builder(%d) ops:(%d)", stringSize, nOperations),
-				benchmarkConcat(stringSize, nOperations, concatBuilder),
-			)
-			b.Run(
-				fmt.Sprintf("strings_builder_pool(%d) ops:(%d)", stringSize, nOperations),
-				benchmarkConcat(stringSize, nOperations, concatBuilderPool),
-			)
+	switch variant {
+	case "plus":
+		for _, stringSize := range sizes {
+			for _, nOperations := range sizes {
+				b.Run(
+					fmt.Sprintf("plus_sign(%d) ops:(%d)", stringSize, nOperations),
+					benchmarkConcat(stringSize, nOperations, concatPlus),
+				)
+			}
 		}
+	case "sprintf":
+		for _, stringSize := range sizes {
+			for _, nOperations := range sizes {
+				b.Run(
+					fmt.Sprintf("sprintf(%d) ops:(%d)", stringSize, nOperations),
+					benchmarkConcat(stringSize, nOperations, concatSprintf),
+				)
+			}
+		}
+	case "join":
+		for _, stringSize := range sizes {
+			for _, nOperations := range sizes {
+				b.Run(
+					fmt.Sprintf("strings_join(%d) ops:(%d)", stringSize, nOperations),
+					benchmarkConcat(stringSize, nOperations, concatJoin),
+				)
+			}
+		}
+	case "builder":
+		for _, stringSize := range sizes {
+			for _, nOperations := range sizes {
+				b.Run(
+					fmt.Sprintf("strings_builder(%d) ops:(%d)", stringSize, nOperations),
+					benchmarkConcat(stringSize, nOperations, concatBuilder),
+				)
+			}
+		}
+	case "builder_pool":
+		for _, stringSize := range sizes {
+			for _, nOperations := range sizes {
+				b.Run(
+					fmt.Sprintf("strings_builder_pool(%d) ops:(%d)", stringSize, nOperations),
+					benchmarkConcat(stringSize, nOperations, concatBuilderPool),
+				)
+			}
+		}
+	default:
+		b.Errorf("speficy which test to run: -args -test plus|sprintf|join|builder|builder_pool")
 	}
 }
 
@@ -50,28 +75,28 @@ func benchmarkConcat(strSize, nOps int, runF concatBench) func(*testing.B) {
 
 func testingString(size int) string {
 	var builder strings.Builder
-	for i := 0; i < size; i++ {
+	for range size {
 		builder.WriteString(strconv.Itoa(rand.Intn(size)))
 	}
 	return builder.String()
 }
 
 func concatPlus(teststr string, nOps int) string {
-	for i := 0; i < nOps; i++ {
+	for range nOps {
 		teststr = teststr + "..."
 	}
 	return teststr
 }
 
 func concatSprintf(teststr string, nOps int) string {
-	for i := 0; i < nOps; i++ {
+	for range nOps {
 		teststr = fmt.Sprintf("%s%s", teststr, "...")
 	}
 	return teststr
 }
 
 func concatJoin(teststr string, nOps int) string {
-	for i := 0; i < nOps; i++ {
+	for range nOps {
 		teststr = strings.Join([]string{teststr, "..."}, "")
 	}
 	return teststr
@@ -80,7 +105,7 @@ func concatJoin(teststr string, nOps int) string {
 func concatBuilder(teststr string, nOps int) string {
 	var builder strings.Builder
 	builder.Grow(len(teststr))
-	for i := 0; i < nOps; i++ {
+	for range nOps {
 		builder.WriteString(teststr)
 		builder.WriteString("...")
 	}
@@ -98,7 +123,7 @@ func concatBuilderPool(teststr string, nOps int) string {
 	builder.Reset()
 	builder.Grow(len(teststr))
 	defer builderPool.Put(builder)
-	for i := 0; i < nOps; i++ {
+	for range nOps {
 		builder.WriteString(teststr)
 		builder.WriteString("...")
 	}

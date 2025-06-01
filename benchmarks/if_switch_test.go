@@ -8,30 +8,48 @@ import (
 type ifSwitchBench func(int) bool
 
 func BenchmarkIfSwitch(b *testing.B) {
-	b.Run(
-		fmt.Sprintf("if(1)"),
-		benchmarkIfSwitch(benchIf1),
-	)
-	b.Run(
-		fmt.Sprintf("switch(1)"),
-		benchmarkIfSwitch(benchSwitch1),
-	)
-	b.Run(
-		fmt.Sprintf("if(5)"),
-		benchmarkIfSwitch(benchIf5),
-	)
-	b.Run(
-		fmt.Sprintf("switch(5)"),
-		benchmarkIfSwitch(benchSwitch5),
-	)
+	switch variant {
+	case "if":
+		for _, size := range sizesReduced {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				benchmarkIfSwitch(size, benchIf1),
+			)
+		}
+	case "switch":
+		for _, size := range sizesReduced {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				benchmarkIfSwitch(size, benchSwitch1),
+			)
+		}
+	case "if_5":
+		for _, size := range sizesReduced {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				benchmarkIfSwitch(size, benchIf5),
+			)
+		}
+	case "switch_5":
+		for _, size := range sizesReduced {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				benchmarkIfSwitch(size, benchSwitch5),
+			)
+		}
+	default:
+		b.Errorf("speficy which test to run: -args -test if|if_5|switch|switch_5")
+	}
 }
 
-func benchmarkIfSwitch(runF ifSwitchBench) func(*testing.B) {
-	var input = 5
+func benchmarkIfSwitch(size int, runF ifSwitchBench) func(*testing.B) {
+	input := 5
 
 	return func(b *testing.B) {
 		for b.Loop() {
-			runF(input)
+			for range size {
+				runF(input)
+			}
 		}
 	}
 }

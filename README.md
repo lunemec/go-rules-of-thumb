@@ -28,7 +28,7 @@ When is it more efficient to convert a _slice_ into a _map_ for locating an elem
 
 > **TL;DR**: use `map` when `len(haystack) > 100 && len(needles) > 100`
 
-![needle in a haystack graph](BenchmarkNeedleInAHaystack.png "Find element in set benchmark")
+![needle in a haystack graph](assets/BenchmarkNeedleInAHaystack.png "Find element in set benchmark")
 Depending on size of the _haystack_ (size) and number of _needles_ (iterations), this will differ:
 
 ```
@@ -42,7 +42,7 @@ When is it more efficient to deduplicate a `slice` as opposed to using a `map[]s
 > **TL;DR**: use `map` when `len(haystack) > 100`. If you must reduce allocations, use sort + in-place slice
 > deduplication. Suprisingly it is fast enough.
 
-![deduplication graph](BenchmarkDeduplication.png "Deduplication variants performance")
+![deduplication graph](assets/BenchmarkDeduplication.png "Deduplication variants performance")
 
 ```
                               │ BenchmarkDeduplication-map.txt │ BenchmarkDeduplication-slice_sort_inplace.txt │       BenchmarkDeduplication-slice.txt       │

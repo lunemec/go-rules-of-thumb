@@ -11,6 +11,10 @@ $MASK bench deduplication
 $MASK bench needleInHaystack
 $MASK bench subset
 $MASK bench append
+$MASK bench assert
+$MASK bench ifswitch
+$MASK bench iterate
+$MASK bench concatenate
 ```
 
 ###  deduplication
@@ -53,11 +57,54 @@ $MASK benchstat "BenchmarkAppend"
 $MASK graph "BenchmarkAppend"
 ```
 
+###  assert
+
+```bash
+$MASK bench_one "BenchmarkAssert" "no_assert"
+$MASK bench_one "BenchmarkAssert" "assert"
+$MASK bench_one "BenchmarkAssert" "defer_assert"
+$MASK benchstat "BenchmarkAssert"
+$MASK graph "BenchmarkAssert"
+```
+
+###  ifswitch
+
+```bash
+$MASK bench_one "BenchmarkIfSwitch" "if"
+$MASK bench_one "BenchmarkIfSwitch" "switch"
+$MASK bench_one "BenchmarkIfSwitch" "if_5"
+$MASK bench_one "BenchmarkIfSwitch" "switch_5"
+$MASK benchstat "BenchmarkIfSwitch"
+$MASK graph "BenchmarkIfSwitch"
+```
+
+###  iterate
+
+```bash
+$MASK bench_one "BenchmarkIterate" "slice_iterate"
+$MASK bench_one "BenchmarkIterate" "range_func"
+$MASK bench_one "BenchmarkIterate" "direct"
+$MASK benchstat "BenchmarkIterate"
+$MASK graph "BenchmarkIterate"
+```
+
+###  concatenate
+
+```bash
+$MASK bench_one "BenchmarkConcat" "plus"
+$MASK bench_one "BenchmarkConcat" "sprint"
+$MASK bench_one "BenchmarkConcat" "join"
+$MASK bench_one "BenchmarkConcat" "builder"
+$MASK bench_one "BenchmarkConcat" "builder_pool"
+$MASK benchstat "BenchmarkConcat"
+$MASK graph "BenchmarkConcat"
+```
+
 ## bench_one (benchname) (variant)
 
 ```bash
 echo "Running: $benchname $variant"
-go test -bench "^$benchname\$" -timeout 30m -count 10 -benchmem ./benchmarks/... -args -variant "$variant" > "assets/$benchname-$variant.txt"
+go test -bench "^$benchname\$" -timeout 60m -count 10 -benchmem ./benchmarks/... -args -variant "$variant" > "assets/$benchname-$variant.txt"
 ```
 
 ## benchstat (benchname)

@@ -1,73 +1,65 @@
 package main
 
 import (
+	"fmt"
 	"testing"
 )
 
-func assert(truth bool, msg string) {
+type assertBench func()
+
+func _assert(truth bool, msg string) {
 	if !truth {
 		panic(msg)
 	}
 }
 
-func BenchmarkAssertion(b *testing.B) {
-	b.Run(
-		"no assert",
-		benchmarkNoAssert,
-	)
-	b.Run(
-		"assert",
-		benchmarkAssert,
-	)
-	b.Run(
-		"assert(5)",
-		benchmarkAssert5,
-	)
-	b.Run(
-		"defer assert",
-		benchmarkDeferAssert,
-	)
-}
-
-var (
-	Truth  = true
-	Truth2 = true
-	Truth3 = true
-	Truth4 = true
-	Truth5 = true
-)
-
-func benchmarkNoAssert(b *testing.B) {
-	for b.Loop() {
-		func() {
-		}()
+func BenchmarkAssert(b *testing.B) {
+	switch variant {
+	case "no_assert":
+		for _, size := range sizesReduced {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				benchmarkAssert(size, noAssert),
+			)
+		}
+	case "assert":
+		for _, size := range sizesReduced {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				benchmarkAssert(size, assert),
+			)
+		}
+	case "defer_assert":
+		for _, size := range sizesReduced {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				benchmarkAssert(size, deferAssert),
+			)
+		}
+	default:
+		b.Errorf("speficy which test to run: -args -test no_assert|assert|defer_assert")
 	}
 }
 
-func benchmarkAssert(b *testing.B) {
-	for b.Loop() {
-		func() {
-			assert(Truth, "n must be larger than 0")
-		}()
+var Truth = true
+
+func benchmarkAssert(size int, runF assertBench) func(*testing.B) {
+	return func(b *testing.B) {
+		for b.Loop() {
+			for range size {
+				runF()
+			}
+		}
 	}
 }
 
-func benchmarkAssert5(b *testing.B) {
-	for b.Loop() {
-		func() {
-			assert(Truth, "n must be larger than 0")
-			assert(Truth2, "n must be larger than 0")
-			assert(Truth3, "n must be larger than 0")
-			assert(Truth4, "n must be larger than 0")
-			assert(Truth5, "n must be larger than 0")
-		}()
-	}
+func noAssert() {
 }
 
-func benchmarkDeferAssert(b *testing.B) {
-	for b.Loop() {
-		func() {
-			defer assert(Truth, "n must be larger than 0")
-		}()
-	}
+func assert() {
+	_assert(Truth, "n must be larger than 0")
+}
+
+func deferAssert() {
+	defer _assert(Truth, "n must be larger than 0")
 }

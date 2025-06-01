@@ -7,22 +7,37 @@ import (
 	"testing"
 )
 
-func BenchmarkRangeFunc(b *testing.B) {
-	for _, size := range sizes {
-		for _, iterations := range sizes {
-			b.Run(
-				fmt.Sprintf("slice(%d) iterations(%d)", size, iterations),
-				benchmarkSliceIterate(size, iterations),
-			)
-			b.Run(
-				fmt.Sprintf("iter func(%d) iterations(%d)", size, iterations),
-				benchmarkRangeFuncIterate(size, iterations),
-			)
-			b.Run(
-				fmt.Sprintf("direct(%d) iterations(%d)", size, iterations),
-				benchmarkDirect(size, iterations),
-			)
+func BenchmarkIterate(b *testing.B) {
+	switch variant {
+	case "slice_iterate":
+		for _, size := range sizes {
+			for _, iterations := range sizes {
+				b.Run(
+					fmt.Sprintf("size=%d iterations=%d", size, iterations),
+					benchmarkSliceIterate(size, iterations),
+				)
+			}
 		}
+	case "range_func":
+		for _, size := range sizes {
+			for _, iterations := range sizes {
+				b.Run(
+					fmt.Sprintf("size=%d iterations=%d", size, iterations),
+					benchmarkRangeFuncIterate(size, iterations),
+				)
+			}
+		}
+	case "direct":
+		for _, size := range sizes {
+			for _, iterations := range sizes {
+				b.Run(
+					fmt.Sprintf("size=%d iterations=%d", size, iterations),
+					benchmarkDirect(size, iterations),
+				)
+			}
+		}
+	default:
+		b.Errorf("speficy which test to run: -args -test slice_iterate|range_func|direct")
 	}
 }
 
@@ -86,10 +101,10 @@ func TestIter(t *testing.T) {
 }
 
 func testingSlice(size int) []int {
-	//var ts = make([]int, size)
+	// var ts = make([]int, size)
 	ts := []int{}
 	for range size {
-		//ts[i] = rand.Intn(size)
+		// ts[i] = rand.Intn(size)
 		ts = append(ts, rand.Intn(size))
 	}
 	return ts
