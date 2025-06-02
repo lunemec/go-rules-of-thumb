@@ -28,7 +28,7 @@ When is it more efficient to convert a _slice_ into a _map_ for locating an elem
 > [!IMPORTANT]
 > use `slice` if `len(neeldes) <= 10`
 
-> [!HINT]
+> [!TIP]
 > use `map` when `len(haystack) > 100 && len(needles) > 100`
 
 > **TL;DR**: use `slice` if `len(neeldes) <= 10`  
