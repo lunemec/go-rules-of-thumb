@@ -25,30 +25,11 @@ Examples here are what is called micro-optimization, before diving into these, p
 
 When is it more efficient to convert a _slice_ into a _map_ for locating an element `x` within the set `A` (x ∈ A)?
 
-```go
-// slice
-// This is identical to `slices.Contains` implementation.
-for i := range haystack {
-    if needle == haystack[i] {
-        return true
-    }
-}
-return false
-```
+> [!IMPORTANT]
+> use `slice` if `len(neeldes) <= 10`
 
-```go
-// map
-out := make(map[int]struct{}, len(haystack))
-for _, v := range haystack {
-    out[v] = struct{}{}
-}
-return out
-
-for range needles {
- _, ok := haystack[needle]
-    return ok
-}
-```
+> [!HINT]
+> use `map` when `len(haystack) > 100 && len(needles) > 100`
 
 > **TL;DR**: use `slice` if `len(neeldes) <= 10`  
 > use `map` when `len(haystack) > 100 && len(needles) > 100`
