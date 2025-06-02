@@ -353,4 +353,14 @@ BenchmarkAppend/size=10000_subset=5000-8    	  148135	      7925 ns/op	  122880 
 BenchmarkAppend/size=10000_subset=5000-8    	  155595	      8463 ns/op	  122880 B/op	       1 allocs/op
 BenchmarkAppend/size=10000_subset=5000-8    	  129202	      8458 ns/op	  122880 B/op	       1 allocs/op
 BenchmarkAppend/size=10000_subset=10000-8   	   82850	     13796 ns/op	  163840 B/op	       1 allocs/op
-BenchmarkAppend/size=10000_subset=10000-8   	
+BenchmarkAppend/size=10000_subset=10000-8   	  103737	     14434 ns/op	  163841 B/op	       1 allocs/op
+BenchmarkAppend/size=10000_subset=10000-8   	   76462	     13715 ns/op	  163840 B/op	       1 allocs/op
+BenchmarkAppend/size=10000_subset=10000-8   	  106221	     11810 ns/op	  163840 B/op	       1 allocs/op
+BenchmarkAppend/size=10000_subset=10000-8   	  104877	     11599 ns/op	  163840 B/op	       1 allocs/op
+BenchmarkAppend/size=10000_subset=10000-8   	  107949	     11692 ns/op	  163840 B/op	       1 allocs/op
+BenchmarkAppend/size=10000_subset=10000-8   	  102884	     11662 ns/op	  163840 B/op	       1 allocs/op
+BenchmarkAppend/size=10000_subset=10000-8   	  107487	     11412 ns/op	  163840 B/op	       1 allocs/op
+BenchmarkAppend/size=10000_subset=10000-8   	  104715	     11483 ns/op	  163840 B/op	       1 allocs/op
+BenchmarkAppend/size=10000_subset=10000-8   	   90754	     13288 ns/op	  163840 B/op	       1 allocs/op
+PASS
+ok  	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	433.615s
