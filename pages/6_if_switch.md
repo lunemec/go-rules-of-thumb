@@ -4,7 +4,7 @@ Is there even any difference? In theory, `switch` should be faster (at least for
 compiler is able to transform it into a jump table.
 
 > [!TIP]
-> use which ever one is more readable
+> use which ever one is more readable  
 > but `switch` is tiny bit slower
 
 ![if switch graph](assets/BenchmarkIfSwitch.png)

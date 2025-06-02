@@ -86,7 +86,7 @@ Is there even any difference? In theory, `switch` should be faster (at least for
 compiler is able to transform it into a jump table.
 
 > [!TIP]
-> use which ever one is more readable
+> use which ever one is more readable  
 > but `switch` is tiny bit slower
 
 ![if switch graph](assets/BenchmarkIfSwitch.png)
@@ -107,7 +107,7 @@ Read more:
 What is the cost of adding `assert`? Does it make any significant impact?
 
 > [!TIP]
-> use asserts whenever possible to improve reliability of your software
+> use `assert` whenever possible to improve reliability of your software
 
 ![assert graph](assets/BenchmarkAssert.png)
 
@@ -139,7 +139,7 @@ With [Go 1.23 came new feature - range over func](https://go.dev/blog/range-func
 pre-allocating a slice and putting values in it.
 
 > [!TIP]
-> use iter.Seq for better readability for ~20% time cost  
+> use `iter.Seq`` for better readability for ~20% time cost  
 > direct iteration is always faster
 
 ![iteration graph](assets/BenchmarkIterate.png)

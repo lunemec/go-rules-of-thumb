@@ -3,7 +3,7 @@
 What is the cost of adding `assert`? Does it make any significant impact?
 
 > [!TIP]
-> use asserts whenever possible to improve reliability of your software
+> use `assert` whenever possible to improve reliability of your software
 
 ![assert graph](assets/BenchmarkAssert.png)
 
