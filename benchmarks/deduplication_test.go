@@ -10,28 +10,21 @@ import (
 type deduplicateBench func(haystack []int) []int
 
 func BenchmarkDeduplication(b *testing.B) {
+	runBenchmark := func(runF deduplicateBench) {
+		for _, size := range sizes {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				benchmarkDeduplicate(size, runF),
+			)
+		}
+	}
 	switch variant {
 	case "slice":
-		for _, size := range sizes {
-			b.Run(
-				fmt.Sprintf("size=%d", size),
-				benchmarkDeduplicate(size, benchDeduplicateSlice),
-			)
-		}
+		runBenchmark(benchDeduplicateSlice)
 	case "slice_sort_inplace":
-		for _, size := range sizes {
-			b.Run(
-				fmt.Sprintf("size=%d", size),
-				benchmarkDeduplicate(size, benchDeduplicateSliceSortInplace),
-			)
-		}
+		runBenchmark(benchDeduplicateSliceSortInplace)
 	case "map":
-		for _, size := range sizes {
-			b.Run(
-				fmt.Sprintf("size=%d", size),
-				benchmarkDeduplicate(size, benchDeduplicateMap),
-			)
-		}
+		runBenchmark(benchDeduplicateMap)
 	default:
 		b.Errorf("speficy which test to run: -args -test map|slice|slice_sort_inplace")
 	}

@@ -9,24 +9,21 @@ import (
 type needleInHaystackBench func(checks int, needle int, haystack []int) bool
 
 func BenchmarkNeedleInAHaystack(b *testing.B) {
-	switch variant {
-	case "slice":
+	runBenchmark := func(runF needleInHaystackBench) {
 		for _, size := range sizes {
 			for _, nchecks := range needles {
 				b.Run(
 					fmt.Sprintf("size=%d iterations=%d", size, nchecks),
-					benchmarkNeedleInAHaystack(size, nchecks, benchNeedleInAHaystackSlice),
+					benchmarkNeedleInAHaystack(size, nchecks, runF),
 				)
 			}
 		}
+	}
+	switch variant {
+	case "slice":
+		runBenchmark(benchNeedleInAHaystackSlice)
 	case "map":
-		for _, size := range sizes {
-			for _, nchecks := range needles {
-				b.Run(
-					fmt.Sprintf("size=%d iterations=%d", size, nchecks),
-					benchmarkNeedleInAHaystack(size, nchecks, benchNeedleInAHaystackMap))
-			}
-		}
+		runBenchmark(benchNeedleInAHaystackMap)
 	default:
 		b.Errorf("speficy which test to run: -args -test slice|map")
 	}

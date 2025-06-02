@@ -8,35 +8,23 @@ import (
 type ifSwitchBench func(int) bool
 
 func BenchmarkIfSwitch(b *testing.B) {
+	runBenchmark := func(runF ifSwitchBench) {
+		for _, size := range sizesReduced {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				benchmarkIfSwitch(size, runF),
+			)
+		}
+	}
 	switch variant {
 	case "if":
-		for _, size := range sizesReduced {
-			b.Run(
-				fmt.Sprintf("size=%d", size),
-				benchmarkIfSwitch(size, benchIf1),
-			)
-		}
+		runBenchmark(benchIf1)
 	case "switch":
-		for _, size := range sizesReduced {
-			b.Run(
-				fmt.Sprintf("size=%d", size),
-				benchmarkIfSwitch(size, benchSwitch1),
-			)
-		}
+		runBenchmark(benchSwitch1)
 	case "if_5":
-		for _, size := range sizesReduced {
-			b.Run(
-				fmt.Sprintf("size=%d", size),
-				benchmarkIfSwitch(size, benchIf5),
-			)
-		}
+		runBenchmark(benchIf5)
 	case "switch_5":
-		for _, size := range sizesReduced {
-			b.Run(
-				fmt.Sprintf("size=%d", size),
-				benchmarkIfSwitch(size, benchSwitch5),
-			)
-		}
+		runBenchmark(benchSwitch5)
 	default:
 		b.Errorf("speficy which test to run: -args -test if|if_5|switch|switch_5")
 	}

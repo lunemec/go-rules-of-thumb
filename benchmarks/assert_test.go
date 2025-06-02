@@ -14,28 +14,21 @@ func _assert(truth bool, msg string) {
 }
 
 func BenchmarkAssert(b *testing.B) {
+	runBenchmark := func(runF assertBench) {
+		for _, size := range sizesReduced {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				benchmarkAssert(size, runF),
+			)
+		}
+	}
 	switch variant {
 	case "no_assert":
-		for _, size := range sizesReduced {
-			b.Run(
-				fmt.Sprintf("size=%d", size),
-				benchmarkAssert(size, noAssert),
-			)
-		}
+		runBenchmark(noAssert)
 	case "assert":
-		for _, size := range sizesReduced {
-			b.Run(
-				fmt.Sprintf("size=%d", size),
-				benchmarkAssert(size, assert),
-			)
-		}
+		runBenchmark(assert)
 	case "defer_assert":
-		for _, size := range sizesReduced {
-			b.Run(
-				fmt.Sprintf("size=%d", size),
-				benchmarkAssert(size, deferAssert),
-			)
-		}
+		runBenchmark(deferAssert)
 	default:
 		b.Errorf("speficy which test to run: -args -test no_assert|assert|defer_assert")
 	}

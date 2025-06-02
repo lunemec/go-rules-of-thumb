@@ -100,7 +100,7 @@ $MASK graph "BenchmarkIterate"
 
 ```bash
 $MASK bench_one "BenchmarkConcat" "plus"
-$MASK bench_one "BenchmarkConcat" "sprint"
+$MASK bench_one "BenchmarkConcat" "sprintf"
 $MASK bench_one "BenchmarkConcat" "join"
 $MASK bench_one "BenchmarkConcat" "builder"
 $MASK bench_one "BenchmarkConcat" "builder_pool"
@@ -118,7 +118,7 @@ go test -bench "^$benchname\$" -timeout 60m -count 10 -benchmem ./benchmarks/...
 ## benchstat (benchname)
 
 ```bash
-benchstat "assets/$benchname"*
+benchstat "assets/$benchname"* > "assets/$benchname.txt"
 benchstat -format csv "assets/$benchname"* > "assets/$benchname.csv"
 ```
 

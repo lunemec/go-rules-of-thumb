@@ -10,43 +10,27 @@ import (
 type subsetBench func(first []int, second []int) bool
 
 func BenchmarkSubset(b *testing.B) {
+	runBenchmark := func(runF subsetBench) {
+		for _, subsetSize := range sizes {
+			for _, setSize := range sizes {
+				if subsetSize > setSize {
+					continue
+				}
+				b.Run(
+					fmt.Sprintf("size=%d subset=%d", setSize, subsetSize),
+					benchmarkSubset(subsetSize, setSize, runF),
+				)
+			}
+		}
+	}
+
 	switch variant {
 	case "slice":
-		for _, sizeFirst := range sizes {
-			for _, sizeSecond := range sizes {
-				if sizeFirst > sizeSecond {
-					continue
-				}
-				b.Run(
-					fmt.Sprintf("size=%d subset_size=%d", sizeFirst, sizeSecond),
-					benchmarkSubset(sizeFirst, sizeSecond, subsetSlice),
-				)
-			}
-		}
+		runBenchmark(subsetSlice)
 	case "map":
-		for _, sizeFirst := range sizes {
-			for _, sizeSecond := range sizes {
-				if sizeFirst > sizeSecond {
-					continue
-				}
-				b.Run(
-					fmt.Sprintf("size=%d subset_size=%d", sizeFirst, sizeSecond),
-					benchmarkSubset(sizeFirst, sizeSecond, subsetMap),
-				)
-			}
-		}
+		runBenchmark(subsetMap)
 	case "slice_sort_binsearch":
-		for _, sizeFirst := range sizes {
-			for _, sizeSecond := range sizes {
-				if sizeFirst > sizeSecond {
-					continue
-				}
-				b.Run(
-					fmt.Sprintf("size=%d subset_size=%d", sizeFirst, sizeSecond),
-					benchmarkSubset(sizeFirst, sizeSecond, subsetSortBinSearch),
-				)
-			}
-		}
+		runBenchmark(subsetSortBinSearch)
 	default:
 		b.Errorf("speficy which test to run: -args -test map|slice|slice_sort_binsearch")
 	}

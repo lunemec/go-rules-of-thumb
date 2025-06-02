@@ -1,0 +1,35 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M1
+                     │ assets/BenchmarkIterate-direct.txt │ assets/BenchmarkIterate-range_func.txt │ assets/BenchmarkIterate-slice_iterate.txt │
+                     │               sec/op               │     sec/op      vs base                │      sec/op       vs base                 │
+Iterate/size=10-8                             93.18n ± 0%     154.50n ± 2%  +65.82% (p=0.000 n=10)      209.40n ±  1%  +124.74% (p=0.000 n=10)
+Iterate/size=100-8                            876.6n ± 1%     1044.5n ± 1%  +19.15% (p=0.000 n=10)      1309.5n ±  4%   +49.38% (p=0.000 n=10)
+Iterate/size=500-8                            4.351µ ± 7%      4.873µ ± 1%  +12.02% (p=0.001 n=10)       5.690µ ±  1%   +30.79% (p=0.000 n=10)
+Iterate/size=1000-8                           8.540µ ± 5%      9.811µ ± 2%  +14.89% (p=0.000 n=10)      12.450µ ±  3%   +45.79% (p=0.000 n=10)
+Iterate/size=5000-8                           43.42µ ± 2%      49.88µ ± 2%  +14.87% (p=0.000 n=10)       61.62µ ±  7%   +41.89% (p=0.000 n=10)
+Iterate/size=10000-8                          87.21µ ± 1%      96.77µ ± 1%  +10.96% (p=0.000 n=10)      125.47µ ± 89%   +43.86% (p=0.000 n=10)
+geomean                                       4.750µ           5.779µ       +21.65%                      7.291µ         +53.47%
+
+                     │ assets/BenchmarkIterate-direct.txt │ assets/BenchmarkIterate-range_func.txt │ assets/BenchmarkIterate-slice_iterate.txt │
+                     │                B/op                │         B/op          vs base          │          B/op            vs base          │
+Iterate/size=10-8                             0.00 ± 0%               48.00 ± 0%  ? (p=0.000 n=10)               248.00 ± 0%  ? (p=0.000 n=10)
+Iterate/size=100-8                            0.00 ± 0%               48.00 ± 0%  ? (p=0.000 n=10)              2040.00 ± 0%  ? (p=0.000 n=10)
+Iterate/size=500-8                            0.00 ± 0%               48.00 ± 0%  ? (p=0.000 n=10)              8184.00 ± 0%  ? (p=0.000 n=10)
+Iterate/size=1000-8                           0.00 ± 0%               48.00 ± 0%  ? (p=0.000 n=10)             25208.00 ± 0%  ? (p=0.000 n=10)
+Iterate/size=5000-8                           0.00 ± 0%               48.00 ± 0%  ? (p=0.000 n=10)            128249.00 ± 0%  ? (p=0.000 n=10)
+Iterate/size=10000-8                          0.00 ± 0%               48.00 ± 0%  ? (p=0.000 n=10)            357627.00 ± 0%  ? (p=0.000 n=10)
+geomean                                                 ¹             48.00       ?                             12.68Ki       ?
+¹ summaries must be >0 to compute geomean
+
+                     │ assets/BenchmarkIterate-direct.txt │ assets/BenchmarkIterate-range_func.txt │ assets/BenchmarkIterate-slice_iterate.txt │
+                     │             allocs/op              │      allocs/op        vs base          │        allocs/op         vs base          │
+Iterate/size=10-8                            0.000 ± 0%               3.000 ± 0%  ? (p=0.000 n=10)                5.000 ± 0%  ? (p=0.000 n=10)
+Iterate/size=100-8                           0.000 ± 0%               3.000 ± 0%  ? (p=0.000 n=10)                8.000 ± 0%  ? (p=0.000 n=10)
+Iterate/size=500-8                           0.000 ± 0%               3.000 ± 0%  ? (p=0.000 n=10)               10.000 ± 0%  ? (p=0.000 n=10)
+Iterate/size=1000-8                          0.000 ± 0%               3.000 ± 0%  ? (p=0.000 n=10)               12.000 ± 0%  ? (p=0.000 n=10)
+Iterate/size=5000-8                          0.000 ± 0%               3.000 ± 0%  ? (p=0.000 n=10)               16.000 ± 0%  ? (p=0.000 n=10)
+Iterate/size=10000-8                         0.000 ± 0%               3.000 ± 0%  ? (p=0.000 n=10)               19.000 ± 0%  ? (p=0.000 n=10)
+geomean                                                 ¹             3.000       ?                               10.65       ?
+¹ summaries must be >0 to compute geomean

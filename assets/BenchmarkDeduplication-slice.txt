@@ -1,0 +1,2 @@
+signal: interrupt
+FAIL	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	0.327s

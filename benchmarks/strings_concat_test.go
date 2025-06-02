@@ -12,52 +12,27 @@ import (
 type concatBench func(first string, nops int) string
 
 func BenchmarkConcat(b *testing.B) {
+	runBenchmark := func(runF concatBench) {
+		for _, stringSize := range sizes {
+			for _, nOperations := range sizes {
+				b.Run(
+					fmt.Sprintf("size=%d iterations=%d", stringSize, nOperations),
+					benchmarkConcat(stringSize, nOperations, runF),
+				)
+			}
+		}
+	}
 	switch variant {
 	case "plus":
-		for _, stringSize := range sizes {
-			for _, nOperations := range sizes {
-				b.Run(
-					fmt.Sprintf("plus_sign(%d) ops:(%d)", stringSize, nOperations),
-					benchmarkConcat(stringSize, nOperations, concatPlus),
-				)
-			}
-		}
+		runBenchmark(concatPlus)
 	case "sprintf":
-		for _, stringSize := range sizes {
-			for _, nOperations := range sizes {
-				b.Run(
-					fmt.Sprintf("sprintf(%d) ops:(%d)", stringSize, nOperations),
-					benchmarkConcat(stringSize, nOperations, concatSprintf),
-				)
-			}
-		}
+		runBenchmark(concatSprintf)
 	case "join":
-		for _, stringSize := range sizes {
-			for _, nOperations := range sizes {
-				b.Run(
-					fmt.Sprintf("strings_join(%d) ops:(%d)", stringSize, nOperations),
-					benchmarkConcat(stringSize, nOperations, concatJoin),
-				)
-			}
-		}
+		runBenchmark(concatJoin)
 	case "builder":
-		for _, stringSize := range sizes {
-			for _, nOperations := range sizes {
-				b.Run(
-					fmt.Sprintf("strings_builder(%d) ops:(%d)", stringSize, nOperations),
-					benchmarkConcat(stringSize, nOperations, concatBuilder),
-				)
-			}
-		}
+		runBenchmark(concatBuilder)
 	case "builder_pool":
-		for _, stringSize := range sizes {
-			for _, nOperations := range sizes {
-				b.Run(
-					fmt.Sprintf("strings_builder_pool(%d) ops:(%d)", stringSize, nOperations),
-					benchmarkConcat(stringSize, nOperations, concatBuilderPool),
-				)
-			}
-		}
+		runBenchmark(concatBuilderPool)
 	default:
 		b.Errorf("speficy which test to run: -args -test plus|sprintf|join|builder|builder_pool")
 	}

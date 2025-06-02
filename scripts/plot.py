@@ -113,8 +113,8 @@ y_col = "ns_per_op"
 if "iterations" in df.columns:
     hue_col = "iterations"
     df[hue_col] = pd.to_numeric(df[hue_col], errors="coerce")
-elif "subset_size" in df.columns:
-    hue_col = "subset_size"
+elif "subset" in df.columns:
+    hue_col = "subset"
     df[hue_col] = pd.to_numeric(df[hue_col], errors="coerce")
 else:
     hue_col = "implementation"
@@ -135,6 +135,7 @@ plot_args = dict(
     palette="deep",
 )
 
+sns.set_theme(style="whitegrid")
 sns.lineplot(**plot_args)
 plt.xscale("log")
 plt.yscale("log")

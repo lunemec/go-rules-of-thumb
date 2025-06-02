@@ -1,0 +1,66 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M1
+BenchmarkIterate/size=10-8         	 7908382	       151.8 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10-8         	 8070475	       151.0 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10-8         	 8004072	       150.8 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10-8         	 7983060	       152.9 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10-8         	 7801848	       154.5 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10-8         	 7563526	       155.2 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10-8         	 7889566	       155.4 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10-8         	 7743223	       156.9 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10-8         	 7838065	       155.0 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10-8         	 7778418	       154.5 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=100-8        	 1000000	      1049 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=100-8        	 1000000	      1055 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=100-8        	 1000000	      1047 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=100-8        	 1000000	      1033 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=100-8        	 1000000	      1043 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=100-8        	 1000000	      1046 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=100-8        	 1000000	      1040 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=100-8        	 1000000	      1046 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=100-8        	 1000000	      1034 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=100-8        	 1000000	      1029 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=500-8        	  241748	      4904 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=500-8        	  247250	      4919 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=500-8        	  254526	      4903 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=500-8        	  247802	      4850 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=500-8        	  245859	      4852 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=500-8        	  250718	      4833 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=500-8        	  243192	      4878 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=500-8        	  246291	      4869 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=500-8        	  252884	      4829 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=500-8        	  252128	      4895 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=1000-8       	  125452	      9610 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=1000-8       	  124143	      9641 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=1000-8       	  126986	      9596 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=1000-8       	  121332	      9816 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=1000-8       	  115944	      9826 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=1000-8       	  125302	      9696 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=1000-8       	  122944	      9852 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=1000-8       	  123909	      9806 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=1000-8       	  120630	      9907 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=1000-8       	  118462	      9927 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=5000-8       	   24280	     50038 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=5000-8       	   24159	     49124 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=5000-8       	   23318	     50007 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=5000-8       	   23322	     50052 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=5000-8       	   23616	     53535 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=5000-8       	   24457	     49397 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=5000-8       	   24406	     49756 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=5000-8       	   23812	     50162 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=5000-8       	   24294	     48826 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=5000-8       	   24660	     49149 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10000-8      	   12226	     98478 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10000-8      	   12326	     97387 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10000-8      	   12290	     97560 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10000-8      	   12309	     97378 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10000-8      	   12406	     96754 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10000-8      	   12427	     96534 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10000-8      	   12434	     96703 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10000-8      	   12399	     96788 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10000-8      	   12585	     95557 ns/op	      48 B/op	       3 allocs/op
+BenchmarkIterate/size=10000-8      	   12489	     95991 ns/op	      48 B/op	       3 allocs/op
+PASS
+ok  	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	70.805s

@@ -7,81 +7,64 @@ import (
 	"testing"
 )
 
+type iterateBench func(int) func(*testing.B)
+
 func BenchmarkIterate(b *testing.B) {
+	runBenchmark := func(runF iterateBench) {
+		for _, size := range sizes {
+			b.Run(
+				fmt.Sprintf("size=%d", size),
+				runF(size),
+			)
+		}
+	}
 	switch variant {
 	case "slice_iterate":
-		for _, size := range sizes {
-			for _, iterations := range sizes {
-				b.Run(
-					fmt.Sprintf("size=%d iterations=%d", size, iterations),
-					benchmarkSliceIterate(size, iterations),
-				)
-			}
-		}
+		runBenchmark(benchmarkSliceIterate)
 	case "range_func":
-		for _, size := range sizes {
-			for _, iterations := range sizes {
-				b.Run(
-					fmt.Sprintf("size=%d iterations=%d", size, iterations),
-					benchmarkRangeFuncIterate(size, iterations),
-				)
-			}
-		}
+		runBenchmark(benchmarkRangeFuncIterate)
 	case "direct":
-		for _, size := range sizes {
-			for _, iterations := range sizes {
-				b.Run(
-					fmt.Sprintf("size=%d iterations=%d", size, iterations),
-					benchmarkDirect(size, iterations),
-				)
-			}
-		}
+		runBenchmark(benchmarkDirect)
 	default:
 		b.Errorf("speficy which test to run: -args -test slice_iterate|range_func|direct")
 	}
 }
 
-func benchmarkSliceIterate(size, iterations int) func(*testing.B) {
+func benchmarkSliceIterate(size int) func(*testing.B) {
 	return func(b *testing.B) {
 		var acc int
 
 		for b.Loop() {
-			for i := 0; i <= iterations; i++ {
-				// Here we have to allocate the iteration slice
-				// as that is the main benefit of range over func
-				// - no upfront allocation.
-				iterSlice := testingSlice(size)
-				for _, val := range iterSlice {
-					acc += val
-				}
+			// Here we have to allocate the iteration slice
+			// as that is the main benefit of range over func
+			// - no upfront allocation.
+			iterSlice := testingSlice(size)
+			for _, val := range iterSlice {
+				acc += val
 			}
 		}
 	}
 }
 
-func benchmarkDirect(size, iterations int) func(*testing.B) {
+func benchmarkDirect(size int) func(*testing.B) {
 	return func(b *testing.B) {
 		var acc int
 
 		for b.Loop() {
-			for i := 0; i <= iterations; i++ {
-				for range size {
-					acc += rand.Intn(size)
-				}
+			for range size {
+				acc += rand.Intn(size)
 			}
 		}
 	}
 }
 
-func benchmarkRangeFuncIterate(size, iterations int) func(*testing.B) {
+func benchmarkRangeFuncIterate(size int) func(*testing.B) {
 	return func(b *testing.B) {
 		var acc int
 
 		for b.Loop() {
-			for i := 0; i <= iterations; i++ {
-				for val := range testingIter(size) {
-					acc += val
-				}
+			for val := range testingIter(size) {
+				acc += val
 			}
 		}
 	}

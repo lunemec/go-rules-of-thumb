@@ -5,12 +5,9 @@ compiler is able to transform it into a jump table.
 
 > **TL;DR**: Use which ever one is more readable.
 
-| Type   | N statements | ns/op        |     |
-| ------ | ------------ | ------------ | --- |
-| if     | 1            | 0.9470 ns/op |
-| switch | 1            | 0.9486 ns/op |
-| if     | 5            | 1.270 ns/op  |
-| switch | 5            | 1.578 ns/op  |
+![if switch graph](assets/BenchmarkIfSwitch.png)
+
+[Benchmark results](assets/BenchmarkIfSwitch.txt)
 
 It looks like Go doesn't support jump tables yet? The tests I tried compile into same code for both switch/if statements. You can try to hand-roll jump table [similar to the #19791](https://github.com/golang/go/issues/19791).
 

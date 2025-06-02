@@ -4,12 +4,9 @@ What is the cost of adding `assert`? Does it make any significant impact?
 
 > **TL;DR**: Use asserts whenever possible to improve reliability of your software. The cost is almost non-existent.
 
-| Type         | N statements | ns/op        |     |
-| ------------ | ------------ | ------------ | --- |
-| no assert    | 1            | 0.3453 ns/op |
-| assert       | 1            | 0.4979 ns/op |
-| assert       | 5            | 1.791 ns/op  |
-| defer assert | 1            | 2.411 ns/op  |
+![assert graph](assets/BenchmarkAssert.png)
+
+[Benchmark results](assets/BenchmarkAssert.txt)
 
 Read more:
 

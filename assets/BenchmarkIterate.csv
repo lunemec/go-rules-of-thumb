@@ -1,0 +1,33 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M1
+,assets/BenchmarkIterate-direct.txt,,assets/BenchmarkIterate-range_func.txt,,,,assets/BenchmarkIterate-slice_iterate.txt,,,
+,sec/op,CI,sec/op,CI,vs base,P,sec/op,CI,vs base,P
+Iterate/size=10-8,9.317500000000001e-08,0%,1.5450000000000001e-07,2%,+65.82%,p=0.000 n=10,2.094e-07,1%,+124.74%,p=0.000 n=10
+Iterate/size=100-8,8.766000000000001e-07,1%,1.0445e-06,1%,+19.15%,p=0.000 n=10,1.3095000000000001e-06,4%,+49.38%,p=0.000 n=10
+Iterate/size=500-8,4.3505e-06,7%,4.8735e-06,1%,+12.02%,p=0.001 n=10,5.690000000000001e-06,1%,+30.79%,p=0.000 n=10
+Iterate/size=1000-8,8.5395e-06,5%,9.811000000000001e-06,2%,+14.89%,p=0.000 n=10,1.24495e-05,3%,+45.79%,p=0.000 n=10
+Iterate/size=5000-8,4.342300000000001e-05,2%,4.98815e-05,2%,+14.87%,p=0.000 n=10,6.1615e-05,7%,+41.89%,p=0.000 n=10
+Iterate/size=10000-8,8.72135e-05,1%,9.6771e-05,1%,+10.96%,p=0.000 n=10,0.000125467,89%,+43.86%,p=0.000 n=10
+geomean,4.750390779811863e-06,,5.778910715607985e-06,,+21.65%,,7.290551583571429e-06,,+53.47%,
+
+,assets/BenchmarkIterate-direct.txt,,assets/BenchmarkIterate-range_func.txt,,,,assets/BenchmarkIterate-slice_iterate.txt,,,
+,B/op,CI,B/op,CI,vs base,P,B/op,CI,vs base,P
+Iterate/size=10-8,0,0%,48,0%,?,p=0.000 n=10,248,0%,?,p=0.000 n=10
+Iterate/size=100-8,0,0%,48,0%,?,p=0.000 n=10,2040,0%,?,p=0.000 n=10
+Iterate/size=500-8,0,0%,48,0%,?,p=0.000 n=10,8184,0%,?,p=0.000 n=10
+Iterate/size=1000-8,0,0%,48,0%,?,p=0.000 n=10,25208,0%,?,p=0.000 n=10
+Iterate/size=5000-8,0,0%,48,0%,?,p=0.000 n=10,128249,0%,?,p=0.000 n=10
+Iterate/size=10000-8,0,0%,48,0%,?,p=0.000 n=10,357627,0%,?,p=0.000 n=10
+geomean,,,47.999999999999986,,?,,12982.102218571581,,?,
+
+,assets/BenchmarkIterate-direct.txt,,assets/BenchmarkIterate-range_func.txt,,,,assets/BenchmarkIterate-slice_iterate.txt,,,
+,allocs/op,CI,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P
+Iterate/size=10-8,0,0%,3,0%,?,p=0.000 n=10,5,0%,?,p=0.000 n=10
+Iterate/size=100-8,0,0%,3,0%,?,p=0.000 n=10,8,0%,?,p=0.000 n=10
+Iterate/size=500-8,0,0%,3,0%,?,p=0.000 n=10,10,0%,?,p=0.000 n=10
+Iterate/size=1000-8,0,0%,3,0%,?,p=0.000 n=10,12,0%,?,p=0.000 n=10
+Iterate/size=5000-8,0,0%,3,0%,?,p=0.000 n=10,16,0%,?,p=0.000 n=10
+Iterate/size=10000-8,0,0%,3,0%,?,p=0.000 n=10,19,0%,?,p=0.000 n=10
+geomean,,,2.9999999999999996,,?,,10.650070193262355,,?,

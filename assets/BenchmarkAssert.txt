@@ -1,0 +1,31 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M1
+                   │ assets/BenchmarkAssert-assert.txt │ assets/BenchmarkAssert-defer_assert.txt │ assets/BenchmarkAssert-no_assert.txt │
+                   │              sec/op               │     sec/op       vs base                │    sec/op     vs base                │
+Assert/size=1-8                            2.280n ± 0%       3.234n ± 2%  +41.84% (p=0.000 n=10)    2.261n ± 2%   -0.81% (p=0.034 n=10)
+Assert/size=10-8                           11.65n ± 1%       22.52n ± 0%  +93.22% (p=0.000 n=10)    11.47n ± 1%   -1.59% (p=0.001 n=10)
+Assert/size=100-8                          222.1n ± 1%       227.2n ± 0%   +2.32% (p=0.000 n=10)    104.7n ± 1%  -52.86% (p=0.000 n=10)
+Assert/size=1000-8                        2148.0n ± 1%      2188.0n ± 1%   +1.86% (p=0.000 n=10)    975.5n ± 0%  -54.58% (p=0.000 n=10)
+geomean                                    59.67n            77.57n       +30.00%                   40.34n       -32.39%
+
+                   │ assets/BenchmarkAssert-assert.txt │ assets/BenchmarkAssert-defer_assert.txt │ assets/BenchmarkAssert-no_assert.txt │
+                   │               B/op                │      B/op       vs base                 │    B/op      vs base                 │
+Assert/size=1-8                           0.000 ± 0%         0.000 ± 0%       ~ (p=1.000 n=10) ¹    0.000 ± 0%       ~ (p=1.000 n=10) ¹
+Assert/size=10-8                          0.000 ± 0%         0.000 ± 0%       ~ (p=1.000 n=10) ¹    0.000 ± 0%       ~ (p=1.000 n=10) ¹
+Assert/size=100-8                         0.000 ± 0%         0.000 ± 0%       ~ (p=1.000 n=10) ¹    0.000 ± 0%       ~ (p=1.000 n=10) ¹
+Assert/size=1000-8                        0.000 ± 0%         0.000 ± 0%       ~ (p=1.000 n=10) ¹    0.000 ± 0%       ~ (p=1.000 n=10) ¹
+geomean                                              ²                   +0.00%                ²                +0.00%                ²
+¹ all samples are equal
+² summaries must be >0 to compute geomean
+
+                   │ assets/BenchmarkAssert-assert.txt │ assets/BenchmarkAssert-defer_assert.txt │ assets/BenchmarkAssert-no_assert.txt │
+                   │             allocs/op             │   allocs/op     vs base                 │  allocs/op   vs base                 │
+Assert/size=1-8                           0.000 ± 0%         0.000 ± 0%       ~ (p=1.000 n=10) ¹    0.000 ± 0%       ~ (p=1.000 n=10) ¹
+Assert/size=10-8                          0.000 ± 0%         0.000 ± 0%       ~ (p=1.000 n=10) ¹    0.000 ± 0%       ~ (p=1.000 n=10) ¹
+Assert/size=100-8                         0.000 ± 0%         0.000 ± 0%       ~ (p=1.000 n=10) ¹    0.000 ± 0%       ~ (p=1.000 n=10) ¹
+Assert/size=1000-8                        0.000 ± 0%         0.000 ± 0%       ~ (p=1.000 n=10) ¹    0.000 ± 0%       ~ (p=1.000 n=10) ¹
+geomean                                              ²                   +0.00%                ²                +0.00%                ²
+¹ all samples are equal
+² summaries must be >0 to compute geomean
