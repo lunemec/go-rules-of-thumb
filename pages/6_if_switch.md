@@ -3,7 +3,9 @@
 Is there even any difference? In theory, `switch` should be faster (at least for some types) if the
 compiler is able to transform it into a jump table.
 
-> **TL;DR**: Use which ever one is more readable.
+> [!TIP]
+> use which ever one is more readable
+> but `switch` is tiny bit slower
 
 ![if switch graph](assets/BenchmarkIfSwitch.png)
 

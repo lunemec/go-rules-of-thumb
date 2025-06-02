@@ -9,11 +9,11 @@ type appendBench func(first []int, second []int) []int
 
 func BenchmarkAppend(b *testing.B) {
 	runBenchmark := func(runF appendBench) {
-		for _, sizeFirst := range sizes {
-			for _, sizeSecond := range sizes {
+		for _, subsetSize := range sizes {
+			for _, setSize := range sizes {
 				b.Run(
-					fmt.Sprintf("size=%d subset=%d", sizeFirst, sizeSecond),
-					benchmarkAppend(sizeFirst, sizeSecond, runF),
+					fmt.Sprintf("size=%d subset=%d", setSize, subsetSize),
+					benchmarkAppend(subsetSize, setSize, runF),
 				)
 			}
 		}

@@ -118,8 +118,9 @@ go test -bench "^$benchname\$" -timeout 60m -count 10 -benchmem ./benchmarks/...
 ## benchstat (benchname)
 
 ```bash
-benchstat "assets/$benchname"* > "assets/$benchname.txt"
-benchstat -format csv "assets/$benchname"* > "assets/$benchname.csv"
+cd assets
+benchstat "$benchname"*.txt > "$benchname.txt"
+benchstat -format csv "$benchname"*.txt > "$benchname.csv"
 ```
 
 ## graph (benchname)

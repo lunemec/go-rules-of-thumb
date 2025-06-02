@@ -2,7 +2,8 @@
 
 What is the cost of adding `assert`? Does it make any significant impact?
 
-> **TL;DR**: Use asserts whenever possible to improve reliability of your software. The cost is almost non-existent.
+> [!TIP]
+> use asserts whenever possible to improve reliability of your software
 
 ![assert graph](assets/BenchmarkAssert.png)
 

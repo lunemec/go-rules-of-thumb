@@ -25,13 +25,8 @@ Examples here are what is called micro-optimization, before diving into these, p
 
 When is it more efficient to convert a _slice_ into a _map_ for locating an element `x` within the set `A` (x ∈ A)?
 
-> [!IMPORTANT]
-> use `slice` if `len(neeldes) <= 10`
-
 > [!TIP]
-> use `map` when `len(haystack) > 100 && len(needles) > 100`
-
-> **TL;DR**: use `slice` if `len(neeldes) <= 10`  
+> use `slice` if `len(neeldes) <= 10`
 > use `map` when `len(haystack) > 100 && len(needles) > 100`
 
 Depending on size of the _haystack_ (size) and number of _needles_ (iterations), this will differ:
@@ -42,55 +37,9 @@ Depending on size of the _haystack_ (size) and number of _needles_ (iterations),
 
 When is it more efficient to deduplicate a `slice` as opposed to using a `map[]struct{}` for the same purpose?
 
-```go
-// slice
-var result []int
-for _, val := range haystack {
-    if !slices.Contains(result, val) {
-        result = append(result, val)
-    }
-}
-return result
-```
-
-```go
-// in-place sort + deduplicate
-// "borrowed" from https://go.dev/wiki/SliceTricks#in-place-deduplicate-comparable, thanks!
-// Note sort + slices.Compact is the same thing.
-sort.Ints(haystack)
-j := 0
-for i := 1; i < len(haystack); i++ {
-    if haystack[j] == haystack[i] {
-        continue
-    }
-    j++
-    // preserve the original data
-    // in[i], in[j] = in[j], in[i]
-    // only set what is required
-    haystack[j] = haystack[i]
-}
-return haystack[:j+1]
-```
-
-```go
-// map
-result := make([]int, 0, len(haystack))
-seen := make(map[int]struct{}, len(haystack))
-
-for _, item := range haystack {
-    if _, ok := seen[item]; ok {
-        continue
-    }
-
-    seen[item] = struct{}{}
-    result = append(result, item)
-}
-
-return result
-```
-
-> **TL;DR**: use `map` when `len(haystack) > 100`.  
-> If you must reduce allocations, use in-place sort + deduplication. Suprisingly it is fast enough.
+> [!TIP]
+> use `map` when `len(haystack) > 100`.  
+> if you must reduce allocations, use in-place sort + deduplication
 
 ![deduplication graph](assets/BenchmarkDeduplication.png)
 
@@ -99,36 +48,18 @@ return result
 
 When checking if A is subset of B (A ⊆ B), when is it more efficient to iterate both slices in nested loop `A x B` `O(n^2)`, and when does it make sense to use `map`, or `sort` + binary search?
 
-> **TL;DR**: when use `slice` when `len(A) << len(B)`, use `map` when `len(A) > 500 && len(B) > 500`.
+> [!TIP]
+> use `slice` when `len(A) << len(B)`  
+> use `map` when `len(A) > 500 && len(B) > 500`
 
 ![subsets graph](assets/BenchmarkSubset.png)
 
 [Benchmark results](assets/BenchmarkSubset.txt)
 ## Append
 
-```go
-append([]T, elems...) // append_expand
-```
-
-```go
-for _, e := range elems {
-    arr = append(arr, e) // append_for
-}
-```
-
-```go
-for _, e := range elems {
-    arr = append(arr, e) // append_for_prealloc
-}
-```
-
-```go
-for i, e := range elems {
-    arr[i] = e // append_for_index (pre-allocated)
-}
-```
-
-> **TL;DR**: ALWAYS use `append([]T, elems...)` because `for` looping may trigger multiple array re-sizings, whereas `append` will always allocate only once. If you must use `for` loop (extra logic), try to pre-allocate the slice.
+> [!TIP]
+> ALWAYS use `append([]T, elems...)` because `for` looping may trigger multiple array re-sizings, whereas `append` will always allocate only once  
+> if you must use `for` loop (extra logic), try to pre-allocate the slice
 
 ![append graph](assets/BenchmarkAppend.png)
 
@@ -139,9 +70,12 @@ Even though regular `append()` has time complexity `O(1)` (amortized constant-ti
 
 Is it more efficient to `"str1" + var`, `fmt.Sprintf()`, `strings.Join()` or `strings.Builder`? When does it make sense to add `sync.Pool`?
 
-> **TL;DR**: use `strings.Builder` when `len(str) < 100 & N ops < 1000`, use `sync.Pool + strings.Builder` when doing this for every request. For `len(str) > 100` use `+` or `strings.Join`.
+> [!TIP]
+> use `strings.Builder` when `len(str) < 100 & N ops < 1000`  
+> use `sync.Pool + strings.Builder` when doing this for every request  
+> for `len(str) > 100` use `+` or `strings.Join`
 >
-> Use `fmt.Sprintf` for regular string formatting (not just concatenation).
+> use `fmt.Sprintf` for regular string formatting (not just concatenation)
 
 ![concatenation graph](assets/BenchmarkConcat.png)
 
@@ -151,7 +85,9 @@ Is it more efficient to `"str1" + var`, `fmt.Sprintf()`, `strings.Join()` or `st
 Is there even any difference? In theory, `switch` should be faster (at least for some types) if the
 compiler is able to transform it into a jump table.
 
-> **TL;DR**: Use which ever one is more readable.
+> [!TIP]
+> use which ever one is more readable
+> but `switch` is tiny bit slower
 
 ![if switch graph](assets/BenchmarkIfSwitch.png)
 
@@ -170,7 +106,8 @@ Read more:
 
 What is the cost of adding `assert`? Does it make any significant impact?
 
-> **TL;DR**: Use asserts whenever possible to improve reliability of your software. The cost is almost non-existent.
+> [!TIP]
+> use asserts whenever possible to improve reliability of your software
 
 ![assert graph](assets/BenchmarkAssert.png)
 
@@ -185,7 +122,8 @@ Read more:
 
 When should you pass a reference (pointer), and when should you use pass by value?
 
-> **TL;DR**: Pass by reference if you want to mutate the data, otherwise pass a copy.
+> [!HINT]
+> pass by reference if you want to mutate the data, otherwise pass a copy
 
 Performance-wise, this one is almost impossible to give general advice for. If your struct (or nested structs)
 are very big (it depends on the types of fields too), copying will become slower.
@@ -200,8 +138,9 @@ and there is tons of resources on this topic, great one is
 With [Go 1.23 came new feature - range over func](https://go.dev/blog/range-functions), lets check when it makes sense to use that over
 pre-allocating a slice and putting values in it.
 
-I'm quite suprised to see that range over func adds extra 3x number of allocations somewhere.
-Not sure where, that is to be measured later.
+> [!HINT]
+> use iter.Seq for better readability for ~20% time cost
+> direct iteration is always faster
 
 ![iteration graph](assets/BenchmarkIterate.png)
 

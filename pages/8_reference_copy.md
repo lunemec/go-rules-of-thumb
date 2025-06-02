@@ -2,7 +2,8 @@
 
 When should you pass a reference (pointer), and when should you use pass by value?
 
-> **TL;DR**: Pass by reference if you want to mutate the data, otherwise pass a copy.
+> [!HINT]
+> pass by reference if you want to mutate the data, otherwise pass a copy
 
 Performance-wise, this one is almost impossible to give general advice for. If your struct (or nested structs)
 are very big (it depends on the types of fields too), copying will become slower.

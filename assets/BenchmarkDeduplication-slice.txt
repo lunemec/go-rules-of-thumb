@@ -1,2 +1,76 @@
-signal: interrupt
-FAIL	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	0.327s
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M1
+BenchmarkDeduplication/size=10-8         	 9527047	       113.6 ns/op	     200 B/op	       5 allocs/op
+BenchmarkDeduplication/size=10-8         	10777264	       111.4 ns/op	     200 B/op	       5 allocs/op
+BenchmarkDeduplication/size=10-8         	10828923	       110.8 ns/op	     200 B/op	       5 allocs/op
+BenchmarkDeduplication/size=10-8         	10818351	       123.9 ns/op	     200 B/op	       5 allocs/op
+BenchmarkDeduplication/size=10-8         	10648948	       117.7 ns/op	     200 B/op	       5 allocs/op
+BenchmarkDeduplication/size=10-8         	10873603	       111.1 ns/op	     200 B/op	       5 allocs/op
+BenchmarkDeduplication/size=10-8         	10948737	       110.4 ns/op	     200 B/op	       5 allocs/op
+BenchmarkDeduplication/size=10-8         	10808067	       115.8 ns/op	     200 B/op	       5 allocs/op
+BenchmarkDeduplication/size=10-8         	10917476	       110.0 ns/op	     200 B/op	       5 allocs/op
+BenchmarkDeduplication/size=10-8         	10903704	       110.6 ns/op	     200 B/op	       5 allocs/op
+BenchmarkDeduplication/size=50-8         	 2634920	       459.0 ns/op	     920 B/op	       7 allocs/op
+BenchmarkDeduplication/size=50-8         	 2617702	       458.1 ns/op	     920 B/op	       7 allocs/op
+BenchmarkDeduplication/size=50-8         	 2639086	       453.5 ns/op	     920 B/op	       7 allocs/op
+BenchmarkDeduplication/size=50-8         	 2606715	       458.4 ns/op	     920 B/op	       7 allocs/op
+BenchmarkDeduplication/size=50-8         	 2636738	       456.0 ns/op	     920 B/op	       7 allocs/op
+BenchmarkDeduplication/size=50-8         	 2642797	       477.7 ns/op	     920 B/op	       7 allocs/op
+BenchmarkDeduplication/size=50-8         	 2638123	       455.5 ns/op	     920 B/op	       7 allocs/op
+BenchmarkDeduplication/size=50-8         	 2622370	       457.8 ns/op	     920 B/op	       7 allocs/op
+BenchmarkDeduplication/size=50-8         	 2623275	       457.5 ns/op	     920 B/op	       7 allocs/op
+BenchmarkDeduplication/size=50-8         	 2612050	       457.2 ns/op	     920 B/op	       7 allocs/op
+BenchmarkDeduplication/size=100-8        	  874152	      1346 ns/op	    1912 B/op	       8 allocs/op
+BenchmarkDeduplication/size=100-8        	  887204	      1349 ns/op	    1912 B/op	       8 allocs/op
+BenchmarkDeduplication/size=100-8        	  843738	      1348 ns/op	    1912 B/op	       8 allocs/op
+BenchmarkDeduplication/size=100-8        	  899103	      1343 ns/op	    1912 B/op	       8 allocs/op
+BenchmarkDeduplication/size=100-8        	  902382	      1434 ns/op	    1912 B/op	       8 allocs/op
+BenchmarkDeduplication/size=100-8        	  897956	      1404 ns/op	    1912 B/op	       8 allocs/op
+BenchmarkDeduplication/size=100-8        	  902594	      1429 ns/op	    1912 B/op	       8 allocs/op
+BenchmarkDeduplication/size=100-8        	  889693	      1336 ns/op	    1912 B/op	       8 allocs/op
+BenchmarkDeduplication/size=100-8        	  899294	      1340 ns/op	    1912 B/op	       8 allocs/op
+BenchmarkDeduplication/size=100-8        	  903171	      1339 ns/op	    1912 B/op	       8 allocs/op
+BenchmarkDeduplication/size=500-8        	   40880	     30555 ns/op	   12280 B/op	      11 allocs/op
+BenchmarkDeduplication/size=500-8        	   41230	     30265 ns/op	   12280 B/op	      11 allocs/op
+BenchmarkDeduplication/size=500-8        	   40863	     29349 ns/op	   12280 B/op	      11 allocs/op
+BenchmarkDeduplication/size=500-8        	   40850	     29312 ns/op	   12280 B/op	      11 allocs/op
+BenchmarkDeduplication/size=500-8        	   35529	     32498 ns/op	   12280 B/op	      11 allocs/op
+BenchmarkDeduplication/size=500-8        	   40946	     29520 ns/op	   12280 B/op	      11 allocs/op
+BenchmarkDeduplication/size=500-8        	   40689	     29377 ns/op	   12280 B/op	      11 allocs/op
+BenchmarkDeduplication/size=500-8        	   40550	     29336 ns/op	   12280 B/op	      11 allocs/op
+BenchmarkDeduplication/size=500-8        	   40920	     29354 ns/op	   12280 B/op	      11 allocs/op
+BenchmarkDeduplication/size=500-8        	   40779	     29471 ns/op	   12280 B/op	      11 allocs/op
+BenchmarkDeduplication/size=1000-8       	   10000	    101009 ns/op	   23160 B/op	      12 allocs/op
+BenchmarkDeduplication/size=1000-8       	   10000	    101046 ns/op	   23160 B/op	      12 allocs/op
+BenchmarkDeduplication/size=1000-8       	   10000	    111511 ns/op	   23160 B/op	      12 allocs/op
+BenchmarkDeduplication/size=1000-8       	   10000	    100739 ns/op	   23160 B/op	      12 allocs/op
+BenchmarkDeduplication/size=1000-8       	   10000	    101931 ns/op	   23160 B/op	      12 allocs/op
+BenchmarkDeduplication/size=1000-8       	   10000	    100988 ns/op	   23160 B/op	      12 allocs/op
+BenchmarkDeduplication/size=1000-8       	   10000	    101516 ns/op	   23160 B/op	      12 allocs/op
+BenchmarkDeduplication/size=1000-8       	   10000	    101460 ns/op	   23160 B/op	      12 allocs/op
+BenchmarkDeduplication/size=1000-8       	   10000	    102632 ns/op	   23160 B/op	      12 allocs/op
+BenchmarkDeduplication/size=1000-8       	   10000	    105452 ns/op	   23160 B/op	      12 allocs/op
+BenchmarkDeduplication/size=5000-8       	     448	   2649291 ns/op	  128248 B/op	      16 allocs/op
+BenchmarkDeduplication/size=5000-8       	     505	   2363353 ns/op	  128248 B/op	      16 allocs/op
+BenchmarkDeduplication/size=5000-8       	     508	   2375872 ns/op	  128248 B/op	      16 allocs/op
+BenchmarkDeduplication/size=5000-8       	     490	   2469832 ns/op	  128249 B/op	      16 allocs/op
+BenchmarkDeduplication/size=5000-8       	     501	   2352831 ns/op	  128248 B/op	      16 allocs/op
+BenchmarkDeduplication/size=5000-8       	     508	   2365342 ns/op	  128248 B/op	      16 allocs/op
+BenchmarkDeduplication/size=5000-8       	     511	   2348723 ns/op	  128248 B/op	      16 allocs/op
+BenchmarkDeduplication/size=5000-8       	     511	   2335640 ns/op	  128248 B/op	      16 allocs/op
+BenchmarkDeduplication/size=5000-8       	     514	   2355709 ns/op	  128248 B/op	      16 allocs/op
+BenchmarkDeduplication/size=5000-8       	     505	   2356640 ns/op	  128249 B/op	      16 allocs/op
+BenchmarkDeduplication/size=10000-8      	     129	   9243055 ns/op	  267513 B/op	      18 allocs/op
+BenchmarkDeduplication/size=10000-8      	     129	   9238186 ns/op	  267514 B/op	      18 allocs/op
+BenchmarkDeduplication/size=10000-8      	     129	   9205995 ns/op	  267513 B/op	      18 allocs/op
+BenchmarkDeduplication/size=10000-8      	     129	   9211537 ns/op	  267514 B/op	      18 allocs/op
+BenchmarkDeduplication/size=10000-8      	     128	   9261145 ns/op	  267512 B/op	      18 allocs/op
+BenchmarkDeduplication/size=10000-8      	     129	   9239381 ns/op	  267513 B/op	      18 allocs/op
+BenchmarkDeduplication/size=10000-8      	     129	   9211861 ns/op	  267514 B/op	      18 allocs/op
+BenchmarkDeduplication/size=10000-8      	     129	   9193453 ns/op	  267513 B/op	      18 allocs/op
+BenchmarkDeduplication/size=10000-8      	     130	   9164368 ns/op	  267513 B/op	      18 allocs/op
+BenchmarkDeduplication/size=10000-8      	     124	   9507083 ns/op	  267515 B/op	      18 allocs/op
+PASS
+ok  	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	82.827s
