@@ -26,7 +26,7 @@ Examples here are what is called micro-optimization, before diving into these, p
 When is it more efficient to convert a _slice_ into a _map_ for locating an element `x` within the set `A` (x ∈ A)?
 
 > [!TIP]
-> use `slice` if `len(neeldes) <= 10`
+> use `slice` if `len(neeldes) <= 10`  
 > use `map` when `len(haystack) > 100 && len(needles) > 100`
 
 Depending on size of the _haystack_ (size) and number of _needles_ (iterations), this will differ:
@@ -122,7 +122,7 @@ Read more:
 
 When should you pass a reference (pointer), and when should you use pass by value?
 
-> [!HINT]
+> [!TIP]
 > pass by reference if you want to mutate the data, otherwise pass a copy
 
 Performance-wise, this one is almost impossible to give general advice for. If your struct (or nested structs)
@@ -138,8 +138,8 @@ and there is tons of resources on this topic, great one is
 With [Go 1.23 came new feature - range over func](https://go.dev/blog/range-functions), lets check when it makes sense to use that over
 pre-allocating a slice and putting values in it.
 
-> [!HINT]
-> use iter.Seq for better readability for ~20% time cost
+> [!TIP]
+> use iter.Seq for better readability for ~20% time cost  
 > direct iteration is always faster
 
 ![iteration graph](assets/BenchmarkIterate.png)

@@ -2,7 +2,7 @@
 
 When should you pass a reference (pointer), and when should you use pass by value?
 
-> [!HINT]
+> [!TIP]
 > pass by reference if you want to mutate the data, otherwise pass a copy
 
 Performance-wise, this one is almost impossible to give general advice for. If your struct (or nested structs)
