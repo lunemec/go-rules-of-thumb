@@ -2,6 +2,14 @@
 
 Use [mask](https://github.com/jacobdeichert/mask) to run.
 
+## readme
+
+Creates readme from templates with all the benchmark data refreshed.
+
+```bash
+cat pages/* > README.md
+```
+
 ## bench
 
 Runs all benchmarks and regenerates graphs.
