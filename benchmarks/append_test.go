@@ -3,9 +3,29 @@ package main
 import (
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 type appendBench func(first []int, second []int) []int
+
+func TestAppend(t *testing.T) {
+	for _, subsetSize := range sizes {
+		for _, setSize := range sizes {
+			set := testingSlice(setSize)
+			subset := testingSlice(subsetSize)
+
+			out1 := appendExpand(copySlice(set), copySlice(subset))
+			out2 := appendFor(copySlice(set), copySlice(subset))
+			out3 := appendForPrealloc(copySlice(set), copySlice(subset))
+			out4 := appendForIdx(copySlice(set), copySlice(subset))
+
+			require.Equal(t, out1, out2)
+			require.Equal(t, out1, out3)
+			require.Equal(t, out1, out4)
+		}
+	}
+}
 
 func BenchmarkAppend(b *testing.B) {
 	runBenchmark := func(runF appendBench) {
@@ -55,7 +75,7 @@ func appendFor(first, second []int) []int {
 }
 
 func appendForPrealloc(first, second []int) []int {
-	out := make([]int, 0, len(first)+len(second))
+	out := make([]int, len(first), len(first)+len(second))
 	copy(out, first)
 	for _, secondVal := range second {
 		out = append(out, secondVal)

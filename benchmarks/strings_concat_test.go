@@ -7,9 +7,30 @@ import (
 	"strings"
 	"sync"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 type concatBench func(first string, nops int) string
+
+func TestConcat(t *testing.T) {
+	for _, stringSize := range sizesReduced {
+		for _, nOperations := range sizesReduced {
+			teststr := testingString(stringSize)
+
+			out1 := concatPlus(teststr, nOperations)
+			out2 := concatSprintf(teststr, nOperations)
+			out3 := concatJoin(teststr, nOperations)
+			out4 := concatBuilder(teststr, nOperations)
+			out5 := concatBuilderPool(teststr, nOperations)
+
+			require.Equal(t, out1, out2)
+			require.Equal(t, out1, out3)
+			require.Equal(t, out1, out4)
+			require.Equal(t, out1, out5)
+		}
+	}
+}
 
 func BenchmarkConcat(b *testing.B) {
 	runBenchmark := func(runF concatBench) {
@@ -57,24 +78,28 @@ func testingString(size int) string {
 }
 
 func concatPlus(teststr string, nOps int) string {
+	var out string
 	for range nOps {
-		teststr = teststr + "..."
+		out += teststr
+		out += "..."
 	}
-	return teststr
+	return out
 }
 
 func concatSprintf(teststr string, nOps int) string {
+	var out string
 	for range nOps {
-		teststr = fmt.Sprintf("%s%s", teststr, "...")
+		out = fmt.Sprintf("%s%s%s", out, teststr, "...")
 	}
-	return teststr
+	return out
 }
 
 func concatJoin(teststr string, nOps int) string {
+	var out string
 	for range nOps {
-		teststr = strings.Join([]string{teststr, "..."}, "")
+		out = strings.Join([]string{out, teststr, "..."}, "")
 	}
-	return teststr
+	return out
 }
 
 func concatBuilder(teststr string, nOps int) string {

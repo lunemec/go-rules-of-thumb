@@ -4,9 +4,23 @@ import (
 	"fmt"
 	"math/rand"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 type needleInHaystackBench func(checks int, needle int, haystack []int) bool
+
+func TestNeedleInAHaystack(t *testing.T) {
+	for _, size := range sizes {
+		haystack := testingSlice(size)
+		needle := rand.Intn(size * 2)
+
+		out1 := needleInAHaystackSlice(needle, haystack)
+		out2 := needleInAHaystackMap(needle, haystackToMap(haystack))
+
+		require.Equal(t, out1, out2)
+	}
+}
 
 func BenchmarkNeedleInAHaystack(b *testing.B) {
 	runBenchmark := func(runF needleInHaystackBench) {
@@ -34,7 +48,9 @@ func benchmarkNeedleInAHaystack(size int, checks int, runF needleInHaystackBench
 
 	return func(b *testing.B) {
 		for b.Loop() {
-			needle := rand.Intn(size)
+			// We make our needle to have 50% chance
+			// to not be in the haystack.
+			needle := rand.Intn(size * 2)
 			runF(checks, needle, haystack)
 		}
 	}

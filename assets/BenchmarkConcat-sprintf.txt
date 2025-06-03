@@ -2,365 +2,403 @@ goos: darwin
 goarch: arm64
 pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
 cpu: Apple M1
-BenchmarkConcat/size=10_iterations=10-8         	 1809976	       663.1 ns/op	     480 B/op	      20 allocs/op
-BenchmarkConcat/size=10_iterations=10-8         	 1823524	       658.7 ns/op	     480 B/op	      20 allocs/op
-BenchmarkConcat/size=10_iterations=10-8         	 1811517	       659.5 ns/op	     480 B/op	      20 allocs/op
-BenchmarkConcat/size=10_iterations=10-8         	 1807011	       663.4 ns/op	     480 B/op	      20 allocs/op
-BenchmarkConcat/size=10_iterations=10-8         	 1809051	       662.7 ns/op	     480 B/op	      20 allocs/op
-BenchmarkConcat/size=10_iterations=10-8         	 1804104	       665.5 ns/op	     480 B/op	      20 allocs/op
-BenchmarkConcat/size=10_iterations=10-8         	 1804970	       665.7 ns/op	     480 B/op	      20 allocs/op
-BenchmarkConcat/size=10_iterations=10-8         	 1805880	       668.0 ns/op	     480 B/op	      20 allocs/op
-BenchmarkConcat/size=10_iterations=10-8         	 1791432	       670.8 ns/op	     480 B/op	      20 allocs/op
-BenchmarkConcat/size=10_iterations=10-8         	 1791427	       673.0 ns/op	     480 B/op	      20 allocs/op
-BenchmarkConcat/size=10_iterations=100-8        	  153393	      7743 ns/op	   18664 B/op	     200 allocs/op
-BenchmarkConcat/size=10_iterations=100-8        	  155346	      8693 ns/op	   18664 B/op	     200 allocs/op
-BenchmarkConcat/size=10_iterations=100-8        	  150366	      7679 ns/op	   18664 B/op	     200 allocs/op
-BenchmarkConcat/size=10_iterations=100-8        	  158925	      8266 ns/op	   18664 B/op	     200 allocs/op
-BenchmarkConcat/size=10_iterations=100-8        	  148202	      7725 ns/op	   18664 B/op	     200 allocs/op
-BenchmarkConcat/size=10_iterations=100-8        	  158703	      8047 ns/op	   18663 B/op	     200 allocs/op
-BenchmarkConcat/size=10_iterations=100-8        	  160398	      7581 ns/op	   18664 B/op	     200 allocs/op
-BenchmarkConcat/size=10_iterations=100-8        	  159781	      7575 ns/op	   18664 B/op	     200 allocs/op
-BenchmarkConcat/size=10_iterations=100-8        	  157506	      7563 ns/op	   18663 B/op	     200 allocs/op
-BenchmarkConcat/size=10_iterations=100-8        	  159106	      7557 ns/op	   18664 B/op	     200 allocs/op
-BenchmarkConcat/size=10_iterations=500-8        	   16726	     71934 ns/op	  409823 B/op	    1000 allocs/op
-BenchmarkConcat/size=10_iterations=500-8        	   16810	     74924 ns/op	  409817 B/op	    1000 allocs/op
-BenchmarkConcat/size=10_iterations=500-8        	   15537	     75200 ns/op	  409824 B/op	    1000 allocs/op
-BenchmarkConcat/size=10_iterations=500-8        	   16718	     71848 ns/op	  409820 B/op	    1000 allocs/op
-BenchmarkConcat/size=10_iterations=500-8        	   16587	     72073 ns/op	  409822 B/op	    1000 allocs/op
-BenchmarkConcat/size=10_iterations=500-8        	   16701	     71832 ns/op	  409813 B/op	    1000 allocs/op
-BenchmarkConcat/size=10_iterations=500-8        	   16641	     72170 ns/op	  409824 B/op	    1000 allocs/op
-BenchmarkConcat/size=10_iterations=500-8        	   14941	     77449 ns/op	  409815 B/op	    1000 allocs/op
-BenchmarkConcat/size=10_iterations=500-8        	   16524	     72496 ns/op	  409816 B/op	    1000 allocs/op
-BenchmarkConcat/size=10_iterations=500-8        	   14931	     77942 ns/op	  409828 B/op	    1000 allocs/op
-BenchmarkConcat/size=10_iterations=1000-8       	    5377	    222360 ns/op	 1631407 B/op	    2002 allocs/op
-BenchmarkConcat/size=10_iterations=1000-8       	    5256	    221761 ns/op	 1631414 B/op	    2002 allocs/op
-BenchmarkConcat/size=10_iterations=1000-8       	    5787	    223073 ns/op	 1631465 B/op	    2002 allocs/op
-BenchmarkConcat/size=10_iterations=1000-8       	    5510	    222638 ns/op	 1631483 B/op	    2002 allocs/op
-BenchmarkConcat/size=10_iterations=1000-8       	    5343	    235882 ns/op	 1631466 B/op	    2002 allocs/op
-BenchmarkConcat/size=10_iterations=1000-8       	    5514	    219115 ns/op	 1631531 B/op	    2002 allocs/op
-BenchmarkConcat/size=10_iterations=1000-8       	    5451	    219222 ns/op	 1631478 B/op	    2002 allocs/op
-BenchmarkConcat/size=10_iterations=1000-8       	    5634	    221269 ns/op	 1631410 B/op	    2002 allocs/op
-BenchmarkConcat/size=10_iterations=1000-8       	    5604	    223120 ns/op	 1631528 B/op	    2002 allocs/op
-BenchmarkConcat/size=10_iterations=1000-8       	    5108	    237271 ns/op	 1631423 B/op	    2002 allocs/op
-BenchmarkConcat/size=10_iterations=5000-8       	     316	   4180739 ns/op	39947267 B/op	   10041 allocs/op
-BenchmarkConcat/size=10_iterations=5000-8       	     295	   4340212 ns/op	39948953 B/op	   10042 allocs/op
-BenchmarkConcat/size=10_iterations=5000-8       	     295	   3996941 ns/op	39947795 B/op	   10042 allocs/op
-BenchmarkConcat/size=10_iterations=5000-8       	     303	   3939957 ns/op	39945037 B/op	   10041 allocs/op
-BenchmarkConcat/size=10_iterations=5000-8       	     308	   3908525 ns/op	39945186 B/op	   10041 allocs/op
-BenchmarkConcat/size=10_iterations=5000-8       	     310	   3834577 ns/op	39950788 B/op	   10042 allocs/op
-BenchmarkConcat/size=10_iterations=5000-8       	     315	   3780682 ns/op	39952682 B/op	   10042 allocs/op
-BenchmarkConcat/size=10_iterations=5000-8       	     313	   3826196 ns/op	39949432 B/op	   10041 allocs/op
-BenchmarkConcat/size=10_iterations=5000-8       	     267	   4356657 ns/op	39953406 B/op	   10042 allocs/op
-BenchmarkConcat/size=10_iterations=5000-8       	     301	   3900715 ns/op	39948956 B/op	   10041 allocs/op
-BenchmarkConcat/size=10_iterations=10000-8      	      79	  13833290 ns/op	158966381 B/op	   20146 allocs/op
-BenchmarkConcat/size=10_iterations=10000-8      	      84	  13715572 ns/op	158984148 B/op	   20149 allocs/op
-BenchmarkConcat/size=10_iterations=10000-8      	      88	  13693332 ns/op	158978344 B/op	   20150 allocs/op
-BenchmarkConcat/size=10_iterations=10000-8      	      91	  14112984 ns/op	158970719 B/op	   20151 allocs/op
-BenchmarkConcat/size=10_iterations=10000-8      	      87	  14146254 ns/op	158969190 B/op	   20153 allocs/op
-BenchmarkConcat/size=10_iterations=10000-8      	      82	  14343037 ns/op	158954820 B/op	   20152 allocs/op
-BenchmarkConcat/size=10_iterations=10000-8      	      86	  14418392 ns/op	158954146 B/op	   20154 allocs/op
-BenchmarkConcat/size=10_iterations=10000-8      	      82	  14943458 ns/op	158958742 B/op	   20153 allocs/op
-BenchmarkConcat/size=10_iterations=10000-8      	      79	  15387146 ns/op	158954366 B/op	   20152 allocs/op
-BenchmarkConcat/size=10_iterations=10000-8      	      85	  14684732 ns/op	158940036 B/op	   20147 allocs/op
-BenchmarkConcat/size=100_iterations=10-8        	 1430220	       830.5 ns/op	    2288 B/op	      20 allocs/op
-BenchmarkConcat/size=100_iterations=10-8        	 1443580	       824.6 ns/op	    2288 B/op	      20 allocs/op
-BenchmarkConcat/size=100_iterations=10-8        	 1447945	       823.8 ns/op	    2288 B/op	      20 allocs/op
-BenchmarkConcat/size=100_iterations=10-8        	 1464992	       817.6 ns/op	    2288 B/op	      20 allocs/op
-BenchmarkConcat/size=100_iterations=10-8        	 1450006	       830.5 ns/op	    2288 B/op	      20 allocs/op
-BenchmarkConcat/size=100_iterations=10-8        	 1474665	       820.6 ns/op	    2288 B/op	      20 allocs/op
-BenchmarkConcat/size=100_iterations=10-8        	 1409266	       852.6 ns/op	    2288 B/op	      20 allocs/op
-BenchmarkConcat/size=100_iterations=10-8        	 1417056	       845.4 ns/op	    2288 B/op	      20 allocs/op
-BenchmarkConcat/size=100_iterations=10-8        	 1407633	       858.0 ns/op	    2288 B/op	      20 allocs/op
-BenchmarkConcat/size=100_iterations=10-8        	 1436336	       839.1 ns/op	    2288 B/op	      20 allocs/op
-BenchmarkConcat/size=100_iterations=100-8       	  118000	      9571 ns/op	   36865 B/op	     200 allocs/op
-BenchmarkConcat/size=100_iterations=100-8       	  130099	      9259 ns/op	   36865 B/op	     200 allocs/op
-BenchmarkConcat/size=100_iterations=100-8       	  129456	      9272 ns/op	   36865 B/op	     200 allocs/op
-BenchmarkConcat/size=100_iterations=100-8       	  130179	      9330 ns/op	   36865 B/op	     200 allocs/op
-BenchmarkConcat/size=100_iterations=100-8       	  129014	      9395 ns/op	   36866 B/op	     200 allocs/op
-BenchmarkConcat/size=100_iterations=100-8       	  121410	      9506 ns/op	   36865 B/op	     200 allocs/op
-BenchmarkConcat/size=100_iterations=100-8       	  128494	      9353 ns/op	   36865 B/op	     200 allocs/op
-BenchmarkConcat/size=100_iterations=100-8       	  132574	      9289 ns/op	   36865 B/op	     200 allocs/op
-BenchmarkConcat/size=100_iterations=100-8       	  125857	      9383 ns/op	   36865 B/op	     200 allocs/op
-BenchmarkConcat/size=100_iterations=100-8       	  130599	      9326 ns/op	   36865 B/op	     200 allocs/op
-BenchmarkConcat/size=100_iterations=500-8       	   14811	     80675 ns/op	  507273 B/op	    1000 allocs/op
-BenchmarkConcat/size=100_iterations=500-8       	   14791	     80927 ns/op	  507263 B/op	    1000 allocs/op
-BenchmarkConcat/size=100_iterations=500-8       	   15002	     80550 ns/op	  507279 B/op	    1000 allocs/op
-BenchmarkConcat/size=100_iterations=500-8       	   14637	     82745 ns/op	  507272 B/op	    1000 allocs/op
-BenchmarkConcat/size=100_iterations=500-8       	   14643	     82123 ns/op	  507272 B/op	    1000 allocs/op
-BenchmarkConcat/size=100_iterations=500-8       	   14768	     81441 ns/op	  507261 B/op	    1000 allocs/op
-BenchmarkConcat/size=100_iterations=500-8       	   15027	     80424 ns/op	  507273 B/op	    1000 allocs/op
-BenchmarkConcat/size=100_iterations=500-8       	   15097	     79668 ns/op	  507254 B/op	    1000 allocs/op
-BenchmarkConcat/size=100_iterations=500-8       	   15126	     79324 ns/op	  507270 B/op	    1000 allocs/op
-BenchmarkConcat/size=100_iterations=500-8       	   15078	     79877 ns/op	  507278 B/op	    1000 allocs/op
-BenchmarkConcat/size=100_iterations=1000-8      	    5047	    249048 ns/op	 1817838 B/op	    2002 allocs/op
-BenchmarkConcat/size=100_iterations=1000-8      	    5047	    239271 ns/op	 1817745 B/op	    2002 allocs/op
-BenchmarkConcat/size=100_iterations=1000-8      	    5058	    239451 ns/op	 1817833 B/op	    2002 allocs/op
-BenchmarkConcat/size=100_iterations=1000-8      	    5136	    236768 ns/op	 1817838 B/op	    2002 allocs/op
-BenchmarkConcat/size=100_iterations=1000-8      	    5172	    236764 ns/op	 1817803 B/op	    2002 allocs/op
-BenchmarkConcat/size=100_iterations=1000-8      	    5118	    236222 ns/op	 1817814 B/op	    2002 allocs/op
-BenchmarkConcat/size=100_iterations=1000-8      	    5169	    237331 ns/op	 1817744 B/op	    2002 allocs/op
-BenchmarkConcat/size=100_iterations=1000-8      	    5182	    235330 ns/op	 1817747 B/op	    2002 allocs/op
-BenchmarkConcat/size=100_iterations=1000-8      	    5138	    234899 ns/op	 1817775 B/op	    2002 allocs/op
-BenchmarkConcat/size=100_iterations=1000-8      	    5245	    237887 ns/op	 1817751 B/op	    2002 allocs/op
-BenchmarkConcat/size=100_iterations=5000-8      	     308	   3932114 ns/op	40929932 B/op	   10042 allocs/op
-BenchmarkConcat/size=100_iterations=5000-8      	     301	   3973410 ns/op	40927927 B/op	   10042 allocs/op
-BenchmarkConcat/size=100_iterations=5000-8      	     301	   4010209 ns/op	40930254 B/op	   10043 allocs/op
-BenchmarkConcat/size=100_iterations=5000-8      	     303	   3903344 ns/op	40930453 B/op	   10043 allocs/op
-BenchmarkConcat/size=100_iterations=5000-8      	     306	   3920550 ns/op	40926990 B/op	   10042 allocs/op
-BenchmarkConcat/size=100_iterations=5000-8      	     310	   3882663 ns/op	40931465 B/op	   10043 allocs/op
-BenchmarkConcat/size=100_iterations=5000-8      	     309	   3877609 ns/op	40929140 B/op	   10042 allocs/op
-BenchmarkConcat/size=100_iterations=5000-8      	     303	   3990913 ns/op	40929940 B/op	   10043 allocs/op
-BenchmarkConcat/size=100_iterations=5000-8      	     302	   4007198 ns/op	40933091 B/op	   10043 allocs/op
-BenchmarkConcat/size=100_iterations=5000-8      	     302	   3993548 ns/op	40933755 B/op	   10043 allocs/op
-BenchmarkConcat/size=100_iterations=10000-8     	      87	  14102366 ns/op	160962401 B/op	   20150 allocs/op
-BenchmarkConcat/size=100_iterations=10000-8     	      85	  14135589 ns/op	160948000 B/op	   20151 allocs/op
-BenchmarkConcat/size=100_iterations=10000-8     	      87	  13844990 ns/op	160949117 B/op	   20150 allocs/op
-BenchmarkConcat/size=100_iterations=10000-8     	      91	  13745987 ns/op	160969457 B/op	   20152 allocs/op
-BenchmarkConcat/size=100_iterations=10000-8     	      90	  13756234 ns/op	160939042 B/op	   20149 allocs/op
-BenchmarkConcat/size=100_iterations=10000-8     	      87	  13756435 ns/op	160966913 B/op	   20151 allocs/op
-BenchmarkConcat/size=100_iterations=10000-8     	      87	  13960991 ns/op	160954901 B/op	   20152 allocs/op
-BenchmarkConcat/size=100_iterations=10000-8     	      82	  14201604 ns/op	160920031 B/op	   20147 allocs/op
-BenchmarkConcat/size=100_iterations=10000-8     	      76	  14052769 ns/op	160943453 B/op	   20150 allocs/op
-BenchmarkConcat/size=100_iterations=10000-8     	      85	  14245872 ns/op	160938203 B/op	   20150 allocs/op
-BenchmarkConcat/size=500_iterations=10-8        	  553504	      2103 ns/op	   15145 B/op	      20 allocs/op
-BenchmarkConcat/size=500_iterations=10-8        	  565377	      2094 ns/op	   15146 B/op	      20 allocs/op
-BenchmarkConcat/size=500_iterations=10-8        	  561678	      2089 ns/op	   15145 B/op	      20 allocs/op
-BenchmarkConcat/size=500_iterations=10-8        	  513656	      2117 ns/op	   15146 B/op	      20 allocs/op
-BenchmarkConcat/size=500_iterations=10-8        	  568648	      2099 ns/op	   15146 B/op	      20 allocs/op
-BenchmarkConcat/size=500_iterations=10-8        	  549736	      2078 ns/op	   15146 B/op	      20 allocs/op
-BenchmarkConcat/size=500_iterations=10-8        	  566064	      2087 ns/op	   15145 B/op	      20 allocs/op
-BenchmarkConcat/size=500_iterations=10-8        	  581570	      2068 ns/op	   15146 B/op	      20 allocs/op
-BenchmarkConcat/size=500_iterations=10-8        	  600051	      2091 ns/op	   15146 B/op	      20 allocs/op
-BenchmarkConcat/size=500_iterations=10-8        	  573034	      2097 ns/op	   15146 B/op	      20 allocs/op
-BenchmarkConcat/size=500_iterations=100-8       	   56138	     21485 ns/op	  167098 B/op	     200 allocs/op
-BenchmarkConcat/size=500_iterations=100-8       	   55586	     21406 ns/op	  167099 B/op	     200 allocs/op
-BenchmarkConcat/size=500_iterations=100-8       	   54846	     21457 ns/op	  167099 B/op	     200 allocs/op
-BenchmarkConcat/size=500_iterations=100-8       	   56552	     21400 ns/op	  167097 B/op	     200 allocs/op
-BenchmarkConcat/size=500_iterations=100-8       	   57072	     21300 ns/op	  167097 B/op	     200 allocs/op
-BenchmarkConcat/size=500_iterations=100-8       	   56856	     21284 ns/op	  167098 B/op	     200 allocs/op
-BenchmarkConcat/size=500_iterations=100-8       	   56052	     21671 ns/op	  167099 B/op	     200 allocs/op
-BenchmarkConcat/size=500_iterations=100-8       	   56270	     21434 ns/op	  167096 B/op	     200 allocs/op
-BenchmarkConcat/size=500_iterations=100-8       	   53311	     21630 ns/op	  167094 B/op	     200 allocs/op
-BenchmarkConcat/size=500_iterations=100-8       	   55728	     21526 ns/op	  167095 B/op	     200 allocs/op
-BenchmarkConcat/size=500_iterations=500-8       	    8737	    141015 ns/op	 1165730 B/op	    1001 allocs/op
-BenchmarkConcat/size=500_iterations=500-8       	    8616	    139419 ns/op	 1165761 B/op	    1001 allocs/op
-BenchmarkConcat/size=500_iterations=500-8       	    8895	    147607 ns/op	 1165782 B/op	    1001 allocs/op
-BenchmarkConcat/size=500_iterations=500-8       	    8286	    138434 ns/op	 1165758 B/op	    1001 allocs/op
-BenchmarkConcat/size=500_iterations=500-8       	    8240	    138797 ns/op	 1165770 B/op	    1001 allocs/op
-BenchmarkConcat/size=500_iterations=500-8       	    8736	    138970 ns/op	 1165776 B/op	    1001 allocs/op
-BenchmarkConcat/size=500_iterations=500-8       	    8682	    137828 ns/op	 1165745 B/op	    1001 allocs/op
-BenchmarkConcat/size=500_iterations=500-8       	    8600	    136521 ns/op	 1165724 B/op	    1001 allocs/op
-BenchmarkConcat/size=500_iterations=500-8       	    8962	    136325 ns/op	 1165782 B/op	    1001 allocs/op
-BenchmarkConcat/size=500_iterations=500-8       	    9001	    137785 ns/op	 1165747 B/op	    1001 allocs/op
-BenchmarkConcat/size=500_iterations=1000-8      	    3441	    353047 ns/op	 3156325 B/op	    2003 allocs/op
-BenchmarkConcat/size=500_iterations=1000-8      	    3427	    351606 ns/op	 3156293 B/op	    2003 allocs/op
-BenchmarkConcat/size=500_iterations=1000-8      	    3421	    355936 ns/op	 3156325 B/op	    2003 allocs/op
-BenchmarkConcat/size=500_iterations=1000-8      	    3016	    353764 ns/op	 3156438 B/op	    2003 allocs/op
-BenchmarkConcat/size=500_iterations=1000-8      	    3253	    353872 ns/op	 3156368 B/op	    2003 allocs/op
-BenchmarkConcat/size=500_iterations=1000-8      	    3387	    351082 ns/op	 3156484 B/op	    2003 allocs/op
-BenchmarkConcat/size=500_iterations=1000-8      	    3422	    355887 ns/op	 3156305 B/op	    2003 allocs/op
-BenchmarkConcat/size=500_iterations=1000-8      	    3476	    365573 ns/op	 3156174 B/op	    2003 allocs/op
-BenchmarkConcat/size=500_iterations=1000-8      	    3277	    366288 ns/op	 3156192 B/op	    2003 allocs/op
-BenchmarkConcat/size=500_iterations=1000-8      	    3374	    360836 ns/op	 3156340 B/op	    2003 allocs/op
-BenchmarkConcat/size=500_iterations=5000-8      	     268	   4816074 ns/op	47178214 B/op	   10049 allocs/op
-BenchmarkConcat/size=500_iterations=5000-8      	     266	   4500619 ns/op	47173499 B/op	   10047 allocs/op
-BenchmarkConcat/size=500_iterations=5000-8      	     268	   4685076 ns/op	47172293 B/op	   10048 allocs/op
-BenchmarkConcat/size=500_iterations=5000-8      	     259	   4539118 ns/op	47177759 B/op	   10049 allocs/op
-BenchmarkConcat/size=500_iterations=5000-8      	     267	   4452856 ns/op	47175507 B/op	   10048 allocs/op
-BenchmarkConcat/size=500_iterations=5000-8      	     267	   4529216 ns/op	47174077 B/op	   10048 allocs/op
-BenchmarkConcat/size=500_iterations=5000-8      	     267	   4535575 ns/op	47177347 B/op	   10048 allocs/op
-BenchmarkConcat/size=500_iterations=5000-8      	     267	   4535469 ns/op	47169940 B/op	   10047 allocs/op
-BenchmarkConcat/size=500_iterations=5000-8      	     267	   4540390 ns/op	47173942 B/op	   10048 allocs/op
-BenchmarkConcat/size=500_iterations=5000-8      	     265	   4526127 ns/op	47177488 B/op	   10048 allocs/op
-BenchmarkConcat/size=500_iterations=10000-8     	      81	  14662084 ns/op	173686743 B/op	   20153 allocs/op
-BenchmarkConcat/size=500_iterations=10000-8     	      75	  14576059 ns/op	173732534 B/op	   20160 allocs/op
-BenchmarkConcat/size=500_iterations=10000-8     	      84	  14550436 ns/op	173723036 B/op	   20161 allocs/op
-BenchmarkConcat/size=500_iterations=10000-8     	      82	  14585018 ns/op	173732818 B/op	   20159 allocs/op
-BenchmarkConcat/size=500_iterations=10000-8     	      80	  14951667 ns/op	173739674 B/op	   20162 allocs/op
-BenchmarkConcat/size=500_iterations=10000-8     	      82	  14501534 ns/op	173710945 B/op	   20158 allocs/op
-BenchmarkConcat/size=500_iterations=10000-8     	      85	  14881603 ns/op	173724645 B/op	   20157 allocs/op
-BenchmarkConcat/size=500_iterations=10000-8     	      84	  14405724 ns/op	173715995 B/op	   20160 allocs/op
-BenchmarkConcat/size=500_iterations=10000-8     	      84	  14317408 ns/op	173731848 B/op	   20162 allocs/op
-BenchmarkConcat/size=500_iterations=10000-8     	      84	  14344423 ns/op	173712452 B/op	   20159 allocs/op
-BenchmarkConcat/size=1000_iterations=10-8       	  377371	      3151 ns/op	   30902 B/op	      20 allocs/op
-BenchmarkConcat/size=1000_iterations=10-8       	  384492	      3201 ns/op	   30902 B/op	      20 allocs/op
-BenchmarkConcat/size=1000_iterations=10-8       	  377593	      3189 ns/op	   30902 B/op	      20 allocs/op
-BenchmarkConcat/size=1000_iterations=10-8       	  384730	      3177 ns/op	   30902 B/op	      20 allocs/op
-BenchmarkConcat/size=1000_iterations=10-8       	  380223	      3164 ns/op	   30902 B/op	      20 allocs/op
-BenchmarkConcat/size=1000_iterations=10-8       	  388046	      3203 ns/op	   30902 B/op	      20 allocs/op
-BenchmarkConcat/size=1000_iterations=10-8       	  351043	      3208 ns/op	   30903 B/op	      20 allocs/op
-BenchmarkConcat/size=1000_iterations=10-8       	  374424	      3186 ns/op	   30903 B/op	      20 allocs/op
-BenchmarkConcat/size=1000_iterations=10-8       	  385832	      3173 ns/op	   30903 B/op	      20 allocs/op
-BenchmarkConcat/size=1000_iterations=10-8       	  381116	      3196 ns/op	   30902 B/op	      20 allocs/op
-BenchmarkConcat/size=1000_iterations=100-8      	   32925	     35864 ns/op	  314219 B/op	     200 allocs/op
-BenchmarkConcat/size=1000_iterations=100-8      	   35252	     34378 ns/op	  314222 B/op	     200 allocs/op
-BenchmarkConcat/size=1000_iterations=100-8      	   35155	     34873 ns/op	  314225 B/op	     200 allocs/op
-BenchmarkConcat/size=1000_iterations=100-8      	   35006	     34009 ns/op	  314217 B/op	     200 allocs/op
-BenchmarkConcat/size=1000_iterations=100-8      	   35102	     34262 ns/op	  314213 B/op	     200 allocs/op
-BenchmarkConcat/size=1000_iterations=100-8      	   35550	     33762 ns/op	  314227 B/op	     200 allocs/op
-BenchmarkConcat/size=1000_iterations=100-8      	   35755	     33692 ns/op	  314234 B/op	     200 allocs/op
-BenchmarkConcat/size=1000_iterations=100-8      	   35660	     35632 ns/op	  314231 B/op	     200 allocs/op
-BenchmarkConcat/size=1000_iterations=100-8      	   35611	     33869 ns/op	  314219 B/op	     200 allocs/op
-BenchmarkConcat/size=1000_iterations=100-8      	   34729	     34466 ns/op	  314224 B/op	     200 allocs/op
-BenchmarkConcat/size=1000_iterations=500-8      	    5745	    216249 ns/op	 1974676 B/op	    1002 allocs/op
-BenchmarkConcat/size=1000_iterations=500-8      	    5713	    217339 ns/op	 1974666 B/op	    1002 allocs/op
-BenchmarkConcat/size=1000_iterations=500-8      	    5728	    213823 ns/op	 1974770 B/op	    1002 allocs/op
-BenchmarkConcat/size=1000_iterations=500-8      	    5512	    247537 ns/op	 1974680 B/op	    1002 allocs/op
-BenchmarkConcat/size=1000_iterations=500-8      	    4965	    265400 ns/op	 1974743 B/op	    1002 allocs/op
-BenchmarkConcat/size=1000_iterations=500-8      	    5581	    211192 ns/op	 1974809 B/op	    1002 allocs/op
-BenchmarkConcat/size=1000_iterations=500-8      	    5654	    212450 ns/op	 1974762 B/op	    1002 allocs/op
-BenchmarkConcat/size=1000_iterations=500-8      	    5647	    222913 ns/op	 1974761 B/op	    1002 allocs/op
-BenchmarkConcat/size=1000_iterations=500-8      	    5670	    211319 ns/op	 1974760 B/op	    1002 allocs/op
-BenchmarkConcat/size=1000_iterations=500-8      	    5775	    210358 ns/op	 1974844 B/op	    1002 allocs/op
-BenchmarkConcat/size=1000_iterations=1000-8     	    2396	    506916 ns/op	 4727435 B/op	    2005 allocs/op
-BenchmarkConcat/size=1000_iterations=1000-8     	    2358	    510633 ns/op	 4727429 B/op	    2004 allocs/op
-BenchmarkConcat/size=1000_iterations=1000-8     	    2390	    504060 ns/op	 4727781 B/op	    2005 allocs/op
-BenchmarkConcat/size=1000_iterations=1000-8     	    2377	    504653 ns/op	 4727861 B/op	    2005 allocs/op
-BenchmarkConcat/size=1000_iterations=1000-8     	    2408	    548570 ns/op	 4727957 B/op	    2005 allocs/op
-BenchmarkConcat/size=1000_iterations=1000-8     	    2352	    510000 ns/op	 4727919 B/op	    2005 allocs/op
-BenchmarkConcat/size=1000_iterations=1000-8     	    2374	    509144 ns/op	 4727743 B/op	    2005 allocs/op
-BenchmarkConcat/size=1000_iterations=1000-8     	    1952	    542685 ns/op	 4727854 B/op	    2005 allocs/op
-BenchmarkConcat/size=1000_iterations=1000-8     	    2400	    512589 ns/op	 4727523 B/op	    2005 allocs/op
-BenchmarkConcat/size=1000_iterations=1000-8     	    2326	    512433 ns/op	 4727571 B/op	    2005 allocs/op
-BenchmarkConcat/size=1000_iterations=5000-8     	     212	   5395904 ns/op	55303751 B/op	   10052 allocs/op
-BenchmarkConcat/size=1000_iterations=5000-8     	     238	   5046643 ns/op	55316771 B/op	   10055 allocs/op
-BenchmarkConcat/size=1000_iterations=5000-8     	     235	   5081248 ns/op	55321885 B/op	   10056 allocs/op
-BenchmarkConcat/size=1000_iterations=5000-8     	     212	   5361591 ns/op	55317857 B/op	   10056 allocs/op
-BenchmarkConcat/size=1000_iterations=5000-8     	     231	   5113422 ns/op	55316476 B/op	   10055 allocs/op
-BenchmarkConcat/size=1000_iterations=5000-8     	     236	   5073106 ns/op	55319604 B/op	   10055 allocs/op
-BenchmarkConcat/size=1000_iterations=5000-8     	     235	   5047711 ns/op	55318378 B/op	   10056 allocs/op
-BenchmarkConcat/size=1000_iterations=5000-8     	     226	   5149471 ns/op	55309791 B/op	   10053 allocs/op
-BenchmarkConcat/size=1000_iterations=5000-8     	     236	   5087162 ns/op	55311259 B/op	   10053 allocs/op
-BenchmarkConcat/size=1000_iterations=5000-8     	     238	   5077196 ns/op	55314223 B/op	   10056 allocs/op
-BenchmarkConcat/size=1000_iterations=10000-8    	      76	  16894425 ns/op	189261060 B/op	   20164 allocs/op
-BenchmarkConcat/size=1000_iterations=10000-8    	      76	  15952313 ns/op	189292275 B/op	   20171 allocs/op
-BenchmarkConcat/size=1000_iterations=10000-8    	      75	  16192289 ns/op	189294120 B/op	   20170 allocs/op
-BenchmarkConcat/size=1000_iterations=10000-8    	      78	  15964870 ns/op	189316841 B/op	   20181 allocs/op
-BenchmarkConcat/size=1000_iterations=10000-8    	      75	  17164033 ns/op	189284957 B/op	   20169 allocs/op
-BenchmarkConcat/size=1000_iterations=10000-8    	      76	  15697421 ns/op	189326661 B/op	   20180 allocs/op
-BenchmarkConcat/size=1000_iterations=10000-8    	      69	  16544199 ns/op	189272328 B/op	   20166 allocs/op
-BenchmarkConcat/size=1000_iterations=10000-8    	      75	  15865837 ns/op	189324283 B/op	   20181 allocs/op
-BenchmarkConcat/size=1000_iterations=10000-8    	      75	  20444569 ns/op	189292334 B/op	   20169 allocs/op
-BenchmarkConcat/size=1000_iterations=10000-8    	      70	  18180105 ns/op	189231505 B/op	   20149 allocs/op
-BenchmarkConcat/size=5000_iterations=10-8       	   76413	     17560 ns/op	  191168 B/op	      20 allocs/op
-BenchmarkConcat/size=5000_iterations=10-8       	   71058	     16793 ns/op	  191172 B/op	      20 allocs/op
-BenchmarkConcat/size=5000_iterations=10-8       	   69556	     17424 ns/op	  191143 B/op	      20 allocs/op
-BenchmarkConcat/size=5000_iterations=10-8       	   73064	     19147 ns/op	  191141 B/op	      20 allocs/op
-BenchmarkConcat/size=5000_iterations=10-8       	   75463	     17682 ns/op	  191167 B/op	      20 allocs/op
-BenchmarkConcat/size=5000_iterations=10-8       	   71462	     16490 ns/op	  191196 B/op	      20 allocs/op
-BenchmarkConcat/size=5000_iterations=10-8       	   76546	     15585 ns/op	  191180 B/op	      20 allocs/op
-BenchmarkConcat/size=5000_iterations=10-8       	   76974	     15605 ns/op	  191184 B/op	      20 allocs/op
-BenchmarkConcat/size=5000_iterations=10-8       	   69984	     16783 ns/op	  191148 B/op	      20 allocs/op
-BenchmarkConcat/size=5000_iterations=10-8       	   75882	     16101 ns/op	  191182 B/op	      20 allocs/op
-BenchmarkConcat/size=5000_iterations=100-8      	    7500	    168312 ns/op	 1964183 B/op	     201 allocs/op
-BenchmarkConcat/size=5000_iterations=100-8      	    7286	    168330 ns/op	 1963995 B/op	     201 allocs/op
-BenchmarkConcat/size=5000_iterations=100-8      	    7657	    170410 ns/op	 1963645 B/op	     201 allocs/op
-BenchmarkConcat/size=5000_iterations=100-8      	    7585	    169223 ns/op	 1963743 B/op	     201 allocs/op
-BenchmarkConcat/size=5000_iterations=100-8      	    7683	    168798 ns/op	 1963707 B/op	     201 allocs/op
-BenchmarkConcat/size=5000_iterations=100-8      	    7455	    172700 ns/op	 1964111 B/op	     201 allocs/op
-BenchmarkConcat/size=5000_iterations=100-8      	    6696	    187494 ns/op	 1963922 B/op	     201 allocs/op
-BenchmarkConcat/size=5000_iterations=100-8      	    7418	    169341 ns/op	 1964184 B/op	     201 allocs/op
-BenchmarkConcat/size=5000_iterations=100-8      	    7554	    173286 ns/op	 1964152 B/op	     201 allocs/op
-BenchmarkConcat/size=5000_iterations=100-8      	    6892	    177969 ns/op	 1963389 B/op	     201 allocs/op
-BenchmarkConcat/size=5000_iterations=500-8      	    1368	    868304 ns/op	10167716 B/op	    1008 allocs/op
-BenchmarkConcat/size=5000_iterations=500-8      	    1442	    856152 ns/op	10168083 B/op	    1009 allocs/op
-BenchmarkConcat/size=5000_iterations=500-8      	    1423	    862765 ns/op	10167632 B/op	    1009 allocs/op
-BenchmarkConcat/size=5000_iterations=500-8      	    1384	    882382 ns/op	10166706 B/op	    1008 allocs/op
-BenchmarkConcat/size=5000_iterations=500-8      	    1413	    850762 ns/op	10167598 B/op	    1009 allocs/op
-BenchmarkConcat/size=5000_iterations=500-8      	    1344	    864357 ns/op	10166089 B/op	    1008 allocs/op
-BenchmarkConcat/size=5000_iterations=500-8      	    1430	    895123 ns/op	10165875 B/op	    1008 allocs/op
-BenchmarkConcat/size=5000_iterations=500-8      	    1240	    930084 ns/op	10167158 B/op	    1008 allocs/op
-BenchmarkConcat/size=5000_iterations=500-8      	    1168	    917921 ns/op	10166597 B/op	    1008 allocs/op
-BenchmarkConcat/size=5000_iterations=500-8      	    1417	    849898 ns/op	10168671 B/op	    1009 allocs/op
-BenchmarkConcat/size=5000_iterations=1000-8     	     643	   1780030 ns/op	21250419 B/op	    2019 allocs/op
-BenchmarkConcat/size=5000_iterations=1000-8     	     672	   1806130 ns/op	21249887 B/op	    2018 allocs/op
-BenchmarkConcat/size=5000_iterations=1000-8     	     686	   1763104 ns/op	21248360 B/op	    2019 allocs/op
-BenchmarkConcat/size=5000_iterations=1000-8     	     679	   1809603 ns/op	21247683 B/op	    2019 allocs/op
-BenchmarkConcat/size=5000_iterations=1000-8     	     684	   1845952 ns/op	21244075 B/op	    2017 allocs/op
-BenchmarkConcat/size=5000_iterations=1000-8     	     669	   1819535 ns/op	21249743 B/op	    2019 allocs/op
-BenchmarkConcat/size=5000_iterations=1000-8     	     670	   1780650 ns/op	21247169 B/op	    2019 allocs/op
-BenchmarkConcat/size=5000_iterations=1000-8     	     682	   1788288 ns/op	21247267 B/op	    2019 allocs/op
-BenchmarkConcat/size=5000_iterations=1000-8     	     690	   1765043 ns/op	21249490 B/op	    2019 allocs/op
-BenchmarkConcat/size=5000_iterations=1000-8     	     632	   1816032 ns/op	21246503 B/op	    2019 allocs/op
-BenchmarkConcat/size=5000_iterations=5000-8     	     100	  11636820 ns/op	141863714 B/op	   10119 allocs/op
-BenchmarkConcat/size=5000_iterations=5000-8     	     100	  11935435 ns/op	141872354 B/op	   10118 allocs/op
-BenchmarkConcat/size=5000_iterations=5000-8     	     100	  11876749 ns/op	141899344 B/op	   10120 allocs/op
-BenchmarkConcat/size=5000_iterations=5000-8     	     100	  12101630 ns/op	141865913 B/op	   10120 allocs/op
-BenchmarkConcat/size=5000_iterations=5000-8     	     100	  12071073 ns/op	141875258 B/op	   10121 allocs/op
-BenchmarkConcat/size=5000_iterations=5000-8     	     100	  12057793 ns/op	141899013 B/op	   10122 allocs/op
-BenchmarkConcat/size=5000_iterations=5000-8     	     100	  11673924 ns/op	141889672 B/op	   10120 allocs/op
-BenchmarkConcat/size=5000_iterations=5000-8     	     100	  11446919 ns/op	141929391 B/op	   10128 allocs/op
-BenchmarkConcat/size=5000_iterations=5000-8     	     100	  12184800 ns/op	141909364 B/op	   10126 allocs/op
-BenchmarkConcat/size=5000_iterations=5000-8     	     100	  11488855 ns/op	141923595 B/op	   10128 allocs/op
-BenchmarkConcat/size=5000_iterations=10000-8    	      38	  30516198 ns/op	369109144 B/op	   20300 allocs/op
-BenchmarkConcat/size=5000_iterations=10000-8    	      38	  31442789 ns/op	369085993 B/op	   20293 allocs/op
-BenchmarkConcat/size=5000_iterations=10000-8    	      42	  29706188 ns/op	369130902 B/op	   20311 allocs/op
-BenchmarkConcat/size=5000_iterations=10000-8    	      40	  30795439 ns/op	369071109 B/op	   20302 allocs/op
-BenchmarkConcat/size=5000_iterations=10000-8    	      34	  30467362 ns/op	369124950 B/op	   20316 allocs/op
-BenchmarkConcat/size=5000_iterations=10000-8    	      40	  29892406 ns/op	369128160 B/op	   20318 allocs/op
-BenchmarkConcat/size=5000_iterations=10000-8    	      39	  29764939 ns/op	369167970 B/op	   20320 allocs/op
-BenchmarkConcat/size=5000_iterations=10000-8    	      39	  29583213 ns/op	369204706 B/op	   20318 allocs/op
-BenchmarkConcat/size=5000_iterations=10000-8    	      40	  30375423 ns/op	369047782 B/op	   20293 allocs/op
-BenchmarkConcat/size=5000_iterations=10000-8    	      42	  30056091 ns/op	369115134 B/op	   20306 allocs/op
-BenchmarkConcat/size=10000_iterations=10-8      	   35769	     34173 ns/op	  410593 B/op	      20 allocs/op
-BenchmarkConcat/size=10000_iterations=10-8      	   37166	     33788 ns/op	  410551 B/op	      20 allocs/op
-BenchmarkConcat/size=10000_iterations=10-8      	   36002	     33474 ns/op	  410666 B/op	      20 allocs/op
-BenchmarkConcat/size=10000_iterations=10-8      	   35198	     35581 ns/op	  410604 B/op	      20 allocs/op
-BenchmarkConcat/size=10000_iterations=10-8      	   36288	     33564 ns/op	  410683 B/op	      20 allocs/op
-BenchmarkConcat/size=10000_iterations=10-8      	   34574	     34430 ns/op	  410612 B/op	      20 allocs/op
-BenchmarkConcat/size=10000_iterations=10-8      	   36516	     34186 ns/op	  410644 B/op	      20 allocs/op
-BenchmarkConcat/size=10000_iterations=10-8      	   31927	     34875 ns/op	  410572 B/op	      20 allocs/op
-BenchmarkConcat/size=10000_iterations=10-8      	   34851	     34664 ns/op	  410561 B/op	      20 allocs/op
-BenchmarkConcat/size=10000_iterations=10-8      	   35930	     33989 ns/op	  410600 B/op	      20 allocs/op
-BenchmarkConcat/size=10000_iterations=100-8     	    3721	    334467 ns/op	 4106096 B/op	     203 allocs/op
-BenchmarkConcat/size=10000_iterations=100-8     	    3586	    333999 ns/op	 4106886 B/op	     203 allocs/op
-BenchmarkConcat/size=10000_iterations=100-8     	    3660	    331226 ns/op	 4106612 B/op	     203 allocs/op
-BenchmarkConcat/size=10000_iterations=100-8     	    3567	    337055 ns/op	 4106096 B/op	     203 allocs/op
-BenchmarkConcat/size=10000_iterations=100-8     	    3650	    336339 ns/op	 4106601 B/op	     203 allocs/op
-BenchmarkConcat/size=10000_iterations=100-8     	    3630	    331605 ns/op	 4106881 B/op	     203 allocs/op
-BenchmarkConcat/size=10000_iterations=100-8     	    3627	    343080 ns/op	 4105865 B/op	     203 allocs/op
-BenchmarkConcat/size=10000_iterations=100-8     	    3692	    330696 ns/op	 4106009 B/op	     203 allocs/op
-BenchmarkConcat/size=10000_iterations=100-8     	    3630	    333439 ns/op	 4106944 B/op	     203 allocs/op
-BenchmarkConcat/size=10000_iterations=100-8     	    3637	    331287 ns/op	 4106732 B/op	     203 allocs/op
-BenchmarkConcat/size=10000_iterations=500-8     	     728	   1665293 ns/op	20529453 B/op	    1017 allocs/op
-BenchmarkConcat/size=10000_iterations=500-8     	     720	   1700523 ns/op	20528982 B/op	    1017 allocs/op
-BenchmarkConcat/size=10000_iterations=500-8     	     673	   1735620 ns/op	20527361 B/op	    1016 allocs/op
-BenchmarkConcat/size=10000_iterations=500-8     	     682	   1689556 ns/op	20529382 B/op	    1016 allocs/op
-BenchmarkConcat/size=10000_iterations=500-8     	     729	   1660540 ns/op	20529091 B/op	    1017 allocs/op
-BenchmarkConcat/size=10000_iterations=500-8     	     724	   1666170 ns/op	20530419 B/op	    1017 allocs/op
-BenchmarkConcat/size=10000_iterations=500-8     	     699	   1713968 ns/op	20526982 B/op	    1015 allocs/op
-BenchmarkConcat/size=10000_iterations=500-8     	     705	   1691240 ns/op	20527752 B/op	    1016 allocs/op
-BenchmarkConcat/size=10000_iterations=500-8     	     716	   1683566 ns/op	20529529 B/op	    1016 allocs/op
-BenchmarkConcat/size=10000_iterations=500-8     	     694	   1670009 ns/op	20530882 B/op	    1017 allocs/op
-BenchmarkConcat/size=10000_iterations=1000-8    	     326	   3592685 ns/op	43591736 B/op	    2034 allocs/op
-BenchmarkConcat/size=10000_iterations=1000-8    	     331	   3557168 ns/op	43585604 B/op	    2034 allocs/op
-BenchmarkConcat/size=10000_iterations=1000-8    	     345	   3491672 ns/op	43593455 B/op	    2037 allocs/op
-BenchmarkConcat/size=10000_iterations=1000-8    	     340	   3531430 ns/op	43591180 B/op	    2036 allocs/op
-BenchmarkConcat/size=10000_iterations=1000-8    	     345	   3478630 ns/op	43597882 B/op	    2037 allocs/op
-BenchmarkConcat/size=10000_iterations=1000-8    	     340	   3538558 ns/op	43596868 B/op	    2036 allocs/op
-BenchmarkConcat/size=10000_iterations=1000-8    	     342	   3526349 ns/op	43592296 B/op	    2035 allocs/op
-BenchmarkConcat/size=10000_iterations=1000-8    	     325	   3646752 ns/op	43587131 B/op	    2033 allocs/op
-BenchmarkConcat/size=10000_iterations=1000-8    	     342	   3493746 ns/op	43597409 B/op	    2036 allocs/op
-BenchmarkConcat/size=10000_iterations=1000-8    	     345	   3508802 ns/op	43596963 B/op	    2036 allocs/op
-BenchmarkConcat/size=10000_iterations=5000-8    	      60	  20131631 ns/op	253933113 B/op	   10206 allocs/op
-BenchmarkConcat/size=10000_iterations=5000-8    	      58	  20403767 ns/op	253859002 B/op	   10185 allocs/op
-BenchmarkConcat/size=10000_iterations=5000-8    	      52	  21728945 ns/op	253859694 B/op	   10178 allocs/op
-BenchmarkConcat/size=10000_iterations=5000-8    	      57	  20434781 ns/op	253954855 B/op	   10198 allocs/op
-BenchmarkConcat/size=10000_iterations=5000-8    	      61	  19804279 ns/op	253999993 B/op	   10213 allocs/op
-BenchmarkConcat/size=10000_iterations=5000-8    	      61	  22525931 ns/op	253919867 B/op	   10198 allocs/op
-BenchmarkConcat/size=10000_iterations=5000-8    	      62	  19551673 ns/op	253862392 B/op	   10190 allocs/op
-BenchmarkConcat/size=10000_iterations=5000-8    	      61	  20238638 ns/op	253920306 B/op	   10200 allocs/op
-BenchmarkConcat/size=10000_iterations=5000-8    	      58	  21687006 ns/op	253937453 B/op	   10202 allocs/op
-BenchmarkConcat/size=10000_iterations=5000-8    	      58	  21151004 ns/op	253852341 B/op	   10177 allocs/op
-BenchmarkConcat/size=10000_iterations=10000-8   	      24	  55510054 ns/op	664955796 B/op	   21592 allocs/op
-BenchmarkConcat/size=10000_iterations=10000-8   	      24	  51650674 ns/op	664997518 B/op	   21626 allocs/op
-BenchmarkConcat/size=10000_iterations=10000-8   	      24	  49935062 ns/op	665063318 B/op	   21641 allocs/op
-BenchmarkConcat/size=10000_iterations=10000-8   	      24	  50251778 ns/op	665098078 B/op	   21631 allocs/op
-BenchmarkConcat/size=10000_iterations=10000-8   	      24	  53132252 ns/op	665078431 B/op	   21618 allocs/op
-BenchmarkConcat/size=10000_iterations=10000-8   	      24	  50266281 ns/op	665125531 B/op	   21649 allocs/op
-BenchmarkConcat/size=10000_iterations=10000-8   	      22	  53133284 ns/op	664931396 B/op	   21612 allocs/op
-BenchmarkConcat/size=10000_iterations=10000-8   	      22	  52330028 ns/op	665115310 B/op	   21633 allocs/op
-BenchmarkConcat/size=10000_iterations=10000-8   	      22	  51393659 ns/op	665120913 B/op	   21645 allocs/op
-BenchmarkConcat/size=10000_iterations=10000-8   	      22	  52867460 ns/op	664923857 B/op	   21601 allocs/op
-PASS
-ok  	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	435.414s
+BenchmarkConcat/size=10_iterations=10-8         	 1236494	       968.5 ns/op	    1104 B/op	      29 allocs/op
+BenchmarkConcat/size=10_iterations=10-8         	 1242318	       967.3 ns/op	    1104 B/op	      29 allocs/op
+BenchmarkConcat/size=10_iterations=10-8         	 1240764	       966.4 ns/op	    1104 B/op	      29 allocs/op
+BenchmarkConcat/size=10_iterations=10-8         	 1239938	       966.7 ns/op	    1104 B/op	      29 allocs/op
+BenchmarkConcat/size=10_iterations=10-8         	 1224168	       976.0 ns/op	    1104 B/op	      29 allocs/op
+BenchmarkConcat/size=10_iterations=10-8         	 1241823	       965.4 ns/op	    1104 B/op	      29 allocs/op
+BenchmarkConcat/size=10_iterations=10-8         	 1242050	       965.0 ns/op	    1104 B/op	      29 allocs/op
+BenchmarkConcat/size=10_iterations=10-8         	 1243304	       965.5 ns/op	    1104 B/op	      29 allocs/op
+BenchmarkConcat/size=10_iterations=10-8         	 1233289	       972.9 ns/op	    1104 B/op	      29 allocs/op
+BenchmarkConcat/size=10_iterations=10-8         	 1240712	       965.9 ns/op	    1104 B/op	      29 allocs/op
+BenchmarkConcat/size=10_iterations=50-8         	  191283	      6379 ns/op	   18954 B/op	     149 allocs/op
+BenchmarkConcat/size=10_iterations=50-8         	  190368	      6413 ns/op	   18954 B/op	     149 allocs/op
+BenchmarkConcat/size=10_iterations=50-8         	  188876	      6352 ns/op	   18954 B/op	     149 allocs/op
+BenchmarkConcat/size=10_iterations=50-8         	  188084	      6362 ns/op	   18955 B/op	     149 allocs/op
+BenchmarkConcat/size=10_iterations=50-8         	  190099	      6385 ns/op	   18955 B/op	     149 allocs/op
+BenchmarkConcat/size=10_iterations=50-8         	  189039	      6390 ns/op	   18955 B/op	     149 allocs/op
+BenchmarkConcat/size=10_iterations=50-8         	  190929	      6387 ns/op	   18955 B/op	     149 allocs/op
+BenchmarkConcat/size=10_iterations=50-8         	  187177	      6401 ns/op	   18954 B/op	     149 allocs/op
+BenchmarkConcat/size=10_iterations=50-8         	  186583	      6409 ns/op	   18955 B/op	     149 allocs/op
+BenchmarkConcat/size=10_iterations=50-8         	  188700	      6393 ns/op	   18954 B/op	     149 allocs/op
+BenchmarkConcat/size=10_iterations=100-8        	   73132	     16616 ns/op	   72701 B/op	     299 allocs/op
+BenchmarkConcat/size=10_iterations=100-8        	   73531	     16677 ns/op	   72699 B/op	     299 allocs/op
+BenchmarkConcat/size=10_iterations=100-8        	   73258	     16653 ns/op	   72701 B/op	     299 allocs/op
+BenchmarkConcat/size=10_iterations=100-8        	   72499	     16573 ns/op	   72701 B/op	     299 allocs/op
+BenchmarkConcat/size=10_iterations=100-8        	   73279	     16509 ns/op	   72698 B/op	     299 allocs/op
+BenchmarkConcat/size=10_iterations=100-8        	   72840	     16569 ns/op	   72698 B/op	     299 allocs/op
+BenchmarkConcat/size=10_iterations=100-8        	   73515	     16662 ns/op	   72699 B/op	     299 allocs/op
+BenchmarkConcat/size=10_iterations=100-8        	   73497	     16632 ns/op	   72698 B/op	     299 allocs/op
+BenchmarkConcat/size=10_iterations=100-8        	   73478	     16383 ns/op	   72698 B/op	     299 allocs/op
+BenchmarkConcat/size=10_iterations=100-8        	   74361	     16383 ns/op	   72703 B/op	     299 allocs/op
+BenchmarkConcat/size=10_iterations=500-8        	    5320	    226844 ns/op	 1751608 B/op	    1502 allocs/op
+BenchmarkConcat/size=10_iterations=500-8        	    5253	    229821 ns/op	 1751600 B/op	    1502 allocs/op
+BenchmarkConcat/size=10_iterations=500-8        	    5299	    227743 ns/op	 1751620 B/op	    1502 allocs/op
+BenchmarkConcat/size=10_iterations=500-8        	    5235	    228605 ns/op	 1751401 B/op	    1502 allocs/op
+BenchmarkConcat/size=10_iterations=500-8        	    5158	    228160 ns/op	 1751589 B/op	    1502 allocs/op
+BenchmarkConcat/size=10_iterations=500-8        	    5337	    229138 ns/op	 1751619 B/op	    1502 allocs/op
+BenchmarkConcat/size=10_iterations=500-8        	    5218	    226813 ns/op	 1751495 B/op	    1502 allocs/op
+BenchmarkConcat/size=10_iterations=500-8        	    5431	    228747 ns/op	 1751482 B/op	    1502 allocs/op
+BenchmarkConcat/size=10_iterations=500-8        	    5154	    226685 ns/op	 1751596 B/op	    1502 allocs/op
+BenchmarkConcat/size=10_iterations=500-8        	    5407	    226641 ns/op	 1751575 B/op	    1502 allocs/op
+BenchmarkConcat/size=10_iterations=1000-8       	    1525	    799318 ns/op	 6950764 B/op	    3012 allocs/op
+BenchmarkConcat/size=10_iterations=1000-8       	    1484	    807796 ns/op	 6951167 B/op	    3012 allocs/op
+BenchmarkConcat/size=10_iterations=1000-8       	    1490	    797887 ns/op	 6952656 B/op	    3012 allocs/op
+BenchmarkConcat/size=10_iterations=1000-8       	    1453	    810115 ns/op	 6950611 B/op	    3012 allocs/op
+BenchmarkConcat/size=10_iterations=1000-8       	    1534	    798567 ns/op	 6947826 B/op	    3012 allocs/op
+BenchmarkConcat/size=10_iterations=1000-8       	    1502	    799004 ns/op	 6950836 B/op	    3013 allocs/op
+BenchmarkConcat/size=10_iterations=1000-8       	    1507	    793378 ns/op	 6950822 B/op	    3012 allocs/op
+BenchmarkConcat/size=10_iterations=1000-8       	    1506	    805837 ns/op	 6950361 B/op	    3013 allocs/op
+BenchmarkConcat/size=10_iterations=1000-8       	    1456	    809533 ns/op	 6950453 B/op	    3012 allocs/op
+BenchmarkConcat/size=10_iterations=1000-8       	    1478	    798457 ns/op	 6949977 B/op	    3012 allocs/op
+BenchmarkConcat/size=10_iterations=5000-8       	      72	  16323410 ns/op	175907681 B/op	   15272 allocs/op
+BenchmarkConcat/size=10_iterations=5000-8       	      74	  16372812 ns/op	175932455 B/op	   15276 allocs/op
+BenchmarkConcat/size=10_iterations=5000-8       	      78	  16106210 ns/op	175932421 B/op	   15277 allocs/op
+BenchmarkConcat/size=10_iterations=5000-8       	      73	  16145685 ns/op	175923688 B/op	   15274 allocs/op
+BenchmarkConcat/size=10_iterations=5000-8       	      73	  16232740 ns/op	175953757 B/op	   15276 allocs/op
+BenchmarkConcat/size=10_iterations=5000-8       	      73	  16421158 ns/op	175907580 B/op	   15275 allocs/op
+BenchmarkConcat/size=10_iterations=5000-8       	      73	  16268753 ns/op	175863925 B/op	   15274 allocs/op
+BenchmarkConcat/size=10_iterations=5000-8       	      75	  16225516 ns/op	175911675 B/op	   15274 allocs/op
+BenchmarkConcat/size=10_iterations=5000-8       	      72	  16472788 ns/op	175931254 B/op	   15277 allocs/op
+BenchmarkConcat/size=10_iterations=5000-8       	      72	  16356725 ns/op	175901625 B/op	   15275 allocs/op
+BenchmarkConcat/size=10_iterations=10000-8      	      12	  95544938 ns/op	1190984626 B/op	   36656 allocs/op
+BenchmarkConcat/size=10_iterations=10000-8      	      12	  95755622 ns/op	1190940021 B/op	   36654 allocs/op
+BenchmarkConcat/size=10_iterations=10000-8      	      12	  95365417 ns/op	1191035363 B/op	   36658 allocs/op
+BenchmarkConcat/size=10_iterations=10000-8      	      12	  94119368 ns/op	1191038417 B/op	   36652 allocs/op
+BenchmarkConcat/size=10_iterations=10000-8      	      12	  93285760 ns/op	1191019073 B/op	   36654 allocs/op
+BenchmarkConcat/size=10_iterations=10000-8      	      12	  94580135 ns/op	1191058400 B/op	   36660 allocs/op
+BenchmarkConcat/size=10_iterations=10000-8      	      12	  94715097 ns/op	1191011986 B/op	   36645 allocs/op
+BenchmarkConcat/size=10_iterations=10000-8      	      12	  94143326 ns/op	1191078434 B/op	   36655 allocs/op
+BenchmarkConcat/size=10_iterations=10000-8      	      12	  93534250 ns/op	1190961765 B/op	   36657 allocs/op
+BenchmarkConcat/size=10_iterations=10000-8      	      12	  94961358 ns/op	1191048948 B/op	   36670 allocs/op
+BenchmarkConcat/size=10_iterations=50000-8      	       1	2472887458 ns/op	32765606824 B/op	  243205 allocs/op
+BenchmarkConcat/size=10_iterations=50000-8      	       1	2452555917 ns/op	32765479080 B/op	  243205 allocs/op
+BenchmarkConcat/size=10_iterations=50000-8      	       1	2479627583 ns/op	32765604744 B/op	  242750 allocs/op
+BenchmarkConcat/size=10_iterations=50000-8      	       1	2489665791 ns/op	32765667464 B/op	  243412 allocs/op
+BenchmarkConcat/size=10_iterations=50000-8      	       1	2506003041 ns/op	32765421216 B/op	  243331 allocs/op
+BenchmarkConcat/size=10_iterations=50000-8      	       1	2524650167 ns/op	32765703184 B/op	  243449 allocs/op
+BenchmarkConcat/size=10_iterations=50000-8      	       1	2501693542 ns/op	32765485688 B/op	  243574 allocs/op
+BenchmarkConcat/size=10_iterations=50000-8      	       1	2502070959 ns/op	32765543408 B/op	  243377 allocs/op
+BenchmarkConcat/size=10_iterations=50000-8      	       1	2511899708 ns/op	32765674312 B/op	  243378 allocs/op
+BenchmarkConcat/size=10_iterations=50000-8      	       1	2525647208 ns/op	32765422048 B/op	  243604 allocs/op
+BenchmarkConcat/size=10_iterations=100000-8     	       1	9328012875 ns/op	130811213560 B/op	  571965 allocs/op
+BenchmarkConcat/size=10_iterations=100000-8     	       1	9310300542 ns/op	130811343112 B/op	  571861 allocs/op
+BenchmarkConcat/size=10_iterations=100000-8     	       1	9095322875 ns/op	130807944536 B/op	  560880 allocs/op
+BenchmarkConcat/size=10_iterations=100000-8     	       1	9323161625 ns/op	130807830640 B/op	  560553 allocs/op
+BenchmarkConcat/size=10_iterations=100000-8     	       1	9200843375 ns/op	130808362664 B/op	  561765 allocs/op
+BenchmarkConcat/size=10_iterations=100000-8     	       1	9224189458 ns/op	130807324520 B/op	  558946 allocs/op
+BenchmarkConcat/size=10_iterations=100000-8     	       1	9207181333 ns/op	130807343896 B/op	  559154 allocs/op
+BenchmarkConcat/size=10_iterations=100000-8     	       1	9007694417 ns/op	130806797880 B/op	  555955 allocs/op
+BenchmarkConcat/size=10_iterations=100000-8     	       1	9318623250 ns/op	130807903736 B/op	  560569 allocs/op
+BenchmarkConcat/size=10_iterations=100000-8     	       1	9128702583 ns/op	130806516072 B/op	  556102 allocs/op
+BenchmarkConcat/size=10_iterations=500000-8     	       1	172618916333 ns/op	3257536177088 B/op	 3316314 allocs/op
+BenchmarkConcat/size=10_iterations=500000-8     	       1	174267681167 ns/op	3257545457288 B/op	 3348470 allocs/op
+BenchmarkConcat/size=10_iterations=500000-8     	       1	165142465708 ns/op	3257547297744 B/op	 3357560 allocs/op
+BenchmarkConcat/size=10_iterations=500000-8     	       1	167841592500 ns/op	3257547600152 B/op	 3356660 allocs/op
+BenchmarkConcat/size=10_iterations=500000-8     	       1	166461620417 ns/op	3257543239904 B/op	 3342662 allocs/op
+BenchmarkConcat/size=10_iterations=500000-8     	       1	174011019500 ns/op	3257544656736 B/op	 3347463 allocs/op
+BenchmarkConcat/size=10_iterations=500000-8     	       1	174354795791 ns/op	3257540862256 B/op	 3335302 allocs/op
+BenchmarkConcat/size=10_iterations=500000-8     	       1	173581166208 ns/op	3257541317408 B/op	 3336211 allocs/op
+BenchmarkConcat/size=10_iterations=500000-8     	       1	173712531625 ns/op	3257545060840 B/op	 3347636 allocs/op
+BenchmarkConcat/size=10_iterations=500000-8     	       1	172936236542 ns/op	3257543837336 B/op	 3343946 allocs/op
+BenchmarkConcat/size=10_iterations=1000000-8    	       1	658278529208 ns/op	13021913377048 B/op	 7343240 allocs/op
+BenchmarkConcat/size=10_iterations=1000000-8    	SIGQUIT: quit
+PC=0x18b4f83cc m=0 sigcode=0
+
+goroutine 0 gp=0x101338300 m=0 mp=0x101338ba0 [idle]:
+runtime.pthread_cond_wait(0x1013390f8, 0x1013390b8)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/sys_darwin.go:547 +0x20 fp=0x16eeca410 sp=0x16eeca3e0 pc=0x100f90280
+runtime.semasleep(0xffffffffffffffff)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/os_darwin.go:72 +0x84 fp=0x16eeca470 sp=0x16eeca410 pc=0x100f6b704
+runtime.notesleep(0x101338ce0)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/lock_sema.go:62 +0xb8 fp=0x16eeca4b0 sp=0x16eeca470 pc=0x100f44e38
+runtime.mPark(...)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:1887
+runtime.stopm()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:2910 +0x84 fp=0x16eeca4e0 sp=0x16eeca4b0 pc=0x100f76404
+runtime.findRunnable()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:3647 +0x1040 fp=0x16eeca650 sp=0x16eeca4e0 pc=0x100f78240
+runtime.schedule()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:4020 +0x94 fp=0x16eeca690 sp=0x16eeca650 pc=0x100f796c4
+runtime.park_m(0x140001fe540)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:4144 +0x2b0 fp=0x16eeca6f0 sp=0x16eeca690 pc=0x100f79bc0
+runtime.mcall()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:193 +0x54 fp=0x16eeca700 sp=0x16eeca6f0 pc=0x100faa9b4
+
+goroutine 1 gp=0x140000021c0 m=nil [chan receive, 46 minutes]:
+runtime.gopark(0x1400014b838?, 0x100f4a174?, 0x48?, 0xb8?, 0x1013f4850?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x1400014b800 sp=0x1400014b7e0 pc=0x100fa5448
+runtime.chanrecv(0x14000020150, 0x0, 0x1)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/chan.go:664 +0x42c fp=0x1400014b880 sp=0x1400014b800 pc=0x100f400cc
+runtime.chanrecv1(0x1400014b8d8?, 0x0?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/chan.go:506 +0x14 fp=0x1400014b8b0 sp=0x1400014b880 pc=0x100f3fc94
+testing.(*B).run1(0x1400012e2c8)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:247 +0xa0 fp=0x1400014b9b0 sp=0x1400014b8b0 pc=0x10100a9b0
+testing.(*B).Run(0x1400012e588, {0x1010e854b?, 0x1400014bae8?}, 0x1011a8258)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:847 +0x3f0 fp=0x1400014bab0 sp=0x1400014b9b0 pc=0x10100d1e0
+testing.runBenchmarks.func1(0x1400012e588)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:708 +0x40 fp=0x1400014baf0 sp=0x1400014bab0 pc=0x10100c610
+testing.(*B).runN(0x1400012e588, 0x1)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:219 +0x1a4 fp=0x1400014bb80 sp=0x1400014baf0 pc=0x10100a764
+testing.runBenchmarks({0x1010f38b0, 0x39}, 0x0?, {0x101330f80, 0x8, 0x7?})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:717 +0x51c fp=0x1400014bc90 sp=0x1400014bb80 pc=0x10100c57c
+testing.(*M).Run(0x1400007caa0)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/testing.go:2158 +0x86c fp=0x1400014bec0 sp=0x1400014bc90 pc=0x10101719c
+main.main()
+	_testmain.go:69 +0x90 fp=0x1400014bf40 sp=0x1400014bec0 pc=0x1010bea60
+runtime.main()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:283 +0x284 fp=0x1400014bfd0 sp=0x1400014bf40 pc=0x100f712f4
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x1400014bfd0 sp=0x1400014bfd0 pc=0x100facdc4
+
+goroutine 2 gp=0x14000002700 m=nil [force gc (idle), 65 minutes]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x14000054f90 sp=0x14000054f70 pc=0x100fa5448
+runtime.goparkunlock(...)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:441
+runtime.forcegchelper()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:348 +0xb8 fp=0x14000054fd0 sp=0x14000054f90 pc=0x100f71648
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x14000054fd0 sp=0x14000054fd0 pc=0x100facdc4
+created by runtime.init.7 in goroutine 1
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:336 +0x24
+
+goroutine 3 gp=0x14000002fc0 m=nil [GC sweep wait]:
+runtime.gopark(0x101337a01?, 0x101337a20?, 0xc?, 0x9?, 0x1?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x14000055760 sp=0x14000055740 pc=0x100fa5448
+runtime.goparkunlock(...)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:441
+runtime.bgsweep(0x14000076000)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgcsweep.go:316 +0x108 fp=0x140000557b0 sp=0x14000055760 pc=0x100f5a458
+runtime.gcenable.gowrap1()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:204 +0x28 fp=0x140000557d0 sp=0x140000557b0 pc=0x100f4e268
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x140000557d0 sp=0x140000557d0 pc=0x100facdc4
+created by runtime.gcenable in goroutine 1
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:204 +0x6c
+
+goroutine 4 gp=0x14000003180 m=nil [GC scavenge wait]:
+runtime.gopark(0x10000?, 0x6553f100?, 0x0?, 0x0?, 0x0?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x14000055f60 sp=0x14000055f40 pc=0x100fa5448
+runtime.goparkunlock(...)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:441
+runtime.(*scavengerState).park(0x1013380e0)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgcscavenge.go:425 +0x5c fp=0x14000055f90 sp=0x14000055f60 pc=0x100f57efc
+runtime.bgscavenge(0x14000076000)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgcscavenge.go:658 +0xac fp=0x14000055fb0 sp=0x14000055f90 pc=0x100f5849c
+runtime.gcenable.gowrap2()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:205 +0x28 fp=0x14000055fd0 sp=0x14000055fb0 pc=0x100f4e208
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x14000055fd0 sp=0x14000055fd0 pc=0x100facdc4
+created by runtime.gcenable in goroutine 1
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:205 +0xac
+
+goroutine 5 gp=0x14000003340 m=nil [finalizer wait, 65 minutes]:
+runtime.gopark(0x140000545b8?, 0x100fa5f94?, 0x1?, 0x45?, 0x100fc8f94?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x14000054590 sp=0x14000054570 pc=0x100fa5448
+runtime.runfinq()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mfinal.go:196 +0x108 fp=0x140000547d0 sp=0x14000054590 pc=0x100f4d268
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x140000547d0 sp=0x140000547d0 pc=0x100facdc4
+created by runtime.createfing in goroutine 1
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mfinal.go:166 +0x80
+
+goroutine 6 gp=0x14000003880 m=nil [chan receive]:
+runtime.gopark(0x1400007c8c0?, 0x1400000c150?, 0x48?, 0x27?, 0x101060e68?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x140000526f0 sp=0x140000526d0 pc=0x100fa5448
+runtime.chanrecv(0x140000204d0, 0x0, 0x1)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/chan.go:664 +0x42c fp=0x14000052770 sp=0x140000526f0 pc=0x100f400cc
+runtime.chanrecv1(0x0?, 0x0?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/chan.go:506 +0x14 fp=0x140000527a0 sp=0x14000052770 pc=0x100f3fc94
+runtime.unique_runtime_registerUniqueMapCleanup.func2(...)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1796
+runtime.unique_runtime_registerUniqueMapCleanup.gowrap1()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1799 +0x3c fp=0x140000527d0 sp=0x140000527a0 pc=0x100f5148c
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x140000527d0 sp=0x140000527d0 pc=0x100facdc4
+created by unique.runtime_registerUniqueMapCleanup in goroutine 1
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1794 +0x78
+
+goroutine 8 gp=0x140001fe000 m=nil [GC worker (idle)]:
+runtime.gopark(0x2730eec47c2bf?, 0x3?, 0xd9?, 0x4b?, 0x0?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x14000283f10 sp=0x14000283ef0 pc=0x100fa5448
+runtime.gcBgMarkWorker(0x14000020770)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1423 +0xdc fp=0x14000283fb0 sp=0x14000283f10 pc=0x100f506fc
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x28 fp=0x14000283fd0 sp=0x14000283fb0 pc=0x100f505e8
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x14000283fd0 sp=0x14000283fd0 pc=0x100facdc4
+created by runtime.gcBgMarkStartWorkers in goroutine 7
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x140
+
+goroutine 9 gp=0x140001fe1c0 m=nil [GC worker (idle), 13 minutes]:
+runtime.gopark(0x2724f1d05aeb9?, 0x3?, 0x17?, 0x1f?, 0x0?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x14000101f10 sp=0x14000101ef0 pc=0x100fa5448
+runtime.gcBgMarkWorker(0x14000020770)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1423 +0xdc fp=0x14000101fb0 sp=0x14000101f10 pc=0x100f506fc
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x28 fp=0x14000101fd0 sp=0x14000101fb0 pc=0x100f505e8
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x14000101fd0 sp=0x14000101fd0 pc=0x100facdc4
+created by runtime.gcBgMarkStartWorkers in goroutine 7
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x140
+
+goroutine 10 gp=0x140001fe380 m=nil [runnable]:
+runtime.gcMarkDone()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:869 +0x354 fp=0x14000287f10 sp=0x14000287f10 pc=0x100f4f2d4
+runtime.gcBgMarkWorker(0x14000020770)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1559 +0x384 fp=0x14000287fb0 sp=0x14000287f10 pc=0x100f509a4
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x28 fp=0x14000287fd0 sp=0x14000287fb0 pc=0x100f505e8
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x14000287fd0 sp=0x14000287fd0 pc=0x100facdc4
+created by runtime.gcBgMarkStartWorkers in goroutine 7
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x140
+
+goroutine 11 gp=0x140001fe540 m=nil [GC worker (idle)]:
+runtime.gopark(0x2730eec47c19b?, 0x1?, 0x34?, 0x21?, 0x0?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x14000107f10 sp=0x14000107ef0 pc=0x100fa5448
+runtime.gcBgMarkWorker(0x14000020770)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1423 +0xdc fp=0x14000107fb0 sp=0x14000107f10 pc=0x100f506fc
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x28 fp=0x14000107fd0 sp=0x14000107fb0 pc=0x100f505e8
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x14000107fd0 sp=0x14000107fd0 pc=0x100facdc4
+created by runtime.gcBgMarkStartWorkers in goroutine 7
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x140
+
+goroutine 12 gp=0x140001fe700 m=nil [GC worker (idle)]:
+runtime.gopark(0x2730eec3b8713?, 0x1?, 0x53?, 0xe2?, 0x0?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x14000102f10 sp=0x14000102ef0 pc=0x100fa5448
+runtime.gcBgMarkWorker(0x14000020770)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1423 +0xdc fp=0x14000102fb0 sp=0x14000102f10 pc=0x100f506fc
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x28 fp=0x14000102fd0 sp=0x14000102fb0 pc=0x100f505e8
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x14000102fd0 sp=0x14000102fd0 pc=0x100facdc4
+created by runtime.gcBgMarkStartWorkers in goroutine 7
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x140
+
+goroutine 13 gp=0x140001fe8c0 m=nil [GC worker (idle)]:
+runtime.gopark(0x2730eb5685096?, 0x1?, 0xbb?, 0x2b?, 0x0?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x14000103f10 sp=0x14000103ef0 pc=0x100fa5448
+runtime.gcBgMarkWorker(0x14000020770)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1423 +0xdc fp=0x14000103fb0 sp=0x14000103f10 pc=0x100f506fc
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x28 fp=0x14000103fd0 sp=0x14000103fb0 pc=0x100f505e8
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x14000103fd0 sp=0x14000103fd0 pc=0x100facdc4
+created by runtime.gcBgMarkStartWorkers in goroutine 7
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x140
+
+goroutine 14 gp=0x140001fea80 m=nil [GC worker (idle)]:
+runtime.gopark(0x2730e80ae9d74?, 0x1?, 0x8e?, 0x12?, 0x0?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x14000286f10 sp=0x14000286ef0 pc=0x100fa5448
+runtime.gcBgMarkWorker(0x14000020770)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1423 +0xdc fp=0x14000286fb0 sp=0x14000286f10 pc=0x100f506fc
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x28 fp=0x14000286fd0 sp=0x14000286fb0 pc=0x100f505e8
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x14000286fd0 sp=0x14000286fd0 pc=0x100facdc4
+created by runtime.gcBgMarkStartWorkers in goroutine 7
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x140
+
+goroutine 15 gp=0x140001fec40 m=nil [GC worker (idle)]:
+runtime.gopark(0x2730eec47bc13?, 0x1?, 0xfa?, 0x0?, 0x0?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x14000284f10 sp=0x14000284ef0 pc=0x100fa5448
+runtime.gcBgMarkWorker(0x14000020770)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1423 +0xdc fp=0x14000284fb0 sp=0x14000284f10 pc=0x100f506fc
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x28 fp=0x14000284fd0 sp=0x14000284fb0 pc=0x100f505e8
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x14000284fd0 sp=0x14000284fd0 pc=0x100facdc4
+created by runtime.gcBgMarkStartWorkers in goroutine 7
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/mgc.go:1339 +0x140
+
+goroutine 83 gp=0x14000502c40 m=nil [chan receive, 3 minutes]:
+runtime.gopark(0x140001499b8?, 0x100f4a174?, 0xc8?, 0x99?, 0x127f28fa8?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/proc.go:435 +0xc8 fp=0x14000149980 sp=0x14000149960 pc=0x100fa5448
+runtime.chanrecv(0x140000201c0, 0x0, 0x1)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/chan.go:664 +0x42c fp=0x14000149a00 sp=0x14000149980 pc=0x100f400cc
+runtime.chanrecv1(0x14000149a58?, 0x0?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/chan.go:506 +0x14 fp=0x14000149a30 sp=0x14000149a00 pc=0x100f3fc94
+testing.(*B).run1(0x1400012e848)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:247 +0xa0 fp=0x14000149b30 sp=0x14000149a30 pc=0x10100a9b0
+testing.(*benchState).processBench(0x1400000c228, 0x10119fd00?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:745 +0x2b8 fp=0x14000149cd0 sp=0x14000149b30 pc=0x10100c908
+testing.(*B).run(0x1400012eb08?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:288 +0x64 fp=0x14000149d00 sp=0x14000149cd0 pc=0x10100aec4
+testing.(*B).Run(0x1400012e2c8, {0x140000141e0?, 0x1011a83d8?}, 0x1400007e720)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:848 +0x3fc fp=0x14000149e00 sp=0x14000149d00 pc=0x10100d1ec
+github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks.BenchmarkConcat.func1(0x1011a83d8)
+	/Users/lulu/Sync/src/github.com/lunemec/go-rules-of-thumb/benchmarks/strings_concat_test.go:39 +0x118 fp=0x14000149eb0 sp=0x14000149e00 pc=0x1010bd528
+github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks.BenchmarkConcat(0x1400012e2c8?)
+	/Users/lulu/Sync/src/github.com/lunemec/go-rules-of-thumb/benchmarks/strings_concat_test.go:50 +0x124 fp=0x14000149f00 sp=0x14000149eb0 pc=0x1010bd374
+testing.(*B).runN(0x1400012e2c8, 0x1)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:219 +0x1a4 fp=0x14000149f90 sp=0x14000149f00 pc=0x10100a764
+testing.(*B).run1.func1()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:245 +0x4c fp=0x14000149fd0 sp=0x14000149f90 pc=0x10100adcc
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x14000149fd0 sp=0x14000149fd0 pc=0x100facdc4
+created by testing.(*B).run1 in goroutine 1
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:238 +0x90
+
+goroutine 300 gp=0x140004cca80 m=nil [runnable]:
+fmt.(*pp).printArg(0x1400010a0d0?, {0x101159a80?, 0x14000140040?}, 0x73?)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/fmt/print.go:681 +0x568 fp=0x14000281ce0 sp=0x14000281ce0 pc=0x100ff8328
+fmt.(*pp).doPrintf(0x1400010a0d0, {0x1010e5d71, 0x6}, {0x14000281e78, 0x3, 0x3})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/fmt/print.go:1074 +0x2d8 fp=0x14000281de0 sp=0x14000281ce0 pc=0x100ffa988
+fmt.Sprintf({0x1010e5d71, 0x6}, {0x14000281e78, 0x3, 0x3})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/fmt/print.go:239 +0x4c fp=0x14000281e40 sp=0x14000281de0 pc=0x100ff53dc
+github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks.concatSprintf({0x1400000e270, 0xa}, 0x1400009fed8?)
+	/Users/lulu/Sync/src/github.com/lunemec/go-rules-of-thumb/benchmarks/strings_concat_test.go:92 +0xa0 fp=0x14000281eb0 sp=0x14000281e40 pc=0x1010bd9b0
+github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks.benchmarkConcat.func1(0x1400012e848)
+	/Users/lulu/Sync/src/github.com/lunemec/go-rules-of-thumb/benchmarks/strings_concat_test.go:67 +0x4c fp=0x14000281f00 sp=0x14000281eb0 pc=0x1010bd66c
+testing.(*B).runN(0x1400012e848, 0x1)
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:219 +0x1a4 fp=0x14000281f90 sp=0x14000281f00 pc=0x10100a764
+testing.(*B).run1.func1()
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:245 +0x4c fp=0x14000281fd0 sp=0x14000281f90 pc=0x10100adcc
+runtime.goexit({})
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/runtime/asm_arm64.s:1223 +0x4 fp=0x14000281fd0 sp=0x14000281fd0 pc=0x100facdc4
+created by testing.(*B).run1 in goroutine 83
+	/opt/homebrew/Cellar/go/1.24.3/libexec/src/testing/benchmark.go:238 +0x90
+
+r0      0x104
+r1      0x0
+r2      0x87482400
+r3      0x0
+r4      0x0
+r5      0xa0
+r6      0x0
+r7      0x0
+r8      0x16eeca2f8
+r9      0x0
+r10     0x1c57600
+r11     0x1c5760001c57602
+r12     0x1c5760001c57602
+r13     0x1c57600
+r14     0x0
+r15     0x1c5760001c57600
+r16     0x131
+r17     0x1fa695f60
+r18     0x0
+r19     0x1013390b8
+r20     0x1013390f8
+r21     0x1f9645fe0
+r22     0x0
+r23     0x0
+r24     0x87482400
+r25     0x87482401
+r26     0x87482500
+r27     0x101329000
+r28     0x101338300
+r29     0x16eeca370
+lr      0x18b5370e0
+sp      0x16eeca2e0
+pc      0x18b4f83cc
+fault   0x18b4f83cc
+*** Test killed with quit: ran too long (1h6m0s).
+exit status 2
+FAIL	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	3960.014s
+FAIL

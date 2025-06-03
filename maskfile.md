@@ -10,6 +10,14 @@ Creates readme from templates with all the benchmark data refreshed.
 cat pages/* > README.md
 ```
 
+## test
+
+Runs test cases.
+
+```bash
+go test -v -timeout 60m -count 1 -race  ./benchmarks/...
+```
+
 ## bench
 
 Runs all benchmarks and regenerates graphs.

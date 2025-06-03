@@ -24,11 +24,11 @@ func BenchmarkAssert(b *testing.B) {
 	}
 	switch variant {
 	case "no_assert":
-		runBenchmark(noAssert)
+		runBenchmark(benchNoAssert)
 	case "assert":
-		runBenchmark(assert)
+		runBenchmark(benchAssert)
 	case "defer_assert":
-		runBenchmark(deferAssert)
+		runBenchmark(benchDeferAssert)
 	default:
 		b.Errorf("speficy which test to run: -args -test no_assert|assert|defer_assert")
 	}
@@ -46,13 +46,13 @@ func benchmarkAssert(size int, runF assertBench) func(*testing.B) {
 	}
 }
 
-func noAssert() {
+func benchNoAssert() {
 }
 
-func assert() {
+func benchAssert() {
 	_assert(Truth, "n must be larger than 0")
 }
 
-func deferAssert() {
+func benchDeferAssert() {
 	defer _assert(Truth, "n must be larger than 0")
 }

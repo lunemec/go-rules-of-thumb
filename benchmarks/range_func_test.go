@@ -84,10 +84,8 @@ func TestIter(t *testing.T) {
 }
 
 func testingSlice(size int) []int {
-	// var ts = make([]int, size)
-	ts := []int{}
+	ts := make([]int, 0, size)
 	for range size {
-		// ts[i] = rand.Intn(size)
 		ts = append(ts, rand.Intn(size))
 	}
 	return ts

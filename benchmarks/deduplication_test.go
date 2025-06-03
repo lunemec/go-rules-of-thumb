@@ -5,9 +5,29 @@ import (
 	"slices"
 	"sort"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 type deduplicateBench func(haystack []int) []int
+
+func TestDeduplicate(t *testing.T) {
+	for _, size := range sizes {
+		haystack := testingSlice(size)
+
+		out1 := benchDeduplicateSlice(copySlice(haystack))
+		out2 := benchDeduplicateSliceSortInplace(copySlice(haystack))
+		out3 := benchDeduplicateMap(copySlice(haystack))
+
+		// Need to sort the slices because the output may be random.
+		slices.Sort(out1)
+		slices.Sort(out2)
+		slices.Sort(out3)
+
+		require.Equal(t, out1, out2)
+		require.Equal(t, out1, out3)
+	}
+}
 
 func BenchmarkDeduplication(b *testing.B) {
 	runBenchmark := func(runF deduplicateBench) {

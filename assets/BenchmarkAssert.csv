@@ -2,15 +2,15 @@ goos: darwin
 goarch: arm64
 pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
 cpu: Apple M1
-,assets/BenchmarkAssert-assert.txt,,assets/BenchmarkAssert-defer_assert.txt,,,,assets/BenchmarkAssert-no_assert.txt,,,
+,BenchmarkAssert-assert.txt,,BenchmarkAssert-defer_assert.txt,,,,BenchmarkAssert-no_assert.txt,,,
 ,sec/op,CI,sec/op,CI,vs base,P,sec/op,CI,vs base,P
-Assert/size=1-8,2.2800000000000004e-09,0%,3.234e-09,2%,+41.84%,p=0.000 n=10,2.2615e-09,2%,-0.81%,p=0.034 n=10
-Assert/size=10-8,1.1655e-08,1%,2.2520000000000002e-08,0%,+93.22%,p=0.000 n=10,1.1470000000000001e-08,1%,-1.59%,p=0.001 n=10
-Assert/size=100-8,2.221e-07,1%,2.2725000000000003e-07,0%,+2.32%,p=0.000 n=10,1.047e-07,1%,-52.86%,p=0.000 n=10
-Assert/size=1000-8,2.1480000000000004e-06,1%,2.188e-06,1%,+1.86%,p=0.000 n=10,9.7555e-07,0%,-54.58%,p=0.000 n=10
-geomean,5.967019953453496e-08,,7.757377082781404e-08,,+30.00%,,4.0344938355585604e-08,,-32.39%,
+Assert/size=1-8,2.2515000000000003e-09,0%,3.2075000000000003e-09,0%,+42.46%,p=0.000 n=10,2.2435000000000004e-09,0%,-0.36%,p=0.000 n=10
+Assert/size=10-8,1.157e-08,0%,2.2660000000000002e-08,0%,+95.85%,p=0.000 n=10,1.1515000000000001e-08,0%,-0.48%,p=0.000 n=10
+Assert/size=100-8,2.187e-07,0%,2.2775e-07,0%,+4.14%,p=0.000 n=10,1.048e-07,0%,-52.08%,p=0.000 n=10
+Assert/size=1000-8,2.11e-06,0%,2.199e-06,0%,+4.22%,p=0.000 n=10,9.6675e-07,0%,-54.18%,p=0.000 n=10
+geomean,5.8882214789823415e-08,,7.767433546769938e-08,,+31.91%,,4.0222250821466166e-08,,-31.69%,
 
-,assets/BenchmarkAssert-assert.txt,,assets/BenchmarkAssert-defer_assert.txt,,,,assets/BenchmarkAssert-no_assert.txt,,,
+,BenchmarkAssert-assert.txt,,BenchmarkAssert-defer_assert.txt,,,,BenchmarkAssert-no_assert.txt,,,
 ,B/op,CI,B/op,CI,vs base,P,B/op,CI,vs base,P
 Assert/size=1-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
 Assert/size=10-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
@@ -18,7 +18,7 @@ Assert/size=100-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
 Assert/size=1000-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
 geomean,,,,,+0.00%,,,,+0.00%,
 
-,assets/BenchmarkAssert-assert.txt,,assets/BenchmarkAssert-defer_assert.txt,,,,assets/BenchmarkAssert-no_assert.txt,,,
+,BenchmarkAssert-assert.txt,,BenchmarkAssert-defer_assert.txt,,,,BenchmarkAssert-no_assert.txt,,,
 ,allocs/op,CI,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P
 Assert/size=1-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
 Assert/size=10-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
