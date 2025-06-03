@@ -2,20 +2,35 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"slices"
 	"sort"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 type subsetBench func(first []int, second []int) bool
+
+func TestSubset(t *testing.T) {
+	for _, subsetSize := range sizesReduced {
+		for _, setSize := range sizesReduced {
+			set, subset := testingSets(setSize, subsetSize)
+
+			out1 := subsetSlice(subset, set)
+			out2 := subsetMap(subset, set)
+			out3 := subsetSortBinSearch(subset, set)
+
+			require.Equal(t, out1, out2)
+			require.Equal(t, out1, out3)
+		}
+	}
+}
 
 func BenchmarkSubset(b *testing.B) {
 	runBenchmark := func(runF subsetBench) {
 		for _, subsetSize := range sizes {
 			for _, setSize := range sizes {
-				if subsetSize > setSize {
-					continue
-				}
 				b.Run(
 					fmt.Sprintf("size=%d subset=%d", setSize, subsetSize),
 					benchmarkSubset(subsetSize, setSize, runF),
@@ -36,15 +51,34 @@ func BenchmarkSubset(b *testing.B) {
 	}
 }
 
-func benchmarkSubset(sizeFirst, sizeSecond int, runF subsetBench) func(*testing.B) {
-	// Slice A is smaller copy of Slice B, this is to force worst case for
-	// for loop approach, so that it iterates all the values.
-	second := testingSlice(sizeSecond)
-	first := second[:sizeFirst]
+func testingSets(setSize, subsetSize int) ([]int, []int) {
+	subset := make([]int, subsetSize)
+	set := testingSlice(setSize)
 
+	// In 50% of cases we make completely random subset.
+	if rand.Intn(2) == 0 {
+		subset = testingSlice(subsetSize)
+	} else {
+		if setSize < subsetSize {
+			// In the case where subset is larger than set, we can't
+			// just take slice of it, so we will copy it multiple times,
+			// We want this branch of the random flip to be when the subset is present.
+			for i := 0; i < subsetSize; i += setSize {
+				copy(subset[i:], set)
+			}
+		} else {
+			subset = set[:subsetSize]
+		}
+	}
+
+	return set, subset
+}
+
+func benchmarkSubset(setSize, subsetSize int, runF subsetBench) func(*testing.B) {
+	set, subset := testingSets(setSize, subsetSize)
 	return func(b *testing.B) {
 		for b.Loop() {
-			runF(first, second)
+			runF(subset, set)
 		}
 	}
 }

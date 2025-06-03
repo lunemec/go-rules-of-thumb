@@ -48,6 +48,7 @@ When is it more efficient to deduplicate a `slice` as opposed to using a `map[]s
 ## Subsets
 
 When checking if A is subset of B (A ⊆ B), when is it more efficient to iterate both slices in nested loop `A x B` `O(n^2)`, and when does it make sense to use `map`, or `sort` + binary search?
+Meaning of `A ⊆ B` in this test is that _all_ elements of **A** are present in **B**, regardless of position.
 
 > [!TIP]
 > use `slice` when `len(A) << len(B)`  
@@ -140,7 +141,7 @@ With [Go 1.23 came new feature - range over func](https://go.dev/blog/range-func
 pre-allocating a slice and putting values in it.
 
 > [!TIP]
-> use `iter.Seq`` for better readability for ~20% time cost  
+> use `iter.Seq` for better readability for ~20% time cost  
 > direct iteration is always faster
 
 ![iteration graph](assets/BenchmarkIterate.png)

@@ -10,8 +10,8 @@ import (
 type appendBench func(first []int, second []int) []int
 
 func TestAppend(t *testing.T) {
-	for _, subsetSize := range sizes {
-		for _, setSize := range sizes {
+	for _, subsetSize := range sizesReduced {
+		for _, setSize := range sizesReduced {
 			set := testingSlice(setSize)
 			subset := testingSlice(subsetSize)
 

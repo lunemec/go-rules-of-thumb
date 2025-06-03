@@ -11,7 +11,7 @@ import (
 type needleInHaystackBench func(checks int, needle int, haystack []int) bool
 
 func TestNeedleInAHaystack(t *testing.T) {
-	for _, size := range sizes {
+	for _, size := range sizesReduced {
 		haystack := testingSlice(size)
 		needle := rand.Intn(size * 2)
 

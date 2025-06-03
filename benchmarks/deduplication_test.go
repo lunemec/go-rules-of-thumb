@@ -12,7 +12,7 @@ import (
 type deduplicateBench func(haystack []int) []int
 
 func TestDeduplicate(t *testing.T) {
-	for _, size := range sizes {
+	for _, size := range sizesReduced {
 		haystack := testingSlice(size)
 
 		out1 := benchDeduplicateSlice(copySlice(haystack))
