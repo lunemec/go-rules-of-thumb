@@ -67,7 +67,9 @@ func testingSets(setSize, subsetSize int) ([]int, []int) {
 				copy(subset[i:], set)
 			}
 		} else {
-			subset = set[:subsetSize]
+			// Take end of the bigger set to force
+			// us to iterate further (worst case).
+			subset = set[setSize-subsetSize:]
 		}
 	}
 
