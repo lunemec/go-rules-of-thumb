@@ -110,10 +110,10 @@ x_col = "size"
 y_col = "ns_per_op"
 
 # Choose hue_col: prefer 'needles' if it exists, otherwise use first other param
-if "iterations" in df.columns:
-    hue_col = "iterations"
-    df[hue_col] = pd.to_numeric(df[hue_col], errors="coerce")
-elif "subset" in df.columns:
+# if "iterations" in df.columns:
+#    hue_col = "iterations"
+#    df[hue_col] = pd.to_numeric(df[hue_col], errors="coerce")
+if "subset" in df.columns:
     hue_col = "subset"
     df[hue_col] = pd.to_numeric(df[hue_col], errors="coerce")
 else:
@@ -130,13 +130,17 @@ plot_args = dict(
     y=y_col,
     hue=hue_col,
     style="implementation",
+    col="iterations",
+    col_wrap=1,
     markers=True,
     dashes=False,
     palette="deep",
+    kind="line",
 )
-
+print(plot_args)
+print(df)
 sns.set_theme(style="whitegrid")
-sns.lineplot(**plot_args)
+sns.relplot(**plot_args)
 plt.xscale("log")
 plt.yscale("log")
 plt.xlabel("Size")
