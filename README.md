@@ -26,7 +26,7 @@ Examples here are what is called micro-optimization, before diving into these, p
 When is it more efficient to convert a _slice_ into a _map_ for locating an element `x` within the set `A` (x ∈ A)?
 
 > [!TIP]
-> use `slice` if `len(neeldes) <= 10`  
+> use `slice` if `len(neeldes) <= 50`  
 > use `map` when `len(haystack) > 100 && len(needles) > 100`
 
 Depending on size of the _haystack_ (size) and number of _needles_ (iterations), this will differ:
@@ -47,7 +47,7 @@ When is it more efficient to deduplicate a `slice` as opposed to using a `map[]s
 [Benchmark results](assets/BenchmarkDeduplication.txt)
 ## Subsets
 
-When checking if A is subset of B (A ⊆ B), when is it more efficient to iterate both slices in nested loop `A x B` `O(n^2)`, and when does it make sense to use `map`, or `sort` + binary search?
+When checking if **A** is subset of **B** (A ⊆ B), when is it more efficient to iterate both slices in nested loop `A x B` `O(n^2)`, and when does it make sense to use `map`, or `sort` + binary search?  
 Meaning of `A ⊆ B` in this test is that _all_ elements of **A** are present in **B**, regardless of position.
 
 > [!TIP]
