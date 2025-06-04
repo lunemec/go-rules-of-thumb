@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
 	"slices"
 	"sort"
 	"testing"
@@ -28,9 +27,13 @@ func TestSubset(t *testing.T) {
 }
 
 func BenchmarkSubset(b *testing.B) {
+	s := sizes
+	if testing.Short() {
+		s = sizesReduced
+	}
 	runBenchmark := func(runF subsetBench) {
-		for _, subsetSize := range sizes {
-			for _, setSize := range sizes {
+		for _, subsetSize := range s {
+			for _, setSize := range s {
 				b.Run(
 					fmt.Sprintf("size=%d subset=%d", setSize, subsetSize),
 					benchmarkSubset(subsetSize, setSize, runF),
@@ -55,22 +58,17 @@ func testingSets(setSize, subsetSize int) ([]int, []int) {
 	subset := make([]int, subsetSize)
 	set := testingSlice(setSize)
 
-	// In 50% of cases we make completely random subset.
-	if rand.Intn(2) == 0 {
-		subset = testingSlice(subsetSize)
-	} else {
-		if setSize < subsetSize {
-			// In the case where subset is larger than set, we can't
-			// just take slice of it, so we will copy it multiple times,
-			// We want this branch of the random flip to be when the subset is present.
-			for i := 0; i < subsetSize; i += setSize {
-				copy(subset[i:], set)
-			}
-		} else {
-			// Take end of the bigger set to force
-			// us to iterate further (worst case).
-			subset = set[setSize-subsetSize:]
+	if setSize < subsetSize {
+		// In the case where subset is larger than set, we can't
+		// just take slice of it, so we will copy it multiple times,
+		// We want this branch of the random flip to be when the subset is present.
+		for i := 0; i < subsetSize; i += setSize {
+			copy(subset[i:], set)
 		}
+	} else {
+		// Take end of the bigger set to force
+		// us to iterate further (worst case).
+		subset = set[setSize-subsetSize:]
 	}
 
 	return set, subset
@@ -78,17 +76,16 @@ func testingSets(setSize, subsetSize int) ([]int, []int) {
 
 func benchmarkSubset(setSize, subsetSize int, runF subsetBench) func(*testing.B) {
 	set, subset := testingSets(setSize, subsetSize)
+	randomSubset := testingSlice(subsetSize)
 	return func(b *testing.B) {
 		for b.Loop() {
 			runF(subset, set)
+			runF(randomSubset, set)
 		}
 	}
 }
 
 func subsetSlice(first, second []int) bool {
-	if len(first) > len(second) {
-		return false
-	}
 	for _, firstValue := range first {
 		var found bool
 		for _, secondValue := range second {
@@ -106,9 +103,6 @@ func subsetSlice(first, second []int) bool {
 }
 
 func subsetSortBinSearch(first, second []int) bool {
-	if len(first) > len(second) {
-		return false
-	}
 	// Need to copy because sort modifies the slice.
 	// This adds time to the execution, but it is ok because
 	// the other implementations don't have to do this.
@@ -126,9 +120,6 @@ func subsetSortBinSearch(first, second []int) bool {
 }
 
 func subsetMap(first, second []int) bool {
-	if len(first) > len(second) {
-		return false
-	}
 	set := make(map[int]struct{}, len(second))
 	for _, value := range second {
 		set[value] = struct{}{}
