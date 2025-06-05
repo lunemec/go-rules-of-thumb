@@ -4,24 +4,24 @@ pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
 cpu: Apple M1
                              │ BenchmarkDeduplication-map.txt │ BenchmarkDeduplication-slice_sort_inplace.txt │      BenchmarkDeduplication-slice.txt      │
                              │             sec/op             │        sec/op         vs base                 │     sec/op      vs base                    │
-Deduplication/size=10-8                          214.15n ± 0%            57.10n ± 0%   -73.34% (p=0.000 n=10)     109.80n ± 1%      -48.73% (p=0.000 n=10)
-Deduplication/size=50-8                           860.3n ± 1%            363.8n ± 0%   -57.71% (p=0.000 n=10)      460.5n ± 0%      -46.48% (p=0.000 n=10)
-Deduplication/size=100-8                         1734.5n ± 1%            853.8n ± 0%   -50.78% (p=0.000 n=10)     1234.5n ± 0%      -28.83% (p=0.000 n=10)
-Deduplication/size=500-8                          9.298µ ± 1%            5.037µ ± 0%   -45.83% (p=0.000 n=10)     30.667µ ± 0%     +229.84% (p=0.000 n=10)
-Deduplication/size=1000-8                         19.74µ ± 1%            10.74µ ± 0%   -45.58% (p=0.000 n=10)     112.84µ ± 0%     +471.73% (p=0.000 n=10)
-Deduplication/size=5000-8                         103.2µ ± 1%            183.8µ ± 2%   +78.12% (p=0.000 n=10)     2425.0µ ± 1%    +2249.52% (p=0.000 n=10)
-Deduplication/size=10000-8                        210.7µ ± 0%            446.7µ ± 0%  +111.99% (p=0.000 n=10)     9230.7µ ± 0%    +4280.70% (p=0.000 n=10)
-Deduplication/size=50000-8                        1.100m ± 1%            2.754m ± 0%  +150.29% (p=0.000 n=10)    227.135m ± 0%   +20541.44% (p=0.000 n=10)
-Deduplication/size=100000-8                       2.189m ± 1%            5.928m ± 1%  +170.83% (p=0.000 n=10)    906.472m ± 0%   +41310.60% (p=0.000 n=10)
-Deduplication/size=500000-8                       22.29m ± 3%            33.28m ± 0%   +49.30% (p=0.000 n=10)   22716.80m ± 0%  +101803.82% (p=0.000 n=10)
-Deduplication/size=1000000-8                      57.65m ± 2%            69.44m ± 0%   +20.44% (p=0.000 n=10)   91064.70m ± 0%  +157853.63% (p=0.000 n=10)
-geomean                                           91.90µ                 89.56µ         -2.55%                     2.001m         +2077.41%
+Deduplication/size=10-8                          193.55n ± 1%            45.27n ± 1%   -76.61% (p=0.000 n=10)     108.05n ± 1%      -44.17% (p=0.000 n=10)
+Deduplication/size=50-8                           885.1n ± 1%            386.7n ± 1%   -56.31% (p=0.000 n=10)      442.3n ± 1%      -50.03% (p=0.000 n=10)
+Deduplication/size=100-8                         1755.0n ± 2%            851.2n ± 0%   -51.50% (p=0.000 n=10)     1474.0n ± 1%      -16.01% (p=0.000 n=10)
+Deduplication/size=500-8                          9.031µ ± 1%            5.110µ ± 1%   -43.42% (p=0.000 n=10)     29.710µ ± 1%     +228.99% (p=0.000 n=10)
+Deduplication/size=1000-8                         19.96µ ± 0%            10.67µ ± 1%   -46.55% (p=0.000 n=10)     108.10µ ± 1%     +441.61% (p=0.000 n=10)
+Deduplication/size=5000-8                         102.8µ ± 0%            187.0µ ± 2%   +81.89% (p=0.000 n=10)     2335.3µ ± 1%    +2171.01% (p=0.000 n=10)
+Deduplication/size=10000-8                        212.8µ ± 1%            450.7µ ± 0%  +111.78% (p=0.000 n=10)     9217.6µ ± 0%    +4231.55% (p=0.000 n=10)
+Deduplication/size=50000-8                        1.098m ± 2%            2.835m ± 0%  +158.28% (p=0.000 n=10)    226.861m ± 1%   +20567.40% (p=0.000 n=10)
+Deduplication/size=100000-8                       2.203m ± 1%            6.056m ± 0%  +174.91% (p=0.000 n=10)    902.903m ± 0%   +40887.20% (p=0.000 n=10)
+Deduplication/size=500000-8                       23.64m ± 4%            33.67m ± 0%   +42.43% (p=0.000 n=10)   22919.53m ± 1%   +96840.19% (p=0.000 n=10)
+Deduplication/size=1000000-8                      58.72m ± 2%            69.75m ± 0%   +18.78% (p=0.000 n=10)   91669.45m ± 0%  +156004.47% (p=0.000 n=10)
+geomean                                           91.97µ                 88.96µ         -3.27%                     2.004m         +2079.26%
 
                              │ BenchmarkDeduplication-map.txt │ BenchmarkDeduplication-slice_sort_inplace.txt │   BenchmarkDeduplication-slice.txt    │
                              │              B/op              │         B/op           vs base                │     B/op       vs base                │
 Deduplication/size=10-8                           488.00 ± 0%              80.00 ± 0%  -83.61% (p=0.000 n=10)     200.00 ± 0%  -59.02% (p=0.000 n=10)
 Deduplication/size=50-8                           2024.0 ± 0%              416.0 ± 0%  -79.45% (p=0.000 n=10)      920.0 ± 0%  -54.55% (p=0.000 n=10)
-Deduplication/size=100-8                          4136.0 ± 0%              896.0 ± 0%  -78.34% (p=0.000 n=10)     1912.0 ± 0%  -53.77% (p=0.000 n=10)
+Deduplication/size=100-8                          4136.0 ± 0%              896.0 ± 0%  -78.34% (p=0.000 n=10)     2936.0 ± 0%  -29.01% (p=0.000 n=10)
 Deduplication/size=500-8                        26.039Ki ± 0%            4.000Ki ± 0%  -84.64% (p=0.000 n=10)   11.992Ki ± 0%  -53.95% (p=0.000 n=10)
 Deduplication/size=1000-8                       52.078Ki ± 0%            8.000Ki ± 0%  -84.64% (p=0.000 n=10)   22.617Ki ± 0%  -56.57% (p=0.000 n=10)
 Deduplication/size=5000-8                       224.32Ki ± 0%            40.00Ki ± 0%  -82.17% (p=0.000 n=10)   125.24Ki ± 0%  -44.17% (p=0.000 n=10)
@@ -30,13 +30,13 @@ Deduplication/size=50000-8                      1938.5Ki ± 0%            392.0K
 Deduplication/size=100000-8                     3877.2Ki ± 0%            784.0Ki ± 0%  -79.78% (p=0.000 n=10)   3237.3Ki ± 0%  -16.50% (p=0.000 n=10)
 Deduplication/size=500000-8                     25.681Mi ± 0%            3.820Mi ± 0%  -85.12% (p=0.000 n=10)   16.521Mi ± 0%  -35.67% (p=0.000 n=10)
 Deduplication/size=1000000-8                    51.346Mi ± 0%            7.633Mi ± 0%  -85.13% (p=0.000 n=10)   32.888Mi ± 0%  -35.95% (p=0.000 n=10)
-geomean                                          177.2Ki                 31.14Ki       -82.42%                   98.19Ki       -44.58%
+geomean                                          177.2Ki                 31.14Ki       -82.42%                   102.1Ki       -42.37%
 
                              │ BenchmarkDeduplication-map.txt │ BenchmarkDeduplication-slice_sort_inplace.txt │    BenchmarkDeduplication-slice.txt    │
                              │           allocs/op            │       allocs/op        vs base                │  allocs/op   vs base                   │
 Deduplication/size=10-8                            5.000 ± 0%              1.000 ± 0%  -80.00% (p=0.000 n=10)    5.000 ± 0%         ~ (p=1.000 n=10) ¹
 Deduplication/size=50-8                            5.000 ± 0%              1.000 ± 0%  -80.00% (p=0.000 n=10)    7.000 ± 0%   +40.00% (p=0.000 n=10)
-Deduplication/size=100-8                           5.000 ± 0%              1.000 ± 0%  -80.00% (p=0.000 n=10)    8.000 ± 0%   +60.00% (p=0.000 n=10)
+Deduplication/size=100-8                           5.000 ± 0%              1.000 ± 0%  -80.00% (p=0.000 n=10)    9.000 ± 0%   +80.00% (p=0.000 n=10)
 Deduplication/size=500-8                           5.000 ± 0%              1.000 ± 0%  -80.00% (p=0.000 n=10)   11.000 ± 0%  +120.00% (p=0.000 n=10)
 Deduplication/size=1000-8                          7.000 ± 0%              1.000 ± 0%  -85.71% (p=0.000 n=10)   12.000 ± 0%   +71.43% (p=0.000 n=10)
 Deduplication/size=5000-8                         19.000 ± 0%              1.000 ± 0%  -94.74% (p=0.000 n=10)   16.000 ± 0%   -15.79% (p=0.000 n=10)
@@ -44,6 +44,6 @@ Deduplication/size=10000-8                        35.000 ± 0%              1.00
 Deduplication/size=50000-8                       132.000 ± 0%              1.000 ± 0%  -99.24% (p=0.000 n=10)   25.000 ± 4%   -81.06% (p=0.000 n=10)
 Deduplication/size=100000-8                      261.000 ± 0%              1.000 ± 0%  -99.62% (p=0.000 n=10)   29.000 ± 0%   -88.89% (p=0.000 n=10)
 Deduplication/size=500000-8                     2054.000 ± 0%              1.000 ± 0%  -99.95% (p=0.000 n=10)   38.000 ± 3%   -98.15% (p=0.000 n=10)
-Deduplication/size=1000000-8                    4102.000 ± 0%              2.000 ± 0%  -99.95% (p=0.000 n=10)   41.000 ± 2%   -99.00% (p=0.000 n=10)
-geomean                                            42.63                   1.065       -97.50%                   15.46        -63.74%
+Deduplication/size=1000000-8                    4102.000 ± 0%              2.000 ± 0%  -99.95% (p=0.000 n=10)   41.500 ± 1%   -98.99% (p=0.000 n=10)
+geomean                                            42.63                   1.065       -97.50%                   15.64        -63.31%
 ¹ all samples are equal
