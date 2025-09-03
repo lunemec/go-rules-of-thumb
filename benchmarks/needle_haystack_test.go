@@ -4,23 +4,42 @@ import (
 	"fmt"
 	"math/rand"
 	"testing"
-)
 
-var Found bool
+	"github.com/stretchr/testify/require"
+)
 
 type needleInHaystackBench func(checks int, needle int, haystack []int) bool
 
+func TestNeedleInAHaystack(t *testing.T) {
+	for _, size := range sizesReduced {
+		haystack := testingSlice(size)
+		needle := rand.Intn(size * 2)
+
+		out1 := needleInAHaystackSlice(needle, haystack)
+		out2 := needleInAHaystackMap(needle, haystackToMap(haystack))
+
+		require.Equal(t, out1, out2)
+	}
+}
+
 func BenchmarkNeedleInAHaystack(b *testing.B) {
-	for _, size := range sizes {
-		for _, nchecks := range needles {
-			b.Run(
-				fmt.Sprintf("slice(%d) needles(%d)", size, nchecks),
-				benchmarkNeedleInAHaystack(size, nchecks, benchNeedleInAHaystackSlice),
-			)
-			b.Run(
-				fmt.Sprintf("map(%d) needles(%d)", size, nchecks),
-				benchmarkNeedleInAHaystack(size, nchecks, benchNeedleInAHaystackMap))
+	runBenchmark := func(runF needleInHaystackBench) {
+		for _, size := range sizes {
+			for _, nchecks := range needles {
+				b.Run(
+					fmt.Sprintf("size=%d iterations=%d", size, nchecks),
+					benchmarkNeedleInAHaystack(size, nchecks, runF),
+				)
+			}
 		}
+	}
+	switch variant {
+	case "slice":
+		runBenchmark(benchNeedleInAHaystackSlice)
+	case "map":
+		runBenchmark(benchNeedleInAHaystackMap)
+	default:
+		b.Errorf("speficy which test to run: -args -test slice|map")
 	}
 }
 
@@ -28,18 +47,18 @@ func benchmarkNeedleInAHaystack(size int, checks int, runF needleInHaystackBench
 	haystack := testingSlice(size)
 
 	return func(b *testing.B) {
-		var f bool
-		for n := 0; n < b.N; n++ {
-			needle := rand.Intn(size)
-			f = runF(checks, needle, haystack)
+		for b.Loop() {
+			// We make our needle to have 50% chance
+			// to not be in the haystack.
+			needle := rand.Intn(size * 2)
+			runF(checks, needle, haystack)
 		}
-		Found = f
 	}
 }
 
 func benchNeedleInAHaystackSlice(checks int, needle int, haystack []int) bool {
 	var f bool
-	for i := 0; i < checks; i++ {
+	for range checks {
 		f = needleInAHaystackSlice(needle, haystack)
 	}
 	return f
@@ -58,14 +77,14 @@ func needleInAHaystackSlice(needle int, haystack []int) bool {
 func benchNeedleInAHaystackMap(checks int, needle int, haystack []int) bool {
 	var f bool
 	mapHaystack := haystackToMap(haystack)
-	for i := 0; i < checks; i++ {
+	for range checks {
 		f = needleInAHaystackMap(needle, mapHaystack)
 	}
 	return f
 }
 
 func haystackToMap(haystack []int) map[int]struct{} {
-	var out = make(map[int]struct{}, len(haystack))
+	out := make(map[int]struct{}, len(haystack))
 	for _, v := range haystack {
 		out[v] = struct{}{}
 	}

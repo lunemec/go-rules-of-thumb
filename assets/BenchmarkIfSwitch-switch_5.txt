@@ -1,0 +1,46 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M1
+BenchmarkIfSwitch/size=1-8         	417925036	         2.891 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1-8         	412955799	         2.893 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1-8         	414903925	         2.892 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1-8         	413074792	         2.896 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1-8         	414711724	         2.894 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1-8         	415792970	         2.895 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1-8         	415573081	         2.904 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1-8         	414739375	         2.896 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1-8         	413888190	         2.893 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1-8         	413267256	         2.887 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=10-8        	67262216	        17.97 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=10-8        	66948873	        18.01 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=10-8        	67027718	        17.99 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=10-8        	66577279	        18.03 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=10-8        	66922585	        18.01 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=10-8        	67213240	        17.96 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=10-8        	66145767	        18.01 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=10-8        	66740358	        18.02 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=10-8        	65898006	        18.03 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=10-8        	65913241	        18.03 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=100-8       	 7155687	       167.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=100-8       	 7108194	       167.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=100-8       	 7173722	       167.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=100-8       	 7127569	       168.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=100-8       	 6995740	       168.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=100-8       	 7169498	       167.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=100-8       	 7173848	       167.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=100-8       	 7212500	       167.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=100-8       	 7137079	       167.7 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=100-8       	 7137789	       167.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1000-8      	  750600	      1613 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1000-8      	  742945	      1606 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1000-8      	  750609	      1610 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1000-8      	  750985	      1612 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1000-8      	  734504	      1615 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1000-8      	  745574	      1622 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1000-8      	  737248	      1620 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1000-8      	  740667	      1609 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1000-8      	  749278	      1621 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIfSwitch/size=1000-8      	  744219	      1608 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	53.178s

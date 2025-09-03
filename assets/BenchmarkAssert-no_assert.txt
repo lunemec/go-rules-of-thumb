@@ -1,0 +1,46 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M1
+BenchmarkAssert/size=1-8         	531668619	         2.247 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-8         	533372546	         2.256 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-8         	532246072	         2.245 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-8         	535312999	         2.247 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-8         	531477296	         2.257 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-8         	532745337	         2.245 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-8         	536282390	         2.247 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-8         	534021924	         2.246 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-8         	535674229	         2.247 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-8         	530941441	         2.251 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-8        	100000000	        11.56 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-8        	100000000	        11.64 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-8        	100000000	        11.56 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-8        	100000000	        11.77 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-8        	98200009	        11.68 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-8        	100000000	        11.56 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-8        	100000000	        11.55 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-8        	100000000	        11.54 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-8        	100000000	        11.55 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-8        	100000000	        11.58 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-8       	11436680	       105.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-8       	11445434	       105.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-8       	11354469	       105.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-8       	11377233	       105.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-8       	11450112	       105.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-8       	11363146	       105.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-8       	11412004	       105.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-8       	11441319	       105.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-8       	11456371	       105.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-8       	11417438	       105.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-8      	 1231815	       973.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-8      	 1233177	       974.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-8      	 1228389	       976.7 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-8      	 1232568	       973.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-8      	 1228152	       977.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-8      	 1230381	       974.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-8      	 1234099	       973.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-8      	 1228524	       975.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-8      	 1230670	       976.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-8      	 1229308	       979.3 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	52.865s

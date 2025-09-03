@@ -1,0 +1,27 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M1
+,BenchmarkAssert-assert.txt,,BenchmarkAssert-defer_assert.txt,,,,BenchmarkAssert-no_assert.txt,,,
+,sec/op,CI,sec/op,CI,vs base,P,sec/op,CI,vs base,P
+Assert/size=1-8,2.26e-09,0%,3.2265000000000004e-09,1%,+42.77%,p=0.000 n=10,2.247e-09,0%,-0.58%,p=0.000 n=10
+Assert/size=10-8,1.1645000000000003e-08,0%,2.2915000000000004e-08,0%,+96.78%,p=0.000 n=10,1.156e-08,1%,~,p=0.065 n=10
+Assert/size=100-8,2.1930000000000004e-07,0%,2.3070000000000002e-07,0%,+5.20%,p=0.000 n=10,1.051e-07,0%,-52.07%,p=0.000 n=10
+Assert/size=1000-8,2.12e-06,0%,2.2325000000000002e-06,0%,+5.31%,p=0.000 n=10,9.7485e-07,0%,-54.02%,p=0.000 n=10
+geomean,5.9143307231033455e-08,,7.855478571574336e-08,,+32.82%,,4.039013963894759e-08,,-31.71%,
+
+,BenchmarkAssert-assert.txt,,BenchmarkAssert-defer_assert.txt,,,,BenchmarkAssert-no_assert.txt,,,
+,B/op,CI,B/op,CI,vs base,P,B/op,CI,vs base,P
+Assert/size=1-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
+Assert/size=10-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
+Assert/size=100-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
+Assert/size=1000-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
+geomean,,,,,+0.00%,,,,+0.00%,
+
+,BenchmarkAssert-assert.txt,,BenchmarkAssert-defer_assert.txt,,,,BenchmarkAssert-no_assert.txt,,,
+,allocs/op,CI,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P
+Assert/size=1-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
+Assert/size=10-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
+Assert/size=100-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
+Assert/size=1000-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
+geomean,,,,,+0.00%,,,,+0.00%,

@@ -1,0 +1,31 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M1
+                     │ BenchmarkIfSwitch-if_5.txt │      BenchmarkIfSwitch-if.txt       │    BenchmarkIfSwitch-switch_5.txt    │    BenchmarkIfSwitch-switch.txt     │
+                     │           sec/op           │   sec/op     vs base                │    sec/op     vs base                │   sec/op     vs base                │
+IfSwitch/size=1-8                     2.263n ± 1%   2.258n ± 0%        ~ (p=0.274 n=10)    2.893n ± 0%  +27.89% (p=0.000 n=10)   2.260n ± 0%        ~ (p=0.424 n=10)
+IfSwitch/size=10-8                    13.86n ± 1%   11.59n ± 0%  -16.34% (p=0.000 n=10)    18.01n ± 0%  +29.94% (p=0.000 n=10)   11.59n ± 0%  -16.38% (p=0.000 n=10)
+IfSwitch/size=100-8                   135.8n ± 0%   105.6n ± 0%  -22.25% (p=0.000 n=10)    167.6n ± 0%  +23.50% (p=0.000 n=10)   104.4n ± 0%  -23.09% (p=0.000 n=10)
+IfSwitch/size=1000-8                 1297.0n ± 0%   975.9n ± 0%  -24.76% (p=0.000 n=10)   1612.5n ± 1%  +24.33% (p=0.000 n=10)   974.8n ± 0%  -24.85% (p=0.000 n=10)
+geomean                               48.47n        40.52n       -16.40%                   61.26n       +26.39%                  40.40n       -16.65%
+
+                     │ BenchmarkIfSwitch-if_5.txt │      BenchmarkIfSwitch-if.txt       │   BenchmarkIfSwitch-switch_5.txt    │    BenchmarkIfSwitch-switch.txt     │
+                     │            B/op            │    B/op     vs base                 │    B/op     vs base                 │    B/op     vs base                 │
+IfSwitch/size=1-8                    0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+IfSwitch/size=10-8                   0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+IfSwitch/size=100-8                  0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+IfSwitch/size=1000-8                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+geomean                                         ²               +0.00%                ²               +0.00%                ²               +0.00%                ²
+¹ all samples are equal
+² summaries must be >0 to compute geomean
+
+                     │ BenchmarkIfSwitch-if_5.txt │      BenchmarkIfSwitch-if.txt       │   BenchmarkIfSwitch-switch_5.txt    │    BenchmarkIfSwitch-switch.txt     │
+                     │         allocs/op          │ allocs/op   vs base                 │ allocs/op   vs base                 │ allocs/op   vs base                 │
+IfSwitch/size=1-8                    0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+IfSwitch/size=10-8                   0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+IfSwitch/size=100-8                  0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+IfSwitch/size=1000-8                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+geomean                                         ²               +0.00%                ²               +0.00%                ²               +0.00%                ²
+¹ all samples are equal
+² summaries must be >0 to compute geomean

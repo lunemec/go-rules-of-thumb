@@ -1,0 +1,31 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M1
+                   │ BenchmarkAssert-assert.txt │   BenchmarkAssert-defer_assert.txt   │    BenchmarkAssert-no_assert.txt    │
+                   │           sec/op           │    sec/op     vs base                │   sec/op     vs base                │
+Assert/size=1-8                     2.260n ± 0%    3.227n ± 1%  +42.77% (p=0.000 n=10)   2.247n ± 0%   -0.58% (p=0.000 n=10)
+Assert/size=10-8                    11.65n ± 0%    22.92n ± 0%  +96.78% (p=0.000 n=10)   11.56n ± 1%        ~ (p=0.065 n=10)
+Assert/size=100-8                   219.3n ± 0%    230.7n ± 0%   +5.20% (p=0.000 n=10)   105.1n ± 0%  -52.07% (p=0.000 n=10)
+Assert/size=1000-8                 2120.0n ± 0%   2232.5n ± 0%   +5.31% (p=0.000 n=10)   974.9n ± 0%  -54.02% (p=0.000 n=10)
+geomean                             59.14n         78.55n       +32.82%                  40.39n       -31.71%
+
+                   │ BenchmarkAssert-assert.txt │  BenchmarkAssert-defer_assert.txt   │    BenchmarkAssert-no_assert.txt    │
+                   │            B/op            │    B/op     vs base                 │    B/op     vs base                 │
+Assert/size=1-8                    0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+Assert/size=10-8                   0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+Assert/size=100-8                  0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+Assert/size=1000-8                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+geomean                                       ²               +0.00%                ²               +0.00%                ²
+¹ all samples are equal
+² summaries must be >0 to compute geomean
+
+                   │ BenchmarkAssert-assert.txt │  BenchmarkAssert-defer_assert.txt   │    BenchmarkAssert-no_assert.txt    │
+                   │         allocs/op          │ allocs/op   vs base                 │ allocs/op   vs base                 │
+Assert/size=1-8                    0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+Assert/size=10-8                   0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+Assert/size=100-8                  0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+Assert/size=1000-8                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=10) ¹   0.000 ± 0%       ~ (p=1.000 n=10) ¹
+geomean                                       ²               +0.00%                ²               +0.00%                ²
+¹ all samples are equal
+² summaries must be >0 to compute geomean
