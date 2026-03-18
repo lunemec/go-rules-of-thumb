@@ -1,0 +1,56 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M5
+BenchmarkValuesVsPointers/size=10-10         	331441393	         3.617 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10-10         	330302841	         3.609 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10-10         	330650053	         3.624 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10-10         	331132641	         3.937 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10-10         	331129406	         3.618 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10-10         	323994236	         3.638 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10-10         	331561359	         3.598 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10-10         	327089371	         3.694 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10-10         	331364589	         3.839 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10-10         	262682286	         4.131 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100-10        	22972495	        51.68 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100-10        	24665980	        50.12 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100-10        	24613406	        49.80 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100-10        	24423834	        49.55 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100-10        	24362946	        49.55 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100-10        	23694244	        49.33 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100-10        	24480990	        50.28 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100-10        	23851622	        55.06 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100-10        	23342310	        52.65 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100-10        	21258518	        51.35 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=1000-10       	 2080315	       565.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=1000-10       	 2169882	       547.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=1000-10       	 2223597	       539.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=1000-10       	 2231882	       537.7 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=1000-10       	 2228535	       545.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=1000-10       	 2229680	       628.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=1000-10       	 2114358	       564.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=1000-10       	 2127394	       569.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=1000-10       	 2028822	       601.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=1000-10       	 2082069	       576.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10000-10      	  133624	     12538 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10000-10      	   94716	     16047 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10000-10      	  132098	      8919 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10000-10      	  146738	      8556 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10000-10      	  133822	      8854 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10000-10      	  143955	      8573 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10000-10      	  146042	      8378 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10000-10      	  145237	      9627 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10000-10      	  117676	     10012 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=10000-10      	  142334	      9558 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100000-10     	    9897	    127648 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100000-10     	   13198	     92433 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100000-10     	   13011	     92146 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100000-10     	   13012	     91833 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100000-10     	   12745	     93247 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100000-10     	   13297	     90157 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100000-10     	   13044	     91419 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100000-10     	   13244	     90524 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100000-10     	   12576	     94830 ns/op	       0 B/op	       0 allocs/op
+BenchmarkValuesVsPointers/size=100000-10     	   12988	     92167 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	66.781s

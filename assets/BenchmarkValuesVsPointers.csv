@@ -1,0 +1,30 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M5
+,BenchmarkValuesVsPointers-pointers_hot_scan.txt,,BenchmarkValuesVsPointers-pointers_snapshot.txt,,,,BenchmarkValuesVsPointers-values_hot_scan.txt,,,,BenchmarkValuesVsPointers-values_snapshot.txt,,,
+,sec/op,CI,sec/op,CI,vs base,P,sec/op,CI,vs base,P,sec/op,CI,vs base,P
+ValuesVsPointers/size=10-10,2.992e-09,2%,1.844e-07,5%,+6063.10%,p=0.000 n=10,3.6310000000000004e-09,8%,+21.36%,p=0.000 n=10,1.8210000000000002e-07,3%,+5986.23%,p=0.000 n=10
+ValuesVsPointers/size=100-10,4.447e-08,3%,1.591e-06,3%,+3477.69%,p=0.000 n=10,5.02e-08,5%,+12.89%,p=0.000 n=10,1.602e-06,11%,+3502.43%,p=0.000 n=10
+ValuesVsPointers/size=1000-10,5.279500000000001e-07,1%,1.53005e-05,2%,+2798.10%,p=0.000 n=10,5.6495e-07,7%,+7.01%,p=0.000 n=10,1.5314999999999998e-05,5%,+2800.84%,p=0.000 n=10
+ValuesVsPointers/size=10000-10,8.109e-06,2%,7.992350000000001e-05,7%,+885.61%,p=0.000 n=10,9.2385e-06,36%,+13.93%,p=0.000 n=10,0.0001235095,40%,+1423.12%,p=0.000 n=10
+ValuesVsPointers/size=100000-10,9.562500000000001e-05,5%,0.0006578080000000001,4%,+587.90%,p=0.000 n=10,9.215650000000001e-05,3%,-3.63%,p=0.015 n=10,0.0007051620000000001,22%,+637.42%,p=0.000 n=10
+geomean,5.587686763433421e-07,,1.1873590668631185e-05,,+2024.96%,,6.145730090663765e-07,,+9.99%,,1.3122474715057373e-05,,+2248.46%,
+
+,BenchmarkValuesVsPointers-pointers_hot_scan.txt,,BenchmarkValuesVsPointers-pointers_snapshot.txt,,,,BenchmarkValuesVsPointers-values_hot_scan.txt,,,,BenchmarkValuesVsPointers-values_snapshot.txt,,,
+,B/op,CI,B/op,CI,vs base,P,B/op,CI,vs base,P,B/op,CI,vs base,P
+ValuesVsPointers/size=10-10,0,0%,1536,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1536,0%,?,p=0.000 n=10
+ValuesVsPointers/size=100-10,0,0%,16384,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,16384,0%,?,p=0.000 n=10
+ValuesVsPointers/size=1000-10,0,0%,147457,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,147457,0%,?,p=0.000 n=10
+ValuesVsPointers/size=10000-10,0,0%,1.441794e+06,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1.441799e+06,0%,?,p=0.000 n=10
+ValuesVsPointers/size=100000-10,0,0%,1.4401536e+07,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1.4401538e+07,0%,?,p=0.000 n=10
+geomean,,,150438.0569435142,,?,,,,+0.00%,,150438.16546264276,,?,
+
+,BenchmarkValuesVsPointers-pointers_hot_scan.txt,,BenchmarkValuesVsPointers-pointers_snapshot.txt,,,,BenchmarkValuesVsPointers-values_hot_scan.txt,,,,BenchmarkValuesVsPointers-values_snapshot.txt,,,
+,allocs/op,CI,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P
+ValuesVsPointers/size=10-10,0,0%,1,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10
+ValuesVsPointers/size=100-10,0,0%,1,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10
+ValuesVsPointers/size=1000-10,0,0%,1,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10
+ValuesVsPointers/size=10000-10,0,0%,1,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10
+ValuesVsPointers/size=100000-10,0,0%,1,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10
+geomean,,,1,,?,,,,+0.00%,,1,,?,

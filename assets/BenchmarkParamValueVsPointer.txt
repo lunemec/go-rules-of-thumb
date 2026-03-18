@@ -1,0 +1,52 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M5
+                                │ BenchmarkParamValueVsPointer-pointer_param.txt │ BenchmarkParamValueVsPointer-value_param.txt │
+                                │                     sec/op                     │       sec/op         vs base                 │
+ParamValueVsPointer/size=8-10                                       145.6n ±  4%           136.0n ± 2%    -6.56% (p=0.001 n=10)
+ParamValueVsPointer/size=16-10                                      176.8n ±  9%           180.0n ± 7%         ~ (p=0.838 n=10)
+ParamValueVsPointer/size=24-10                                      153.0n ±  2%           169.9n ± 5%   +11.08% (p=0.000 n=10)
+ParamValueVsPointer/size=32-10                                      1.085µ ± 10%           1.419µ ± 5%   +30.80% (p=0.000 n=10)
+ParamValueVsPointer/size=64-10                                      1.369µ ± 12%           1.911µ ± 2%   +39.55% (p=0.000 n=10)
+ParamValueVsPointer/size=96-10                                      1.313µ ±  8%           1.934µ ± 2%   +47.31% (p=0.000 n=10)
+ParamValueVsPointer/size=128-10                                     1.268µ ±  4%           2.057µ ± 3%   +62.25% (p=0.000 n=10)
+ParamValueVsPointer/size=192-10                                     1.203µ ±  2%           2.654µ ± 3%  +120.62% (p=0.000 n=10)
+ParamValueVsPointer/size=256-10                                     1.235µ ±  3%           2.892µ ± 6%  +134.13% (p=0.000 n=10)
+ParamValueVsPointer/size=384-10                                     1.180µ ±  3%           3.143µ ± 5%  +166.43% (p=0.000 n=10)
+ParamValueVsPointer/size=512-10                                     1.242µ ±  1%           3.661µ ± 6%  +194.84% (p=0.000 n=10)
+geomean                                                             704.3n                 1.133µ        +60.89%
+
+                                │ BenchmarkParamValueVsPointer-pointer_param.txt │ BenchmarkParamValueVsPointer-value_param.txt │
+                                │                      B/op                      │        B/op          vs base                 │
+ParamValueVsPointer/size=8-10                                       0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=16-10                                      0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=24-10                                      0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=32-10                                      0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=64-10                                      0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=96-10                                      0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=128-10                                     0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=192-10                                     0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=256-10                                     0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=384-10                                     0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=512-10                                     0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+geomean                                                                        ²                        +0.00%                ²
+¹ all samples are equal
+² summaries must be >0 to compute geomean
+
+                                │ BenchmarkParamValueVsPointer-pointer_param.txt │ BenchmarkParamValueVsPointer-value_param.txt │
+                                │                   allocs/op                    │      allocs/op       vs base                 │
+ParamValueVsPointer/size=8-10                                       0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=16-10                                      0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=24-10                                      0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=32-10                                      0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=64-10                                      0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=96-10                                      0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=128-10                                     0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=192-10                                     0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=256-10                                     0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=384-10                                     0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+ParamValueVsPointer/size=512-10                                     0.000 ± 0%              0.000 ± 0%       ~ (p=1.000 n=10) ¹
+geomean                                                                        ²                        +0.00%                ²
+¹ all samples are equal
+² summaries must be >0 to compute geomean

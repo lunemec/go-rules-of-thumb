@@ -146,19 +146,47 @@ Read more:
 - <https://spinroot.com/gerard/pdf/P10.pdf>
 - <https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md#safety>
 - <https://alfasin.com/2017/12/21/negative-space-and-how-does-it-apply-to-coding/>
-## Pass by reference vs copy
+## Read-only parameter passing: `T` vs `*T`
 
-When should you pass a reference (pointer), and when should you use pass by value?
+Should a read-only call boundary take a large payload as `T` or `*T`?
+
+This benchmark is the representative parameter-passing case for this repo. It stands in for either a plain function parameter or a method receiver with the same read-only call shape.
 
 > [!TIP]
-> use pointers when you need mutation  
-> for read-only data, start with the simpler API and measure  
-> this benchmark does not show a reliable universal size cutoff
+> use `T` up to about `16B`
+> around `24-32B`, benchmark your own workload
+> on this benchmark, prefer `*T` from about `32B` upward for read-only hot paths
+> keep `T` when you specifically want value semantics or isolation
 
-In this benchmark, passing a pointer wins for all tested struct sizes, and the gap grows as the copied array gets larger. That is still a narrow microbenchmark, so the safe rule is not "always use pointers", but "measure once copying large values shows up in a profile".
+![param value vs pointer graph](assets/BenchmarkParamValueVsPointer.png)
 
-References (pointers) vs copied values are still way more complicated than one synthetic test can capture, and there is tons of resources on this topic. A great one is
-[this article](https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go) by Dave Cheney.
+Each benchmark operation runs `256` `//go:noinline` read-only calls over aligned mixed-field structs from `8B` to `512B`, reading only hot fields into a sink accumulator. In these results, `T` is about `6.6%` faster at `8B`, `16B` is effectively a wash, `*T` is about `11%` faster at `24B`, and the gap grows from about `31%` at `32B` to about `195%` at `512B`, so the measured crossover for this call shape is around `24-32B`. This does not measure mutation, interface dispatch, slice layout, or GC-heavy escaping.
+
+[Benchmark results](assets/BenchmarkParamValueVsPointer.txt)
+
+Further reading:
+- [There is no pass-by-reference in Go](https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go)
+## Slice of values vs slice of pointers
+
+Should a read-heavy collection store values (`[]T`) or pointers (`[]*T`)?
+
+This section is about collection layout for read-heavy data, not a blanket rule for API design or parameter passing.
+
+> [!TIP]
+> for wide records with a hot path that only reads a few fields, `[]*T` can win
+> in this benchmark, `[]*T` stays ahead through ~`10_000` records on the hot scan, and `[]T` only pulls ahead around ~`100_000`
+> for snapshot-style reads that copy most of each record, treat the layouts as roughly tied here and benchmark your own workload
+> reach for pointers when you need shared mutation, stable identity, or optional values
+
+![values vs pointers graph](assets/BenchmarkValuesVsPointers.png)
+
+This benchmark compares the same wide records in `[]T` and in `[]*T` backed by an equivalent contiguous slice, so it isolates pointer indirection without heap-fragmentation noise. In these results, hot scans favored `[]*T` by about `7-18%` up to `10_000` records, then `[]T` edged ahead by about `4%` at `100_000`; snapshot builds were effectively tied at `10-1_000`, `[]*T` won at `10_000`, and `100_000` was inconclusive, so the real rule of thumb is to match the layout to the read path rather than assume either representation wins in general.
+
+[Benchmark results](assets/BenchmarkValuesVsPointers.txt)
+
+Further reading:
+- [CPU Cache-Friendly Data Structures in Go: 10x Speed with Same Algorithm](https://skoredin.pro/blog/golang/cpu-cache-friendly-go)
+- [There is no pass-by-reference in Go](https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go)
 ## Range over func
 
 With [Go 1.23 came new feature - range over func](https://go.dev/blog/range-functions), lets check when it makes sense to use that over
@@ -193,4 +221,6 @@ In this run, `AoS` wins the hot update at `10` and `100` entities, `SoA` takes o
 ## Notes
 
 - More "Rules of thumb" will be added over time.
-- All benchmarks were conducted on a **Macbook Pro M1 (2020) 16GB RAM**, using **Go 1.24.3**.
+- Published results currently mix historical and refreshed runs.
+- Many older benchmark assets were collected on a **Macbook Pro M1 (2020) 16GB RAM**, using **Go 1.24.3**.
+- Recently refreshed sections in this worktree were rerun locally on **Apple M5** with **Go 1.26.1**; check the raw files in `assets/` for per-benchmark run metadata.

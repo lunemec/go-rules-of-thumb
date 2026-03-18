@@ -1,13 +1,20 @@
-## Pass by reference vs copy
+## Read-only parameter passing: `T` vs `*T`
 
-When should you pass a reference (pointer), and when should you use pass by value?
+Should a read-only call boundary take a large payload as `T` or `*T`?
+
+This benchmark is the representative parameter-passing case for this repo. It stands in for either a plain function parameter or a method receiver with the same read-only call shape.
 
 > [!TIP]
-> use pointers when you need mutation  
-> for read-only data, start with the simpler API and measure  
-> this benchmark does not show a reliable universal size cutoff
+> use `T` up to about `16B`
+> around `24-32B`, benchmark your own workload
+> on this benchmark, prefer `*T` from about `32B` upward for read-only hot paths
+> keep `T` when you specifically want value semantics or isolation
 
-In this benchmark, passing a pointer wins for all tested struct sizes, and the gap grows as the copied array gets larger. That is still a narrow microbenchmark, so the safe rule is not "always use pointers", but "measure once copying large values shows up in a profile".
+![param value vs pointer graph](assets/BenchmarkParamValueVsPointer.png)
 
-References (pointers) vs copied values are still way more complicated than one synthetic test can capture, and there is tons of resources on this topic. A great one is
-[this article](https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go) by Dave Cheney.
+Each benchmark operation runs `256` `//go:noinline` read-only calls over aligned mixed-field structs from `8B` to `512B`, reading only hot fields into a sink accumulator. In these results, `T` is about `6.6%` faster at `8B`, `16B` is effectively a wash, `*T` is about `11%` faster at `24B`, and the gap grows from about `31%` at `32B` to about `195%` at `512B`, so the measured crossover for this call shape is around `24-32B`. This does not measure mutation, interface dispatch, slice layout, or GC-heavy escaping.
+
+[Benchmark results](assets/BenchmarkParamValueVsPointer.txt)
+
+Further reading:
+- [There is no pass-by-reference in Go](https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go)

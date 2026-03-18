@@ -32,6 +32,8 @@ $MASK bench ifswitch
 $MASK bench iterate
 $MASK bench concatenate
 $MASK bench aossoa
+$MASK bench valuesvspointers
+$MASK bench paramvaluevspointer
 ```
 
 ### deduplication
@@ -128,12 +130,24 @@ $MASK benchstat "BenchmarkAoSVsSoA"
 $MASK graph "BenchmarkAoSVsSoA"
 ```
 
-### pointer_copy
+### valuesvspointers
 
 ```bash
-$MASK bench_one "BenchmarkCopyVsPointer" "copy"
-$MASK bench_one "BenchmarkCopyVsPointer" "pointer"
-$MASK benchstat "BenchmarkCopyVsPointer"
+$MASK bench_one "BenchmarkValuesVsPointers" "values_hot_scan"
+$MASK bench_one "BenchmarkValuesVsPointers" "pointers_hot_scan"
+$MASK bench_one "BenchmarkValuesVsPointers" "values_snapshot"
+$MASK bench_one "BenchmarkValuesVsPointers" "pointers_snapshot"
+$MASK benchstat "BenchmarkValuesVsPointers"
+$MASK graph "BenchmarkValuesVsPointers"
+```
+
+### paramvaluevspointer
+
+```bash
+$MASK bench_one "BenchmarkParamValueVsPointer" "value_param"
+$MASK bench_one "BenchmarkParamValueVsPointer" "pointer_param"
+$MASK benchstat "BenchmarkParamValueVsPointer"
+$MASK graph "BenchmarkParamValueVsPointer"
 ```
 
 ## bench_one (benchname) (variant)

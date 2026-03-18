@@ -103,25 +103,50 @@
       "iterations": "Concatenations per operation"
     }
   },
-  "BenchmarkCopyVsPointer": {
+  "BenchmarkParamValueVsPointer": {
     "x_param": "size",
     "y_param": null,
     "summary_kind": "value_heatmap",
     "detail_kind": null,
     "axis_labels": {
-      "x": "Struct array length",
+      "x": "Payload size (bytes)",
       "y": "ns/op"
     },
     "implementation_order": [
-      "copy",
-      "pointer"
+      "value_param",
+      "pointer_param"
     ],
     "implementation_labels": {
-      "copy": "copy",
-      "pointer": "pointer"
+      "value_param": "pass T by value",
+      "pointer_param": "pass *T"
     },
     "param_labels": {
-      "size": "Struct array length"
+      "size": "Payload size (bytes)"
+    }
+  },
+  "BenchmarkValuesVsPointers": {
+    "x_param": "size",
+    "y_param": null,
+    "summary_kind": "value_heatmap",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Records processed",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "values_hot_scan",
+      "pointers_hot_scan",
+      "values_snapshot",
+      "pointers_snapshot"
+    ],
+    "implementation_labels": {
+      "values_hot_scan": "[]T hot scan",
+      "pointers_hot_scan": "[]*T hot scan",
+      "values_snapshot": "[]T snapshot build",
+      "pointers_snapshot": "[]*T snapshot build"
+    },
+    "param_labels": {
+      "size": "Records processed"
     }
   },
   "BenchmarkDeduplication": {

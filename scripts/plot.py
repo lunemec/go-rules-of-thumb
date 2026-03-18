@@ -88,6 +88,7 @@ def extract_params(raw_name):
 
 
 def normalize_implementation_name(label, benchmark_name):
+    label = Path(label).name.removesuffix(".txt")
     prefix = f"{benchmark_name}-"
     if label.startswith(prefix):
         return label[len(prefix) :]
@@ -283,13 +284,20 @@ def plot_line_summary(df, spec, benchmark_name, output_path):
 def format_ns(value):
     if pd.isna(value):
         return ""
-    if value < 1_000:
-        return f"{round(value):.0f}ns"
-    if value < 1_000_000:
-        return f"{round(value / 1_000):.0f}µs"
-    if value < 1_000_000_000:
-        return f"{round(value / 1_000_000):.0f}ms"
-    return f"{round(value / 1_000_000_000):.0f}s"
+
+    scaled_value = value
+    unit = "ns"
+    if value >= 1_000_000_000:
+        scaled_value = value / 1_000_000_000
+        unit = "s"
+    elif value >= 1_000_000:
+        scaled_value = value / 1_000_000
+        unit = "ms"
+    elif value >= 1_000:
+        scaled_value = value / 1_000
+        unit = "µs"
+
+    return f"{scaled_value:.3g}{unit}"
 
 
 def plot_value_heatmap(df, spec, benchmark_name, output_path):

@@ -19,3 +19,9 @@ func copySlice[T any](in []T) []T {
 	copy(out, in)
 	return out
 }
+
+func fillPattern(dst []byte, seed byte) {
+	for i := range dst {
+		dst[i] = seed + byte(i*13)
+	}
+}
