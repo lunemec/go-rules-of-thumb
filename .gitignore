@@ -14,6 +14,10 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
+# Local Go caches used for repo-scoped benchmark/test runs
+.gocache/
+.gomodcache/
+
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
