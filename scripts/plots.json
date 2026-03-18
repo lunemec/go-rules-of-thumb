@@ -170,6 +170,31 @@
       "size": "Records processed"
     }
   },
+  "BenchmarkHotColdSplit": {
+    "x_param": "size",
+    "y_param": null,
+    "summary_kind": "value_heatmap",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Records processed",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "inline_hot_scan",
+      "split_hot_scan",
+      "inline_snapshot",
+      "split_snapshot"
+    ],
+    "implementation_labels": {
+      "inline_hot_scan": "inline hot scan",
+      "split_hot_scan": "split hot scan",
+      "inline_snapshot": "inline snapshot build",
+      "split_snapshot": "split snapshot build"
+    },
+    "param_labels": {
+      "size": "Records processed"
+    }
+  },
   "BenchmarkDeduplication": {
     "x_param": "size",
     "y_param": null,

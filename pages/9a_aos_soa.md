@@ -8,7 +8,7 @@ When is it worth splitting a slice of game-style entities into field-parallel sl
 > if you usually work with whole records together, keep `AoS`, especially once `len(entities) >= 10_000`
 
 This benchmark uses a game-style entity model with hot physics fields (`position`, `velocity`, `active`) and cold metadata (`name`, `material`, `ai state`).
-The `hot_update` workload only touches the hot fields, while `snapshot_build` assembles active entities back into whole records.
+Here, `hot_update` means "update only the physics fields in place" and never read the metadata, while `snapshot_build` means "assemble a fresh output record with all fields for each active entity". It is a whole-record copy workload, not a runtime snapshot.
 In this run, `AoS` wins the hot update at `10` and `100` entities, `SoA` takes over from `1_000` upward, and whole-record snapshot building stays close with `AoS` pulling ahead again at `10_000+`.
 
 ![aos soa graph](assets/BenchmarkAoSVsSoA.png)

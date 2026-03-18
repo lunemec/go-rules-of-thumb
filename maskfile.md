@@ -33,6 +33,7 @@ $MASK bench iterate
 $MASK bench concatenate
 $MASK bench aossoa
 $MASK bench valuesvspointers
+$MASK bench hotcoldsplit
 $MASK bench paramvaluevspointer
 $MASK bench returnvaluevspointer
 ```
@@ -140,6 +141,17 @@ $MASK bench_one "BenchmarkValuesVsPointers" "values_snapshot"
 $MASK bench_one "BenchmarkValuesVsPointers" "pointers_snapshot"
 $MASK benchstat "BenchmarkValuesVsPointers"
 $MASK graph "BenchmarkValuesVsPointers"
+```
+
+### hotcoldsplit
+
+```bash
+$MASK bench_one "BenchmarkHotColdSplit" "inline_hot_scan"
+$MASK bench_one "BenchmarkHotColdSplit" "split_hot_scan"
+$MASK bench_one "BenchmarkHotColdSplit" "inline_snapshot"
+$MASK bench_one "BenchmarkHotColdSplit" "split_snapshot"
+$MASK benchstat "BenchmarkHotColdSplit"
+$MASK graph "BenchmarkHotColdSplit"
 ```
 
 ### paramvaluevspointer

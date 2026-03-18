@@ -151,6 +151,7 @@ Read more:
 Should a read-only call boundary take a large payload as `T` or `*T`?
 
 This benchmark is the representative parameter-passing case for this repo. It stands in for either a plain function parameter or a method receiver with the same read-only call shape.
+Here, "hot fields" just means the small set of fields the callee actually reads on every call; the benchmark is not modeling whole-record copies.
 
 > [!TIP]
 > use `T` up to about `16B`
@@ -160,7 +161,7 @@ This benchmark is the representative parameter-passing case for this repo. It st
 
 ![param value vs pointer graph](assets/BenchmarkParamValueVsPointer.png)
 
-Each benchmark operation runs `256` `//go:noinline` read-only calls over aligned mixed-field structs from `8B` to `512B`, reading only hot fields into a sink accumulator. In these results, `T` is about `6.6%` faster at `8B`, `16B` is effectively a wash, `*T` is about `11%` faster at `24B`, and the gap grows from about `31%` at `32B` to about `195%` at `512B`, so the measured crossover for this call shape is around `24-32B`. This does not measure mutation, interface dispatch, slice layout, or GC-heavy escaping.
+Each benchmark operation runs `256` `//go:noinline` read-only calls over aligned mixed-field structs from `8B` to `512B`, and each call reads only a few scalar fields into a sink accumulator. In these results, `T` is about `6.6%` faster at `8B`, `16B` is effectively a wash, `*T` is about `11%` faster at `24B`, and the gap grows from about `31%` at `32B` to about `195%` at `512B`, so the measured crossover for this call shape is around `24-32B`. This does not measure mutation, whole-record copying, interface dispatch, slice layout, or GC-heavy escaping.
 
 [Benchmark results](assets/BenchmarkParamValueVsPointer.txt)
 
@@ -191,6 +192,7 @@ Further reading:
 Should a read-heavy collection store values (`[]T`) or pointers (`[]*T`)?
 
 This section is about collection layout for read-heavy data, not a blanket rule for API design or parameter passing.
+This benchmark has two read patterns: `hot_scan` means walking the collection and reading only a few frequently-used fields, while `snapshot` means building a fresh output slice by copying the full record. It is not a runtime or persistence snapshot.
 
 > [!TIP]
 > for wide records with a hot path that only reads a few fields, `[]*T` can win
@@ -200,13 +202,30 @@ This section is about collection layout for read-heavy data, not a blanket rule 
 
 ![values vs pointers graph](assets/BenchmarkValuesVsPointers.png)
 
-This benchmark compares the same wide records in `[]T` and in `[]*T` backed by an equivalent contiguous slice, so it isolates pointer indirection without heap-fragmentation noise. In these results, hot scans favored `[]*T` by about `7-18%` up to `10_000` records, then `[]T` edged ahead by about `4%` at `100_000`; snapshot builds were effectively tied at `10-1_000`, `[]*T` won at `10_000`, and `100_000` was inconclusive, so the real rule of thumb is to match the layout to the read path rather than assume either representation wins in general.
+This benchmark compares the same wide records in `[]T` and in `[]*T` backed by an equivalent contiguous slice, so it isolates pointer indirection without heap-fragmentation noise. The `hot_scan` row answers "what if I mostly read a small hot prefix of each record?", while the `snapshot` row answers "what if I build and copy whole records?". In these results, hot scans favored `[]*T` by about `7-18%` up to `10_000` records, then `[]T` edged ahead by about `4%` at `100_000`; snapshot builds were effectively tied at `10-1_000`, `[]*T` won at `10_000`, and `100_000` was inconclusive, so the real rule of thumb is to match the layout to the read path rather than assume either representation wins in general.
 
 [Benchmark results](assets/BenchmarkValuesVsPointers.txt)
 
 Further reading:
 - [CPU Cache-Friendly Data Structures in Go: 10x Speed with Same Algorithm](https://skoredin.pro/blog/golang/cpu-cache-friendly-go)
 - [There is no pass-by-reference in Go](https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go)
+## Hot/cold split: inline `T` vs `*T` field
+
+Should a mostly-cold sub-struct live inline as `T`, or behind `*T` inside a larger record?
+
+This section is the benchmark-backed answer to "should this field be `T` or `*T` inside a struct?" Here, "hot" means the small set of fields the fast path reads every time, "cold" means bulky fields that are usually present but ignored by that path, and `snapshot` means "build and copy a full output record", not "take a runtime snapshot". The result depends on access pattern: hot-prefix scans and whole-record copies want different layouts.
+
+> [!TIP]
+> keep the field inline when callers usually read or copy the whole record  
+> split to `*Cold` only when a hot path scans large collections and mostly ignores the cold tail  
+> in this benchmark, the split layout starts to win around `5_000` records on the hot-only scan and is clearly better by `10_000+`  
+> for full-record snapshots, inline stays better across the whole measured range
+
+![hot cold split graph](assets/BenchmarkHotColdSplit.png)
+
+This benchmark stores the same records either as one wide inline struct or as a small hot struct pointing at a contiguous cold backing slice. The `hot_scan` row answers "what if the loop only reads the hot prefix and never touches the cold tail?", while the `snapshot` row answers "what if the code needs to assemble and copy the whole record?". In these results, inline is slightly better through `1_000` records on the hot scan, `Hot + *Cold` starts to edge ahead around `5_000`, stays about `7%` faster at `10_000-50_000`, and is about `56%` faster at `100_000`. The snapshot path goes the other way: inline is effectively tied at `1` record and then stays about `5-13%` faster from `10` upward because the full record is already contiguous.
+
+[Benchmark results](assets/BenchmarkHotColdSplit.txt)
 ## Range over func
 
 With [Go 1.23 came new feature - range over func](https://go.dev/blog/range-functions), lets check when it makes sense to use that over
@@ -232,7 +251,7 @@ When is it worth splitting a slice of game-style entities into field-parallel sl
 > if you usually work with whole records together, keep `AoS`, especially once `len(entities) >= 10_000`
 
 This benchmark uses a game-style entity model with hot physics fields (`position`, `velocity`, `active`) and cold metadata (`name`, `material`, `ai state`).
-The `hot_update` workload only touches the hot fields, while `snapshot_build` assembles active entities back into whole records.
+Here, `hot_update` means "update only the physics fields in place" and never read the metadata, while `snapshot_build` means "assemble a fresh output record with all fields for each active entity". It is a whole-record copy workload, not a runtime snapshot.
 In this run, `AoS` wins the hot update at `10` and `100` entities, `SoA` takes over from `1_000` upward, and whole-record snapshot building stays close with `AoS` pulling ahead again at `10_000+`.
 
 ![aos soa graph](assets/BenchmarkAoSVsSoA.png)
