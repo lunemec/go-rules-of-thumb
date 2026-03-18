@@ -34,6 +34,7 @@ $MASK bench concatenate
 $MASK bench aossoa
 $MASK bench valuesvspointers
 $MASK bench paramvaluevspointer
+$MASK bench returnvaluevspointer
 ```
 
 ### deduplication
@@ -148,6 +149,15 @@ $MASK bench_one "BenchmarkParamValueVsPointer" "value_param"
 $MASK bench_one "BenchmarkParamValueVsPointer" "pointer_param"
 $MASK benchstat "BenchmarkParamValueVsPointer"
 $MASK graph "BenchmarkParamValueVsPointer"
+```
+
+### returnvaluevspointer
+
+```bash
+$MASK bench_one "BenchmarkReturnValueVsPointer" "return_value"
+$MASK bench_one "BenchmarkReturnValueVsPointer" "return_pointer"
+$MASK benchstat "BenchmarkReturnValueVsPointer"
+$MASK graph "BenchmarkReturnValueVsPointer"
 ```
 
 ## bench_one (benchname) (variant)

@@ -124,6 +124,27 @@
       "size": "Payload size (bytes)"
     }
   },
+  "BenchmarkReturnValueVsPointer": {
+    "x_param": "size",
+    "y_param": null,
+    "summary_kind": "value_heatmap",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Result size (bytes)",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "return_value",
+      "return_pointer"
+    ],
+    "implementation_labels": {
+      "return_value": "return T",
+      "return_pointer": "return *T"
+    },
+    "param_labels": {
+      "size": "Result size (bytes)"
+    }
+  },
   "BenchmarkValuesVsPointers": {
     "x_param": "size",
     "y_param": null,
