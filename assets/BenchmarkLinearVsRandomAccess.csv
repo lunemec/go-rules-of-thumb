@@ -1,0 +1,48 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M5
+,BenchmarkLinearVsRandomAccess-linear.txt,,BenchmarkLinearVsRandomAccess-random.txt,,,
+,sec/op,CI,sec/op,CI,vs base,P
+LinearVsRandomAccess/records=64-10,6.278000000000001e-08,7%,5.6630000000000005e-08,5%,-9.80%,p=0.000 n=10
+LinearVsRandomAccess/records=128-10,1.1890000000000001e-07,7%,1.086e-07,4%,-8.66%,p=0.000 n=10
+LinearVsRandomAccess/records=256-10,2.4700000000000003e-07,6%,2.084e-07,3%,-15.63%,p=0.000 n=10
+LinearVsRandomAccess/records=512-10,4.855e-07,21%,4.069e-07,3%,-16.19%,p=0.000 n=10
+LinearVsRandomAccess/records=1024-10,9.922e-07,11%,8.081e-07,6%,-18.55%,p=0.000 n=10
+LinearVsRandomAccess/records=2048-10,2.3945e-06,5%,2.036e-06,4%,-14.97%,p=0.000 n=10
+LinearVsRandomAccess/records=4096-10,4.038e-06,6%,4.562500000000001e-06,7%,+12.99%,p=0.000 n=10
+LinearVsRandomAccess/records=8192-10,8.1185e-06,4%,9.184e-06,2%,+13.12%,p=0.000 n=10
+LinearVsRandomAccess/records=16384-10,1.6621500000000003e-05,13%,1.9997000000000002e-05,3%,+20.31%,p=0.002 n=10
+LinearVsRandomAccess/records=32768-10,3.50035e-05,8%,4.5001000000000005e-05,5%,+28.56%,p=0.000 n=10
+LinearVsRandomAccess/records=65536-10,6.9384e-05,5%,9.9608e-05,7%,+43.56%,p=0.000 n=10
+geomean,2.058640891666067e-06,,2.0841508533199284e-06,,+1.24%,
+
+,BenchmarkLinearVsRandomAccess-linear.txt,,BenchmarkLinearVsRandomAccess-random.txt,,,
+,B/op,CI,B/op,CI,vs base,P
+LinearVsRandomAccess/records=64-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=128-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=256-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=512-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=1024-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=2048-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=4096-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=8192-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=16384-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=32768-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=65536-10,0,0%,0,0%,~,p=1.000 n=10
+geomean,,,,,+0.00%,
+
+,BenchmarkLinearVsRandomAccess-linear.txt,,BenchmarkLinearVsRandomAccess-random.txt,,,
+,allocs/op,CI,allocs/op,CI,vs base,P
+LinearVsRandomAccess/records=64-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=128-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=256-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=512-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=1024-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=2048-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=4096-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=8192-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=16384-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=32768-10,0,0%,0,0%,~,p=1.000 n=10
+LinearVsRandomAccess/records=65536-10,0,0%,0,0%,~,p=1.000 n=10
+geomean,,,,,+0.00%,

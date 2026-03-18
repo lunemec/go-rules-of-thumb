@@ -196,13 +196,13 @@ This benchmark has two read patterns: `hot_scan` means walking the collection an
 
 > [!TIP]
 > for wide records with a hot path that only reads a few fields, `[]*T` can win
-> in this benchmark, `[]*T` stays ahead through ~`10_000` records on the hot scan, and `[]T` only pulls ahead around ~`100_000`
+> in this benchmark, `[]*T` stays ahead through ~`10 000` records on the hot scan, and `[]T` only pulls ahead around ~`100 000`
 > for snapshot-style reads that copy most of each record, treat the layouts as roughly tied here and benchmark your own workload
 > reach for pointers when you need shared mutation, stable identity, or optional values
 
 ![values vs pointers graph](assets/BenchmarkValuesVsPointers.png)
 
-This benchmark compares the same wide records in `[]T` and in `[]*T` backed by an equivalent contiguous slice, so it isolates pointer indirection without heap-fragmentation noise. The `hot_scan` row answers "what if I mostly read a small hot prefix of each record?", while the `snapshot` row answers "what if I build and copy whole records?". In these results, hot scans favored `[]*T` by about `7-18%` up to `10_000` records, then `[]T` edged ahead by about `4%` at `100_000`; snapshot builds were effectively tied at `10-1_000`, `[]*T` won at `10_000`, and `100_000` was inconclusive, so the real rule of thumb is to match the layout to the read path rather than assume either representation wins in general.
+This benchmark compares the same wide records in `[]T` and in `[]*T` backed by an equivalent contiguous slice, so it isolates pointer indirection without heap-fragmentation noise. The `hot_scan` row answers "what if I mostly read a small hot prefix of each record?", while the `snapshot` row answers "what if I build and copy whole records?". In these results, hot scans favored `[]*T` by about `7-18%` up to `10 000` records, then `[]T` edged ahead by about `4%` at `100 000`; snapshot builds were effectively tied at `10-1 000`, `[]*T` won at `10 000`, and `100 000` was inconclusive, so the real rule of thumb is to match the layout to the read path rather than assume either representation wins in general.
 
 [Benchmark results](assets/BenchmarkValuesVsPointers.txt)
 
@@ -218,12 +218,12 @@ This section is the benchmark-backed answer to "should this field be `T` or `*T`
 > [!TIP]
 > keep the field inline when callers usually read or copy the whole record  
 > split to `*Cold` only when a hot path scans large collections and mostly ignores the cold tail  
-> in this benchmark, the split layout starts to win around `5_000` records on the hot-only scan and is clearly better by `10_000+`  
+> in this benchmark, the split layout starts to win around `5 000` records on the hot-only scan and is clearly better by `10 000+`  
 > for full-record snapshots, inline stays better across the whole measured range
 
 ![hot cold split graph](assets/BenchmarkHotColdSplit.png)
 
-This benchmark stores the same records either as one wide inline struct or as a small hot struct pointing at a contiguous cold backing slice. The `hot_scan` row answers "what if the loop only reads the hot prefix and never touches the cold tail?", while the `snapshot` row answers "what if the code needs to assemble and copy the whole record?". In these results, inline is slightly better through `1_000` records on the hot scan, `Hot + *Cold` starts to edge ahead around `5_000`, stays about `7%` faster at `10_000-50_000`, and is about `56%` faster at `100_000`. The snapshot path goes the other way: inline is effectively tied at `1` record and then stays about `5-13%` faster from `10` upward because the full record is already contiguous.
+This benchmark stores the same records either as one wide inline struct or as a small hot struct pointing at a contiguous cold backing slice. The `hot_scan` row answers "what if the loop only reads the hot prefix and never touches the cold tail?", while the `snapshot` row answers "what if the code needs to assemble and copy the whole record?". In these results, inline is slightly better through `1 000` records on the hot scan, `Hot + *Cold` starts to edge ahead around `5 000`, stays about `7%` faster at `10 000-50 000`, and is about `56%` faster at `100 000`. The snapshot path goes the other way: inline is effectively tied at `1` record and then stays about `5-13%` faster from `10` upward because the full record is already contiguous.
 
 [Benchmark results](assets/BenchmarkHotColdSplit.txt)
 ## Range over func
@@ -247,16 +247,33 @@ When is it worth splitting a slice of game-style entities into field-parallel sl
 
 > [!TIP]
 > for hot loops over a few fields, use `AoS` when `len(entities) <= 100`  
-> for hot loops over a few fields, use `SoA` when `len(entities) >= 1_000`  
-> if you usually work with whole records together, keep `AoS`, especially once `len(entities) >= 10_000`
+> for hot loops over a few fields, use `SoA` when `len(entities) >= 1 000`  
+> if you usually work with whole records together, keep `AoS`, especially once `len(entities) >= 10 000`
 
 This benchmark uses a game-style entity model with hot physics fields (`position`, `velocity`, `active`) and cold metadata (`name`, `material`, `ai state`).
 Here, `hot_update` means "update only the physics fields in place" and never read the metadata, while `snapshot_build` means "assemble a fresh output record with all fields for each active entity". It is a whole-record copy workload, not a runtime snapshot.
-In this run, `AoS` wins the hot update at `10` and `100` entities, `SoA` takes over from `1_000` upward, and whole-record snapshot building stays close with `AoS` pulling ahead again at `10_000+`.
+In this run, `AoS` wins the hot update at `10` and `100` entities, `SoA` takes over from `1 000` upward, and whole-record snapshot building stays close with `AoS` pulling ahead again at `10 000+`.
 
 ![aos soa graph](assets/BenchmarkAoSVsSoA.png)
 
 [Benchmark results](assets/BenchmarkAoSVsSoA.txt)
+## Locality: linear vs randomized access
+
+When does it pay to keep a traversal contiguous instead of visiting the same records in a fixed random order?
+
+This section is about locality and CPU prefetch behavior over the same `O(n)` work, not about changing algorithmic complexity.
+
+> [!TIP]
+> for `64B` records, fixed-random order stays ahead through ~`2 048` records in this run
+> linear order takes over around ~`4 096` records and keeps widening from there
+> by `65 536` records, linear is about `44%` faster here
+> treat the `2 048-4 096` crossover as hardware-sensitive and benchmark on your own CPU
+
+![linear vs random access graph](assets/BenchmarkLinearVsRandomAccess.png)
+
+This benchmark prebuilds one `[]record` plus two index orders: identity and a fixed permutation. Both variants read the same `64B` records exactly once per pass, sum the same hot fields, allocate nothing, and differ only in access order. In this run, the fixed random walk was about `9-19%` faster from `64` through `2 048` records, then linear pulled ahead at `4 096` and widened to about `13%` at `8 192`, `29%` at `32 768`, and `44%` at `65 536`. The practical rule is not that random access is "better"; locality effects can flip at small working sets, but contiguous layout and traversal order become increasingly valuable once the walk grows past the smallest caches.
+
+[Benchmark results](assets/BenchmarkLinearVsRandomAccess.txt)
 ## Notes
 
 - More "Rules of thumb" will be added over time.

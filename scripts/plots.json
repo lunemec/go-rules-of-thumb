@@ -195,6 +195,27 @@
       "size": "Records processed"
     }
   },
+  "BenchmarkLinearVsRandomAccess": {
+    "x_param": "records",
+    "y_param": null,
+    "summary_kind": "value_heatmap",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "64B records per traversal",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "linear",
+      "random"
+    ],
+    "implementation_labels": {
+      "linear": "linear order",
+      "random": "fixed random order"
+    },
+    "param_labels": {
+      "records": "64B records per traversal"
+    }
+  },
   "BenchmarkDeduplication": {
     "x_param": "size",
     "y_param": null,

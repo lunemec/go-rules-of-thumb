@@ -34,6 +34,7 @@ $MASK bench concatenate
 $MASK bench aossoa
 $MASK bench valuesvspointers
 $MASK bench hotcoldsplit
+$MASK bench linearvsrandomaccess
 $MASK bench paramvaluevspointer
 $MASK bench returnvaluevspointer
 ```
@@ -152,6 +153,15 @@ $MASK bench_one "BenchmarkHotColdSplit" "inline_snapshot"
 $MASK bench_one "BenchmarkHotColdSplit" "split_snapshot"
 $MASK benchstat "BenchmarkHotColdSplit"
 $MASK graph "BenchmarkHotColdSplit"
+```
+
+### linearvsrandomaccess
+
+```bash
+$MASK bench_one "BenchmarkLinearVsRandomAccess" "linear"
+$MASK bench_one "BenchmarkLinearVsRandomAccess" "random"
+$MASK benchstat "BenchmarkLinearVsRandomAccess"
+$MASK graph "BenchmarkLinearVsRandomAccess"
 ```
 
 ### paramvaluevspointer

@@ -23,6 +23,8 @@ Purpose: working rules for agents contributing to `go-rules-of-thumb`.
 - Keep recommendations benchmark-scoped and probabilistic. Avoid blanket claims like "always faster" unless the measurements truly support that wording.
 - New or updated sections should keep the same pattern: problem statement, short actionable tip block, chart, and a plain-language interpretation of the crossover.
 - In the tip block, state the cutoff as clearly as possible. Prefer explicit crossover guidance such as `~50`, `~1000`, `24-32B`, or "no cutoff before `512B`" when that is what the benchmark shows.
+- Do not put machine-specific provenance in the tip block. Keep hardware and Go-version notes in `pages/zz_notes.md` / the final Notes section instead.
+- In `pages/*.md` and `README.md`, format prose numbers without underscore separators. Use plain digits, spaces as thousands separators, or unit forms like `KiB`/`MiB`, not forms like `1_000` in human-facing text.
 - Keep the descriptive prose below the graph short and to the point: one tight paragraph that leads with the measured crossover or lack of crossover, then the main reason if it matters (for example allocation behavior).
 - Keep benchmark environment metadata centralized in `pages/zz_notes.md`; do not repeat machine or Go-version details inside individual benchmark sections unless the user explicitly asks for per-section provenance.
 - Keep asset names aligned with benchmark names and variants so `benchstat`, plotting, and README links continue to work.
