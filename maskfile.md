@@ -31,9 +31,10 @@ $MASK bench assert
 $MASK bench ifswitch
 $MASK bench iterate
 $MASK bench concatenate
+$MASK bench aossoa
 ```
 
-###  deduplication
+### deduplication
 
 ```bash
 $MASK bench_one "BenchmarkDeduplication" "slice"
@@ -43,7 +44,7 @@ $MASK benchstat "BenchmarkDeduplication"
 $MASK graph "BenchmarkDeduplication"
 ```
 
-###  needleInHaystack
+### needleInHaystack
 
 ```bash
 $MASK bench_one "BenchmarkNeedleInAHaystack" "slice"
@@ -52,7 +53,7 @@ $MASK benchstat "BenchmarkNeedleInAHaystack"
 $MASK graph "BenchmarkNeedleInAHaystack"
 ```
 
-###  subset
+### subset
 
 ```bash
 $MASK bench_one "BenchmarkSubset" "slice"
@@ -62,7 +63,7 @@ $MASK benchstat "BenchmarkSubset"
 $MASK graph "BenchmarkSubset"
 ```
 
-###  append
+### append
 
 ```bash
 $MASK bench_one "BenchmarkAppend" "expand"
@@ -73,7 +74,7 @@ $MASK benchstat "BenchmarkAppend"
 $MASK graph "BenchmarkAppend"
 ```
 
-###  assert
+### assert
 
 ```bash
 $MASK bench_one "BenchmarkAssert" "no_assert"
@@ -83,7 +84,7 @@ $MASK benchstat "BenchmarkAssert"
 $MASK graph "BenchmarkAssert"
 ```
 
-###  ifswitch
+### ifswitch
 
 ```bash
 $MASK bench_one "BenchmarkIfSwitch" "if"
@@ -94,7 +95,7 @@ $MASK benchstat "BenchmarkIfSwitch"
 $MASK graph "BenchmarkIfSwitch"
 ```
 
-###  iterate
+### iterate
 
 ```bash
 $MASK bench_one "BenchmarkIterate" "slice_iterate"
@@ -104,7 +105,7 @@ $MASK benchstat "BenchmarkIterate"
 $MASK graph "BenchmarkIterate"
 ```
 
-###  concatenate
+### concatenate
 
 ```bash
 $MASK bench_one "BenchmarkConcat" "plus"
@@ -114,6 +115,25 @@ $MASK bench_one "BenchmarkConcat" "builder"
 $MASK bench_one "BenchmarkConcat" "builder_pool"
 $MASK benchstat "BenchmarkConcat"
 $MASK graph "BenchmarkConcat"
+```
+
+### aossoa
+
+```bash
+$MASK bench_one "BenchmarkAoSVsSoA" "aos_hot_update"
+$MASK bench_one "BenchmarkAoSVsSoA" "soa_hot_update"
+$MASK bench_one "BenchmarkAoSVsSoA" "aos_snapshot"
+$MASK bench_one "BenchmarkAoSVsSoA" "soa_snapshot"
+$MASK benchstat "BenchmarkAoSVsSoA"
+$MASK graph "BenchmarkAoSVsSoA"
+```
+
+### pointer_copy
+
+```bash
+$MASK bench_one "BenchmarkCopyVsPointer" "copy"
+$MASK bench_one "BenchmarkCopyVsPointer" "pointer"
+$MASK benchstat "BenchmarkCopyVsPointer"
 ```
 
 ## bench_one (benchname) (variant)
@@ -127,8 +147,8 @@ go test -bench "^$benchname\$" -timeout 60m -count 10 -benchmem ./benchmarks/...
 
 ```bash
 cd assets
-benchstat "$benchname"*.txt > "$benchname.txt"
-benchstat -format csv "$benchname"*.txt > "$benchname.csv"
+benchstat "$benchname"-*.txt > "$benchname.txt"
+benchstat -format csv "$benchname"-*.txt > "$benchname.csv"
 ```
 
 ## graph (benchname)

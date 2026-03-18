@@ -1,0 +1,56 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M5
+BenchmarkAoSVsSoA/size=10-10         	68806680	        16.44 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10-10         	76452194	        16.14 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10-10         	73469950	        15.80 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10-10         	67402003	        16.53 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10-10         	75195427	        16.65 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10-10         	72032412	        16.33 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10-10         	77316060	        16.13 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10-10         	76186446	        16.15 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10-10         	78001431	        16.54 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10-10         	72742150	        16.34 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100-10        	 9103572	       137.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100-10        	 8194123	       141.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100-10        	 7856352	       142.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100-10        	 8616000	       138.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100-10        	 8600791	       139.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100-10        	 8631546	       145.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100-10        	 8114515	       144.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100-10        	 8631318	       139.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100-10        	 8724390	       138.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100-10        	 8675319	       140.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=1000-10       	  858309	      1466 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=1000-10       	  893668	      1387 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=1000-10       	  903392	      1394 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=1000-10       	  823202	      1388 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=1000-10       	  858411	      1456 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=1000-10       	  819475	      1402 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=1000-10       	  900498	      1404 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=1000-10       	  874462	      1410 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=1000-10       	  812170	      1381 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=1000-10       	  887209	      1447 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10000-10      	   77604	     14927 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10000-10      	   85129	     15264 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10000-10      	   77128	     15578 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10000-10      	   79425	     15374 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10000-10      	   79290	     15077 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10000-10      	   77868	     15348 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10000-10      	   76760	     14976 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10000-10      	   78814	     15257 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10000-10      	   82736	     14574 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=10000-10      	   80173	     15091 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100000-10     	    6640	    176567 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100000-10     	    7293	    176195 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100000-10     	    7078	    175875 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100000-10     	    6655	    178119 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100000-10     	    7238	    181727 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100000-10     	    7264	    173886 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100000-10     	    6859	    170917 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100000-10     	    7124	    166779 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100000-10     	    7170	    166508 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAoSVsSoA/size=100000-10     	    7014	    171739 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	67.256s

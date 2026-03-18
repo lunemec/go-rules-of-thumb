@@ -1,0 +1,34 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M5
+                        │ BenchmarkAoSVsSoA-aos_hot_update.txt │ BenchmarkAoSVsSoA-soa_hot_update.txt  │   BenchmarkAoSVsSoA-aos_snapshot.txt    │   BenchmarkAoSVsSoA-soa_snapshot.txt    │
+                        │                sec/op                │    sec/op     vs base                 │    sec/op      vs base                  │    sec/op      vs base                  │
+AoSVsSoA/size=10-10                               4.841n ±  3%   16.335n ± 1%  +237.43% (p=0.000 n=10)   158.650n ± 6%  +3177.22% (p=0.000 n=10)   144.600n ± 6%  +2886.99% (p=0.000 n=10)
+AoSVsSoA/size=100-10                              97.40n ±  5%   139.90n ± 4%   +43.63% (p=0.000 n=10)   1237.00n ± 5%  +1170.02% (p=0.000 n=10)   1165.00n ± 4%  +1096.10% (p=0.000 n=10)
+AoSVsSoA/size=1000-10                             2.103µ ±  3%    1.403µ ± 4%   -33.29% (p=0.000 n=10)    12.688µ ± 3%   +503.33% (p=0.000 n=10)    12.303µ ± 8%   +485.02% (p=0.000 n=10)
+AoSVsSoA/size=10000-10                            25.23µ ± 17%    15.17µ ± 2%   -39.85% (p=0.000 n=10)    134.98µ ± 6%   +435.04% (p=0.000 n=10)    147.85µ ± 9%   +486.06% (p=0.000 n=10)
+AoSVsSoA/size=100000-10                           293.4µ ± 10%    174.9µ ± 5%   -40.40% (p=0.000 n=10)     972.2µ ± 5%   +231.35% (p=0.000 n=10)    1016.9µ ± 4%   +246.58% (p=0.000 n=10)
+geomean                                           1.490µ          1.535µ         +3.00%                    12.67µ        +750.56%                    12.55µ        +742.53%
+
+                        │ BenchmarkAoSVsSoA-aos_hot_update.txt │ BenchmarkAoSVsSoA-soa_hot_update.txt  │ BenchmarkAoSVsSoA-aos_snapshot.txt │ BenchmarkAoSVsSoA-soa_snapshot.txt │
+                        │                 B/op                 │     B/op      vs base                 │       B/op        vs base          │       B/op        vs base          │
+AoSVsSoA/size=10-10                             0.000Ki ± 0%     0.000Ki ± 0%       ~ (p=1.000 n=10) ¹       1.125Ki ± 0%  ? (p=0.000 n=10)       1.125Ki ± 0%  ? (p=0.000 n=10)
+AoSVsSoA/size=100-10                             0.00Ki ± 0%      0.00Ki ± 0%       ~ (p=1.000 n=10) ¹       12.00Ki ± 0%  ? (p=0.000 n=10)       12.00Ki ± 0%  ? (p=0.000 n=10)
+AoSVsSoA/size=1000-10                             0.0Ki ± 0%       0.0Ki ± 0%       ~ (p=1.000 n=10) ¹       112.0Ki ± 0%  ? (p=0.000 n=10)       112.0Ki ± 0%  ? (p=0.000 n=10)
+AoSVsSoA/size=10000-10                          0.000Mi ± 0%     0.000Mi ± 0%       ~ (p=1.000 n=10) ¹       1.070Mi ± 0%  ? (p=0.000 n=10)       1.070Mi ± 0%  ? (p=0.000 n=10)
+AoSVsSoA/size=100000-10                          0.00Mi ± 0%      0.00Mi ± 0%       ~ (p=1.000 n=10) ¹       10.69Mi ± 0%  ? (p=0.000 n=10)       10.69Mi ± 0%  ? (p=0.000 n=10)
+geomean                                                      ²                 +0.00%                ²       112.6Ki       ?                      112.6Ki       ?
+¹ all samples are equal
+² summaries must be >0 to compute geomean
+
+                        │ BenchmarkAoSVsSoA-aos_hot_update.txt │ BenchmarkAoSVsSoA-soa_hot_update.txt │ BenchmarkAoSVsSoA-aos_snapshot.txt │ BenchmarkAoSVsSoA-soa_snapshot.txt │
+                        │              allocs/op               │  allocs/op   vs base                 │    allocs/op      vs base          │    allocs/op      vs base          │
+AoSVsSoA/size=10-10                               0.000 ± 0%      0.000 ± 0%       ~ (p=1.000 n=10) ¹         1.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
+AoSVsSoA/size=100-10                              0.000 ± 0%      0.000 ± 0%       ~ (p=1.000 n=10) ¹         1.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
+AoSVsSoA/size=1000-10                             0.000 ± 0%      0.000 ± 0%       ~ (p=1.000 n=10) ¹         1.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
+AoSVsSoA/size=10000-10                            0.000 ± 0%      0.000 ± 0%       ~ (p=1.000 n=10) ¹         1.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
+AoSVsSoA/size=100000-10                           0.000 ± 0%      0.000 ± 0%       ~ (p=1.000 n=10) ¹         1.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
+geomean                                                      ²                +0.00%                ²         1.000       ?                        1.000       ?
+¹ all samples are equal
+² summaries must be >0 to compute geomean

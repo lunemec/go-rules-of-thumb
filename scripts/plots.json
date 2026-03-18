@@ -26,10 +26,35 @@
       "subset": "Appended slice size"
     }
   },
+  "BenchmarkAoSVsSoA": {
+    "x_param": "size",
+    "y_param": null,
+    "summary_kind": "value_heatmap",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Entities processed",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "aos_hot_update",
+      "soa_hot_update",
+      "aos_snapshot",
+      "soa_snapshot"
+    ],
+    "implementation_labels": {
+      "aos_hot_update": "AoS hot update",
+      "soa_hot_update": "SoA hot update",
+      "aos_snapshot": "AoS snapshot build",
+      "soa_snapshot": "SoA snapshot build"
+    },
+    "param_labels": {
+      "size": "Entities processed"
+    }
+  },
   "BenchmarkAssert": {
     "x_param": "size",
     "y_param": null,
-    "summary_kind": "line",
+    "summary_kind": "value_heatmap",
     "detail_kind": null,
     "axis_labels": {
       "x": "Checks per operation",
@@ -81,7 +106,7 @@
   "BenchmarkCopyVsPointer": {
     "x_param": "size",
     "y_param": null,
-    "summary_kind": "line",
+    "summary_kind": "value_heatmap",
     "detail_kind": null,
     "axis_labels": {
       "x": "Struct array length",
@@ -102,7 +127,7 @@
   "BenchmarkDeduplication": {
     "x_param": "size",
     "y_param": null,
-    "summary_kind": "line",
+    "summary_kind": "value_heatmap",
     "detail_kind": null,
     "axis_labels": {
       "x": "Haystack size",
@@ -125,7 +150,7 @@
   "BenchmarkIfSwitch": {
     "x_param": "size",
     "y_param": null,
-    "summary_kind": "line",
+    "summary_kind": "value_heatmap",
     "detail_kind": null,
     "axis_labels": {
       "x": "Condition checks per operation",
@@ -150,7 +175,7 @@
   "BenchmarkIterate": {
     "x_param": "size",
     "y_param": null,
-    "summary_kind": "line",
+    "summary_kind": "value_heatmap",
     "detail_kind": null,
     "axis_labels": {
       "x": "Items iterated",

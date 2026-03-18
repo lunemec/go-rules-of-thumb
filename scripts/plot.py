@@ -23,8 +23,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-from matplotlib.colors import ListedColormap
-from matplotlib.patches import Patch
+from matplotlib.colors import ListedColormap, LogNorm
+from matplotlib.patches import Patch, Rectangle
 
 
 PLOT_SPECS_PATH = Path(__file__).with_name("plots.json")
@@ -195,7 +195,7 @@ def validate_spec(df, spec, benchmark_name):
             f"{benchmark_name}: spec expects varying params [{wanted}] but CSV contains [{actual}]"
         )
 
-    if spec["summary_kind"] not in {"line", "winner_heatmap"}:
+    if spec["summary_kind"] not in {"line", "winner_heatmap", "value_heatmap"}:
         raise SystemExit(
             f"{benchmark_name}: unsupported summary_kind {spec['summary_kind']}"
         )
@@ -276,6 +276,102 @@ def plot_line_summary(df, spec, benchmark_name, output_path):
     ax.set_xlabel(axis_label(spec, "x", param_label(spec, x_param)))
     ax.set_ylabel(metric_label(spec))
     ax.legend(title="Implementation")
+    fig.tight_layout()
+    save_figure(fig, output_path)
+
+
+def format_ns(value):
+    if pd.isna(value):
+        return ""
+    if value < 1_000:
+        return f"{round(value):.0f}ns"
+    if value < 1_000_000:
+        return f"{round(value / 1_000):.0f}µs"
+    if value < 1_000_000_000:
+        return f"{round(value / 1_000_000):.0f}ms"
+    return f"{round(value / 1_000_000_000):.0f}s"
+
+
+def plot_value_heatmap(df, spec, benchmark_name, output_path):
+    x_param = spec["x_param"]
+    implementation_order = ordered_implementations(df, spec)
+    display_order = [
+        implementation_label(spec, implementation) for implementation in implementation_order
+    ]
+    display_df = with_display_labels(df, spec)
+    x_values = sorted(df[x_param].dropna().unique())
+
+    pivot = (
+        display_df.pivot(index="implementation_label", columns=x_param, values="ns_per_op")
+        .reindex(index=display_order, columns=x_values)
+    )
+    annotations = pivot.copy().astype(object)
+    fastest_cells = set()
+
+    for col_idx, x_value in enumerate(x_values):
+        column = pivot[x_value]
+        fastest = column.idxmin()
+        for row_idx, implementation in enumerate(display_order):
+            label = format_ns(pivot.at[implementation, x_value])
+            annotations.at[implementation, x_value] = label
+            if implementation == fastest and label:
+                fastest_cells.add((row_idx, col_idx))
+
+    fig_width = max(10, len(x_values) * 0.95)
+    fig_height = max(3.8, len(display_order) * 0.9)
+    fig, ax = plt.subplots(figsize=(fig_width, fig_height))
+
+    heatmap = sns.heatmap(
+        pivot,
+        cmap=sns.blend_palette(["#2a9d8f", "#e9c46a", "#e76f51"], as_cmap=True),
+        norm=LogNorm(vmin=float(pivot.min().min()), vmax=float(pivot.max().max())),
+        mask=pivot.isna(),
+        annot=annotations,
+        fmt="",
+        linewidths=0.5,
+        linecolor="white",
+        cbar_kws={"label": metric_label(spec)},
+        ax=ax,
+    )
+
+    heatmap.set_xlabel(axis_label(spec, "x", param_label(spec, x_param)))
+    heatmap.set_ylabel("Implementation\n(one row each)", fontweight="bold")
+    heatmap.set_xticklabels([str(value) for value in x_values], rotation=45, ha="right")
+    heatmap.set_yticklabels(display_order, rotation=0)
+    ax.tick_params(axis="y", labelsize=11)
+    for tick in ax.get_yticklabels():
+        tick.set_fontweight("bold")
+
+    for text in ax.texts:
+        x, y = text.get_position()
+        row_idx = round(y - 0.5)
+        col_idx = round(x - 0.5)
+        if (row_idx, col_idx) in fastest_cells:
+            text.set_fontweight("bold")
+
+    for row_idx, col_idx in fastest_cells:
+        ax.add_patch(
+            Rectangle(
+                (col_idx, row_idx),
+                1,
+                1,
+                fill=False,
+                edgecolor="#111111",
+                linewidth=2.5,
+            )
+        )
+
+    ax.text(
+        0,
+        1.08,
+        "Each row is one implementation. Bold text and a border mark the fastest value in each column.",
+        transform=ax.transAxes,
+        ha="left",
+        va="bottom",
+        fontsize=10,
+        fontweight="bold",
+    )
+
     fig.tight_layout()
     save_figure(fig, output_path)
 
@@ -402,8 +498,10 @@ def main():
 
     if spec["summary_kind"] == "line":
         plot_line_summary(df, spec, benchmark_name, output_path)
-    else:
+    elif spec["summary_kind"] == "winner_heatmap":
         plot_winner_heatmap(df, spec, benchmark_name, output_path)
+    else:
+        plot_value_heatmap(df, spec, benchmark_name, output_path)
 
     print(f"Wrote {output_path}")
 
