@@ -3,13 +3,11 @@
 When should you pass a reference (pointer), and when should you use pass by value?
 
 > [!TIP]
-> pass by reference if you want to mutate the data, otherwise pass a copy
+> use pointers when you need mutation  
+> for read-only data, start with the simpler API and measure  
+> this benchmark does not show a reliable universal size cutoff
 
-Performance-wise, this one is almost impossible to give general advice for. If your struct (or nested structs)
-are very big (it depends on the types of fields too), copying will become slower.
-But if you have many more pointers, you increase GC pressure and your program will
-spend more time on waiting on memory pointer lookup.
+In this benchmark, passing a pointer wins for all tested struct sizes, and the gap grows as the copied array gets larger. That is still a narrow microbenchmark, so the safe rule is not "always use pointers", but "measure once copying large values shows up in a profile".
 
-References (pointers) vs copied values is way more complicated,
-and there is tons of resources on this topic, great one is
+References (pointers) vs copied values are still way more complicated than one synthetic test can capture, and there is tons of resources on this topic. A great one is
 [this article](https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go) by Dave Cheney.

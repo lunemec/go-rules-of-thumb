@@ -1,0 +1,221 @@
+{
+  "BenchmarkAppend": {
+    "x_param": "size",
+    "y_param": "subset",
+    "summary_kind": "winner_heatmap",
+    "detail_kind": "facet_lines",
+    "axis_labels": {
+      "x": "Initial slice size",
+      "y": "Appended slice size",
+      "metric": "ns/op"
+    },
+    "implementation_order": [
+      "expand",
+      "for_index",
+      "for_prealloc",
+      "for"
+    ],
+    "implementation_labels": {
+      "expand": "append([]T, elems...)",
+      "for_index": "index copy",
+      "for_prealloc": "for + prealloc",
+      "for": "for loop"
+    },
+    "param_labels": {
+      "size": "Initial slice size",
+      "subset": "Appended slice size"
+    }
+  },
+  "BenchmarkAssert": {
+    "x_param": "size",
+    "y_param": null,
+    "summary_kind": "line",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Checks per operation",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "no_assert",
+      "assert",
+      "defer_assert"
+    ],
+    "implementation_labels": {
+      "no_assert": "no assert",
+      "assert": "assert",
+      "defer_assert": "defer assert"
+    },
+    "param_labels": {
+      "size": "Checks per operation"
+    }
+  },
+  "BenchmarkConcat": {
+    "x_param": "size",
+    "y_param": "iterations",
+    "summary_kind": "winner_heatmap",
+    "detail_kind": "facet_lines",
+    "axis_labels": {
+      "x": "Input string length",
+      "y": "Concatenations per operation",
+      "metric": "ns/op"
+    },
+    "implementation_order": [
+      "plus",
+      "sprintf",
+      "join",
+      "builder",
+      "builder_pool"
+    ],
+    "implementation_labels": {
+      "plus": "\"str1\" + var",
+      "sprintf": "fmt.Sprintf",
+      "join": "strings.Join",
+      "builder": "strings.Builder",
+      "builder_pool": "sync.Pool + strings.Builder"
+    },
+    "param_labels": {
+      "size": "Input string length",
+      "iterations": "Concatenations per operation"
+    }
+  },
+  "BenchmarkCopyVsPointer": {
+    "x_param": "size",
+    "y_param": null,
+    "summary_kind": "line",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Struct array length",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "copy",
+      "pointer"
+    ],
+    "implementation_labels": {
+      "copy": "copy",
+      "pointer": "pointer"
+    },
+    "param_labels": {
+      "size": "Struct array length"
+    }
+  },
+  "BenchmarkDeduplication": {
+    "x_param": "size",
+    "y_param": null,
+    "summary_kind": "line",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Haystack size",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "slice",
+      "slice_sort_inplace",
+      "map"
+    ],
+    "implementation_labels": {
+      "slice": "slice",
+      "slice_sort_inplace": "in-place sort + dedup",
+      "map": "map"
+    },
+    "param_labels": {
+      "size": "Haystack size"
+    }
+  },
+  "BenchmarkIfSwitch": {
+    "x_param": "size",
+    "y_param": null,
+    "summary_kind": "line",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Condition checks per operation",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "if",
+      "switch",
+      "if_5",
+      "switch_5"
+    ],
+    "implementation_labels": {
+      "if": "if (1 case)",
+      "switch": "switch (1 case)",
+      "if_5": "if (5 cases)",
+      "switch_5": "switch (5 cases)"
+    },
+    "param_labels": {
+      "size": "Condition checks per operation"
+    }
+  },
+  "BenchmarkIterate": {
+    "x_param": "size",
+    "y_param": null,
+    "summary_kind": "line",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Items iterated",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "direct",
+      "slice_iterate",
+      "range_func"
+    ],
+    "implementation_labels": {
+      "direct": "direct",
+      "slice_iterate": "slice iteration",
+      "range_func": "range over func"
+    },
+    "param_labels": {
+      "size": "Items iterated"
+    }
+  },
+  "BenchmarkNeedleInAHaystack": {
+    "x_param": "size",
+    "y_param": "iterations",
+    "summary_kind": "winner_heatmap",
+    "detail_kind": "facet_lines",
+    "axis_labels": {
+      "x": "Haystack size",
+      "y": "Lookups per operation",
+      "metric": "ns/op"
+    },
+    "implementation_order": [
+      "slice",
+      "map"
+    ],
+    "implementation_labels": {
+      "slice": "slice",
+      "map": "map"
+    },
+    "param_labels": {
+      "size": "Haystack size",
+      "iterations": "Lookups per operation"
+    }
+  },
+  "BenchmarkSubset": {
+    "x_param": "size",
+    "y_param": "subset",
+    "summary_kind": "winner_heatmap",
+    "detail_kind": "facet_lines",
+    "axis_labels": {
+      "x": "Set size (B)",
+      "y": "Subset size (A)",
+      "metric": "ns/op"
+    },
+    "implementation_order": [
+      "slice",
+      "slice_sort_binsearch",
+      "map"
+    ],
+    "implementation_labels": {
+      "slice": "slice",
+      "slice_sort_binsearch": "sort + binary search",
+      "map": "map"
+    },
+    "param_labels": {
+      "size": "Set size (B)",
+      "subset": "Subset size (A)"
+    }
+  }
+}

@@ -3,9 +3,13 @@
 What is the cost of adding `assert`? Does it make any significant impact?
 
 > [!TIP]
-> use `assert` whenever possible to improve reliability of your software
+> use `assert` freely outside hot loops  
+> in hot loops, plain `assert` is near-free below ~10 checks and noticeable around ~100+ checks  
+> avoid `defer`-based asserts in hot loops
 
 ![assert graph](assets/BenchmarkAssert.png)
+
+The absolute times are still small, but the relative cost shows up clearly in a tight loop: plain `assert` is about `1.01x` at `1`-`10` checks and about `2.1x` by `100`-`1000` checks, while `defer`-based asserts are worse. That makes direct asserts fine for most code, but worth avoiding in very hot inner loops.
 
 [Benchmark results](assets/BenchmarkAssert.txt)
 

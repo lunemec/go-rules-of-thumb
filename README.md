@@ -26,11 +26,16 @@ Examples here are what is called micro-optimization, before diving into these, p
 When is it more efficient to convert a _slice_ into a _map_ for locating an element `x` within the set `A` (x ∈ A)?
 
 > [!TIP]
-> use `slice` if `len(neeldes) <= 50`  
-> use `map` when `len(haystack) > 100 && len(needles) > 100`
+> use `slice` for one-off checks and up to ~50 lookups  
+> switch to `map` when you are doing hundreds of lookups on the same haystack  
+> between ~50 and ~100 lookups, benchmark your real workload
 
 Depending on size of the _haystack_ (size) and number of _needles_ (iterations), this will differ:
 ![needle in a haystack graph](assets/BenchmarkNeedleInAHaystack.png)
+
+[Detailed line view](assets/BenchmarkNeedleInAHaystack-detail.png)
+
+In this benchmark, `slice` wins every `10`-lookup case and still wins much of the `50`-lookup region. `map` takes over most of the grid once lookups reach `100+`, but the exact crossover still depends on both the haystack size and how many lookups you amortize the map build across.
 
 [Benchmark results](assets/BenchmarkNeedleInAHaystack.txt)
 ## Deduplication
@@ -38,11 +43,13 @@ Depending on size of the _haystack_ (size) and number of _needles_ (iterations),
 When is it more efficient to deduplicate a `slice` as opposed to using a `map[]struct{}` for the same purpose?
 
 > [!TIP]
-> use `map` when `len(haystack) > 100`.  
-> if you must reduce allocations, use in-place sort + deduplication  
-> if you must preserve original order, use `slice` or other methods
+> if order does not matter, use in-place sort + dedup up to ~1000 items  
+> use `map` from roughly ~5000 items upward  
+> if you must preserve original order, use `map`
 
 ![deduplication graph](assets/BenchmarkDeduplication.png)
+
+In this benchmark, in-place sort + dedup is the fastest option from `10` through `1000` items, while `map` takes over from `5000` onward. The plain slice scan is never the fastest path here; it is a simplicity choice for very small inputs, not a performance choice.
 
 [Benchmark results](assets/BenchmarkDeduplication.txt)
 ## Subsets
@@ -51,21 +58,29 @@ When checking if **A** is subset of **B** (A ⊆ B), when is it more efficient t
 Meaning of `A ⊆ B` in this test is that _all_ elements of **A** are present in **B**, regardless of position.
 
 > [!TIP]
-> use `slice` when `len(A) << len(B)`  
-> use `map` when `len(A) > 500 && len(B) > 500`
+> if `len(A) <= 100`, start with nested loops  
+> if `len(A) >= 500 && len(B) >= 1000`, use `map`  
+> use `sort + binary search` only in the middle, or when `B` is already sorted
 
 ![subsets graph](assets/BenchmarkSubset.png)
+
+[Detailed line view](assets/BenchmarkSubset-detail.png)
+
+The measured crossover is mostly driven by the size of `A`: small subsets keep the nested loop competitive for surprisingly long, while `map` dominates once both sides are non-trivial. `sort + binary search` only wins a narrow middle band in this benchmark, so it is best treated as a special-case option rather than a default.
 
 [Benchmark results](assets/BenchmarkSubset.txt)
 ## Append
 
 > [!TIP]
-> ALWAYS use `append([]T, elems...)` because `for` looping may trigger multiple array re-sizings, whereas `append` will always allocate only once  
-> if you must use `for` loop (extra logic), try to pre-allocate the slice
+> use `append(dst, src...)` as the default  
+> if `len(src)` is comparable to or larger than `len(dst)` and this is hot code, preallocate the full result  
+> avoid `for` + `append` without preallocation
 
 ![append graph](assets/BenchmarkAppend.png)
 
-Even though regular `append()` has time complexity `O(1)` (amortized constant-time), because every time it needs to allocate more space, it grows the underlying data array by 2x (until 512 elements, after 512 it grows less), simply by having to allocate + copy makes it significantly slower than if you are able to calculate the resulting size and pre-allocating.
+In this benchmark, `append(dst, src...)` wins most of the grid, especially when the appended slice is small. Once the appended slice gets large relative to the destination, the preallocated indexed copy often pulls ahead, so "append is always fastest" is too strong a rule.
+
+[Detailed line view](assets/BenchmarkAppend-detail.png)
 
 [Benchmark results](assets/BenchmarkAppend.txt)
 ## Strings concatenation
@@ -73,13 +88,17 @@ Even though regular `append()` has time complexity `O(1)` (amortized constant-ti
 Is it more efficient to `"str1" + var`, `fmt.Sprintf()`, `strings.Join()` or `strings.Builder`? When does it make sense to add `sync.Pool`?
 
 > [!TIP]
-> use `strings.Builder` when `len(str) < 100 & N ops < 1000`  
-> use `sync.Pool + strings.Builder` when doing this for every request  
-> for `len(str) > 100` use `+` or `strings.Join`
+> for repeated concatenation, start with `strings.Builder`  
+> benchmark `sync.Pool + strings.Builder` once the loop gets very hot or reaches ~1000+ concatenations per operation  
+> use `+` for one-off expressions and `fmt.Sprintf` for formatting, not concat speed
 >
-> use `fmt.Sprintf` for regular string formatting (not just concatenation)
+> in this benchmark, only the `strings.Builder` variants ever win
 
 ![concatenation graph](assets/BenchmarkConcat.png)
+
+[Detailed line view](assets/BenchmarkConcat-detail.png)
+
+In this benchmark, only the two `strings.Builder` variants take first place. `sync.Pool + strings.Builder` starts to win more often as the work gets heavier, but plain `strings.Builder` stays competitive across the whole grid, which makes it the safest default.
 
 [Benchmark results](assets/BenchmarkConcat.txt)
 ## If vs switch
@@ -88,14 +107,17 @@ Is there even any difference? In theory, `switch` should be faster (at least for
 compiler is able to transform it into a jump table.
 
 > [!TIP]
-> use which ever one is more readable  
-> but `switch` is tiny bit slower
+> use whichever is more readable  
+> for single-case branches, `if` and `switch` are effectively equal  
+> for longer linear chains, `if` is slightly to moderately faster in this benchmark
 
 ![if switch graph](assets/BenchmarkIfSwitch.png)
 
 [Benchmark results](assets/BenchmarkIfSwitch.txt)
 
-It looks like Go doesn't support jump tables yet? The tests I tried compile into same code for both switch/if statements. You can try to hand-roll jump table [similar to the #19791](https://github.com/golang/go/issues/19791).
+The 1-case versions are basically a wash here. The 5-case `switch` is consistently slower than the 5-case `if` chain, so the data does not support the idea that `switch` is a free performance win.
+
+It looks like Go does not support jump tables here? The tests I tried compile into same code for both switch/if statements. You can try to hand-roll jump table [similar to the #19791](https://github.com/golang/go/issues/19791).
 
 Read more:
 
@@ -109,9 +131,13 @@ Read more:
 What is the cost of adding `assert`? Does it make any significant impact?
 
 > [!TIP]
-> use `assert` whenever possible to improve reliability of your software
+> use `assert` freely outside hot loops  
+> in hot loops, plain `assert` is near-free below ~10 checks and noticeable around ~100+ checks  
+> avoid `defer`-based asserts in hot loops
 
 ![assert graph](assets/BenchmarkAssert.png)
+
+The absolute times are still small, but the relative cost shows up clearly in a tight loop: plain `assert` is about `1.01x` at `1`-`10` checks and about `2.1x` by `100`-`1000` checks, while `defer`-based asserts are worse. That makes direct asserts fine for most code, but worth avoiding in very hot inner loops.
 
 [Benchmark results](assets/BenchmarkAssert.txt)
 
@@ -125,15 +151,13 @@ Read more:
 When should you pass a reference (pointer), and when should you use pass by value?
 
 > [!TIP]
-> pass by reference if you want to mutate the data, otherwise pass a copy
+> use pointers when you need mutation  
+> for read-only data, start with the simpler API and measure  
+> this benchmark does not show a reliable universal size cutoff
 
-Performance-wise, this one is almost impossible to give general advice for. If your struct (or nested structs)
-are very big (it depends on the types of fields too), copying will become slower.
-But if you have many more pointers, you increase GC pressure and your program will
-spend more time on waiting on memory pointer lookup.
+In this benchmark, passing a pointer wins for all tested struct sizes, and the gap grows as the copied array gets larger. That is still a narrow microbenchmark, so the safe rule is not "always use pointers", but "measure once copying large values shows up in a profile".
 
-References (pointers) vs copied values is way more complicated,
-and there is tons of resources on this topic, great one is
+References (pointers) vs copied values are still way more complicated than one synthetic test can capture, and there is tons of resources on this topic. A great one is
 [this article](https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go) by Dave Cheney.
 ## Range over func
 
@@ -141,10 +165,13 @@ With [Go 1.23 came new feature - range over func](https://go.dev/blog/range-func
 pre-allocating a slice and putting values in it.
 
 > [!TIP]
-> use `iter.Seq` for better readability for ~20% time cost  
-> direct iteration is always faster
+> use direct iteration on hot paths  
+> use `iter.Seq` when it makes the API or call site cleaner  
+> expect about ~10-20% overhead on medium and large loops, and more on tiny ones
 
 ![iteration graph](assets/BenchmarkIterate.png)
+
+In this benchmark, direct iteration wins at every tested size. `range over func` settles around `12-13%` overhead on medium and large loops, but the penalty is much higher on tiny loops, so the readability trade-off is real but measurable.
 
 [Benchmark results](assets/BenchmarkIterate.txt)
 ## Notes

@@ -1,11 +1,14 @@
 ## Append
 
 > [!TIP]
-> ALWAYS use `append([]T, elems...)` because `for` looping may trigger multiple array re-sizings, whereas `append` will always allocate only once  
-> if you must use `for` loop (extra logic), try to pre-allocate the slice
+> use `append(dst, src...)` as the default  
+> if `len(src)` is comparable to or larger than `len(dst)` and this is hot code, preallocate the full result  
+> avoid `for` + `append` without preallocation
 
 ![append graph](assets/BenchmarkAppend.png)
 
-Even though regular `append()` has time complexity `O(1)` (amortized constant-time), because every time it needs to allocate more space, it grows the underlying data array by 2x (until 512 elements, after 512 it grows less), simply by having to allocate + copy makes it significantly slower than if you are able to calculate the resulting size and pre-allocating.
+In this benchmark, `append(dst, src...)` wins most of the grid, especially when the appended slice is small. Once the appended slice gets large relative to the destination, the preallocated indexed copy often pulls ahead, so "append is always fastest" is too strong a rule.
+
+[Detailed line view](assets/BenchmarkAppend-detail.png)
 
 [Benchmark results](assets/BenchmarkAppend.txt)
