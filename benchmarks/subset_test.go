@@ -11,6 +11,8 @@ import (
 
 type subsetBench func(first []int, second []int) bool
 
+var subsetBenchmarkSizes = []int{10, 50, 100, 500, 1_000, 5_000, 10_000}
+
 func TestSubset(t *testing.T) {
 	for _, subsetSize := range sizesReduced {
 		for _, setSize := range sizesReduced {
@@ -27,7 +29,7 @@ func TestSubset(t *testing.T) {
 }
 
 func BenchmarkSubset(b *testing.B) {
-	s := sizes
+	s := subsetBenchmarkSizes
 	if testing.Short() {
 		s = sizesReduced
 	}

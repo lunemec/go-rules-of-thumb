@@ -13,6 +13,11 @@ import (
 
 type concatBench func(first string, nops int) string
 
+var (
+	concatStringSizes = []int{10, 50, 100, 500, 1_000}
+	concatOpCounts    = []int{10, 50, 100, 500, 1_000, 5_000}
+)
+
 func TestConcat(t *testing.T) {
 	for _, stringSize := range sizesReduced {
 		for _, nOperations := range sizesReduced {
@@ -34,8 +39,8 @@ func TestConcat(t *testing.T) {
 
 func BenchmarkConcat(b *testing.B) {
 	runBenchmark := func(runF concatBench) {
-		for _, stringSize := range sizes {
-			for _, nOperations := range sizes {
+		for _, stringSize := range concatStringSizes {
+			for _, nOperations := range concatOpCounts {
 				b.Run(
 					fmt.Sprintf("size=%d iterations=%d", stringSize, nOperations),
 					benchmarkConcat(stringSize, nOperations, runF),

@@ -3,50 +3,50 @@ goarch: arm64
 pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
 cpu: Apple M5
                                  │ BenchmarkReturnValueVsPointer-return_pointer.txt │ BenchmarkReturnValueVsPointer-return_value.txt │
-                                 │                      sec/op                      │         sec/op          vs base                │
-ReturnValueVsPointer/size=8-10                                        1485.0n ±  3%              133.2n ± 5%  -91.03% (p=0.000 n=10)
-ReturnValueVsPointer/size=16-10                                       2112.0n ±  6%              355.7n ± 8%  -83.16% (p=0.000 n=10)
-ReturnValueVsPointer/size=24-10                                       2432.5n ±  2%              307.4n ± 4%  -87.36% (p=0.000 n=10)
-ReturnValueVsPointer/size=32-10                                        3.772µ ±  4%              2.311µ ± 1%  -38.74% (p=0.000 n=10)
-ReturnValueVsPointer/size=64-10                                        5.440µ ±  4%              3.100µ ± 2%  -43.01% (p=0.000 n=10)
-ReturnValueVsPointer/size=96-10                                        6.622µ ±  6%              3.148µ ± 3%  -52.46% (p=0.000 n=10)
-ReturnValueVsPointer/size=128-10                                      11.804µ ± 22%              4.668µ ± 3%  -60.46% (p=0.000 n=10)
-ReturnValueVsPointer/size=192-10                                      17.701µ ± 36%              8.703µ ± 2%  -50.83% (p=0.000 n=10)
-ReturnValueVsPointer/size=256-10                                       17.04µ ± 20%              11.58µ ± 4%  -32.06% (p=0.000 n=10)
-ReturnValueVsPointer/size=384-10                                       25.36µ ±  4%              17.72µ ± 4%  -30.12% (p=0.000 n=10)
-ReturnValueVsPointer/size=512-10                                       31.83µ ±  5%              23.70µ ± 4%  -25.54% (p=0.000 n=10)
-geomean                                                                7.266µ                    2.738µ       -62.31%
+                                 │                      sec/op                      │         sec/op           vs base               │
+ReturnValueVsPointer/size=8-10                                        1433.0n ± 30%              132.1n ± 15%  -90.78% (p=0.002 n=6)
+ReturnValueVsPointer/size=16-10                                       2008.0n ±  2%              363.3n ± 10%  -81.91% (p=0.002 n=6)
+ReturnValueVsPointer/size=24-10                                       2312.0n ±  1%              315.4n ±  1%  -86.36% (p=0.002 n=6)
+ReturnValueVsPointer/size=32-10                                        3.518µ ±  3%              2.289µ ±  1%  -34.92% (p=0.002 n=6)
+ReturnValueVsPointer/size=64-10                                        5.136µ ±  0%              3.059µ ±  1%  -40.44% (p=0.002 n=6)
+ReturnValueVsPointer/size=96-10                                        6.228µ ±  0%              3.212µ ±  1%  -48.42% (p=0.002 n=6)
+ReturnValueVsPointer/size=128-10                                       7.869µ ±  0%              4.764µ ±  1%  -39.45% (p=0.002 n=6)
+ReturnValueVsPointer/size=192-10                                      11.876µ ±  1%              8.894µ ±  2%  -25.11% (p=0.002 n=6)
+ReturnValueVsPointer/size=256-10                                       15.33µ ±  0%              11.71µ ±  1%  -23.65% (p=0.002 n=6)
+ReturnValueVsPointer/size=384-10                                       22.53µ ± 11%              17.84µ ±  1%  -20.82% (p=0.002 n=6)
+ReturnValueVsPointer/size=512-10                                       29.46µ ±  0%              24.06µ ±  1%  -18.31% (p=0.002 n=6)
+geomean                                                                6.379µ                    2.766µ        -56.64%
 
                                  │ BenchmarkReturnValueVsPointer-return_pointer.txt │ BenchmarkReturnValueVsPointer-return_value.txt │
-                                 │                       B/op                       │       B/op         vs base                     │
-ReturnValueVsPointer/size=8-10                                         2.000Ki ± 0%        0.000Ki ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=16-10                                        4.000Ki ± 0%        0.000Ki ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=24-10                                        6.000Ki ± 0%        0.000Ki ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=32-10                                        8.000Ki ± 0%        0.000Ki ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=64-10                                        16.00Ki ± 0%         0.00Ki ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=96-10                                        24.00Ki ± 0%         0.00Ki ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=128-10                                       32.00Ki ± 0%         0.00Ki ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=192-10                                       48.00Ki ± 0%         0.00Ki ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=256-10                                       64.00Ki ± 0%         0.00Ki ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=384-10                                       96.00Ki ± 0%         0.00Ki ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=512-10                                       128.0Ki ± 0%          0.0Ki ± 0%  -100.00% (p=0.000 n=10)
-geomean                                                                19.75Ki                           ?                       ¹ ²
+                                 │                       B/op                       │        B/op         vs base                    │
+ReturnValueVsPointer/size=8-10                                         2.000Ki ± 0%         0.000Ki ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=16-10                                        4.000Ki ± 0%         0.000Ki ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=24-10                                        6.000Ki ± 0%         0.000Ki ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=32-10                                        8.000Ki ± 0%         0.000Ki ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=64-10                                        16.00Ki ± 0%          0.00Ki ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=96-10                                        24.00Ki ± 0%          0.00Ki ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=128-10                                       32.00Ki ± 0%          0.00Ki ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=192-10                                       48.00Ki ± 0%          0.00Ki ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=256-10                                       64.00Ki ± 0%          0.00Ki ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=384-10                                       96.00Ki ± 0%          0.00Ki ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=512-10                                       128.0Ki ± 0%           0.0Ki ± 0%  -100.00% (p=0.002 n=6)
+geomean                                                                19.75Ki                            ?                      ¹ ²
 ¹ summaries must be >0 to compute geomean
 ² ratios must be >0 to compute geomean
 
                                  │ BenchmarkReturnValueVsPointer-return_pointer.txt │ BenchmarkReturnValueVsPointer-return_value.txt │
-                                 │                    allocs/op                     │     allocs/op      vs base                     │
-ReturnValueVsPointer/size=8-10                                           256.0 ± 0%            0.0 ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=16-10                                          256.0 ± 0%            0.0 ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=24-10                                          256.0 ± 0%            0.0 ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=32-10                                          256.0 ± 0%            0.0 ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=64-10                                          256.0 ± 0%            0.0 ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=96-10                                          256.0 ± 0%            0.0 ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=128-10                                         256.0 ± 0%            0.0 ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=192-10                                         256.0 ± 0%            0.0 ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=256-10                                         256.0 ± 0%            0.0 ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=384-10                                         256.0 ± 0%            0.0 ± 0%  -100.00% (p=0.000 n=10)
-ReturnValueVsPointer/size=512-10                                         256.0 ± 0%            0.0 ± 0%  -100.00% (p=0.000 n=10)
-geomean                                                                  256.0                           ?                       ¹ ²
+                                 │                    allocs/op                     │     allocs/op       vs base                    │
+ReturnValueVsPointer/size=8-10                                           256.0 ± 0%             0.0 ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=16-10                                          256.0 ± 0%             0.0 ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=24-10                                          256.0 ± 0%             0.0 ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=32-10                                          256.0 ± 0%             0.0 ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=64-10                                          256.0 ± 0%             0.0 ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=96-10                                          256.0 ± 0%             0.0 ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=128-10                                         256.0 ± 0%             0.0 ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=192-10                                         256.0 ± 0%             0.0 ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=256-10                                         256.0 ± 0%             0.0 ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=384-10                                         256.0 ± 0%             0.0 ± 0%  -100.00% (p=0.002 n=6)
+ReturnValueVsPointer/size=512-10                                         256.0 ± 0%             0.0 ± 0%  -100.00% (p=0.002 n=6)
+geomean                                                                  256.0                            ?                      ¹ ²
 ¹ summaries must be >0 to compute geomean
 ² ratios must be >0 to compute geomean

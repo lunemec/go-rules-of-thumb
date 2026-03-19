@@ -186,7 +186,7 @@ $MASK graph "BenchmarkReturnValueVsPointer"
 
 ```bash
 echo "Running: $benchname $variant"
-go test -bench "^$benchname\$" -timeout 60m -count 10 -benchmem ./benchmarks/... -args -variant "$variant" > "assets/$benchname-$variant.txt"
+go test -run '^$' -bench "^$benchname\$" -benchtime 100ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "$variant" > "assets/$benchname-$variant.txt"
 ```
 
 ## benchstat (benchname)

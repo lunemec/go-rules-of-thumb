@@ -2,29 +2,29 @@ goos: darwin
 goarch: arm64
 pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
 cpu: Apple M5
-,BenchmarkAoSVsSoA-aos_hot_update.txt,,BenchmarkAoSVsSoA-soa_hot_update.txt,,,,BenchmarkAoSVsSoA-aos_snapshot.txt,,,,BenchmarkAoSVsSoA-soa_snapshot.txt,,,
+,BenchmarkAoSVsSoA-aos_hot_update.txt,,BenchmarkAoSVsSoA-aos_snapshot.txt,,,,BenchmarkAoSVsSoA-soa_hot_update.txt,,,,BenchmarkAoSVsSoA-soa_snapshot.txt,,,
 ,sec/op,CI,sec/op,CI,vs base,P,sec/op,CI,vs base,P,sec/op,CI,vs base,P
-AoSVsSoA/size=10-10,4.841e-09,3%,1.6335e-08,1%,+237.43%,p=0.000 n=10,1.5865e-07,6%,+3177.22%,p=0.000 n=10,1.446e-07,6%,+2886.99%,p=0.000 n=10
-AoSVsSoA/size=100-10,9.740000000000001e-08,5%,1.3990000000000003e-07,4%,+43.63%,p=0.000 n=10,1.2370000000000002e-06,5%,+1170.02%,p=0.000 n=10,1.165e-06,4%,+1096.10%,p=0.000 n=10
-AoSVsSoA/size=1000-10,2.103e-06,3%,1.403e-06,4%,-33.29%,p=0.000 n=10,1.2688000000000001e-05,3%,+503.33%,p=0.000 n=10,1.2303e-05,8%,+485.02%,p=0.000 n=10
-AoSVsSoA/size=10000-10,2.52285e-05,17%,1.5174e-05,2%,-39.85%,p=0.000 n=10,0.0001349815,6%,+435.04%,p=0.000 n=10,0.000147854,9%,+486.06%,p=0.000 n=10
-AoSVsSoA/size=100000-10,0.0002934155,10%,0.00017488050000000001,5%,-40.40%,p=0.000 n=10,0.0009722275,5%,+231.35%,p=0.000 n=10,0.001016922,4%,+246.58%,p=0.000 n=10
-geomean,1.4898466158656068e-06,,1.5345010787341334e-06,,+3.00%,,1.2672112488760223e-05,,+750.56%,,1.255235440571806e-05,,+742.53%,
+AoSVsSoA/size=10-10,5.2145e-09,15%,1.1465000000000001e-07,12%,+2098.68%,p=0.002 n=6,1.5675e-08,7%,+200.60%,p=0.002 n=6,1.1750000000000001e-07,13%,+2153.33%,p=0.002 n=6
+AoSVsSoA/size=100-10,9.593000000000001e-08,40%,9.492500000000001e-07,26%,+889.52%,p=0.002 n=6,1.2745e-07,2%,~,p=0.065 n=6,9.187e-07,31%,+857.68%,p=0.002 n=6
+AoSVsSoA/size=1000-10,2.1290000000000003e-06,61%,9.730500000000001e-06,70%,+357.05%,p=0.002 n=6,1.2695e-06,0%,-40.37%,p=0.002 n=6,9.8585e-06,12%,+363.06%,p=0.002 n=6
+AoSVsSoA/size=10000-10,2.3066000000000002e-05,3%,0.000119586,11%,+418.45%,p=0.002 n=6,1.48695e-05,3%,-35.53%,p=0.002 n=6,0.0001113085,18%,+382.57%,p=0.002 n=6
+AoSVsSoA/size=100000-10,0.0002500575,5%,0.0009292020000000001,37%,+271.60%,p=0.002 n=6,0.00016733,2%,-33.08%,p=0.002 n=6,0.001190073,50%,+375.92%,p=0.002 n=6
+geomean,1.4377089955284341e-06,,1.0330850087008311e-05,,+618.56%,,1.445473233876185e-06,,+0.54%,,1.0710873033644896e-05,,+645.00%,
 
-,BenchmarkAoSVsSoA-aos_hot_update.txt,,BenchmarkAoSVsSoA-soa_hot_update.txt,,,,BenchmarkAoSVsSoA-aos_snapshot.txt,,,,BenchmarkAoSVsSoA-soa_snapshot.txt,,,
+,BenchmarkAoSVsSoA-aos_hot_update.txt,,BenchmarkAoSVsSoA-aos_snapshot.txt,,,,BenchmarkAoSVsSoA-soa_hot_update.txt,,,,BenchmarkAoSVsSoA-soa_snapshot.txt,,,
 ,B/op,CI,B/op,CI,vs base,P,B/op,CI,vs base,P,B/op,CI,vs base,P
-AoSVsSoA/size=10-10,0,0%,0,0%,~,p=1.000 n=10,1152,0%,?,p=0.000 n=10,1152,0%,?,p=0.000 n=10
-AoSVsSoA/size=100-10,0,0%,0,0%,~,p=1.000 n=10,12288,0%,?,p=0.000 n=10,12288,0%,?,p=0.000 n=10
-AoSVsSoA/size=1000-10,0,0%,0,0%,~,p=1.000 n=10,114688,0%,?,p=0.000 n=10,114688,0%,?,p=0.000 n=10
-AoSVsSoA/size=10000-10,0,0%,0,0%,~,p=1.000 n=10,1.1223055e+06,0%,?,p=0.000 n=10,1.1223075e+06,0%,?,p=0.000 n=10
-AoSVsSoA/size=100000-10,0,0%,0,0%,~,p=1.000 n=10,1.12066635e+07,0%,?,p=0.000 n=10,1.1206663e+07,0%,?,p=0.000 n=10
-geomean,,,,,+0.00%,,115347.40188304159,,?,,115347.44196461127,,?,
+AoSVsSoA/size=10-10,0,0%,1152,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1152,0%,?,p=0.002 n=6
+AoSVsSoA/size=100-10,0,0%,12288,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,12288,0%,?,p=0.002 n=6
+AoSVsSoA/size=1000-10,0,0%,114688,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,114688,0%,?,p=0.002 n=6
+AoSVsSoA/size=10000-10,0,0%,1.1223055e+06,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1.122305e+06,0%,?,p=0.002 n=6
+AoSVsSoA/size=100000-10,0,0%,1.12066655e+07,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1.1206663e+07,0%,?,p=0.002 n=6
+geomean,,,115347.40600014187,,?,,,,+0.00%,,115347.3905760459,,?,
 
-,BenchmarkAoSVsSoA-aos_hot_update.txt,,BenchmarkAoSVsSoA-soa_hot_update.txt,,,,BenchmarkAoSVsSoA-aos_snapshot.txt,,,,BenchmarkAoSVsSoA-soa_snapshot.txt,,,
+,BenchmarkAoSVsSoA-aos_hot_update.txt,,BenchmarkAoSVsSoA-aos_snapshot.txt,,,,BenchmarkAoSVsSoA-soa_hot_update.txt,,,,BenchmarkAoSVsSoA-soa_snapshot.txt,,,
 ,allocs/op,CI,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P
-AoSVsSoA/size=10-10,0,0%,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10,1,0%,?,p=0.000 n=10
-AoSVsSoA/size=100-10,0,0%,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10,1,0%,?,p=0.000 n=10
-AoSVsSoA/size=1000-10,0,0%,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10,1,0%,?,p=0.000 n=10
-AoSVsSoA/size=10000-10,0,0%,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10,1,0%,?,p=0.000 n=10
-AoSVsSoA/size=100000-10,0,0%,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10,1,0%,?,p=0.000 n=10
-geomean,,,,,+0.00%,,1,,?,,1,,?,
+AoSVsSoA/size=10-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1,0%,?,p=0.002 n=6
+AoSVsSoA/size=100-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1,0%,?,p=0.002 n=6
+AoSVsSoA/size=1000-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1,0%,?,p=0.002 n=6
+AoSVsSoA/size=10000-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1,0%,?,p=0.002 n=6
+AoSVsSoA/size=100000-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1,0%,?,p=0.002 n=6
+geomean,,,1,,?,,,,+0.00%,,1,,?,

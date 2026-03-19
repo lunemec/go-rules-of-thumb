@@ -4,27 +4,27 @@ pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
 cpu: Apple M5
 ,BenchmarkValuesVsPointers-pointers_hot_scan.txt,,BenchmarkValuesVsPointers-pointers_snapshot.txt,,,,BenchmarkValuesVsPointers-values_hot_scan.txt,,,,BenchmarkValuesVsPointers-values_snapshot.txt,,,
 ,sec/op,CI,sec/op,CI,vs base,P,sec/op,CI,vs base,P,sec/op,CI,vs base,P
-ValuesVsPointers/size=10-10,2.992e-09,2%,1.844e-07,5%,+6063.10%,p=0.000 n=10,3.6310000000000004e-09,8%,+21.36%,p=0.000 n=10,1.8210000000000002e-07,3%,+5986.23%,p=0.000 n=10
-ValuesVsPointers/size=100-10,4.447e-08,3%,1.591e-06,3%,+3477.69%,p=0.000 n=10,5.02e-08,5%,+12.89%,p=0.000 n=10,1.602e-06,11%,+3502.43%,p=0.000 n=10
-ValuesVsPointers/size=1000-10,5.279500000000001e-07,1%,1.53005e-05,2%,+2798.10%,p=0.000 n=10,5.6495e-07,7%,+7.01%,p=0.000 n=10,1.5314999999999998e-05,5%,+2800.84%,p=0.000 n=10
-ValuesVsPointers/size=10000-10,8.109e-06,2%,7.992350000000001e-05,7%,+885.61%,p=0.000 n=10,9.2385e-06,36%,+13.93%,p=0.000 n=10,0.0001235095,40%,+1423.12%,p=0.000 n=10
-ValuesVsPointers/size=100000-10,9.562500000000001e-05,5%,0.0006578080000000001,4%,+587.90%,p=0.000 n=10,9.215650000000001e-05,3%,-3.63%,p=0.015 n=10,0.0007051620000000001,22%,+637.42%,p=0.000 n=10
-geomean,5.587686763433421e-07,,1.1873590668631185e-05,,+2024.96%,,6.145730090663765e-07,,+9.99%,,1.3122474715057373e-05,,+2248.46%,
+ValuesVsPointers/size=10-10,3.3015e-09,8%,1.6385000000000003e-07,14%,+4862.90%,p=0.002 n=6,4.135e-09,10%,+25.25%,p=0.002 n=6,1.7015e-07,5%,+5053.72%,p=0.002 n=6
+ValuesVsPointers/size=100-10,4.5615e-08,3%,1.2785000000000001e-06,1%,+2702.81%,p=0.002 n=6,5.0375e-08,5%,+10.44%,p=0.002 n=6,1.2815e-06,0%,+2709.38%,p=0.002 n=6
+ValuesVsPointers/size=1000-10,5.273500000000001e-07,0%,1.0685500000000001e-05,1%,+1926.26%,p=0.002 n=6,5.525e-07,3%,+4.77%,p=0.002 n=6,1.05705e-05,1%,+1904.46%,p=0.002 n=6
+ValuesVsPointers/size=10000-10,8.5815e-06,17%,7.63815e-05,4%,+790.07%,p=0.002 n=6,8.4485e-06,19%,~,p=0.240 n=6,7.211500000000001e-05,20%,+740.35%,p=0.002 n=6
+ValuesVsPointers/size=100000-10,0.0001149205,2%,0.0006718455000000001,3%,+484.62%,p=0.002 n=6,9.05345e-05,4%,-21.22%,p=0.002 n=6,0.0006608445,2%,+475.04%,p=0.002 n=6
+geomean,6.008633696259491e-07,,1.0281108074410693e-05,,+1611.06%,,6.150682571537257e-07,,+2.36%,,1.0189531035721591e-05,,+1595.81%,
 
 ,BenchmarkValuesVsPointers-pointers_hot_scan.txt,,BenchmarkValuesVsPointers-pointers_snapshot.txt,,,,BenchmarkValuesVsPointers-values_hot_scan.txt,,,,BenchmarkValuesVsPointers-values_snapshot.txt,,,
 ,B/op,CI,B/op,CI,vs base,P,B/op,CI,vs base,P,B/op,CI,vs base,P
-ValuesVsPointers/size=10-10,0,0%,1536,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1536,0%,?,p=0.000 n=10
-ValuesVsPointers/size=100-10,0,0%,16384,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,16384,0%,?,p=0.000 n=10
-ValuesVsPointers/size=1000-10,0,0%,147457,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,147457,0%,?,p=0.000 n=10
-ValuesVsPointers/size=10000-10,0,0%,1.441794e+06,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1.441799e+06,0%,?,p=0.000 n=10
-ValuesVsPointers/size=100000-10,0,0%,1.4401536e+07,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1.4401538e+07,0%,?,p=0.000 n=10
-geomean,,,150438.0569435142,,?,,,,+0.00%,,150438.16546264276,,?,
+ValuesVsPointers/size=10-10,0,0%,1536,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1536,0%,?,p=0.002 n=6
+ValuesVsPointers/size=100-10,0,0%,16384,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,16384,0%,?,p=0.002 n=6
+ValuesVsPointers/size=1000-10,0,0%,147456,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,147456,0%,?,p=0.002 n=6
+ValuesVsPointers/size=10000-10,0,0%,1.441793e+06,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1.441793e+06,0%,?,p=0.002 n=6
+ValuesVsPointers/size=100000-10,0,0%,1.44015365e+07,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1.4401537e+07,0%,?,p=0.002 n=6
+geomean,,,150437.83307611282,,?,,,,+0.00%,,150437.8341207084,,?,
 
 ,BenchmarkValuesVsPointers-pointers_hot_scan.txt,,BenchmarkValuesVsPointers-pointers_snapshot.txt,,,,BenchmarkValuesVsPointers-values_hot_scan.txt,,,,BenchmarkValuesVsPointers-values_snapshot.txt,,,
 ,allocs/op,CI,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P
-ValuesVsPointers/size=10-10,0,0%,1,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10
-ValuesVsPointers/size=100-10,0,0%,1,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10
-ValuesVsPointers/size=1000-10,0,0%,1,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10
-ValuesVsPointers/size=10000-10,0,0%,1,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10
-ValuesVsPointers/size=100000-10,0,0%,1,0%,?,p=0.000 n=10,0,0%,~,p=1.000 n=10,1,0%,?,p=0.000 n=10
+ValuesVsPointers/size=10-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1,0%,?,p=0.002 n=6
+ValuesVsPointers/size=100-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1,0%,?,p=0.002 n=6
+ValuesVsPointers/size=1000-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1,0%,?,p=0.002 n=6
+ValuesVsPointers/size=10000-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1,0%,?,p=0.002 n=6
+ValuesVsPointers/size=100000-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,1,0%,?,p=0.002 n=6
 geomean,,,1,,?,,,,+0.00%,,1,,?,

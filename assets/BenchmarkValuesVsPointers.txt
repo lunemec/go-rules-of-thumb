@@ -3,32 +3,32 @@ goarch: arm64
 pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
 cpu: Apple M5
                                 │ BenchmarkValuesVsPointers-pointers_hot_scan.txt │ BenchmarkValuesVsPointers-pointers_snapshot.txt │ BenchmarkValuesVsPointers-values_hot_scan.txt │ BenchmarkValuesVsPointers-values_snapshot.txt │
-                                │                     sec/op                      │        sec/op          vs base                  │        sec/op          vs base                │       sec/op         vs base                  │
-ValuesVsPointers/size=10-10                                           2.992n ± 2%           184.400n ± 5%  +6063.10% (p=0.000 n=10)            3.631n ±  8%  +21.36% (p=0.000 n=10)        182.100n ±  3%  +5986.23% (p=0.000 n=10)
-ValuesVsPointers/size=100-10                                          44.47n ± 3%           1591.00n ± 3%  +3477.69% (p=0.000 n=10)            50.20n ±  5%  +12.89% (p=0.000 n=10)        1602.00n ± 11%  +3502.43% (p=0.000 n=10)
-ValuesVsPointers/size=1000-10                                         528.0n ± 1%           15300.5n ± 2%  +2798.10% (p=0.000 n=10)            564.9n ±  7%   +7.01% (p=0.000 n=10)        15315.0n ±  5%  +2800.84% (p=0.000 n=10)
-ValuesVsPointers/size=10000-10                                        8.109µ ± 2%            79.924µ ± 7%   +885.61% (p=0.000 n=10)            9.239µ ± 36%  +13.93% (p=0.000 n=10)        123.510µ ± 40%  +1423.12% (p=0.000 n=10)
-ValuesVsPointers/size=100000-10                                       95.63µ ± 5%            657.81µ ± 4%   +587.90% (p=0.000 n=10)            92.16µ ±  3%   -3.63% (p=0.015 n=10)         705.16µ ± 22%   +637.42% (p=0.000 n=10)
-geomean                                                               558.8n                  11.87µ       +2024.96%                           614.6n         +9.99%                         13.12µ        +2248.46%
+                                │                     sec/op                      │         sec/op          vs base                 │         sec/op          vs base               │        sec/op         vs base                 │
+ValuesVsPointers/size=10-10                                          3.301n ±  8%           163.850n ± 14%  +4862.90% (p=0.002 n=6)             4.135n ± 10%  +25.25% (p=0.002 n=6)         170.150n ±  5%  +5053.72% (p=0.002 n=6)
+ValuesVsPointers/size=100-10                                         45.62n ±  3%           1278.50n ±  1%  +2702.81% (p=0.002 n=6)             50.37n ±  5%  +10.44% (p=0.002 n=6)         1281.50n ±  0%  +2709.38% (p=0.002 n=6)
+ValuesVsPointers/size=1000-10                                        527.4n ±  0%           10685.5n ±  1%  +1926.26% (p=0.002 n=6)             552.5n ±  3%   +4.77% (p=0.002 n=6)         10570.5n ±  1%  +1904.46% (p=0.002 n=6)
+ValuesVsPointers/size=10000-10                                       8.582µ ± 17%            76.382µ ±  4%   +790.07% (p=0.002 n=6)             8.449µ ± 19%        ~ (p=0.240 n=6)          72.115µ ± 20%   +740.35% (p=0.002 n=6)
+ValuesVsPointers/size=100000-10                                     114.92µ ±  2%            671.85µ ±  3%   +484.62% (p=0.002 n=6)             90.53µ ±  4%  -21.22% (p=0.002 n=6)          660.84µ ±  2%   +475.04% (p=0.002 n=6)
+geomean                                                              600.9n                   10.28µ        +1611.06%                           615.1n         +2.36%                         10.19µ        +1595.81%
 
                                 │ BenchmarkValuesVsPointers-pointers_hot_scan.txt │ BenchmarkValuesVsPointers-pointers_snapshot.txt │ BenchmarkValuesVsPointers-values_hot_scan.txt │ BenchmarkValuesVsPointers-values_snapshot.txt │
-                                │                      B/op                       │             B/op               vs base          │         B/op          vs base                 │            B/op              vs base          │
-ValuesVsPointers/size=10-10                                        0.000Ki ± 0%                      1.500Ki ± 0%  ? (p=0.000 n=10)           0.000Ki ± 0%       ~ (p=1.000 n=10) ¹                  1.500Ki ± 0%  ? (p=0.000 n=10)
-ValuesVsPointers/size=100-10                                        0.00Ki ± 0%                      16.00Ki ± 0%  ? (p=0.000 n=10)            0.00Ki ± 0%       ~ (p=1.000 n=10) ¹                  16.00Ki ± 0%  ? (p=0.000 n=10)
-ValuesVsPointers/size=1000-10                                        0.0Ki ± 0%                      144.0Ki ± 0%  ? (p=0.000 n=10)             0.0Ki ± 0%       ~ (p=1.000 n=10) ¹                  144.0Ki ± 0%  ? (p=0.000 n=10)
-ValuesVsPointers/size=10000-10                                     0.000Mi ± 0%                      1.375Mi ± 0%  ? (p=0.000 n=10)           0.000Mi ± 0%       ~ (p=1.000 n=10) ¹                  1.375Mi ± 0%  ? (p=0.000 n=10)
-ValuesVsPointers/size=100000-10                                     0.00Mi ± 0%                      13.73Mi ± 0%  ? (p=0.000 n=10)            0.00Mi ± 0%       ~ (p=1.000 n=10) ¹                  13.73Mi ± 0%  ? (p=0.000 n=10)
-geomean                                                                         ²                    146.9Ki       ?                                        +0.00%                ²                  146.9Ki       ?
+                                │                      B/op                       │              B/op               vs base         │         B/op           vs base                │             B/op              vs base         │
+ValuesVsPointers/size=10-10                                        0.000Ki ± 0%                       1.500Ki ± 0%  ? (p=0.002 n=6)            0.000Ki ± 0%       ~ (p=1.000 n=6) ¹                   1.500Ki ± 0%  ? (p=0.002 n=6)
+ValuesVsPointers/size=100-10                                        0.00Ki ± 0%                       16.00Ki ± 0%  ? (p=0.002 n=6)             0.00Ki ± 0%       ~ (p=1.000 n=6) ¹                   16.00Ki ± 0%  ? (p=0.002 n=6)
+ValuesVsPointers/size=1000-10                                        0.0Ki ± 0%                       144.0Ki ± 0%  ? (p=0.002 n=6)              0.0Ki ± 0%       ~ (p=1.000 n=6) ¹                   144.0Ki ± 0%  ? (p=0.002 n=6)
+ValuesVsPointers/size=10000-10                                     0.000Mi ± 0%                       1.375Mi ± 0%  ? (p=0.002 n=6)            0.000Mi ± 0%       ~ (p=1.000 n=6) ¹                   1.375Mi ± 0%  ? (p=0.002 n=6)
+ValuesVsPointers/size=100000-10                                     0.00Mi ± 0%                       13.73Mi ± 0%  ? (p=0.002 n=6)             0.00Mi ± 0%       ~ (p=1.000 n=6) ¹                   13.73Mi ± 0%  ? (p=0.002 n=6)
+geomean                                                                         ²                     146.9Ki       ?                                        +0.00%               ²                   146.9Ki       ?
 ¹ all samples are equal
 ² summaries must be >0 to compute geomean
 
                                 │ BenchmarkValuesVsPointers-pointers_hot_scan.txt │ BenchmarkValuesVsPointers-pointers_snapshot.txt │ BenchmarkValuesVsPointers-values_hot_scan.txt │ BenchmarkValuesVsPointers-values_snapshot.txt │
-                                │                    allocs/op                    │           allocs/op            vs base          │      allocs/op        vs base                 │          allocs/op           vs base          │
-ValuesVsPointers/size=10-10                                          0.000 ± 0%                        1.000 ± 0%  ? (p=0.000 n=10)             0.000 ± 0%       ~ (p=1.000 n=10) ¹                    1.000 ± 0%  ? (p=0.000 n=10)
-ValuesVsPointers/size=100-10                                         0.000 ± 0%                        1.000 ± 0%  ? (p=0.000 n=10)             0.000 ± 0%       ~ (p=1.000 n=10) ¹                    1.000 ± 0%  ? (p=0.000 n=10)
-ValuesVsPointers/size=1000-10                                        0.000 ± 0%                        1.000 ± 0%  ? (p=0.000 n=10)             0.000 ± 0%       ~ (p=1.000 n=10) ¹                    1.000 ± 0%  ? (p=0.000 n=10)
-ValuesVsPointers/size=10000-10                                       0.000 ± 0%                        1.000 ± 0%  ? (p=0.000 n=10)             0.000 ± 0%       ~ (p=1.000 n=10) ¹                    1.000 ± 0%  ? (p=0.000 n=10)
-ValuesVsPointers/size=100000-10                                      0.000 ± 0%                        1.000 ± 0%  ? (p=0.000 n=10)             0.000 ± 0%       ~ (p=1.000 n=10) ¹                    1.000 ± 0%  ? (p=0.000 n=10)
-geomean                                                                         ²                      1.000       ?                                        +0.00%                ²                    1.000       ?
+                                │                    allocs/op                    │           allocs/op             vs base         │       allocs/op        vs base                │          allocs/op            vs base         │
+ValuesVsPointers/size=10-10                                          0.000 ± 0%                         1.000 ± 0%  ? (p=0.002 n=6)              0.000 ± 0%       ~ (p=1.000 n=6) ¹                     1.000 ± 0%  ? (p=0.002 n=6)
+ValuesVsPointers/size=100-10                                         0.000 ± 0%                         1.000 ± 0%  ? (p=0.002 n=6)              0.000 ± 0%       ~ (p=1.000 n=6) ¹                     1.000 ± 0%  ? (p=0.002 n=6)
+ValuesVsPointers/size=1000-10                                        0.000 ± 0%                         1.000 ± 0%  ? (p=0.002 n=6)              0.000 ± 0%       ~ (p=1.000 n=6) ¹                     1.000 ± 0%  ? (p=0.002 n=6)
+ValuesVsPointers/size=10000-10                                       0.000 ± 0%                         1.000 ± 0%  ? (p=0.002 n=6)              0.000 ± 0%       ~ (p=1.000 n=6) ¹                     1.000 ± 0%  ? (p=0.002 n=6)
+ValuesVsPointers/size=100000-10                                      0.000 ± 0%                         1.000 ± 0%  ? (p=0.002 n=6)              0.000 ± 0%       ~ (p=1.000 n=6) ¹                     1.000 ± 0%  ? (p=0.002 n=6)
+geomean                                                                         ²                       1.000       ?                                        +0.00%               ²                     1.000       ?
 ¹ all samples are equal
 ² summaries must be >0 to compute geomean

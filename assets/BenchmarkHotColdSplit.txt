@@ -3,47 +3,47 @@ goarch: arm64
 pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
 cpu: Apple M5
                             │ BenchmarkHotColdSplit-inline_hot_scan.txt │ BenchmarkHotColdSplit-inline_snapshot.txt │ BenchmarkHotColdSplit-split_hot_scan.txt │ BenchmarkHotColdSplit-split_snapshot.txt │
-                            │                  sec/op                   │     sec/op       vs base                  │      sec/op       vs base                │     sec/op      vs base                  │
-HotColdSplit/size=1-10                                     1.678n ±  2%     67.430n ±  7%  +3918.47% (p=0.000 n=10)        1.731n ± 3%   +3.13% (p=0.004 n=10)    67.180n ±  8%  +3903.58% (p=0.000 n=10)
-HotColdSplit/size=10-10                                    6.769n ±  4%    503.050n ±  6%  +7331.12% (p=0.000 n=10)        7.181n ± 5%   +6.09% (p=0.000 n=10)   527.250n ±  5%  +7688.61% (p=0.000 n=10)
-HotColdSplit/size=50-10                                    53.57n ±  4%    2185.00n ± 12%  +3978.78% (p=0.000 n=10)        55.67n ± 6%   +3.92% (p=0.015 n=10)   2419.50n ± 23%  +4416.52% (p=0.000 n=10)
-HotColdSplit/size=100-10                                   126.4n ± 13%     4609.5n ±  4%  +3546.76% (p=0.000 n=10)        127.8n ± 3%        ~ (p=0.137 n=10)    4939.0n ± 18%  +3807.44% (p=0.000 n=10)
-HotColdSplit/size=500-10                                   704.0n ±  4%    20646.0n ±  9%  +2832.88% (p=0.000 n=10)        697.7n ± 3%        ~ (p=0.448 n=10)   22135.0n ±  3%  +3044.40% (p=0.000 n=10)
-HotColdSplit/size=1000-10                                  1.409µ ±  3%     44.915µ ±  4%  +3088.82% (p=0.000 n=10)        1.410µ ± 4%        ~ (p=0.894 n=10)    48.014µ ± 12%  +3308.84% (p=0.000 n=10)
-HotColdSplit/size=5000-10                                  7.277µ ±  5%    154.368µ ±  8%  +2021.31% (p=0.000 n=10)        7.101µ ± 2%   -2.43% (p=0.030 n=10)   173.813µ ±  3%  +2288.52% (p=0.000 n=10)
-HotColdSplit/size=10000-10                                 15.40µ ± 45%     306.59µ ±  5%  +1891.26% (p=0.000 n=10)        14.24µ ± 4%   -7.51% (p=0.015 n=10)    338.76µ ±  7%  +2100.15% (p=0.000 n=10)
-HotColdSplit/size=50000-10                                 76.86µ ±  6%    1485.50µ ±  9%  +1832.85% (p=0.000 n=10)        71.44µ ± 3%   -7.04% (p=0.003 n=10)   1616.99µ ±  3%  +2003.95% (p=0.000 n=10)
-HotColdSplit/size=100000-10                                322.7µ ± 30%     2904.0µ ±  4%   +799.83% (p=0.000 n=10)        142.5µ ± 3%  -55.84% (p=0.000 n=10)    3222.7µ ±  7%   +898.57% (p=0.000 n=10)
-geomean                                                    856.3n            24.05µ        +2708.39%                       785.6n        -8.25%                    25.94µ        +2929.52%
+                            │                  sec/op                   │      sec/op       vs base                 │      sec/op        vs base               │     sec/op       vs base                 │
+HotColdSplit/size=1-10                                     1.658n ± 15%      65.625n ± 13%  +3856.89% (p=0.002 n=6)        1.664n ± 17%        ~ (p=0.418 n=6)     62.155n ± 16%  +3647.66% (p=0.002 n=6)
+HotColdSplit/size=10-10                                    7.026n ±  3%     471.700n ±  1%  +6613.64% (p=0.002 n=6)        7.115n ±  3%        ~ (p=0.065 n=6)    483.500n ±  4%  +6781.58% (p=0.002 n=6)
+HotColdSplit/size=50-10                                    53.70n ±  1%     2065.50n ±  0%  +3746.01% (p=0.002 n=6)        53.85n ±  0%        ~ (p=0.331 n=6)    2140.50n ±  1%  +3885.66% (p=0.002 n=6)
+HotColdSplit/size=100-10                                   124.5n ±  0%      4307.0n ±  1%  +3358.05% (p=0.002 n=6)        124.5n ±  0%        ~ (p=0.667 n=6)     4461.0n ±  1%  +3481.69% (p=0.002 n=6)
+HotColdSplit/size=500-10                                   695.4n ±  0%     19512.5n ±  1%  +2705.94% (p=0.002 n=6)        696.5n ±  0%        ~ (p=0.078 n=6)    20743.5n ±  1%  +2882.96% (p=0.002 n=6)
+HotColdSplit/size=1000-10                                  1.409µ ±  0%      43.132µ ±  1%  +2962.23% (p=0.002 n=6)        1.417µ ±  1%   +0.64% (p=0.011 n=6)     45.292µ ±  0%  +3115.58% (p=0.002 n=6)
+HotColdSplit/size=5000-10                                  7.121µ ±  0%     145.846µ ±  3%  +1948.10% (p=0.002 n=6)        7.127µ ±  0%        ~ (p=0.152 n=6)    156.848µ ±  1%  +2102.60% (p=0.002 n=6)
+HotColdSplit/size=10000-10                                 14.26µ ±  0%      289.85µ ±  1%  +1932.49% (p=0.002 n=6)        14.28µ ±  0%        ~ (p=0.818 n=6)     313.39µ ±  2%  +2097.55% (p=0.002 n=6)
+HotColdSplit/size=50000-10                                 72.04µ ±  1%     1427.55µ ±  4%  +1881.68% (p=0.002 n=6)        71.43µ ±  1%   -0.85% (p=0.002 n=6)    1521.74µ ±  3%  +2012.43% (p=0.002 n=6)
+HotColdSplit/size=100000-10                                205.6µ ±  6%      2840.5µ ±  6%  +1281.78% (p=0.002 n=6)        143.2µ ±  1%  -30.34% (p=0.002 n=6)     3036.5µ ±  7%  +1377.10% (p=0.002 n=6)
+geomean                                                    805.4n             22.90µ        +2743.89%                      778.4n         -3.35%                    23.92µ        +2869.62%
 
                             │ BenchmarkHotColdSplit-inline_hot_scan.txt │ BenchmarkHotColdSplit-inline_snapshot.txt │ BenchmarkHotColdSplit-split_hot_scan.txt │ BenchmarkHotColdSplit-split_snapshot.txt │
-                            │                   B/op                    │          B/op            vs base          │      B/op        vs base                 │          B/op           vs base          │
-HotColdSplit/size=1-10                                       0.0 ± 0%                  576.0 ± 0%  ? (p=0.000 n=10)          0.0 ± 0%       ~ (p=1.000 n=10) ¹               576.0 ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=10-10                                  0.000Ki ± 0%                5.250Ki ± 0%  ? (p=0.000 n=10)      0.000Ki ± 0%       ~ (p=1.000 n=10) ¹             5.250Ki ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=50-10                                   0.00Ki ± 0%                26.62Ki ± 0%  ? (p=0.000 n=10)       0.00Ki ± 0%       ~ (p=1.000 n=10) ¹             26.62Ki ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=100-10                                  0.00Ki ± 0%                56.00Ki ± 0%  ? (p=0.000 n=10)       0.00Ki ± 0%       ~ (p=1.000 n=10) ¹             56.00Ki ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=500-10                                   0.0Ki ± 0%                256.0Ki ± 0%  ? (p=0.000 n=10)        0.0Ki ± 0%       ~ (p=1.000 n=10) ¹             256.0Ki ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=1000-10                                  0.0Ki ± 0%                512.0Ki ± 0%  ? (p=0.000 n=10)        0.0Ki ± 0%       ~ (p=1.000 n=10) ¹             512.0Ki ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=5000-10                                0.000Mi ± 0%                2.484Mi ± 0%  ? (p=0.000 n=10)      0.000Mi ± 0%       ~ (p=1.000 n=10) ¹             2.484Mi ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=10000-10                               0.000Mi ± 0%                4.961Mi ± 0%  ? (p=0.000 n=10)      0.000Mi ± 0%       ~ (p=1.000 n=10) ¹             4.961Mi ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=50000-10                                0.00Mi ± 0%                24.80Mi ± 0%  ? (p=0.000 n=10)       0.00Mi ± 0%       ~ (p=1.000 n=10) ¹             24.80Mi ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=100000-10                               0.00Mi ± 0%                49.59Mi ± 0%  ? (p=0.000 n=10)       0.00Mi ± 0%       ~ (p=1.000 n=10) ¹             49.59Mi ± 0%  ? (p=0.000 n=10)
-geomean                                                               ²              315.0Ki       ?                                   +0.00%                ²             315.0Ki       ?
+                            │                   B/op                    │           B/op            vs base         │       B/op        vs base                │          B/op            vs base         │
+HotColdSplit/size=1-10                                       0.0 ± 0%                   576.0 ± 0%  ? (p=0.002 n=6)           0.0 ± 0%       ~ (p=1.000 n=6) ¹                576.0 ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=10-10                                  0.000Ki ± 0%                 5.250Ki ± 0%  ? (p=0.002 n=6)       0.000Ki ± 0%       ~ (p=1.000 n=6) ¹              5.250Ki ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=50-10                                   0.00Ki ± 0%                 26.62Ki ± 0%  ? (p=0.002 n=6)        0.00Ki ± 0%       ~ (p=1.000 n=6) ¹              26.62Ki ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=100-10                                  0.00Ki ± 0%                 56.00Ki ± 0%  ? (p=0.002 n=6)        0.00Ki ± 0%       ~ (p=1.000 n=6) ¹              56.00Ki ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=500-10                                   0.0Ki ± 0%                 256.0Ki ± 0%  ? (p=0.002 n=6)         0.0Ki ± 0%       ~ (p=1.000 n=6) ¹              256.0Ki ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=1000-10                                  0.0Ki ± 0%                 512.0Ki ± 0%  ? (p=0.002 n=6)         0.0Ki ± 0%       ~ (p=1.000 n=6) ¹              512.0Ki ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=5000-10                                0.000Mi ± 0%                 2.484Mi ± 0%  ? (p=0.002 n=6)       0.000Mi ± 0%       ~ (p=1.000 n=6) ¹              2.484Mi ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=10000-10                               0.000Mi ± 0%                 4.961Mi ± 0%  ? (p=0.002 n=6)       0.000Mi ± 0%       ~ (p=1.000 n=6) ¹              4.961Mi ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=50000-10                                0.00Mi ± 0%                 24.80Mi ± 0%  ? (p=0.002 n=6)        0.00Mi ± 0%       ~ (p=1.000 n=6) ¹              24.80Mi ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=100000-10                               0.00Mi ± 0%                 49.59Mi ± 0%  ? (p=0.002 n=6)        0.00Mi ± 0%       ~ (p=1.000 n=6) ¹              49.59Mi ± 0%  ? (p=0.002 n=6)
+geomean                                                               ²               315.0Ki       ?                                   +0.00%               ²              315.0Ki       ?
 ¹ all samples are equal
 ² summaries must be >0 to compute geomean
 
                             │ BenchmarkHotColdSplit-inline_hot_scan.txt │ BenchmarkHotColdSplit-inline_snapshot.txt │ BenchmarkHotColdSplit-split_hot_scan.txt │ BenchmarkHotColdSplit-split_snapshot.txt │
-                            │                 allocs/op                 │        allocs/op         vs base          │    allocs/op     vs base                 │       allocs/op         vs base          │
-HotColdSplit/size=1-10                                     0.000 ± 0%                  1.000 ± 0%  ? (p=0.000 n=10)        0.000 ± 0%       ~ (p=1.000 n=10) ¹               1.000 ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=10-10                                    0.000 ± 0%                  1.000 ± 0%  ? (p=0.000 n=10)        0.000 ± 0%       ~ (p=1.000 n=10) ¹               1.000 ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=50-10                                    0.000 ± 0%                  1.000 ± 0%  ? (p=0.000 n=10)        0.000 ± 0%       ~ (p=1.000 n=10) ¹               1.000 ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=100-10                                   0.000 ± 0%                  1.000 ± 0%  ? (p=0.000 n=10)        0.000 ± 0%       ~ (p=1.000 n=10) ¹               1.000 ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=500-10                                   0.000 ± 0%                  1.000 ± 0%  ? (p=0.000 n=10)        0.000 ± 0%       ~ (p=1.000 n=10) ¹               1.000 ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=1000-10                                  0.000 ± 0%                  1.000 ± 0%  ? (p=0.000 n=10)        0.000 ± 0%       ~ (p=1.000 n=10) ¹               1.000 ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=5000-10                                  0.000 ± 0%                  1.000 ± 0%  ? (p=0.000 n=10)        0.000 ± 0%       ~ (p=1.000 n=10) ¹               1.000 ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=10000-10                                 0.000 ± 0%                  1.000 ± 0%  ? (p=0.000 n=10)        0.000 ± 0%       ~ (p=1.000 n=10) ¹               1.000 ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=50000-10                                 0.000 ± 0%                  1.000 ± 0%  ? (p=0.000 n=10)        0.000 ± 0%       ~ (p=1.000 n=10) ¹               1.000 ± 0%  ? (p=0.000 n=10)
-HotColdSplit/size=100000-10                                0.000 ± 0%                  1.000 ± 0%  ? (p=0.000 n=10)        0.000 ± 0%       ~ (p=1.000 n=10) ¹               1.000 ± 0%  ? (p=0.000 n=10)
-geomean                                                               ²                1.000       ?                                   +0.00%                ²               1.000       ?
+                            │                 allocs/op                 │        allocs/op          vs base         │    allocs/op      vs base                │        allocs/op         vs base         │
+HotColdSplit/size=1-10                                     0.000 ± 0%                   1.000 ± 0%  ? (p=0.002 n=6)         0.000 ± 0%       ~ (p=1.000 n=6) ¹                1.000 ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=10-10                                    0.000 ± 0%                   1.000 ± 0%  ? (p=0.002 n=6)         0.000 ± 0%       ~ (p=1.000 n=6) ¹                1.000 ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=50-10                                    0.000 ± 0%                   1.000 ± 0%  ? (p=0.002 n=6)         0.000 ± 0%       ~ (p=1.000 n=6) ¹                1.000 ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=100-10                                   0.000 ± 0%                   1.000 ± 0%  ? (p=0.002 n=6)         0.000 ± 0%       ~ (p=1.000 n=6) ¹                1.000 ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=500-10                                   0.000 ± 0%                   1.000 ± 0%  ? (p=0.002 n=6)         0.000 ± 0%       ~ (p=1.000 n=6) ¹                1.000 ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=1000-10                                  0.000 ± 0%                   1.000 ± 0%  ? (p=0.002 n=6)         0.000 ± 0%       ~ (p=1.000 n=6) ¹                1.000 ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=5000-10                                  0.000 ± 0%                   1.000 ± 0%  ? (p=0.002 n=6)         0.000 ± 0%       ~ (p=1.000 n=6) ¹                1.000 ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=10000-10                                 0.000 ± 0%                   1.000 ± 0%  ? (p=0.002 n=6)         0.000 ± 0%       ~ (p=1.000 n=6) ¹                1.000 ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=50000-10                                 0.000 ± 0%                   1.000 ± 0%  ? (p=0.002 n=6)         0.000 ± 0%       ~ (p=1.000 n=6) ¹                1.000 ± 0%  ? (p=0.002 n=6)
+HotColdSplit/size=100000-10                                0.000 ± 0%                   1.000 ± 0%  ? (p=0.002 n=6)         0.000 ± 0%       ~ (p=1.000 n=6) ¹                1.000 ± 0%  ? (p=0.002 n=6)
+geomean                                                               ²                 1.000       ?                                   +0.00%               ²                1.000       ?
 ¹ all samples are equal
 ² summaries must be >0 to compute geomean

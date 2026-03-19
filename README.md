@@ -43,13 +43,13 @@ In this benchmark, `slice` wins every `10`-lookup case and still wins much of th
 When is it more efficient to deduplicate a `slice` as opposed to using a `map[]struct{}` for the same purpose?
 
 > [!TIP]
-> if order does not matter, use in-place sort + dedup up to ~1000 items  
-> use `map` from roughly ~5000 items upward  
+> if order does not matter, use in-place sort + dedup through at least ~5000 items  
+> around `10000` items, benchmark `map` against sort + dedup on your workload  
 > if you must preserve original order, use `map`
 
 ![deduplication graph](assets/BenchmarkDeduplication.png)
 
-In this benchmark, in-place sort + dedup is the fastest option from `10` through `1000` items, while `map` takes over from `5000` onward. The plain slice scan is never the fastest path here; it is a simplicity choice for very small inputs, not a performance choice.
+In this benchmark, in-place sort + dedup is the fastest option from `10` through `5000` items, and `10000` items is effectively a wash with a slight edge to `map`. The plain slice scan is never the fastest path here; it is a simplicity choice for very small inputs, not a performance choice.
 
 [Benchmark results](assets/BenchmarkDeduplication.txt)
 ## Subsets
@@ -277,6 +277,5 @@ This benchmark prebuilds one `[]record` plus two index orders: identity and a fi
 ## Notes
 
 - More "Rules of thumb" will be added over time.
-- Published results currently mix historical and refreshed runs.
-- Many older benchmark assets were collected on a **Macbook Pro M1 (2020) 16GB RAM**, using **Go 1.24.3**.
-- Recently refreshed sections in this worktree were rerun locally on **Apple M5** with **Go 1.26.1**; check the raw files in `assets/` for per-benchmark run metadata.
+- Benchmark assets in this worktree were rerun locally on **Apple M5** with **Go 1.26.1**.
+- Check the raw files in `assets/` for per-benchmark run metadata and exact `go test` headers.

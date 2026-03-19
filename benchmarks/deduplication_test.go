@@ -11,6 +11,8 @@ import (
 
 type deduplicateBench func(haystack []int) []int
 
+var dedupBenchmarkSizes = []int{10, 50, 100, 500, 1_000, 5_000, 10_000}
+
 func TestDeduplicate(t *testing.T) {
 	for _, size := range sizesReduced {
 		haystack := testingSlice(size)
@@ -31,7 +33,7 @@ func TestDeduplicate(t *testing.T) {
 
 func BenchmarkDeduplication(b *testing.B) {
 	runBenchmark := func(runF deduplicateBench) {
-		for _, size := range sizes {
+		for _, size := range dedupBenchmarkSizes {
 			b.Run(
 				fmt.Sprintf("size=%d", size),
 				benchmarkDeduplicate(size, runF),

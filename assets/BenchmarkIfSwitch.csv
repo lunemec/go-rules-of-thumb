@@ -1,27 +1,27 @@
 goos: darwin
 goarch: arm64
 pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
-cpu: Apple M1
-,BenchmarkIfSwitch-if_5.txt,,BenchmarkIfSwitch-if.txt,,,,BenchmarkIfSwitch-switch_5.txt,,,,BenchmarkIfSwitch-switch.txt,,,
+cpu: Apple M5
+,BenchmarkIfSwitch-if.txt,,BenchmarkIfSwitch-if_5.txt,,,,BenchmarkIfSwitch-switch.txt,,,,BenchmarkIfSwitch-switch_5.txt,,,
 ,sec/op,CI,sec/op,CI,vs base,P,sec/op,CI,vs base,P,sec/op,CI,vs base,P
-IfSwitch/size=1-8,2.2625000000000004e-09,1%,2.2580000000000003e-09,0%,~,p=0.274 n=10,2.8935e-09,0%,+27.89%,p=0.000 n=10,2.2595000000000003e-09,0%,~,p=0.424 n=10
-IfSwitch/size=10-8,1.386e-08,1%,1.1594999999999999e-08,0%,-16.34%,p=0.000 n=10,1.8010000000000004e-08,0%,+29.94%,p=0.000 n=10,1.159e-08,0%,-16.38%,p=0.000 n=10
-IfSwitch/size=100-8,1.3575e-07,0%,1.0555000000000002e-07,0%,-22.25%,p=0.000 n=10,1.6765e-07,0%,+23.50%,p=0.000 n=10,1.0440000000000001e-07,0%,-23.09%,p=0.000 n=10
-IfSwitch/size=1000-8,1.297e-06,0%,9.758500000000002e-07,0%,-24.76%,p=0.000 n=10,1.6125000000000002e-06,1%,+24.33%,p=0.000 n=10,9.7475e-07,0%,-24.85%,p=0.000 n=10
-geomean,4.847389392181617e-08,,4.052369133028072e-08,,-16.40%,,6.126467304788794e-08,,+26.39%,,4.0403815663880985e-08,,-16.65%,
+IfSwitch/size=1-10,1.7190000000000002e-09,5%,1.6685000000000002e-09,15%,~,p=0.058 n=6,1.7145000000000002e-09,16%,~,p=0.669 n=6,1.8050000000000003e-09,14%,+5.00%,p=0.013 n=6
+IfSwitch/size=10-10,7.661499999999999e-09,4%,8.5045e-09,0%,+11.00%,p=0.002 n=6,7.551e-09,5%,~,p=0.240 n=6,1.1860000000000002e-08,5%,+54.80%,p=0.002 n=6
+IfSwitch/size=100-10,6.213e-08,18%,7.894e-08,0%,+27.06%,p=0.002 n=6,6.806e-08,6%,~,p=0.240 n=6,1.0905000000000001e-07,5%,+75.52%,p=0.002 n=6
+IfSwitch/size=1000-10,5.8475e-07,6%,7.162500000000001e-07,0%,+22.49%,p=0.002 n=6,5.727e-07,11%,~,p=0.589 n=6,1.047e-06,5%,+79.05%,p=0.002 n=6
+geomean,2.630057943642286e-08,,2.99284474603265e-08,,+13.79%,,2.6652642370337468e-08,,+1.34%,,3.953971746697781e-08,,+50.34%,
 
-,BenchmarkIfSwitch-if_5.txt,,BenchmarkIfSwitch-if.txt,,,,BenchmarkIfSwitch-switch_5.txt,,,,BenchmarkIfSwitch-switch.txt,,,
+,BenchmarkIfSwitch-if.txt,,BenchmarkIfSwitch-if_5.txt,,,,BenchmarkIfSwitch-switch.txt,,,,BenchmarkIfSwitch-switch_5.txt,,,
 ,B/op,CI,B/op,CI,vs base,P,B/op,CI,vs base,P,B/op,CI,vs base,P
-IfSwitch/size=1-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
-IfSwitch/size=10-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
-IfSwitch/size=100-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
-IfSwitch/size=1000-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
+IfSwitch/size=1-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IfSwitch/size=10-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IfSwitch/size=100-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IfSwitch/size=1000-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
 geomean,,,,,+0.00%,,,,+0.00%,,,,+0.00%,
 
-,BenchmarkIfSwitch-if_5.txt,,BenchmarkIfSwitch-if.txt,,,,BenchmarkIfSwitch-switch_5.txt,,,,BenchmarkIfSwitch-switch.txt,,,
+,BenchmarkIfSwitch-if.txt,,BenchmarkIfSwitch-if_5.txt,,,,BenchmarkIfSwitch-switch.txt,,,,BenchmarkIfSwitch-switch_5.txt,,,
 ,allocs/op,CI,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P
-IfSwitch/size=1-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
-IfSwitch/size=10-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
-IfSwitch/size=100-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
-IfSwitch/size=1000-8,0,0%,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10,0,0%,~,p=1.000 n=10
+IfSwitch/size=1-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IfSwitch/size=10-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IfSwitch/size=100-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IfSwitch/size=1000-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
 geomean,,,,,+0.00%,,,,+0.00%,,,,+0.00%,

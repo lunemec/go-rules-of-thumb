@@ -1,46 +1,30 @@
 goos: darwin
 goarch: arm64
 pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
-cpu: Apple M1
-BenchmarkAssert/size=1-8         	531668619	         2.247 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1-8         	533372546	         2.256 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1-8         	532246072	         2.245 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1-8         	535312999	         2.247 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1-8         	531477296	         2.257 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1-8         	532745337	         2.245 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1-8         	536282390	         2.247 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1-8         	534021924	         2.246 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1-8         	535674229	         2.247 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1-8         	530941441	         2.251 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=10-8        	100000000	        11.56 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=10-8        	100000000	        11.64 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=10-8        	100000000	        11.56 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=10-8        	100000000	        11.77 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=10-8        	98200009	        11.68 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=10-8        	100000000	        11.56 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=10-8        	100000000	        11.55 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=10-8        	100000000	        11.54 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=10-8        	100000000	        11.55 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=10-8        	100000000	        11.58 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=100-8       	11436680	       105.1 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=100-8       	11445434	       105.1 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=100-8       	11354469	       105.2 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=100-8       	11377233	       105.0 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=100-8       	11450112	       105.4 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=100-8       	11363146	       105.1 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=100-8       	11412004	       105.0 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=100-8       	11441319	       105.2 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=100-8       	11456371	       105.0 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=100-8       	11417438	       105.4 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1000-8      	 1231815	       973.3 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1000-8      	 1233177	       974.3 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1000-8      	 1228389	       976.7 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1000-8      	 1232568	       973.2 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1000-8      	 1228152	       977.0 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1000-8      	 1230381	       974.6 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1000-8      	 1234099	       973.2 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1000-8      	 1228524	       975.1 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1000-8      	 1230670	       976.2 ns/op	       0 B/op	       0 allocs/op
-BenchmarkAssert/size=1000-8      	 1229308	       979.3 ns/op	       0 B/op	       0 allocs/op
+cpu: Apple M5
+BenchmarkAssert/size=1-10         	53077542	         2.142 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-10         	70098576	         1.713 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-10         	69855451	         1.713 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-10         	69212493	         1.711 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-10         	70681784	         1.712 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1-10         	70160052	         1.708 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-10        	19486580	         7.268 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-10        	14142464	         7.143 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-10        	14044942	         7.897 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-10        	17594984	         7.251 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-10        	18968832	         7.613 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=10-10        	17306548	         7.217 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-10       	 1946862	        59.39 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-10       	 1973731	        60.26 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-10       	 1982148	        60.05 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-10       	 1876887	        64.04 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-10       	 1824214	        68.51 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=100-10       	 1908981	        62.15 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-10      	  168310	       618.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-10      	  215707	       563.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-10      	  220944	       528.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-10      	  236838	       513.2 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-10      	  219337	       552.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkAssert/size=1000-10      	  253447	       538.0 ns/op	       0 B/op	       0 allocs/op
 PASS
-ok  	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	52.865s
+ok  	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	3.161s

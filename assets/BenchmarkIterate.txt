@@ -1,50 +1,50 @@
 goos: darwin
 goarch: arm64
 pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
-cpu: Apple M1
-                       │ BenchmarkIterate-direct.txt │   BenchmarkIterate-range_func.txt    │  BenchmarkIterate-slice_iterate.txt  │
-                       │           sec/op            │    sec/op     vs base                │    sec/op     vs base                │
-Iterate/size=10-8                        87.09n ± 1%   137.15n ± 0%  +57.49% (p=0.000 n=10)   109.50n ± 1%  +25.74% (p=0.000 n=10)
-Iterate/size=50-8                        404.2n ± 1%    496.5n ± 1%  +22.85% (p=0.000 n=10)    476.9n ± 1%  +17.97% (p=0.000 n=10)
-Iterate/size=100-8                       800.4n ± 1%    944.9n ± 1%  +18.05% (p=0.000 n=10)    929.8n ± 1%  +16.16% (p=0.000 n=10)
-Iterate/size=500-8                       3.970µ ± 1%    4.526µ ± 0%  +14.01% (p=0.000 n=10)    4.523µ ± 1%  +13.93% (p=0.000 n=10)
-Iterate/size=1000-8                      7.931µ ± 0%    8.989µ ± 0%  +13.35% (p=0.000 n=10)    9.011µ ± 1%  +13.62% (p=0.000 n=10)
-Iterate/size=5000-8                      39.53µ ± 0%    44.55µ ± 1%  +12.68% (p=0.000 n=10)    44.41µ ± 0%  +12.34% (p=0.000 n=10)
-Iterate/size=10000-8                     79.03µ ± 0%    89.53µ ± 0%  +13.28% (p=0.000 n=10)    88.34µ ± 1%  +11.78% (p=0.000 n=10)
-Iterate/size=50000-8                     396.6µ ± 0%    447.7µ ± 0%  +12.90% (p=0.000 n=10)    439.7µ ± 0%  +10.89% (p=0.000 n=10)
-Iterate/size=100000-8                    792.4µ ± 0%    890.0µ ± 1%  +12.31% (p=0.000 n=10)    880.6µ ± 1%  +11.14% (p=0.000 n=10)
-Iterate/size=500000-8                    3.965m ± 0%    4.443m ± 0%  +12.08% (p=0.000 n=10)    4.353m ± 1%   +9.81% (p=0.000 n=10)
-Iterate/size=1000000-8                   7.903m ± 0%    8.919m ± 0%  +12.85% (p=0.000 n=10)    8.724m ± 0%  +10.38% (p=0.000 n=10)
-geomean                                  31.20µ         36.75µ       +17.77%                   35.54µ       +13.90%
+cpu: Apple M5
+                        │ BenchmarkIterate-direct.txt │   BenchmarkIterate-range_func.txt    │ BenchmarkIterate-slice_iterate.txt  │
+                        │           sec/op            │    sec/op      vs base               │    sec/op     vs base               │
+Iterate/size=10-10                       60.75n ± 16%   92.08n ±  15%  +51.56% (p=0.002 n=6)   77.93n ± 17%  +28.28% (p=0.002 n=6)
+Iterate/size=50-10                       281.2n ±  1%   349.0n ±   1%  +24.11% (p=0.002 n=6)   348.6n ±  1%  +23.97% (p=0.002 n=6)
+Iterate/size=100-10                      555.4n ±  2%   675.2n ±   1%  +21.57% (p=0.002 n=6)   682.4n ±  1%  +22.86% (p=0.002 n=6)
+Iterate/size=500-10                      2.736µ ±  1%   3.244µ ±   1%  +18.57% (p=0.002 n=6)   3.339µ ±  0%  +22.02% (p=0.002 n=6)
+Iterate/size=1000-10                     5.466µ ±  1%   6.439µ ±   0%  +17.80% (p=0.002 n=6)   6.627µ ±  0%  +21.23% (p=0.002 n=6)
+Iterate/size=5000-10                     27.28µ ±  0%   32.24µ ±   2%  +18.21% (p=0.002 n=6)   32.52µ ±  0%  +19.23% (p=0.002 n=6)
+Iterate/size=10000-10                    54.66µ ±  1%   63.57µ ±   1%  +16.31% (p=0.002 n=6)   65.06µ ±  1%  +19.04% (p=0.002 n=6)
+Iterate/size=50000-10                    272.9µ ±  1%   320.4µ ±   2%  +17.39% (p=0.002 n=6)   323.8µ ±  0%  +18.66% (p=0.002 n=6)
+Iterate/size=100000-10                   548.3µ ±  9%   642.7µ ±   2%  +17.21% (p=0.002 n=6)   650.8µ ±  0%  +18.70% (p=0.002 n=6)
+Iterate/size=500000-10                   2.816m ±  1%   3.293m ± 229%  +16.94% (p=0.002 n=6)   3.380m ±  0%  +20.04% (p=0.002 n=6)
+Iterate/size=1000000-10                  5.632m ±  0%   6.827m ±  17%  +21.23% (p=0.002 n=6)   6.736m ±  0%  +19.61% (p=0.002 n=6)
+geomean                                  21.70µ         26.38µ         +21.56%                 26.30µ        +21.21%
 
-                       │ BenchmarkIterate-direct.txt │ BenchmarkIterate-range_func.txt │ BenchmarkIterate-slice_iterate.txt │
-                       │            B/op             │     B/op       vs base          │       B/op        vs base          │
-Iterate/size=10-8                        0.00 ± 0%        48.00 ± 0%  ? (p=0.000 n=10)         80.00 ± 0%  ? (p=0.000 n=10)
-Iterate/size=50-8                        0.00 ± 0%        48.00 ± 0%  ? (p=0.000 n=10)        416.00 ± 0%  ? (p=0.000 n=10)
-Iterate/size=100-8                       0.00 ± 0%        48.00 ± 0%  ? (p=0.000 n=10)        896.00 ± 0%  ? (p=0.000 n=10)
-Iterate/size=500-8                       0.00 ± 0%        48.00 ± 0%  ? (p=0.000 n=10)       4096.00 ± 0%  ? (p=0.000 n=10)
-Iterate/size=1000-8                      0.00 ± 0%        48.00 ± 0%  ? (p=0.000 n=10)       8192.00 ± 0%  ? (p=0.000 n=10)
-Iterate/size=5000-8                      0.00 ± 0%        48.00 ± 0%  ? (p=0.000 n=10)      40960.00 ± 0%  ? (p=0.000 n=10)
-Iterate/size=10000-8                     0.00 ± 0%        48.00 ± 0%  ? (p=0.000 n=10)      81921.00 ± 0%  ? (p=0.000 n=10)
-Iterate/size=50000-8                     0.00 ± 0%        48.00 ± 0%  ? (p=0.000 n=10)     401415.00 ± 0%  ? (p=0.000 n=10)
-Iterate/size=100000-8                    0.00 ± 0%        48.00 ± 0%  ? (p=0.000 n=10)     802832.00 ± 0%  ? (p=0.000 n=10)
-Iterate/size=500000-8                    0.00 ± 0%        48.00 ± 0%  ? (p=0.000 n=10)    4005918.00 ± 0%  ? (p=0.000 n=10)
-Iterate/size=1000000-8                   0.00 ± 0%        48.00 ± 0%  ? (p=0.000 n=10)    8003615.00 ± 0%  ? (p=0.000 n=10)
-geomean                                            ¹      48.00       ?                      31.14Ki       ?
+                        │ BenchmarkIterate-direct.txt │ BenchmarkIterate-range_func.txt │ BenchmarkIterate-slice_iterate.txt │
+                        │            B/op             │      B/op       vs base         │       B/op         vs base         │
+Iterate/size=10-10                        0.00 ± 0%         48.00 ± 0%  ? (p=0.002 n=6)          80.00 ± 0%  ? (p=0.002 n=6)
+Iterate/size=50-10                        0.00 ± 0%         48.00 ± 0%  ? (p=0.002 n=6)         416.00 ± 0%  ? (p=0.002 n=6)
+Iterate/size=100-10                       0.00 ± 0%         48.00 ± 0%  ? (p=0.002 n=6)         896.00 ± 0%  ? (p=0.002 n=6)
+Iterate/size=500-10                       0.00 ± 0%         48.00 ± 0%  ? (p=0.002 n=6)        4096.00 ± 0%  ? (p=0.002 n=6)
+Iterate/size=1000-10                      0.00 ± 0%         48.00 ± 0%  ? (p=0.002 n=6)        8192.00 ± 0%  ? (p=0.002 n=6)
+Iterate/size=5000-10                      0.00 ± 0%         48.00 ± 0%  ? (p=0.002 n=6)       40960.00 ± 0%  ? (p=0.002 n=6)
+Iterate/size=10000-10                     0.00 ± 0%         48.00 ± 0%  ? (p=0.002 n=6)       81920.00 ± 0%  ? (p=0.002 n=6)
+Iterate/size=50000-10                     0.00 ± 0%         48.00 ± 0%  ? (p=0.002 n=6)      401408.00 ± 0%  ? (p=0.002 n=6)
+Iterate/size=100000-10                    0.00 ± 0%         48.00 ± 0%  ? (p=0.002 n=6)      802817.00 ± 0%  ? (p=0.002 n=6)
+Iterate/size=500000-10                    0.00 ± 0%         48.00 ± 0%  ? (p=0.002 n=6)     4005888.00 ± 0%  ? (p=0.002 n=6)
+Iterate/size=1000000-10                   0.00 ± 0%         48.00 ± 0%  ? (p=0.002 n=6)     8003587.50 ± 0%  ? (p=0.002 n=6)
+geomean                                             ¹       48.00       ?                      31.14Ki       ?
 ¹ summaries must be >0 to compute geomean
 
-                       │ BenchmarkIterate-direct.txt │ BenchmarkIterate-range_func.txt │ BenchmarkIterate-slice_iterate.txt │
-                       │          allocs/op          │   allocs/op    vs base          │    allocs/op      vs base          │
-Iterate/size=10-8                       0.000 ± 0%        3.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
-Iterate/size=50-8                       0.000 ± 0%        3.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
-Iterate/size=100-8                      0.000 ± 0%        3.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
-Iterate/size=500-8                      0.000 ± 0%        3.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
-Iterate/size=1000-8                     0.000 ± 0%        3.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
-Iterate/size=5000-8                     0.000 ± 0%        3.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
-Iterate/size=10000-8                    0.000 ± 0%        3.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
-Iterate/size=50000-8                    0.000 ± 0%        3.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
-Iterate/size=100000-8                   0.000 ± 0%        3.000 ± 0%  ? (p=0.000 n=10)         1.000 ± 0%  ? (p=0.000 n=10)
-Iterate/size=500000-8                   0.000 ± 0%        3.000 ± 0%  ? (p=0.000 n=10)         2.000 ± 0%  ? (p=0.000 n=10)
-Iterate/size=1000000-8                  0.000 ± 0%        3.000 ± 0%  ? (p=0.000 n=10)         2.000 ± 0%  ? (p=0.000 n=10)
-geomean                                            ¹      3.000       ?                        1.134       ?
+                        │ BenchmarkIterate-direct.txt │ BenchmarkIterate-range_func.txt │ BenchmarkIterate-slice_iterate.txt │
+                        │          allocs/op          │   allocs/op     vs base         │     allocs/op      vs base         │
+Iterate/size=10-10                       0.000 ± 0%         3.000 ± 0%  ? (p=0.002 n=6)          1.000 ± 0%  ? (p=0.002 n=6)
+Iterate/size=50-10                       0.000 ± 0%         3.000 ± 0%  ? (p=0.002 n=6)          1.000 ± 0%  ? (p=0.002 n=6)
+Iterate/size=100-10                      0.000 ± 0%         3.000 ± 0%  ? (p=0.002 n=6)          1.000 ± 0%  ? (p=0.002 n=6)
+Iterate/size=500-10                      0.000 ± 0%         3.000 ± 0%  ? (p=0.002 n=6)          1.000 ± 0%  ? (p=0.002 n=6)
+Iterate/size=1000-10                     0.000 ± 0%         3.000 ± 0%  ? (p=0.002 n=6)          1.000 ± 0%  ? (p=0.002 n=6)
+Iterate/size=5000-10                     0.000 ± 0%         3.000 ± 0%  ? (p=0.002 n=6)          1.000 ± 0%  ? (p=0.002 n=6)
+Iterate/size=10000-10                    0.000 ± 0%         3.000 ± 0%  ? (p=0.002 n=6)          1.000 ± 0%  ? (p=0.002 n=6)
+Iterate/size=50000-10                    0.000 ± 0%         3.000 ± 0%  ? (p=0.002 n=6)          1.000 ± 0%  ? (p=0.002 n=6)
+Iterate/size=100000-10                   0.000 ± 0%         3.000 ± 0%  ? (p=0.002 n=6)          1.000 ± 0%  ? (p=0.002 n=6)
+Iterate/size=500000-10                   0.000 ± 0%         3.000 ± 0%  ? (p=0.002 n=6)          1.000 ± 0%  ? (p=0.002 n=6)
+Iterate/size=1000000-10                  0.000 ± 0%         3.000 ± 0%  ? (p=0.002 n=6)          1.000 ± 0%  ? (p=0.002 n=6)
+geomean                                             ¹       3.000       ?                        1.000       ?
 ¹ summaries must be >0 to compute geomean

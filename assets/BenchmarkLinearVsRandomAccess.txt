@@ -3,50 +3,50 @@ goarch: arm64
 pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
 cpu: Apple M5
                                       │ BenchmarkLinearVsRandomAccess-linear.txt │ BenchmarkLinearVsRandomAccess-random.txt │
-                                      │                  sec/op                  │      sec/op       vs base                │
-LinearVsRandomAccess/records=64-10                                  62.78n ±  7%        56.63n ± 5%   -9.80% (p=0.000 n=10)
-LinearVsRandomAccess/records=128-10                                 118.9n ±  7%        108.6n ± 4%   -8.66% (p=0.000 n=10)
-LinearVsRandomAccess/records=256-10                                 247.0n ±  6%        208.4n ± 3%  -15.63% (p=0.000 n=10)
-LinearVsRandomAccess/records=512-10                                 485.5n ± 21%        406.9n ± 3%  -16.19% (p=0.000 n=10)
-LinearVsRandomAccess/records=1024-10                                992.2n ± 11%        808.1n ± 6%  -18.55% (p=0.000 n=10)
-LinearVsRandomAccess/records=2048-10                                2.395µ ±  5%        2.036µ ± 4%  -14.97% (p=0.000 n=10)
-LinearVsRandomAccess/records=4096-10                                4.038µ ±  6%        4.563µ ± 7%  +12.99% (p=0.000 n=10)
-LinearVsRandomAccess/records=8192-10                                8.119µ ±  4%        9.184µ ± 2%  +13.12% (p=0.000 n=10)
-LinearVsRandomAccess/records=16384-10                               16.62µ ± 13%        20.00µ ± 3%  +20.31% (p=0.002 n=10)
-LinearVsRandomAccess/records=32768-10                               35.00µ ±  8%        45.00µ ± 5%  +28.56% (p=0.000 n=10)
-LinearVsRandomAccess/records=65536-10                               69.38µ ±  5%        99.61µ ± 7%  +43.56% (p=0.000 n=10)
-geomean                                                             2.059µ              2.084µ        +1.24%
+                                      │                  sec/op                  │      sec/op        vs base               │
+LinearVsRandomAccess/records=64-10                                  51.04n ± 11%        50.14n ± 12%        ~ (p=0.699 n=6)
+LinearVsRandomAccess/records=128-10                                 101.9n ±  2%        100.5n ±  1%   -1.42% (p=0.041 n=6)
+LinearVsRandomAccess/records=256-10                                 200.8n ±  1%        199.6n ±  2%        ~ (p=0.394 n=6)
+LinearVsRandomAccess/records=512-10                                 399.7n ±  1%        398.2n ±  1%        ~ (p=0.554 n=6)
+LinearVsRandomAccess/records=1024-10                                795.5n ±  1%        800.3n ±  1%        ~ (p=0.132 n=6)
+LinearVsRandomAccess/records=2048-10                                1.979µ ±  1%        1.988µ ±  1%        ~ (p=0.061 n=6)
+LinearVsRandomAccess/records=4096-10                                3.386µ ±  1%        4.443µ ±  2%  +31.20% (p=0.002 n=6)
+LinearVsRandomAccess/records=8192-10                                6.671µ ±  1%        8.906µ ±  2%  +33.51% (p=0.002 n=6)
+LinearVsRandomAccess/records=16384-10                               13.45µ ±  1%        18.56µ ±  1%  +37.95% (p=0.002 n=6)
+LinearVsRandomAccess/records=32768-10                               26.90µ ±  2%        42.02µ ±  1%  +56.20% (p=0.002 n=6)
+LinearVsRandomAccess/records=65536-10                               55.49µ ±  2%        93.04µ ±  2%  +67.67% (p=0.002 n=6)
+geomean                                                             1.679µ              1.979µ        +17.92%
 
                                       │ BenchmarkLinearVsRandomAccess-linear.txt │ BenchmarkLinearVsRandomAccess-random.txt │
-                                      │                   B/op                   │      B/op        vs base                 │
-LinearVsRandomAccess/records=64-10                                  0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=128-10                                 0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=256-10                                 0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=512-10                                 0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=1024-10                                0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=2048-10                                0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=4096-10                                0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=8192-10                                0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=16384-10                               0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=32768-10                               0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=65536-10                               0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-geomean                                                                        ²                    +0.00%                ²
+                                      │                   B/op                   │       B/op        vs base                │
+LinearVsRandomAccess/records=64-10                                  0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=128-10                                 0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=256-10                                 0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=512-10                                 0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=1024-10                                0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=2048-10                                0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=4096-10                                0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=8192-10                                0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=16384-10                               0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=32768-10                               0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=65536-10                               0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+geomean                                                                        ²                     +0.00%               ²
 ¹ all samples are equal
 ² summaries must be >0 to compute geomean
 
                                       │ BenchmarkLinearVsRandomAccess-linear.txt │ BenchmarkLinearVsRandomAccess-random.txt │
-                                      │                allocs/op                 │    allocs/op     vs base                 │
-LinearVsRandomAccess/records=64-10                                  0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=128-10                                 0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=256-10                                 0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=512-10                                 0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=1024-10                                0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=2048-10                                0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=4096-10                                0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=8192-10                                0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=16384-10                               0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=32768-10                               0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-LinearVsRandomAccess/records=65536-10                               0.000 ± 0%          0.000 ± 0%       ~ (p=1.000 n=10) ¹
-geomean                                                                        ²                    +0.00%                ²
+                                      │                allocs/op                 │    allocs/op      vs base                │
+LinearVsRandomAccess/records=64-10                                  0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=128-10                                 0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=256-10                                 0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=512-10                                 0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=1024-10                                0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=2048-10                                0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=4096-10                                0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=8192-10                                0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=16384-10                               0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=32768-10                               0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+LinearVsRandomAccess/records=65536-10                               0.000 ± 0%           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+geomean                                                                        ²                     +0.00%               ²
 ¹ all samples are equal
 ² summaries must be >0 to compute geomean
