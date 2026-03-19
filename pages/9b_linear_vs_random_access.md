@@ -5,10 +5,10 @@ When does it pay to keep a traversal contiguous instead of visiting the same rec
 This section is about locality and CPU prefetch behavior over the same `O(n)` work, not about changing algorithmic complexity.
 
 > [!TIP]
-> for `64B` records, fixed-random order stays ahead through ~`2 048` records in this run
-> linear order takes over around ~`4 096` records and keeps widening from there
-> by `65 536` records, linear is about `44%` faster here
-> treat the `2 048-4 096` crossover as hardware-sensitive and benchmark on your own CPU
+> for `64B` records, fixed-random order stays ahead through ~`2 048` records in this run  
+> linear order takes over around ~`4 096` records and keeps widening from there  
+> by `65 536` records, linear is about `44%` faster here  
+> treat the `2 048-4 096` crossover as hardware-sensitive and benchmark on your own CPU  
 
 ![linear vs random access graph](assets/BenchmarkLinearVsRandomAccess.png)
 

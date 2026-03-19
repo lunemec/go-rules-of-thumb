@@ -5,7 +5,7 @@ When is it more efficient to convert a _slice_ into a _map_ for locating an elem
 > [!TIP]
 > use `slice` for one-off checks and up to ~50 lookups  
 > switch to `map` when you are doing hundreds of lookups on the same haystack  
-> between ~50 and ~100 lookups, benchmark your real workload
+> between ~50 and ~100 lookups, benchmark your real workload  
 
 Depending on size of the _haystack_ (size) and number of _needles_ (iterations), this will differ:
 ![needle in a haystack graph](assets/BenchmarkNeedleInAHaystack.png)

@@ -5,9 +5,9 @@ Is it more efficient to `"str1" + var`, `fmt.Sprintf()`, `strings.Join()` or `st
 > [!TIP]
 > for repeated concatenation, start with `strings.Builder`  
 > treat `sync.Pool + strings.Builder` as a niche large-case optimization and benchmark it on your real workload  
-> use `+` for one-off expressions and `fmt.Sprintf` for formatting, not concat speed
+> use `+` for one-off expressions and `fmt.Sprintf` for formatting, not concat speed  
 >
-> in these benchmarks, plain `strings.Builder` is the safest default and `sync.Pool` does not reduce allocation totals
+> in these benchmarks, plain `strings.Builder` is the safest default and `sync.Pool` does not reduce allocation totals  
 
 ![concatenation graph](assets/BenchmarkConcat.png)
 

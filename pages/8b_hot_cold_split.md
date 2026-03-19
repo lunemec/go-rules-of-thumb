@@ -8,7 +8,7 @@ This section is the benchmark-backed answer to "should this field be `T` or `*T`
 > keep the field inline when callers usually read or copy the whole record  
 > split to `*Cold` only when a hot path scans large collections and mostly ignores the cold tail  
 > in this benchmark, the split layout starts to win around `5 000` records on the hot-only scan and is clearly better by `10 000+`  
-> for full-record snapshots, inline stays better across the whole measured range
+> for full-record snapshots, inline stays better across the whole measured range  
 
 ![hot cold split graph](assets/BenchmarkHotColdSplit.png)
 

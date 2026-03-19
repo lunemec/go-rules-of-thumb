@@ -6,7 +6,7 @@ Meaning of `A ⊆ B` in this test is that _all_ elements of **A** are present in
 > [!TIP]
 > if `len(A) <= 100`, start with nested loops  
 > if `len(A) >= 500 && len(B) >= 1000`, use `map`  
-> use `sort + binary search` only in the middle, or when `B` is already sorted
+> use `sort + binary search` only in the middle, or when `B` is already sorted  
 
 ![subsets graph](assets/BenchmarkSubset.png)
 

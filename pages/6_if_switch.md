@@ -6,7 +6,7 @@ compiler is able to transform it into a jump table.
 > [!TIP]
 > use whichever is more readable  
 > when hits are usually the first case, `if` stays competitive and often wins  
-> on this benchmark, `switch` usually wins once misses or later/mixed hits are common, especially by `9` cases
+> on this benchmark, `switch` usually wins once misses or later/mixed hits are common, especially by `9` cases  
 
 ![if switch graph](assets/BenchmarkIfSwitch.png)
 

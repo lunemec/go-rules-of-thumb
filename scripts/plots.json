@@ -153,6 +153,141 @@
       "size": "Payload size (bytes)"
     }
   },
+  "BenchmarkCallShapes": {
+    "x_param": "size",
+    "y_param": null,
+    "summary_kind": "value_heatmap",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Payload size (bytes)",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "concrete_ptr",
+      "interface_dispatch",
+      "interface_box_each_call",
+      "generic_exact",
+      "generic_constraint"
+    ],
+    "implementation_labels": {
+      "concrete_ptr": "concrete *T",
+      "interface_dispatch": "interface over *T",
+      "interface_box_each_call": "interface box each call",
+      "generic_exact": "generic exact *T",
+      "generic_constraint": "generic constrained *T"
+    },
+    "param_labels": {
+      "size": "Payload size (bytes)"
+    }
+  },
+  "BenchmarkIndirectionCostRead": {
+    "x_param": "iterations",
+    "y_param": null,
+    "summary_kind": "value_heatmap",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Repeated passes over the same 256 records of fixed *scoringRequest32 (read-only)",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "concrete_ptr",
+      "interface_dispatch",
+      "interface_box_each_call",
+      "generic_exact",
+      "generic_constraint"
+    ],
+    "implementation_labels": {
+      "concrete_ptr": "concrete *T",
+      "interface_dispatch": "interface over *T",
+      "interface_box_each_call": "interface box each call",
+      "generic_exact": "generic exact *T",
+      "generic_constraint": "generic constrained *T"
+    },
+    "param_labels": {
+      "iterations": "Repeated passes over the same 256 records of fixed *scoringRequest32 (read-only)"
+    }
+  },
+  "BenchmarkIndirectionCostWrite": {
+    "x_param": "iterations",
+    "y_param": null,
+    "summary_kind": "value_heatmap",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Repeated passes over the same 256 records of fixed *scoringRequest32 (read-write)",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "concrete_ptr",
+      "interface_dispatch",
+      "interface_box_each_call",
+      "generic_exact",
+      "generic_constraint"
+    ],
+    "implementation_labels": {
+      "concrete_ptr": "concrete *T",
+      "interface_dispatch": "interface over *T",
+      "interface_box_each_call": "interface box each call",
+      "generic_exact": "generic exact *T",
+      "generic_constraint": "generic constrained *T"
+    },
+    "param_labels": {
+      "iterations": "Repeated passes over the same 256 records of fixed *scoringRequest32 (read-write)"
+    }
+  },
+  "BenchmarkIndirectionCostTinyRead": {
+    "x_param": "iterations",
+    "y_param": null,
+    "summary_kind": "value_heatmap",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Repeated passes over the same 256 records of fixed *scoringRequest32 (single-field read)",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "concrete_ptr",
+      "interface_dispatch",
+      "interface_box_each_call",
+      "generic_exact",
+      "generic_constraint"
+    ],
+    "implementation_labels": {
+      "concrete_ptr": "concrete *T",
+      "interface_dispatch": "interface over *T",
+      "interface_box_each_call": "interface box each call",
+      "generic_exact": "generic exact *T",
+      "generic_constraint": "generic constrained *T"
+    },
+    "param_labels": {
+      "iterations": "Repeated passes over the same 256 records of fixed *scoringRequest32 (single-field read)"
+    }
+  },
+  "BenchmarkIndirectionCostTinyWrite": {
+    "x_param": "iterations",
+    "y_param": null,
+    "summary_kind": "value_heatmap",
+    "detail_kind": null,
+    "axis_labels": {
+      "x": "Repeated passes over the same 256 records of fixed *scoringRequest32 (single-field write)",
+      "y": "ns/op"
+    },
+    "implementation_order": [
+      "concrete_ptr",
+      "interface_dispatch",
+      "interface_box_each_call",
+      "generic_exact",
+      "generic_constraint"
+    ],
+    "implementation_labels": {
+      "concrete_ptr": "concrete *T",
+      "interface_dispatch": "interface over *T",
+      "interface_box_each_call": "interface box each call",
+      "generic_exact": "generic exact *T",
+      "generic_constraint": "generic constrained *T"
+    },
+    "param_labels": {
+      "iterations": "Repeated passes over the same 256 records of fixed *scoringRequest32 (single-field write)"
+    }
+  },
   "BenchmarkReturnValueVsPointer": {
     "x_param": "size",
     "y_param": null,

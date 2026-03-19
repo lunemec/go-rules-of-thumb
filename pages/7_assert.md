@@ -5,7 +5,7 @@ What is the cost of adding `assert`? Does it make any significant impact?
 > [!TIP]
 > use `assert` freely outside hot loops  
 > in hot loops, plain `assert` is near-free below ~10 checks and noticeable around ~100+ checks  
-> avoid `defer`-based asserts in hot loops
+> avoid `defer`-based asserts in hot loops  
 
 ![assert graph](assets/BenchmarkAssert.png)
 

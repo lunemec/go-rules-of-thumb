@@ -1,0 +1,52 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M5
+                       │ BenchmarkCallShapes-concrete_ptr.txt │ BenchmarkCallShapes-generic_constraint.txt │ BenchmarkCallShapes-generic_exact.txt │ BenchmarkCallShapes-interface_box_each_call.txt │ BenchmarkCallShapes-interface_dispatch.txt │
+                       │                sec/op                │       sec/op        vs base                │    sec/op      vs base                │         sec/op           vs base                │       sec/op        vs base                │
+CallShapes/size=8-10                             413.7n ± 38%         993.9n ± 20%  +140.23% (p=0.002 n=6)    661.6n ± 15%   +59.93% (p=0.002 n=6)              645.4n ± 38%   +56.02% (p=0.015 n=6)         565.0n ± 40%         ~ (p=0.394 n=6)
+CallShapes/size=16-10                            439.4n ± 17%        1295.5n ± 28%  +194.87% (p=0.002 n=6)    917.3n ± 29%  +108.79% (p=0.002 n=6)             1012.0n ±  9%  +130.34% (p=0.002 n=6)         880.2n ± 20%  +100.35% (p=0.002 n=6)
+CallShapes/size=24-10                            377.9n ± 22%        1056.5n ± 13%  +179.57% (p=0.002 n=6)    666.6n ±  6%   +76.40% (p=0.002 n=6)              744.2n ± 15%   +96.93% (p=0.002 n=6)         748.6n ± 12%   +98.09% (p=0.002 n=6)
+CallShapes/size=32-10                            1.745µ ± 20%         3.636µ ± 17%  +108.40% (p=0.002 n=6)    3.141µ ± 15%   +80.05% (p=0.002 n=6)              3.060µ ± 16%   +75.41% (p=0.002 n=6)         3.233µ ± 22%   +85.33% (p=0.002 n=6)
+CallShapes/size=64-10                            2.205µ ± 13%         3.709µ ± 10%   +68.22% (p=0.002 n=6)    3.669µ ±  9%   +66.43% (p=0.002 n=6)              3.713µ ± 13%   +68.41% (p=0.002 n=6)         3.644µ ± 13%   +65.28% (p=0.002 n=6)
+CallShapes/size=96-10                            2.151µ ± 21%         3.891µ ± 25%   +80.87% (p=0.002 n=6)    3.541µ ± 17%   +64.60% (p=0.002 n=6)              3.868µ ± 29%   +79.80% (p=0.002 n=6)         3.925µ ± 26%   +82.47% (p=0.002 n=6)
+CallShapes/size=128-10                           2.203µ ± 14%         3.960µ ± 13%   +79.75% (p=0.002 n=6)    3.640µ ± 20%   +65.23% (p=0.002 n=6)              3.631µ ± 26%   +64.84% (p=0.002 n=6)         3.763µ ± 35%   +70.81% (p=0.002 n=6)
+CallShapes/size=192-10                           2.120µ ±  7%         4.063µ ± 19%   +91.70% (p=0.002 n=6)    3.438µ ± 11%   +62.18% (p=0.002 n=6)              4.180µ ± 21%   +97.19% (p=0.002 n=6)         4.082µ ± 12%   +92.59% (p=0.002 n=6)
+CallShapes/size=256-10                           2.200µ ± 14%         4.326µ ± 22%   +96.64% (p=0.002 n=6)    3.753µ ±  9%   +70.59% (p=0.002 n=6)              3.877µ ± 22%   +76.25% (p=0.002 n=6)         4.018µ ±  7%   +82.64% (p=0.002 n=6)
+CallShapes/size=384-10                           2.322µ ± 16%         4.047µ ± 16%   +74.33% (p=0.002 n=6)    3.342µ ± 16%   +43.94% (p=0.002 n=6)              3.706µ ± 16%   +59.62% (p=0.002 n=6)         4.090µ ± 18%   +76.18% (p=0.002 n=6)
+CallShapes/size=512-10                           2.179µ ± 12%         4.161µ ±  7%   +90.98% (p=0.002 n=6)    3.334µ ± 27%   +53.04% (p=0.002 n=6)              3.543µ ± 19%   +62.61% (p=0.002 n=6)         4.099µ ± 38%   +88.13% (p=0.002 n=6)
+geomean                                          1.360µ               2.802µ        +105.99%                  2.280µ         +67.57%                            2.418µ         +77.73%                       2.435µ         +78.97%
+
+                       │ BenchmarkCallShapes-concrete_ptr.txt │ BenchmarkCallShapes-generic_constraint.txt │ BenchmarkCallShapes-generic_exact.txt │ BenchmarkCallShapes-interface_box_each_call.txt │ BenchmarkCallShapes-interface_dispatch.txt │
+                       │                 B/op                 │        B/op         vs base                │     B/op       vs base                │          B/op            vs base                │        B/op         vs base                │
+CallShapes/size=8-10                             0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=16-10                            0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=24-10                            0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=32-10                            0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=64-10                            0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=96-10                            0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=128-10                           0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=192-10                           0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=256-10                           0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=384-10                           0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=512-10                           0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+geomean                                                     ²                       +0.00%               ²                  +0.00%               ²                            +0.00%               ²                       +0.00%               ²
+¹ all samples are equal
+² summaries must be >0 to compute geomean
+
+                       │ BenchmarkCallShapes-concrete_ptr.txt │ BenchmarkCallShapes-generic_constraint.txt │ BenchmarkCallShapes-generic_exact.txt │ BenchmarkCallShapes-interface_box_each_call.txt │ BenchmarkCallShapes-interface_dispatch.txt │
+                       │              allocs/op               │     allocs/op       vs base                │   allocs/op    vs base                │        allocs/op         vs base                │     allocs/op       vs base                │
+CallShapes/size=8-10                             0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=16-10                            0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=24-10                            0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=32-10                            0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=64-10                            0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=96-10                            0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=128-10                           0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=192-10                           0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=256-10                           0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=384-10                           0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+CallShapes/size=512-10                           0.000 ± 0%             0.000 ± 0%       ~ (p=1.000 n=6) ¹      0.000 ± 0%       ~ (p=1.000 n=6) ¹                0.000 ± 0%       ~ (p=1.000 n=6) ¹           0.000 ± 0%       ~ (p=1.000 n=6) ¹
+geomean                                                     ²                       +0.00%               ²                  +0.00%               ²                            +0.00%               ²                       +0.00%               ²
+¹ all samples are equal
+² summaries must be >0 to compute geomean

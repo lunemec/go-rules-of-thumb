@@ -1,0 +1,45 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M5
+,BenchmarkIndirectionCostTinyRead-concrete_ptr.txt,,BenchmarkIndirectionCostTinyRead-generic_constraint.txt,,,,BenchmarkIndirectionCostTinyRead-generic_exact.txt,,,,BenchmarkIndirectionCostTinyRead-interface_box_each_call.txt,,,,BenchmarkIndirectionCostTinyRead-interface_dispatch.txt,,,
+,sec/op,CI,sec/op,CI,vs base,P,sec/op,CI,vs base,P,sec/op,CI,vs base,P,sec/op,CI,vs base,P
+IndirectionCostTinyRead/iterations=1-10,1.903e-07,6%,3.3055000000000006e-07,2%,+73.70%,p=0.002 n=6,1.9285e-07,5%,~,p=0.240 n=6,2.2795000000000003e-07,15%,+19.78%,p=0.002 n=6,2.2430000000000002e-07,2%,+17.87%,p=0.002 n=6
+IndirectionCostTinyRead/iterations=2-10,3.8365e-07,0%,6.673e-07,1%,+73.93%,p=0.002 n=6,3.8564999999999996e-07,2%,+0.52%,p=0.002 n=6,4.5840000000000003e-07,2%,+19.48%,p=0.002 n=6,4.5175000000000006e-07,2%,+17.75%,p=0.002 n=6
+IndirectionCostTinyRead/iterations=5-10,9.565e-07,2%,1.6765e-06,1%,+75.27%,p=0.002 n=6,9.514000000000001e-07,0%,~,p=0.089 n=6,1.1225e-06,2%,+17.35%,p=0.002 n=6,1.1175e-06,1%,+16.83%,p=0.002 n=6
+IndirectionCostTinyRead/iterations=10-10,1.8955e-06,9%,3.3580000000000003e-06,1%,+77.16%,p=0.002 n=6,1.9125e-06,2%,~,p=0.177 n=6,2.3985e-06,35%,+26.54%,p=0.002 n=6,2.245e-06,2%,+18.44%,p=0.002 n=6
+IndirectionCostTinyRead/iterations=25-10,4.723e-06,0%,8.372e-06,4%,+77.26%,p=0.002 n=6,4.757e-06,1%,+0.72%,p=0.004 n=6,5.6095e-06,4%,+18.77%,p=0.002 n=6,5.7165e-06,3%,+21.04%,p=0.002 n=6
+IndirectionCostTinyRead/iterations=50-10,9.438e-06,0%,1.6908500000000003e-05,1%,+79.15%,p=0.002 n=6,9.479e-06,3%,+0.43%,p=0.015 n=6,1.2640500000000002e-05,11%,+33.93%,p=0.002 n=6,1.2914000000000002e-05,13%,+36.83%,p=0.002 n=6
+IndirectionCostTinyRead/iterations=100-10,1.9086e-05,5%,3.358300000000001e-05,1%,+75.96%,p=0.002 n=6,1.8891e-05,5%,~,p=0.457 n=6,2.2839000000000003e-05,7%,+19.66%,p=0.002 n=6,2.64565e-05,30%,+38.62%,p=0.002 n=6
+IndirectionCostTinyRead/iterations=250-10,4.75935e-05,17%,8.3881e-05,2%,+76.24%,p=0.002 n=6,4.7252e-05,0%,-0.72%,p=0.002 n=6,6.1821e-05,14%,+29.89%,p=0.002 n=6,6.0634e-05,2%,+27.40%,p=0.002 n=6
+IndirectionCostTinyRead/iterations=500-10,0.00010692500000000001,25%,0.00016958700000000001,9%,+58.60%,p=0.002 n=6,9.479200000000001e-05,3%,-11.35%,p=0.004 n=6,0.00011628,14%,~,p=0.065 n=6,0.00011971400000000001,16%,+11.96%,p=0.041 n=6
+IndirectionCostTinyRead/iterations=1000-10,0.00019131400000000002,6%,0.0003357115,4%,+75.48%,p=0.002 n=6,0.000189211,4%,-1.10%,p=0.026 n=6,0.00022375550000000002,2%,+16.96%,p=0.002 n=6,0.00025295450000000007,10%,+32.22%,p=0.002 n=6
+geomean,6.367910116492821e-06,,1.1092051318787353e-05,,+74.19%,,6.29486825961889e-06,,-1.15%,,7.700147663626014e-06,,+20.92%,,7.870128552576527e-06,,+23.59%,
+
+,BenchmarkIndirectionCostTinyRead-concrete_ptr.txt,,BenchmarkIndirectionCostTinyRead-generic_constraint.txt,,,,BenchmarkIndirectionCostTinyRead-generic_exact.txt,,,,BenchmarkIndirectionCostTinyRead-interface_box_each_call.txt,,,,BenchmarkIndirectionCostTinyRead-interface_dispatch.txt,,,
+,B/op,CI,B/op,CI,vs base,P,B/op,CI,vs base,P,B/op,CI,vs base,P,B/op,CI,vs base,P
+IndirectionCostTinyRead/iterations=1-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=2-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=5-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=10-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=25-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=50-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=100-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=250-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=500-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=1000-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+geomean,,,,,+0.00%,,,,+0.00%,,,,+0.00%,,,,+0.00%,
+
+,BenchmarkIndirectionCostTinyRead-concrete_ptr.txt,,BenchmarkIndirectionCostTinyRead-generic_constraint.txt,,,,BenchmarkIndirectionCostTinyRead-generic_exact.txt,,,,BenchmarkIndirectionCostTinyRead-interface_box_each_call.txt,,,,BenchmarkIndirectionCostTinyRead-interface_dispatch.txt,,,
+,allocs/op,CI,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P
+IndirectionCostTinyRead/iterations=1-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=2-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=5-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=10-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=25-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=50-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=100-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=250-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=500-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostTinyRead/iterations=1000-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+geomean,,,,,+0.00%,,,,+0.00%,,,,+0.00%,,,,+0.00%,

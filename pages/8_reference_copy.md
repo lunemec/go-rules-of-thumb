@@ -6,10 +6,10 @@ This benchmark is the representative parameter-passing case for this repo. It st
 Here, "hot fields" just means the small set of fields the callee actually reads on every call; the benchmark is not modeling whole-record copies.
 
 > [!TIP]
-> use `T` up to about `16B`
-> around `24-32B`, benchmark your own workload
-> on this benchmark, prefer `*T` from about `32B` upward for read-only hot paths
-> keep `T` when you specifically want value semantics or isolation
+> use `T` up to about `16B`  
+> around `24-32B`, benchmark your own workload  
+> on this benchmark, prefer `*T` from about `32B` upward for read-only hot paths  
+> keep `T` when you specifically want value semantics or isolation  
 
 ![param value vs pointer graph](assets/BenchmarkParamValueVsPointer.png)
 

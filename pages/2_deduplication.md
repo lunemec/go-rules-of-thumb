@@ -5,7 +5,7 @@ When is it more efficient to deduplicate a `slice` as opposed to using a `map[]s
 > [!TIP]
 > if order does not matter, use in-place sort + dedup through at least ~5000 items  
 > around `10000` items, benchmark `map` against sort + dedup on your workload  
-> if you must preserve original order, use `map`
+> if you must preserve original order, use `map`  
 
 ![deduplication graph](assets/BenchmarkDeduplication.png)
 

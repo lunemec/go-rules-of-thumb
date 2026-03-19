@@ -30,7 +30,7 @@ When is it more efficient to convert a _slice_ into a _map_ for locating an elem
 > [!TIP]
 > use `slice` for one-off checks and up to ~50 lookups  
 > switch to `map` when you are doing hundreds of lookups on the same haystack  
-> between ~50 and ~100 lookups, benchmark your real workload
+> between ~50 and ~100 lookups, benchmark your real workload  
 
 Depending on size of the _haystack_ (size) and number of _needles_ (iterations), this will differ:
 ![needle in a haystack graph](assets/BenchmarkNeedleInAHaystack.png)
@@ -47,7 +47,7 @@ When is it more efficient to deduplicate a `slice` as opposed to using a `map[]s
 > [!TIP]
 > if order does not matter, use in-place sort + dedup through at least ~5000 items  
 > around `10000` items, benchmark `map` against sort + dedup on your workload  
-> if you must preserve original order, use `map`
+> if you must preserve original order, use `map`  
 
 ![deduplication graph](assets/BenchmarkDeduplication.png)
 
@@ -62,7 +62,7 @@ Meaning of `A ⊆ B` in this test is that _all_ elements of **A** are present in
 > [!TIP]
 > if `len(A) <= 100`, start with nested loops  
 > if `len(A) >= 500 && len(B) >= 1000`, use `map`  
-> use `sort + binary search` only in the middle, or when `B` is already sorted
+> use `sort + binary search` only in the middle, or when `B` is already sorted  
 
 ![subsets graph](assets/BenchmarkSubset.png)
 
@@ -76,7 +76,7 @@ The measured crossover is mostly driven by the size of `A`: small subsets keep t
 > [!TIP]
 > use `append(dst, src...)` as the default  
 > if `len(src)` is comparable to or larger than `len(dst)` and this is hot code, preallocate the full result  
-> avoid `for` + `append` without preallocation
+> avoid `for` + `append` without preallocation  
 
 ![append graph](assets/BenchmarkAppend.png)
 
@@ -92,9 +92,9 @@ Is it more efficient to `"str1" + var`, `fmt.Sprintf()`, `strings.Join()` or `st
 > [!TIP]
 > for repeated concatenation, start with `strings.Builder`  
 > treat `sync.Pool + strings.Builder` as a niche large-case optimization and benchmark it on your real workload  
-> use `+` for one-off expressions and `fmt.Sprintf` for formatting, not concat speed
+> use `+` for one-off expressions and `fmt.Sprintf` for formatting, not concat speed  
 >
-> in these benchmarks, plain `strings.Builder` is the safest default and `sync.Pool` does not reduce allocation totals
+> in these benchmarks, plain `strings.Builder` is the safest default and `sync.Pool` does not reduce allocation totals  
 
 ![concatenation graph](assets/BenchmarkConcat.png)
 
@@ -123,7 +123,7 @@ compiler is able to transform it into a jump table.
 > [!TIP]
 > use whichever is more readable  
 > when hits are usually the first case, `if` stays competitive and often wins  
-> on this benchmark, `switch` usually wins once misses or later/mixed hits are common, especially by `9` cases
+> on this benchmark, `switch` usually wins once misses or later/mixed hits are common, especially by `9` cases  
 
 ![if switch graph](assets/BenchmarkIfSwitch.png)
 
@@ -151,7 +151,7 @@ What is the cost of adding `assert`? Does it make any significant impact?
 > [!TIP]
 > use `assert` freely outside hot loops  
 > in hot loops, plain `assert` is near-free below ~10 checks and noticeable around ~100+ checks  
-> avoid `defer`-based asserts in hot loops
+> avoid `defer`-based asserts in hot loops  
 
 ![assert graph](assets/BenchmarkAssert.png)
 
@@ -172,10 +172,10 @@ This benchmark is the representative parameter-passing case for this repo. It st
 Here, "hot fields" just means the small set of fields the callee actually reads on every call; the benchmark is not modeling whole-record copies.
 
 > [!TIP]
-> use `T` up to about `16B`
-> around `24-32B`, benchmark your own workload
-> on this benchmark, prefer `*T` from about `32B` upward for read-only hot paths
-> keep `T` when you specifically want value semantics or isolation
+> use `T` up to about `16B`  
+> around `24-32B`, benchmark your own workload  
+> on this benchmark, prefer `*T` from about `32B` upward for read-only hot paths  
+> keep `T` when you specifically want value semantics or isolation  
 
 ![param value vs pointer graph](assets/BenchmarkParamValueVsPointer.png)
 
@@ -185,6 +185,40 @@ Each benchmark operation runs `256` `//go:noinline` read-only calls over aligned
 
 Further reading:
 - [There is no pass-by-reference in Go](https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go)
+## Indirection cost: concrete `*T` vs interface vs generic
+
+When the underlying object is the same concrete struct, how much overhead comes from indirection itself on repeated writes?
+
+This section fixes one concrete type (`*scoringRequest32`), keeps the same `256` prebuilt records for every variant, and varies only how many repeated calls you make through each call shape. It shows two write-side views of the same problem: a tiny-body benchmark to expose the abstraction tax, then a more realistic write body to show how quickly that tax gets diluted by real work.
+
+> [!TIP]
+> use direct concrete `*T` as the baseline on hot mutable paths  
+> no stable iteration-count cutoff appeared before `1000` repeated passes  
+> with a tiny write body, both interface forms land around `15-18%` behind concrete here, and constrained generics around `65%`  
+> with a more realistic write body, those same differences shrink into the low single digits  
+
+### Read-write fixed `*scoringRequest32`, tiny body
+
+![indirection tiny write graph](assets/BenchmarkIndirectionCostTinyWrite.png)
+
+This version only increments `AccountID` and returns it. That makes the abstraction tax obvious: both interface forms land roughly `15-18%` behind concrete on geomean, and constrained generic about `65%`. `generic_exact` was the outlier here, so use this chart mainly to see how visible interface and constrained-generic overhead becomes when the method body is almost empty.
+
+[Benchmark results](assets/BenchmarkIndirectionCostTinyWrite.txt)
+
+### Read-write fixed `*scoringRequest32`, realistic body
+
+![indirection write graph](assets/BenchmarkIndirectionCostWrite.png)
+
+This version keeps the fuller write body over the same `256` `*scoringRequest32` records. Here the same call-shape differences are much smaller: preboxed interface dispatch is about `2.3%` behind concrete on geomean, exact generic about `2.6%`, `interface_box_each_call` about `3.4%`, and constrained generic about `5.8%`. For non-trivial work, indirection is usually a small constant tax rather than a late-breakpoint effect, and all variants stay at `0 allocs/op`. Treat the earlier tiny-body `generic_exact` anomaly as compiler-sensitive, not as a rule to generalize.
+
+[Benchmark results](assets/BenchmarkIndirectionCostWrite.txt)
+
+Supplementary read-only comparisons:
+[BenchmarkIndirectionCostTinyRead results](assets/BenchmarkIndirectionCostTinyRead.txt)
+[BenchmarkIndirectionCostRead results](assets/BenchmarkIndirectionCostRead.txt)
+
+Supplementary mixed size sweep:
+[BenchmarkCallShapes results](assets/BenchmarkCallShapes.txt)
 ## Owned return values: `T` vs `*T`
 
 Should a function that builds and returns a fresh owned result use `T` or `*T`?
@@ -192,10 +226,10 @@ Should a function that builds and returns a fresh owned result use `T` or `*T`?
 This section is about owned return values and the escape/allocation behavior of returning a freshly built result. It is not a blanket rule for APIs that need shared mutable identity, optional values, or polymorphic nil signaling.
 
 > [!TIP]
-> use `T` through at least `512B` for freshly built owned results in this benchmark
-> no cutoff appeared before `512B`
-> `*T` loses here because it allocates (`256 allocs/op` vs `0`)
-> shared mutable identity and optional/nil results are separate API-design concerns
+> use `T` through at least `512B` for freshly built owned results in this benchmark  
+> no cutoff appeared before `512B`  
+> `*T` loses here because it allocates (`256 allocs/op` vs `0`)  
+> shared mutable identity and optional/nil results are separate API-design concerns  
 
 ![return value vs pointer graph](assets/BenchmarkReturnValueVsPointer.png)
 
@@ -213,10 +247,10 @@ This section is about collection layout for read-heavy data, not a blanket rule 
 This benchmark has two read patterns: `hot_scan` means walking the collection and reading only a few frequently-used fields, while `snapshot` means building a fresh output slice by copying the full record. It is not a runtime or persistence snapshot.
 
 > [!TIP]
-> for wide records with a hot path that only reads a few fields, `[]*T` can win
-> in this benchmark, `[]*T` stays ahead through ~`10 000` records on the hot scan, and `[]T` only pulls ahead around ~`100 000`
-> for snapshot-style reads that copy most of each record, treat the layouts as roughly tied here and benchmark your own workload
-> reach for pointers when you need shared mutation, stable identity, or optional values
+> for wide records with a hot path that only reads a few fields, `[]*T` can win  
+> in this benchmark, `[]*T` stays ahead through ~`10 000` records on the hot scan, and `[]T` only pulls ahead around ~`100 000`  
+> for snapshot-style reads that copy most of each record, treat the layouts as roughly tied here and benchmark your own workload  
+> reach for pointers when you need shared mutation, stable identity, or optional values  
 
 ![values vs pointers graph](assets/BenchmarkValuesVsPointers.png)
 
@@ -237,7 +271,7 @@ This section is the benchmark-backed answer to "should this field be `T` or `*T`
 > keep the field inline when callers usually read or copy the whole record  
 > split to `*Cold` only when a hot path scans large collections and mostly ignores the cold tail  
 > in this benchmark, the split layout starts to win around `5 000` records on the hot-only scan and is clearly better by `10 000+`  
-> for full-record snapshots, inline stays better across the whole measured range
+> for full-record snapshots, inline stays better across the whole measured range  
 
 ![hot cold split graph](assets/BenchmarkHotColdSplit.png)
 
@@ -253,7 +287,7 @@ pre-allocating a slice and putting values in it.
 > use direct iteration on hot paths  
 > use `iter.Seq` when it makes the API or call site cleaner  
 > expect `range over func` to stay close on tiny loops and cost about ~15-25% on larger ones  
-> materializing a slice is noticeably more expensive because it also pays the slice build cost
+> materializing a slice is noticeably more expensive because it also pays the slice build cost  
 
 ![iteration graph](assets/BenchmarkIterate.png)
 
@@ -267,7 +301,7 @@ When is it worth splitting a slice of game-style entities into field-parallel sl
 > [!TIP]
 > for hot loops over a few fields, use `AoS` when `len(entities) <= 100`  
 > for hot loops over a few fields, use `SoA` when `len(entities) >= 1 000`  
-> if you usually work with whole records together, keep `AoS`, especially once `len(entities) >= 10 000`
+> if you usually work with whole records together, keep `AoS`, especially once `len(entities) >= 10 000`  
 
 This benchmark uses a game-style entity model with hot physics fields (`position`, `velocity`, `active`) and cold metadata (`name`, `material`, `ai state`).
 Here, `hot_update` means "update only the physics fields in place" and never read the metadata, while `snapshot_build` means "assemble a fresh output record with all fields for each active entity". It is a whole-record copy workload, not a runtime snapshot.
@@ -283,10 +317,10 @@ When does it pay to keep a traversal contiguous instead of visiting the same rec
 This section is about locality and CPU prefetch behavior over the same `O(n)` work, not about changing algorithmic complexity.
 
 > [!TIP]
-> for `64B` records, fixed-random order stays ahead through ~`2 048` records in this run
-> linear order takes over around ~`4 096` records and keeps widening from there
-> by `65 536` records, linear is about `44%` faster here
-> treat the `2 048-4 096` crossover as hardware-sensitive and benchmark on your own CPU
+> for `64B` records, fixed-random order stays ahead through ~`2 048` records in this run  
+> linear order takes over around ~`4 096` records and keeps widening from there  
+> by `65 536` records, linear is about `44%` faster here  
+> treat the `2 048-4 096` crossover as hardware-sensitive and benchmark on your own CPU  
 
 ![linear vs random access graph](assets/BenchmarkLinearVsRandomAccess.png)
 

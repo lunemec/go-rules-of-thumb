@@ -7,7 +7,7 @@ pre-allocating a slice and putting values in it.
 > use direct iteration on hot paths  
 > use `iter.Seq` when it makes the API or call site cleaner  
 > expect `range over func` to stay close on tiny loops and cost about ~15-25% on larger ones  
-> materializing a slice is noticeably more expensive because it also pays the slice build cost
+> materializing a slice is noticeably more expensive because it also pays the slice build cost  
 
 ![iteration graph](assets/BenchmarkIterate.png)
 

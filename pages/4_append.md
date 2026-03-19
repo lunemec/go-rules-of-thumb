@@ -3,7 +3,7 @@
 > [!TIP]
 > use `append(dst, src...)` as the default  
 > if `len(src)` is comparable to or larger than `len(dst)` and this is hot code, preallocate the full result  
-> avoid `for` + `append` without preallocation
+> avoid `for` + `append` without preallocation  
 
 ![append graph](assets/BenchmarkAppend.png)
 

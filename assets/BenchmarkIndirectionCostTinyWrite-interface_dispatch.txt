@@ -1,0 +1,66 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M5
+BenchmarkIndirectionCostTinyWrite/iterations=1-10         	 2403612	       236.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=1-10         	 2663113	       225.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=1-10         	 2668033	       224.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=1-10         	 2618378	       227.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=1-10         	 2597811	       228.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=1-10         	 2648044	       232.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=2-10         	 1286421	       463.7 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=2-10         	 1322737	       453.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=2-10         	 1315832	       455.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=2-10         	 1327173	       451.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=2-10         	 1322553	       453.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=2-10         	 1329817	       451.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=5-10         	  512708	      1132 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=5-10         	  530288	      1127 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=5-10         	  545176	      1123 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=5-10         	  532124	      1130 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=5-10         	  533650	      1128 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=5-10         	  547095	      1134 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=10-10        	  264880	      2263 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=10-10        	  262257	      2265 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=10-10        	  266959	      2301 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=10-10        	  266329	      2258 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=10-10        	  266925	      2269 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=10-10        	  263691	      2276 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=25-10        	  105846	      5658 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=25-10        	  105915	      5745 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=25-10        	  104547	      5745 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=25-10        	  104005	      5961 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=25-10        	  102331	      5837 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=25-10        	  102860	      5796 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=50-10        	   52095	     11659 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=50-10        	   50780	     11849 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=50-10        	   30776	     18293 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=50-10        	   42644	     13322 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=50-10        	   44217	     12762 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=50-10        	   48393	     12496 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=100-10       	   22408	     27837 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=100-10       	   16209	     33615 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=100-10       	   23571	     24742 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=100-10       	   24362	     27632 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=100-10       	   23083	     26056 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=100-10       	   21132	     26244 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=250-10       	    9660	     60714 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=250-10       	   10000	     60566 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=250-10       	    9948	     61311 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=250-10       	   10000	     64318 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=250-10       	    9828	     60983 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=250-10       	    9992	     61417 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=500-10       	    4845	    122731 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=500-10       	    4992	    122838 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=500-10       	    4638	    146694 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=500-10       	    4980	    120427 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=500-10       	    5082	    119895 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=500-10       	    5158	    117307 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=1000-10      	    2608	    234176 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=1000-10      	    2528	    249585 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=1000-10      	    2325	    281611 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=1000-10      	    2402	    269968 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=1000-10      	    2461	    239076 ns/op	       0 B/op	       0 allocs/op
+BenchmarkIndirectionCostTinyWrite/iterations=1000-10      	    2524	    239232 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	36.491s

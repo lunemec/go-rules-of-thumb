@@ -1,0 +1,45 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M5
+,BenchmarkIndirectionCostWrite-concrete_ptr.txt,,BenchmarkIndirectionCostWrite-generic_constraint.txt,,,,BenchmarkIndirectionCostWrite-generic_exact.txt,,,,BenchmarkIndirectionCostWrite-interface_box_each_call.txt,,,,BenchmarkIndirectionCostWrite-interface_dispatch.txt,,,
+,sec/op,CI,sec/op,CI,vs base,P,sec/op,CI,vs base,P,sec/op,CI,vs base,P,sec/op,CI,vs base,P
+IndirectionCostWrite/iterations=1-10,1.3405000000000001e-06,2%,1.4005e-06,3%,+4.48%,p=0.002 n=6,1.522e-06,25%,+13.54%,p=0.002 n=6,1.3725e-06,1%,+2.39%,p=0.006 n=6,1.3525000000000002e-06,13%,~,p=0.667 n=6
+IndirectionCostWrite/iterations=2-10,2.678e-06,1%,2.855e-06,2%,+6.61%,p=0.002 n=6,2.7195e-06,2%,+1.55%,p=0.002 n=6,2.8120000000000004e-06,2%,+5.00%,p=0.002 n=6,2.7525000000000003e-06,2%,+2.78%,p=0.002 n=6
+IndirectionCostWrite/iterations=5-10,6.719e-06,11%,7.082000000000001e-06,2%,~,p=0.180 n=6,6.7665e-06,1%,~,p=0.589 n=6,7.0415e-06,2%,~,p=0.310 n=6,6.770500000000001e-06,2%,~,p=0.818 n=6
+IndirectionCostWrite/iterations=10-10,1.3701500000000001e-05,19%,1.41e-05,1%,~,p=0.065 n=6,1.3562500000000001e-05,1%,~,p=0.240 n=6,1.4028500000000001e-05,1%,~,p=0.065 n=6,1.3793000000000002e-05,14%,~,p=0.394 n=6
+IndirectionCostWrite/iterations=25-10,3.3529500000000005e-05,11%,3.5622000000000006e-05,2%,~,p=0.065 n=6,3.40475e-05,0%,~,p=0.394 n=6,3.4555e-05,2%,~,p=0.065 n=6,3.532e-05,6%,+5.34%,p=0.041 n=6
+IndirectionCostWrite/iterations=50-10,6.664750000000001e-05,0%,7.105e-05,2%,+6.61%,p=0.002 n=6,6.79985e-05,2%,+2.03%,p=0.004 n=6,6.839300000000001e-05,1%,+2.62%,p=0.002 n=6,6.851450000000001e-05,1%,+2.80%,p=0.002 n=6
+IndirectionCostWrite/iterations=100-10,0.00013305750000000002,1%,0.0001415845,2%,+6.41%,p=0.002 n=6,0.00013702700000000001,1%,+2.98%,p=0.002 n=6,0.0001369715,4%,+2.94%,p=0.002 n=6,0.0001363955,1%,+2.51%,p=0.002 n=6
+IndirectionCostWrite/iterations=250-10,0.000333257,2%,0.00035370050000000004,4%,+6.13%,p=0.002 n=6,0.00034067600000000004,1%,+2.23%,p=0.026 n=6,0.00035230700000000005,5%,+5.72%,p=0.002 n=6,0.000342272,4%,+2.71%,p=0.009 n=6
+IndirectionCostWrite/iterations=500-10,0.0006693220000000001,4%,0.0007157555000000001,7%,+6.94%,p=0.002 n=6,0.000679405,2%,~,p=0.132 n=6,0.0006901909999999999,2%,+3.12%,p=0.015 n=6,0.000680906,3%,+1.73%,p=0.041 n=6
+IndirectionCostWrite/iterations=1000-10,0.0013317445000000001,1%,0.001418832,1%,+6.54%,p=0.002 n=6,0.0013545270000000001,2%,+1.71%,p=0.002 n=6,0.0013557405,2%,+1.80%,p=0.002 n=6,0.0013714305,1%,+2.98%,p=0.002 n=6
+geomean,4.4312226695011835e-05,,4.689098650510758e-05,,+5.82%,,4.547006979220607e-05,,+2.61%,,4.5808112650250746e-05,,+3.38%,,4.53354535316633e-05,,+2.31%,
+
+,BenchmarkIndirectionCostWrite-concrete_ptr.txt,,BenchmarkIndirectionCostWrite-generic_constraint.txt,,,,BenchmarkIndirectionCostWrite-generic_exact.txt,,,,BenchmarkIndirectionCostWrite-interface_box_each_call.txt,,,,BenchmarkIndirectionCostWrite-interface_dispatch.txt,,,
+,B/op,CI,B/op,CI,vs base,P,B/op,CI,vs base,P,B/op,CI,vs base,P,B/op,CI,vs base,P
+IndirectionCostWrite/iterations=1-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=2-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=5-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=10-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=25-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=50-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=100-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=250-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=500-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=1000-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+geomean,,,,,+0.00%,,,,+0.00%,,,,+0.00%,,,,+0.00%,
+
+,BenchmarkIndirectionCostWrite-concrete_ptr.txt,,BenchmarkIndirectionCostWrite-generic_constraint.txt,,,,BenchmarkIndirectionCostWrite-generic_exact.txt,,,,BenchmarkIndirectionCostWrite-interface_box_each_call.txt,,,,BenchmarkIndirectionCostWrite-interface_dispatch.txt,,,
+,allocs/op,CI,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P
+IndirectionCostWrite/iterations=1-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=2-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=5-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=10-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=25-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=50-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=100-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=250-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=500-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+IndirectionCostWrite/iterations=1000-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+geomean,,,,,+0.00%,,,,+0.00%,,,,+0.00%,,,,+0.00%,

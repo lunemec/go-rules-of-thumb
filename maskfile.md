@@ -35,6 +35,11 @@ $MASK bench aossoa
 $MASK bench valuesvspointers
 $MASK bench hotcoldsplit
 $MASK bench linearvsrandomaccess
+$MASK bench callshapes
+$MASK bench indirectioncostread
+$MASK bench indirectioncostwrite
+$MASK bench indirectioncosttinyread
+$MASK bench indirectioncosttinywrite
 $MASK bench paramvaluevspointer
 $MASK bench returnvaluevspointer
 ```
@@ -172,6 +177,86 @@ $MASK bench_one "BenchmarkLinearVsRandomAccess" "linear"
 $MASK bench_one "BenchmarkLinearVsRandomAccess" "random"
 $MASK benchstat "BenchmarkLinearVsRandomAccess"
 $MASK graph "BenchmarkLinearVsRandomAccess"
+```
+
+### callshapes
+
+```bash
+$MASK bench_one "BenchmarkCallShapes" "concrete_ptr"
+$MASK bench_one "BenchmarkCallShapes" "interface_dispatch"
+$MASK bench_one "BenchmarkCallShapes" "interface_box_each_call"
+$MASK bench_one "BenchmarkCallShapes" "generic_exact"
+$MASK bench_one "BenchmarkCallShapes" "generic_constraint"
+$MASK benchstat "BenchmarkCallShapes"
+$MASK graph "BenchmarkCallShapes"
+```
+
+### indirectioncostread
+
+```bash
+echo "Running: BenchmarkIndirectionCostRead concrete_ptr"
+go test -run '^$' -bench "^BenchmarkIndirectionCostRead\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "concrete_ptr" > "assets/BenchmarkIndirectionCostRead-concrete_ptr.txt"
+echo "Running: BenchmarkIndirectionCostRead interface_dispatch"
+go test -run '^$' -bench "^BenchmarkIndirectionCostRead\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "interface_dispatch" > "assets/BenchmarkIndirectionCostRead-interface_dispatch.txt"
+echo "Running: BenchmarkIndirectionCostRead interface_box_each_call"
+go test -run '^$' -bench "^BenchmarkIndirectionCostRead\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "interface_box_each_call" > "assets/BenchmarkIndirectionCostRead-interface_box_each_call.txt"
+echo "Running: BenchmarkIndirectionCostRead generic_exact"
+go test -run '^$' -bench "^BenchmarkIndirectionCostRead\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "generic_exact" > "assets/BenchmarkIndirectionCostRead-generic_exact.txt"
+echo "Running: BenchmarkIndirectionCostRead generic_constraint"
+go test -run '^$' -bench "^BenchmarkIndirectionCostRead\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "generic_constraint" > "assets/BenchmarkIndirectionCostRead-generic_constraint.txt"
+$MASK benchstat "BenchmarkIndirectionCostRead"
+$MASK graph "BenchmarkIndirectionCostRead"
+```
+
+### indirectioncostwrite
+
+```bash
+echo "Running: BenchmarkIndirectionCostWrite concrete_ptr"
+go test -run '^$' -bench "^BenchmarkIndirectionCostWrite\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "concrete_ptr" > "assets/BenchmarkIndirectionCostWrite-concrete_ptr.txt"
+echo "Running: BenchmarkIndirectionCostWrite interface_dispatch"
+go test -run '^$' -bench "^BenchmarkIndirectionCostWrite\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "interface_dispatch" > "assets/BenchmarkIndirectionCostWrite-interface_dispatch.txt"
+echo "Running: BenchmarkIndirectionCostWrite interface_box_each_call"
+go test -run '^$' -bench "^BenchmarkIndirectionCostWrite\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "interface_box_each_call" > "assets/BenchmarkIndirectionCostWrite-interface_box_each_call.txt"
+echo "Running: BenchmarkIndirectionCostWrite generic_exact"
+go test -run '^$' -bench "^BenchmarkIndirectionCostWrite\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "generic_exact" > "assets/BenchmarkIndirectionCostWrite-generic_exact.txt"
+echo "Running: BenchmarkIndirectionCostWrite generic_constraint"
+go test -run '^$' -bench "^BenchmarkIndirectionCostWrite\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "generic_constraint" > "assets/BenchmarkIndirectionCostWrite-generic_constraint.txt"
+$MASK benchstat "BenchmarkIndirectionCostWrite"
+$MASK graph "BenchmarkIndirectionCostWrite"
+```
+
+### indirectioncosttinyread
+
+```bash
+echo "Running: BenchmarkIndirectionCostTinyRead concrete_ptr"
+go test -run '^$' -bench "^BenchmarkIndirectionCostTinyRead\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "concrete_ptr" > "assets/BenchmarkIndirectionCostTinyRead-concrete_ptr.txt"
+echo "Running: BenchmarkIndirectionCostTinyRead interface_dispatch"
+go test -run '^$' -bench "^BenchmarkIndirectionCostTinyRead\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "interface_dispatch" > "assets/BenchmarkIndirectionCostTinyRead-interface_dispatch.txt"
+echo "Running: BenchmarkIndirectionCostTinyRead interface_box_each_call"
+go test -run '^$' -bench "^BenchmarkIndirectionCostTinyRead\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "interface_box_each_call" > "assets/BenchmarkIndirectionCostTinyRead-interface_box_each_call.txt"
+echo "Running: BenchmarkIndirectionCostTinyRead generic_exact"
+go test -run '^$' -bench "^BenchmarkIndirectionCostTinyRead\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "generic_exact" > "assets/BenchmarkIndirectionCostTinyRead-generic_exact.txt"
+echo "Running: BenchmarkIndirectionCostTinyRead generic_constraint"
+go test -run '^$' -bench "^BenchmarkIndirectionCostTinyRead\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "generic_constraint" > "assets/BenchmarkIndirectionCostTinyRead-generic_constraint.txt"
+$MASK benchstat "BenchmarkIndirectionCostTinyRead"
+$MASK graph "BenchmarkIndirectionCostTinyRead"
+```
+
+### indirectioncosttinywrite
+
+```bash
+echo "Running: BenchmarkIndirectionCostTinyWrite concrete_ptr"
+go test -run '^$' -bench "^BenchmarkIndirectionCostTinyWrite\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "concrete_ptr" > "assets/BenchmarkIndirectionCostTinyWrite-concrete_ptr.txt"
+echo "Running: BenchmarkIndirectionCostTinyWrite interface_dispatch"
+go test -run '^$' -bench "^BenchmarkIndirectionCostTinyWrite\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "interface_dispatch" > "assets/BenchmarkIndirectionCostTinyWrite-interface_dispatch.txt"
+echo "Running: BenchmarkIndirectionCostTinyWrite interface_box_each_call"
+go test -run '^$' -bench "^BenchmarkIndirectionCostTinyWrite\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "interface_box_each_call" > "assets/BenchmarkIndirectionCostTinyWrite-interface_box_each_call.txt"
+echo "Running: BenchmarkIndirectionCostTinyWrite generic_exact"
+go test -run '^$' -bench "^BenchmarkIndirectionCostTinyWrite\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "generic_exact" > "assets/BenchmarkIndirectionCostTinyWrite-generic_exact.txt"
+echo "Running: BenchmarkIndirectionCostTinyWrite generic_constraint"
+go test -run '^$' -bench "^BenchmarkIndirectionCostTinyWrite\$" -benchtime 500ms -timeout 60m -count 6 -benchmem ./benchmarks/... -args -variant "generic_constraint" > "assets/BenchmarkIndirectionCostTinyWrite-generic_constraint.txt"
+$MASK benchstat "BenchmarkIndirectionCostTinyWrite"
+$MASK graph "BenchmarkIndirectionCostTinyWrite"
 ```
 
 ### paramvaluevspointer

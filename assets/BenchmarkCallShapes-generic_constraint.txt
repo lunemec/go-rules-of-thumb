@@ -1,0 +1,72 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M5
+BenchmarkCallShapes/size=8-10         	  108154	      1088 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=8-10         	  168894	       797.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=8-10         	  126502	      1011 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=8-10         	  152310	       821.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=8-10         	  100971	      1054 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=8-10         	  145118	       976.7 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=16-10        	   75729	      1657 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=16-10        	   99715	      1193 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=16-10        	  131253	      1271 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=16-10        	  113366	      1128 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=16-10        	  101938	      1320 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=16-10        	  106774	      1372 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=24-10        	  104684	      1113 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=24-10        	  129501	      1199 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=24-10        	  198495	      1007 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=24-10        	  198256	      1106 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=24-10        	  131949	       945.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=24-10        	  180768	       982.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=32-10        	   45782	      3096 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=32-10        	   32904	      3679 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=32-10        	   35562	      3225 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=32-10        	   29990	      4253 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=32-10        	   32366	      3592 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=32-10        	   31651	      3945 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=64-10        	   32058	      4065 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=64-10        	   44948	      3332 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=64-10        	   29000	      3852 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=64-10        	   35163	      3565 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=64-10        	   28804	      3895 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=64-10        	   30001	      3556 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=96-10        	   27333	      3746 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=96-10        	   29964	      3941 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=96-10        	   33982	      4127 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=96-10        	   35370	      3840 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=96-10        	   28336	      4861 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=96-10        	   36898	      3622 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=128-10       	   27097	      4177 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=128-10       	   38902	      3827 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=128-10       	   31231	      4025 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=128-10       	   33052	      3895 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=128-10       	   34396	      3651 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=128-10       	   35544	      4462 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=192-10       	   35793	      4123 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=192-10       	   28441	      4064 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=192-10       	   27657	      4062 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=192-10       	   37946	      3960 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=192-10       	   25951	      4836 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=192-10       	   32650	      4045 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=256-10       	   32026	      4051 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=256-10       	   28390	      4730 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=256-10       	   31899	      4056 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=256-10       	   22969	      4393 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=256-10       	   31478	      4259 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=256-10       	   24165	      5298 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=384-10       	   43405	      3580 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=384-10       	   27979	      3916 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=384-10       	   26982	      4667 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=384-10       	   30548	      4490 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=384-10       	   26356	      4178 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=384-10       	   50800	      3389 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=512-10       	   27152	      3885 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=512-10       	   31116	      3962 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=512-10       	   27597	      4396 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=512-10       	   27028	      4195 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=512-10       	   28564	      4329 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCallShapes/size=512-10       	   27025	      4126 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks	9.825s

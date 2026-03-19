@@ -6,10 +6,10 @@ This section is about collection layout for read-heavy data, not a blanket rule 
 This benchmark has two read patterns: `hot_scan` means walking the collection and reading only a few frequently-used fields, while `snapshot` means building a fresh output slice by copying the full record. It is not a runtime or persistence snapshot.
 
 > [!TIP]
-> for wide records with a hot path that only reads a few fields, `[]*T` can win
-> in this benchmark, `[]*T` stays ahead through ~`10 000` records on the hot scan, and `[]T` only pulls ahead around ~`100 000`
-> for snapshot-style reads that copy most of each record, treat the layouts as roughly tied here and benchmark your own workload
-> reach for pointers when you need shared mutation, stable identity, or optional values
+> for wide records with a hot path that only reads a few fields, `[]*T` can win  
+> in this benchmark, `[]*T` stays ahead through ~`10 000` records on the hot scan, and `[]T` only pulls ahead around ~`100 000`  
+> for snapshot-style reads that copy most of each record, treat the layouts as roughly tied here and benchmark your own workload  
+> reach for pointers when you need shared mutation, stable identity, or optional values  
 
 ![values vs pointers graph](assets/BenchmarkValuesVsPointers.png)
 

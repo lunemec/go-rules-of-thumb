@@ -5,10 +5,10 @@ Should a function that builds and returns a fresh owned result use `T` or `*T`?
 This section is about owned return values and the escape/allocation behavior of returning a freshly built result. It is not a blanket rule for APIs that need shared mutable identity, optional values, or polymorphic nil signaling.
 
 > [!TIP]
-> use `T` through at least `512B` for freshly built owned results in this benchmark
-> no cutoff appeared before `512B`
-> `*T` loses here because it allocates (`256 allocs/op` vs `0`)
-> shared mutable identity and optional/nil results are separate API-design concerns
+> use `T` through at least `512B` for freshly built owned results in this benchmark  
+> no cutoff appeared before `512B`  
+> `*T` loses here because it allocates (`256 allocs/op` vs `0`)  
+> shared mutable identity and optional/nil results are separate API-design concerns  
 
 ![return value vs pointer graph](assets/BenchmarkReturnValueVsPointer.png)
 
