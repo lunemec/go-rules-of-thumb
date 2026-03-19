@@ -120,6 +120,18 @@ $MASK benchstat "BenchmarkConcat"
 $MASK graph "BenchmarkConcat"
 ```
 
+### concatenate-large
+
+```bash
+$MASK bench_one "BenchmarkConcatLarge" "plus"
+$MASK bench_one "BenchmarkConcatLarge" "sprintf"
+$MASK bench_one "BenchmarkConcatLarge" "join"
+$MASK bench_one "BenchmarkConcatLarge" "builder"
+$MASK bench_one "BenchmarkConcatLarge" "builder_pool"
+$MASK benchstat "BenchmarkConcatLarge"
+$MASK graph "BenchmarkConcatLarge"
+```
+
 ### aossoa
 
 ```bash

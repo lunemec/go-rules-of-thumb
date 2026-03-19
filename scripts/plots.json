@@ -103,6 +103,35 @@
       "iterations": "Concatenations per operation"
     }
   },
+  "BenchmarkConcatLarge": {
+    "x_param": "size",
+    "y_param": "iterations",
+    "summary_kind": "winner_heatmap",
+    "detail_kind": "facet_lines",
+    "axis_labels": {
+      "x": "Input string length",
+      "y": "Concatenations per operation",
+      "metric": "ns/op"
+    },
+    "implementation_order": [
+      "plus",
+      "sprintf",
+      "join",
+      "builder",
+      "builder_pool"
+    ],
+    "implementation_labels": {
+      "plus": "\"str1\" + var",
+      "sprintf": "fmt.Sprintf",
+      "join": "strings.Join",
+      "builder": "strings.Builder",
+      "builder_pool": "sync.Pool + strings.Builder"
+    },
+    "param_labels": {
+      "size": "Input string length",
+      "iterations": "Concatenations per operation"
+    }
+  },
   "BenchmarkParamValueVsPointer": {
     "x_param": "size",
     "y_param": null,

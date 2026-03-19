@@ -15,8 +15,10 @@ type concatBench func(first string, nops int) string
 var concatSink string
 
 var (
-	concatStringSizes = []int{10, 50, 100, 500, 1_000}
-	concatOpCounts    = []int{10, 50, 100, 500, 1_000, 5_000}
+	concatStringSizes      = []int{10, 50, 100, 500, 1_000}
+	concatOpCounts         = []int{10, 50, 100, 500, 1_000, 5_000}
+	concatLargeStringSizes = []int{500, 1_000, 5_000}
+	concatLargeOpCounts    = []int{100, 500, 1_000, 5_000}
 )
 
 func TestConcat(t *testing.T) {
@@ -40,14 +42,7 @@ func TestConcat(t *testing.T) {
 
 func BenchmarkConcat(b *testing.B) {
 	runBenchmark := func(runF concatBench) {
-		for _, stringSize := range concatStringSizes {
-			for _, nOperations := range concatOpCounts {
-				b.Run(
-					fmt.Sprintf("size=%d iterations=%d", stringSize, nOperations),
-					benchmarkConcat(stringSize, nOperations, runF),
-				)
-			}
-		}
+		runConcatMatrix(b, "BenchmarkConcat", concatStringSizes, concatOpCounts, runF)
 	}
 	switch variant {
 	case "plus":
@@ -61,12 +56,43 @@ func BenchmarkConcat(b *testing.B) {
 	case "builder_pool":
 		runBenchmark(concatBuilderPool)
 	default:
-		b.Errorf("speficy which test to run: -args -test plus|sprintf|join|builder|builder_pool")
+		b.Errorf("specify which benchmark to run: -args -variant plus|sprintf|join|builder|builder_pool")
 	}
 }
 
-func benchmarkConcat(strSize, nOps int, runF concatBench) func(*testing.B) {
-	teststr := testingString(strSize, stableSeed("BenchmarkConcat", strSize, nOps))
+func BenchmarkConcatLarge(b *testing.B) {
+	runBenchmark := func(runF concatBench) {
+		runConcatMatrix(b, "BenchmarkConcatLarge", concatLargeStringSizes, concatLargeOpCounts, runF)
+	}
+	switch variant {
+	case "plus":
+		runBenchmark(concatPlus)
+	case "sprintf":
+		runBenchmark(concatSprintf)
+	case "join":
+		runBenchmark(concatJoin)
+	case "builder":
+		runBenchmark(concatBuilder)
+	case "builder_pool":
+		runBenchmark(concatBuilderPool)
+	default:
+		b.Errorf("specify which benchmark to run: -args -variant plus|sprintf|join|builder|builder_pool")
+	}
+}
+
+func runConcatMatrix(b *testing.B, benchName string, stringSizes, opCounts []int, runF concatBench) {
+	for _, stringSize := range stringSizes {
+		for _, nOperations := range opCounts {
+			b.Run(
+				fmt.Sprintf("size=%d iterations=%d", stringSize, nOperations),
+				benchmarkConcat(benchName, stringSize, nOperations, runF),
+			)
+		}
+	}
+}
+
+func benchmarkConcat(benchName string, strSize, nOps int, runF concatBench) func(*testing.B) {
+	teststr := testingString(strSize, stableSeed(benchName, strSize, nOps))
 
 	return func(b *testing.B) {
 		for b.Loop() {
@@ -127,6 +153,8 @@ var builderPool = sync.Pool{
 
 func concatBuilderPool(teststr string, nOps int) string {
 	builder := builderPool.Get().(*strings.Builder)
+	// On current Go releases, Reset discards the backing buffer, so this pool
+	// measures sync.Pool coordination overhead rather than reusable capacity.
 	builder.Reset()
 	builder.Grow(len(teststr))
 	defer builderPool.Put(builder)
