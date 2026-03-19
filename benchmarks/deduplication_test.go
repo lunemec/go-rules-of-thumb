@@ -15,7 +15,7 @@ var dedupBenchmarkSizes = []int{10, 50, 100, 500, 1_000, 5_000, 10_000}
 
 func TestDeduplicate(t *testing.T) {
 	for _, size := range sizesReduced {
-		haystack := testingSlice(size)
+		haystack := testingSlice(size, stableSeed("TestDeduplicate", size))
 
 		out1 := benchDeduplicateSlice(copySlice(haystack))
 		out2 := benchDeduplicateSliceSortInplace(copySlice(haystack))
@@ -53,7 +53,7 @@ func BenchmarkDeduplication(b *testing.B) {
 }
 
 func benchmarkDeduplicate(size int, runF deduplicateBench) func(*testing.B) {
-	haystack := testingSlice(size)
+	haystack := testingSlice(size, stableSeed("BenchmarkDeduplication", size))
 	return func(b *testing.B) {
 		for b.Loop() {
 			// Note: we need to copy to prevent runs pre-sorting

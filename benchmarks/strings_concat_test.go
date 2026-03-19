@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
 	"strconv"
 	"strings"
 	"sync"
@@ -13,6 +12,8 @@ import (
 
 type concatBench func(first string, nops int) string
 
+var concatSink string
+
 var (
 	concatStringSizes = []int{10, 50, 100, 500, 1_000}
 	concatOpCounts    = []int{10, 50, 100, 500, 1_000, 5_000}
@@ -21,7 +22,7 @@ var (
 func TestConcat(t *testing.T) {
 	for _, stringSize := range sizesReduced {
 		for _, nOperations := range sizesReduced {
-			teststr := testingString(stringSize)
+			teststr := testingString(stringSize, stableSeed("TestConcat", stringSize, nOperations))
 
 			out1 := concatPlus(teststr, nOperations)
 			out2 := concatSprintf(teststr, nOperations)
@@ -65,19 +66,20 @@ func BenchmarkConcat(b *testing.B) {
 }
 
 func benchmarkConcat(strSize, nOps int, runF concatBench) func(*testing.B) {
-	teststr := testingString(strSize)
+	teststr := testingString(strSize, stableSeed("BenchmarkConcat", strSize, nOps))
 
 	return func(b *testing.B) {
 		for b.Loop() {
-			runF(teststr, nOps)
+			concatSink = runF(teststr, nOps)
 		}
 	}
 }
 
-func testingString(size int) string {
+func testingString(size int, seed uint64) string {
+	rng := newDeterministicRand(seed)
 	var builder strings.Builder
 	for range size {
-		builder.WriteString(strconv.Itoa(rand.Intn(size)))
+		builder.WriteString(strconv.Itoa(rng.Intn(size)))
 	}
 	return builder.String()
 }

@@ -21,3 +21,5 @@ Always KISS (keep it simple, stupid).
 ❗These rules are not a dogma! Please don't link to this document saying "you should use this because rules-of-thumb says so". Always measure and benchmark your own code with your own data.
 
 Examples here are what is called micro-optimization, before diving into these, profile your code, find real bottlenecks, and fix low hanging fruit there first.
+
+Published cross-variant benchmark results use deterministic fixtures derived from each case's parameters, so separate `go test` runs still compare identical inputs.

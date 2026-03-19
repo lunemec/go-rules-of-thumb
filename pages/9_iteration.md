@@ -6,10 +6,11 @@ pre-allocating a slice and putting values in it.
 > [!TIP]
 > use direct iteration on hot paths  
 > use `iter.Seq` when it makes the API or call site cleaner  
-> expect about ~10-20% overhead on medium and large loops, and more on tiny ones
+> expect `range over func` to stay close on tiny loops and cost about ~15-25% on larger ones  
+> materializing a slice is noticeably more expensive because it also pays the slice build cost
 
 ![iteration graph](assets/BenchmarkIterate.png)
 
-In this benchmark, direct iteration wins at every tested size. `range over func` settles around `12-13%` overhead on medium and large loops, but the penalty is much higher on tiny loops, so the readability trade-off is real but measurable.
+In this benchmark, direct iteration still wins at every tested size. `range over func` is effectively a wash on the tiniest loops, then settles around `15-25%` overhead once the loop gets large enough for iterator machinery to show up. Prebuilding a slice is consistently the slowest option here because it pays both the generation work and the slice materialization cost.
 
 [Benchmark results](assets/BenchmarkIterate.txt)

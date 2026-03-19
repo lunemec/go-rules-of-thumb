@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -10,15 +9,19 @@ import (
 
 type needleInHaystackBench func(checks int, needle int, haystack []int) bool
 
+var needleInAHaystackSink bool
+
 func TestNeedleInAHaystack(t *testing.T) {
 	for _, size := range sizesReduced {
-		haystack := testingSlice(size)
-		needle := rand.Intn(size * 2)
+		haystack := testingSlice(size, stableSeed("TestNeedleInAHaystack", size, "haystack"))
+		needles := testingNeedles(size, 8, stableSeed("TestNeedleInAHaystack", size, "needles"))
 
-		out1 := needleInAHaystackSlice(needle, haystack)
-		out2 := needleInAHaystackMap(needle, haystackToMap(haystack))
+		for _, needle := range needles {
+			out1 := needleInAHaystackSlice(needle, haystack)
+			out2 := needleInAHaystackMap(needle, haystackToMap(haystack))
 
-		require.Equal(t, out1, out2)
+			require.Equal(t, out1, out2)
+		}
 	}
 }
 
@@ -44,16 +47,28 @@ func BenchmarkNeedleInAHaystack(b *testing.B) {
 }
 
 func benchmarkNeedleInAHaystack(size int, checks int, runF needleInHaystackBench) func(*testing.B) {
-	haystack := testingSlice(size)
+	haystack := testingSlice(size, stableSeed("BenchmarkNeedleInAHaystack", size, checks, "haystack"))
+	needles := testingNeedles(size, 256, stableSeed("BenchmarkNeedleInAHaystack", size, checks, "needles"))
 
 	return func(b *testing.B) {
+		needleIndex := 0
 		for b.Loop() {
-			// We make our needle to have 50% chance
-			// to not be in the haystack.
-			needle := rand.Intn(size * 2)
-			runF(checks, needle, haystack)
+			needleInAHaystackSink = runF(checks, needles[needleIndex], haystack)
+			needleIndex++
+			if needleIndex == len(needles) {
+				needleIndex = 0
+			}
 		}
 	}
+}
+
+func testingNeedles(size int, count int, seed uint64) []int {
+	rng := newDeterministicRand(seed)
+	needles := make([]int, 0, count)
+	for range count {
+		needles = append(needles, rng.Intn(size*2))
+	}
+	return needles
 }
 
 func benchNeedleInAHaystackSlice(checks int, needle int, haystack []int) bool {

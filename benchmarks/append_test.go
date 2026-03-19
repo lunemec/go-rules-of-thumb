@@ -12,8 +12,8 @@ type appendBench func(first []int, second []int) []int
 func TestAppend(t *testing.T) {
 	for _, subsetSize := range sizesReduced {
 		for _, setSize := range sizesReduced {
-			set := testingSlice(setSize)
-			subset := testingSlice(subsetSize)
+			set := testingSlice(setSize, stableSeed("TestAppend", setSize, subsetSize, "set"))
+			subset := testingSlice(subsetSize, stableSeed("TestAppend", setSize, subsetSize, "subset"))
 
 			out1 := appendExpand(copySlice(set), copySlice(subset))
 			out2 := appendFor(copySlice(set), copySlice(subset))
@@ -53,8 +53,8 @@ func BenchmarkAppend(b *testing.B) {
 }
 
 func benchmarkAppend(sizeFirst, sizeSecond int, runF appendBench) func(*testing.B) {
-	first := testingSlice(sizeFirst)
-	second := testingSlice(sizeSecond)
+	first := testingSlice(sizeFirst, stableSeed("BenchmarkAppend", sizeFirst, sizeSecond, "first"))
+	second := testingSlice(sizeSecond, stableSeed("BenchmarkAppend", sizeFirst, sizeSecond, "second"))
 
 	return func(b *testing.B) {
 		for b.Loop() {

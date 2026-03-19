@@ -16,7 +16,7 @@ var subsetBenchmarkSizes = []int{10, 50, 100, 500, 1_000, 5_000, 10_000}
 func TestSubset(t *testing.T) {
 	for _, subsetSize := range sizesReduced {
 		for _, setSize := range sizesReduced {
-			set, subset := testingSets(setSize, subsetSize)
+			set, subset := testingSets(setSize, subsetSize, stableSeed("TestSubset", setSize, subsetSize, "set"))
 
 			out1 := subsetSlice(subset, set)
 			out2 := subsetMap(subset, set)
@@ -56,9 +56,9 @@ func BenchmarkSubset(b *testing.B) {
 	}
 }
 
-func testingSets(setSize, subsetSize int) ([]int, []int) {
+func testingSets(setSize, subsetSize int, setSeed uint64) ([]int, []int) {
 	subset := make([]int, subsetSize)
-	set := testingSlice(setSize)
+	set := testingSlice(setSize, setSeed)
 
 	if setSize < subsetSize {
 		// In the case where subset is larger than set, we can't
@@ -77,8 +77,8 @@ func testingSets(setSize, subsetSize int) ([]int, []int) {
 }
 
 func benchmarkSubset(setSize, subsetSize int, runF subsetBench) func(*testing.B) {
-	set, subset := testingSets(setSize, subsetSize)
-	randomSubset := testingSlice(subsetSize)
+	set, subset := testingSets(setSize, subsetSize, stableSeed("BenchmarkSubset", setSize, subsetSize, "set"))
+	randomSubset := testingSlice(subsetSize, stableSeed("BenchmarkSubset", setSize, subsetSize, "random_subset"))
 	return func(b *testing.B) {
 		for b.Loop() {
 			runF(subset, set)
