@@ -27,10 +27,13 @@ $MASK bench deduplication
 $MASK bench needleInHaystack
 $MASK bench subset
 $MASK bench append
+$MASK bench buildslice
 $MASK bench assert
 $MASK bench ifswitch
 $MASK bench iterate
 $MASK bench concatenate
+$MASK bench stringbyteconversion
+$MASK bench rangecopy
 $MASK bench aossoa
 $MASK bench valuesvspointers
 $MASK bench hotcoldsplit
@@ -84,6 +87,16 @@ $MASK benchstat "BenchmarkAppend"
 $MASK graph "BenchmarkAppend"
 ```
 
+### buildslice
+
+```bash
+$MASK bench_one "BenchmarkBuildSlice" "append_growth"
+$MASK bench_one "BenchmarkBuildSlice" "append_prealloc"
+$MASK bench_one "BenchmarkBuildSlice" "index_presized"
+$MASK benchstat "BenchmarkBuildSlice"
+$MASK graph "BenchmarkBuildSlice"
+```
+
 ### assert
 
 ```bash
@@ -123,6 +136,17 @@ $MASK bench_one "BenchmarkConcat" "builder"
 $MASK bench_one "BenchmarkConcat" "builder_pool"
 $MASK benchstat "BenchmarkConcat"
 $MASK graph "BenchmarkConcat"
+```
+
+### stringbyteconversion
+
+```bash
+$MASK bench_one "BenchmarkStringByteConversion" "bytes_direct"
+$MASK bench_one "BenchmarkStringByteConversion" "string_direct"
+$MASK bench_one "BenchmarkStringByteConversion" "string_to_bytes"
+$MASK bench_one "BenchmarkStringByteConversion" "bytes_to_string"
+$MASK benchstat "BenchmarkStringByteConversion"
+$MASK graph "BenchmarkStringByteConversion"
 ```
 
 ### concatenate-large
@@ -177,6 +201,16 @@ $MASK bench_one "BenchmarkLinearVsRandomAccess" "linear"
 $MASK bench_one "BenchmarkLinearVsRandomAccess" "random"
 $MASK benchstat "BenchmarkLinearVsRandomAccess"
 $MASK graph "BenchmarkLinearVsRandomAccess"
+```
+
+### rangecopy
+
+```bash
+$MASK bench_one "BenchmarkRangeCopy" "range_value"
+$MASK bench_one "BenchmarkRangeCopy" "index_value"
+$MASK bench_one "BenchmarkRangeCopy" "range_pointer"
+$MASK benchstat "BenchmarkRangeCopy"
+$MASK graph "BenchmarkRangeCopy"
 ```
 
 ### callshapes

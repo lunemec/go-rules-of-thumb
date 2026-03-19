@@ -1,0 +1,109 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M5
+                                    │ BenchmarkRangeCopy-index_value.txt │ BenchmarkRangeCopy-range_pointer.txt │   BenchmarkRangeCopy-range_value.txt    │
+                                    │               sec/op               │    sec/op      vs base               │     sec/op      vs base                 │
+RangeCopy/size=16_length=10-10                             12.81n ±  19%   13.05n ±   2%        ~ (p=0.258 n=6)    28.53n ± 122%   +122.72% (p=0.002 n=6)
+RangeCopy/size=16_length=100-10                            106.3n ±  47%   114.1n ±  25%        ~ (p=0.065 n=6)    245.8n ±   2%   +131.29% (p=0.002 n=6)
+RangeCopy/size=16_length=1000-10                           1.049µ ±   3%   1.181µ ±  36%  +12.68% (p=0.004 n=6)    2.468µ ±   2%   +135.34% (p=0.002 n=6)
+RangeCopy/size=16_length=10000-10                          10.42µ ±   8%   11.94µ ± 136%  +14.54% (p=0.002 n=6)    24.75µ ±  38%   +137.49% (p=0.002 n=6)
+RangeCopy/size=16_length=100000-10                         104.1µ ±   6%   114.6µ ±   9%  +10.18% (p=0.002 n=6)    246.2µ ±  11%   +136.61% (p=0.002 n=6)
+RangeCopy/size=32_length=10-10                             11.59n ±   2%   14.88n ±  76%  +28.39% (p=0.002 n=6)    20.90n ±   1%    +80.33% (p=0.002 n=6)
+RangeCopy/size=32_length=100-10                            104.5n ± 138%   123.5n ±  26%        ~ (p=0.058 n=6)    200.9n ±   3%          ~ (p=0.065 n=6)
+RangeCopy/size=32_length=1000-10                           1.210µ ± 416%   1.163µ ±  52%        ~ (p=0.699 n=6)    1.973µ ±   1%          ~ (p=0.379 n=6)
+RangeCopy/size=32_length=10000-10                          11.01µ ±   2%   11.78µ ±   2%   +6.92% (p=0.002 n=6)    19.89µ ±  31%    +80.60% (p=0.002 n=6)
+RangeCopy/size=32_length=100000-10                         105.8µ ±  15%   121.0µ ±   2%  +14.38% (p=0.026 n=6)    201.3µ ± 103%    +90.31% (p=0.002 n=6)
+RangeCopy/size=64_length=10-10                             11.87n ±   2%   12.05n ±   6%   +1.52% (p=0.022 n=6)    28.18n ±  48%   +137.36% (p=0.002 n=6)
+RangeCopy/size=64_length=100-10                            105.1n ±   2%   109.8n ±   1%   +4.47% (p=0.002 n=6)    257.6n ±   4%   +145.15% (p=0.002 n=6)
+RangeCopy/size=64_length=1000-10                           1.044µ ±   1%   1.072µ ±   0%   +2.68% (p=0.002 n=6)    2.574µ ±  24%   +146.62% (p=0.002 n=6)
+RangeCopy/size=64_length=10000-10                          10.63µ ±   1%   11.29µ ±   1%   +6.24% (p=0.002 n=6)    26.59µ ±  85%   +150.12% (p=0.002 n=6)
+RangeCopy/size=64_length=100000-10                         107.6µ ±   1%   117.2µ ±   3%   +8.89% (p=0.002 n=6)    265.2µ ±   3%   +146.40% (p=0.002 n=6)
+RangeCopy/size=128_length=10-10                            11.60n ±   1%   12.06n ±   2%   +3.97% (p=0.002 n=6)    54.86n ±   2%   +372.93% (p=0.002 n=6)
+RangeCopy/size=128_length=100-10                           103.7n ±   1%   109.2n ±  12%   +5.26% (p=0.002 n=6)    556.9n ±   2%   +436.98% (p=0.002 n=6)
+RangeCopy/size=128_length=1000-10                          1.048µ ±   1%   1.461µ ±   4%  +39.47% (p=0.002 n=6)    5.549µ ±   5%   +429.74% (p=0.002 n=6)
+RangeCopy/size=128_length=10000-10                         12.56µ ±  37%   13.39µ ±   0%        ~ (p=0.065 n=6)    55.19µ ±   2%   +339.58% (p=0.002 n=6)
+RangeCopy/size=128_length=100000-10                        135.2µ ±  56%   141.6µ ±   1%        ~ (p=0.065 n=6)    546.3µ ±   0%   +304.03% (p=0.002 n=6)
+RangeCopy/size=256_length=10-10                            12.38n ±   2%   12.29n ±   2%        ~ (p=0.418 n=6)    89.35n ±  43%   +622.02% (p=0.002 n=6)
+RangeCopy/size=256_length=100-10                           108.5n ±  14%   109.5n ±   1%        ~ (p=0.310 n=6)    872.2n ±   1%   +703.82% (p=0.002 n=6)
+RangeCopy/size=256_length=1000-10                          1.242µ ±   1%   1.300µ ±   0%   +4.63% (p=0.002 n=6)    8.785µ ±  33%   +607.29% (p=0.002 n=6)
+RangeCopy/size=256_length=10000-10                         14.04µ ±   2%   14.36µ ±   0%   +2.27% (p=0.002 n=6)    87.36µ ±   2%   +522.32% (p=0.002 n=6)
+RangeCopy/size=256_length=100000-10                        401.4µ ±   9%   264.9µ ±  77%        ~ (p=0.065 n=6)    878.4µ ±   3%   +118.85% (p=0.002 n=6)
+RangeCopy/size=512_length=10-10                            12.36n ±   5%   13.00n ±  23%   +5.18% (p=0.011 n=6)   128.80n ±   8%   +942.49% (p=0.002 n=6)
+RangeCopy/size=512_length=100-10                           108.4n ±   2%   125.0n ±  11%  +15.27% (p=0.002 n=6)   1284.0n ±   6%  +1084.50% (p=0.002 n=6)
+RangeCopy/size=512_length=1000-10                          1.292µ ±   4%   1.379µ ±   4%   +6.73% (p=0.002 n=6)   14.769µ ±   4%  +1043.07% (p=0.002 n=6)
+RangeCopy/size=512_length=10000-10                         15.88µ ±   2%   16.26µ ±   1%   +2.38% (p=0.009 n=6)   147.10µ ±  58%   +826.38% (p=0.002 n=6)
+RangeCopy/size=512_length=100000-10                        565.9µ ±  10%   462.7µ ±   4%  -18.24% (p=0.002 n=6)   1425.7µ ±   4%   +151.95% (p=0.002 n=6)
+geomean                                                    1.268µ          1.334µ          +5.20%                  4.572µ          +260.65%
+
+                                    │ BenchmarkRangeCopy-index_value.txt │ BenchmarkRangeCopy-range_pointer.txt │ BenchmarkRangeCopy-range_value.txt │
+                                    │                B/op                │     B/op      vs base                │    B/op     vs base                │
+RangeCopy/size=16_length=10-10                              0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=16_length=100-10                             0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=16_length=1000-10                            0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=16_length=10000-10                           0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=16_length=100000-10                          0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=32_length=10-10                              0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=32_length=100-10                             0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=32_length=1000-10                            0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=32_length=10000-10                           0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=32_length=100000-10                          0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=64_length=10-10                              0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=64_length=100-10                             0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=64_length=1000-10                            0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=64_length=10000-10                           0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=64_length=100000-10                          0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=128_length=10-10                             0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=128_length=100-10                            0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=128_length=1000-10                           0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=128_length=10000-10                          0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=128_length=100000-10                         0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=256_length=10-10                             0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=256_length=100-10                            0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=256_length=1000-10                           0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=256_length=10000-10                          0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=256_length=100000-10                         0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=512_length=10-10                             0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=512_length=100-10                            0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=512_length=1000-10                           0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=512_length=10000-10                          0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=512_length=100000-10                         0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+geomean                                                                ²                 +0.00%               ²               +0.00%               ²
+¹ all samples are equal
+² summaries must be >0 to compute geomean
+
+                                    │ BenchmarkRangeCopy-index_value.txt │ BenchmarkRangeCopy-range_pointer.txt │ BenchmarkRangeCopy-range_value.txt │
+                                    │             allocs/op              │  allocs/op    vs base                │ allocs/op   vs base                │
+RangeCopy/size=16_length=10-10                              0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=16_length=100-10                             0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=16_length=1000-10                            0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=16_length=10000-10                           0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=16_length=100000-10                          0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=32_length=10-10                              0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=32_length=100-10                             0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=32_length=1000-10                            0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=32_length=10000-10                           0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=32_length=100000-10                          0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=64_length=10-10                              0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=64_length=100-10                             0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=64_length=1000-10                            0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=64_length=10000-10                           0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=64_length=100000-10                          0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=128_length=10-10                             0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=128_length=100-10                            0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=128_length=1000-10                           0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=128_length=10000-10                          0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=128_length=100000-10                         0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=256_length=10-10                             0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=256_length=100-10                            0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=256_length=1000-10                           0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=256_length=10000-10                          0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=256_length=100000-10                         0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=512_length=10-10                             0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=512_length=100-10                            0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=512_length=1000-10                           0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=512_length=10000-10                          0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+RangeCopy/size=512_length=100000-10                         0.000 ± 0%       0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
+geomean                                                                ²                 +0.00%               ²               +0.00%               ²
+¹ all samples are equal
+² summaries must be >0 to compute geomean

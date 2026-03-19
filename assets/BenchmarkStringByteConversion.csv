@@ -1,0 +1,99 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
+cpu: Apple M5
+,BenchmarkStringByteConversion-bytes_direct.txt,,BenchmarkStringByteConversion-bytes_to_string.txt,,,,BenchmarkStringByteConversion-string_direct.txt,,,,BenchmarkStringByteConversion-string_to_bytes.txt,,,
+,sec/op,CI,sec/op,CI,vs base,P,sec/op,CI,vs base,P,sec/op,CI,vs base,P
+StringByteConversion/size=16_iterations=1-10,5.960500000000001e-09,6%,7.529500000000001e-09,3%,+26.32%,p=0.002 n=6,5.734e-09,4%,-3.80%,p=0.015 n=6,5.9655e-09,7%,~,p=0.589 n=6
+StringByteConversion/size=16_iterations=10-10,5.2085000000000006e-08,2%,6.934000000000001e-08,2%,+33.13%,p=0.002 n=6,5.1810000000000005e-08,1%,~,p=0.372 n=6,5.511500000000001e-08,5%,+5.82%,p=0.002 n=6
+StringByteConversion/size=16_iterations=100-10,4.7420000000000005e-07,2%,6.4265e-07,0%,+35.52%,p=0.002 n=6,4.773500000000001e-07,1%,+0.66%,p=0.041 n=6,5.0215e-07,0%,+5.89%,p=0.002 n=6
+StringByteConversion/size=16_iterations=1000-10,4.6910000000000005e-06,2%,6.3755e-06,1%,+35.91%,p=0.002 n=6,4.7455000000000006e-06,1%,+1.16%,p=0.041 n=6,4.98e-06,1%,+6.16%,p=0.002 n=6
+StringByteConversion/size=64_iterations=1-10,1.7745e-08,4%,2.667e-08,1%,+50.30%,p=0.002 n=6,1.738e-08,1%,-2.06%,p=0.009 n=6,1.769e-08,5%,~,p=0.394 n=6
+StringByteConversion/size=64_iterations=10-10,1.7025e-07,1%,2.5785e-07,4%,+51.45%,p=0.002 n=6,1.7505e-07,3%,~,p=0.132 n=6,1.7525e-07,1%,+2.94%,p=0.002 n=6
+StringByteConversion/size=64_iterations=100-10,1.6480000000000001e-06,1%,2.528e-06,2%,+53.40%,p=0.002 n=6,1.7000000000000002e-06,17%,+3.16%,p=0.002 n=6,1.6715e-06,1%,+1.43%,p=0.002 n=6
+StringByteConversion/size=64_iterations=1000-10,1.6232000000000003e-05,1%,2.5175500000000003e-05,0%,+55.10%,p=0.002 n=6,1.67505e-05,2%,+3.19%,p=0.004 n=6,1.6649999999999998e-05,0%,+2.58%,p=0.002 n=6
+StringByteConversion/size=256_iterations=1-10,7.122e-08,1%,9.407e-08,1%,+32.08%,p=0.002 n=6,7.1015e-08,0%,~,p=0.223 n=6,7.1925e-08,1%,+0.99%,p=0.037 n=6
+StringByteConversion/size=256_iterations=10-10,7.300500000000001e-07,3%,9.335500000000002e-07,1%,+27.87%,p=0.002 n=6,7.111500000000002e-07,2%,-2.59%,p=0.015 n=6,7.295500000000001e-07,13%,~,p=1.000 n=6
+StringByteConversion/size=256_iterations=100-10,7.350000000000001e-06,1%,9.301000000000001e-06,1%,+26.54%,p=0.002 n=6,7.058000000000001e-06,0%,-3.97%,p=0.002 n=6,7.298e-06,1%,-0.71%,p=0.041 n=6
+StringByteConversion/size=256_iterations=1000-10,7.314000000000001e-05,1%,9.262300000000001e-05,0%,+26.64%,p=0.002 n=6,7.187400000000001e-05,2%,-1.73%,p=0.002 n=6,7.20465e-05,1%,-1.50%,p=0.002 n=6
+StringByteConversion/size=1024_iterations=1-10,2.631e-07,1%,3.1715e-07,0%,+20.54%,p=0.002 n=6,2.566e-07,1%,-2.47%,p=0.002 n=6,2.607e-07,2%,~,p=0.071 n=6
+StringByteConversion/size=1024_iterations=10-10,2.6810000000000003e-06,4%,3.9045e-06,35%,+45.64%,p=0.002 n=6,2.5575e-06,1%,-4.61%,p=0.002 n=6,2.5755e-06,4%,-3.94%,p=0.017 n=6
+StringByteConversion/size=1024_iterations=100-10,2.6732e-05,2%,3.423200000000001e-05,5%,+28.06%,p=0.002 n=6,2.5829e-05,1%,-3.38%,p=0.002 n=6,2.57975e-05,1%,-3.50%,p=0.002 n=6
+StringByteConversion/size=1024_iterations=1000-10,0.000268509,2%,0.00032029750000000005,6%,+19.29%,p=0.002 n=6,0.0002806085,34%,~,p=0.180 n=6,0.00025907800000000004,0%,-3.51%,p=0.002 n=6
+StringByteConversion/size=4096_iterations=1-10,1.0375000000000002e-06,3%,1.204e-06,0%,+16.05%,p=0.002 n=6,1.1705e-06,11%,+12.82%,p=0.015 n=6,1.004e-06,1%,-3.23%,p=0.002 n=6
+StringByteConversion/size=4096_iterations=10-10,1.0251e-05,4%,1.2067500000000001e-05,2%,+17.72%,p=0.002 n=6,1.1778000000000001e-05,14%,+14.90%,p=0.002 n=6,9.936500000000002e-06,1%,-3.07%,p=0.002 n=6
+StringByteConversion/size=4096_iterations=100-10,0.0001021605,2%,0.00012047150000000001,4%,+17.92%,p=0.002 n=6,0.000112775,10%,+10.39%,p=0.002 n=6,0.00010019600000000001,0%,-1.92%,p=0.002 n=6
+StringByteConversion/size=4096_iterations=1000-10,0.0010917175,8%,0.0012095485000000001,0%,+10.79%,p=0.002 n=6,0.0010864770000000002,16%,~,p=0.699 n=6,0.0010012940000000002,0%,-8.28%,p=0.002 n=6
+StringByteConversion/size=16384_iterations=1-10,4.4375e-06,2%,4.805000000000001e-06,1%,+8.28%,p=0.002 n=6,4.355500000000001e-06,35%,~,p=0.589 n=6,3.990000000000001e-06,1%,-10.08%,p=0.002 n=6
+StringByteConversion/size=16384_iterations=10-10,4.0587500000000004e-05,8%,4.7926e-05,1%,+18.08%,p=0.002 n=6,3.9737e-05,0%,-2.10%,p=0.015 n=6,3.9982000000000004e-05,10%,~,p=0.485 n=6
+StringByteConversion/size=16384_iterations=100-10,0.000417692,24%,0.00047939850000000003,1%,~,p=0.065 n=6,0.0004038255,5%,~,p=0.180 n=6,0.00039576750000000006,0%,-5.25%,p=0.002 n=6
+StringByteConversion/size=16384_iterations=1000-10,0.0041053585,1%,0.004780037500000001,1%,+16.43%,p=0.002 n=6,0.003974811,1%,-3.18%,p=0.002 n=6,0.003969210000000001,0%,-3.32%,p=0.002 n=6
+StringByteConversion/size=65536_iterations=1-10,1.6429500000000003e-05,2%,1.88405e-05,0%,+14.67%,p=0.002 n=6,1.5996500000000002e-05,2%,-2.64%,p=0.009 n=6,1.5996500000000002e-05,1%,-2.64%,p=0.002 n=6
+StringByteConversion/size=65536_iterations=10-10,0.00016500850000000002,1%,0.0001889455,0%,+14.51%,p=0.002 n=6,0.000159974,1%,-3.05%,p=0.002 n=6,0.00015942350000000002,1%,-3.38%,p=0.002 n=6
+StringByteConversion/size=65536_iterations=100-10,0.0016486135000000001,1%,0.0018956210000000001,21%,+14.98%,p=0.002 n=6,0.0015905915,1%,-3.52%,p=0.002 n=6,0.001591261,1%,-3.48%,p=0.002 n=6
+StringByteConversion/size=65536_iterations=1000-10,0.016512381,4%,0.0189283025,1%,+14.63%,p=0.002 n=6,0.015901223,0%,-3.70%,p=0.002 n=6,0.0159135715,1%,-3.63%,p=0.002 n=6
+geomean,8.716417226817859e-06,,1.098054884515478e-05,,+25.98%,,8.719674370037433e-06,,+0.04%,,8.590909139182515e-06,,-1.44%,
+
+,BenchmarkStringByteConversion-bytes_direct.txt,,BenchmarkStringByteConversion-bytes_to_string.txt,,,,BenchmarkStringByteConversion-string_direct.txt,,,,BenchmarkStringByteConversion-string_to_bytes.txt,,,
+,B/op,CI,B/op,CI,vs base,P,B/op,CI,vs base,P,B/op,CI,vs base,P
+StringByteConversion/size=16_iterations=1-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16_iterations=10-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16_iterations=100-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16_iterations=1000-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=64_iterations=1-10,0,0%,64,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=64_iterations=10-10,0,0%,640,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=64_iterations=100-10,0,0%,6400,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=64_iterations=1000-10,0,0%,64000,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=256_iterations=1-10,0,0%,256,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=256_iterations=10-10,0,0%,2560,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=256_iterations=100-10,0,0%,25600,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=256_iterations=1000-10,0,0%,256000,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=1024_iterations=1-10,0,0%,1024,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=1024_iterations=10-10,0,0%,10240,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=1024_iterations=100-10,0,0%,102400,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=1024_iterations=1000-10,0,0%,1.024003e+06,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=4096_iterations=1-10,0,0%,4096,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=4096_iterations=10-10,0,0%,40960,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=4096_iterations=100-10,0,0%,409601,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=4096_iterations=1000-10,0,0%,4.0960135e+06,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16384_iterations=1-10,0,0%,16384,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16384_iterations=10-10,0,0%,163840,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16384_iterations=100-10,0,0%,1.638403e+06,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16384_iterations=1000-10,0,0%,1.63840335e+07,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=65536_iterations=1-10,0,0%,65536,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=65536_iterations=10-10,0,0%,655361.5,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=65536_iterations=100-10,0,0%,6.553616e+06,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=65536_iterations=1000-10,0,0%,6.5536149e+07,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+geomean,,,,,?,,,,+0.00%,,,,+0.00%,
+
+,BenchmarkStringByteConversion-bytes_direct.txt,,BenchmarkStringByteConversion-bytes_to_string.txt,,,,BenchmarkStringByteConversion-string_direct.txt,,,,BenchmarkStringByteConversion-string_to_bytes.txt,,,
+,allocs/op,CI,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P
+StringByteConversion/size=16_iterations=1-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16_iterations=10-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16_iterations=100-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16_iterations=1000-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=64_iterations=1-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=64_iterations=10-10,0,0%,10,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=64_iterations=100-10,0,0%,100,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=64_iterations=1000-10,0,0%,1000,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=256_iterations=1-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=256_iterations=10-10,0,0%,10,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=256_iterations=100-10,0,0%,100,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=256_iterations=1000-10,0,0%,1000,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=1024_iterations=1-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=1024_iterations=10-10,0,0%,10,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=1024_iterations=100-10,0,0%,100,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=1024_iterations=1000-10,0,0%,1000,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=4096_iterations=1-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=4096_iterations=10-10,0,0%,10,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=4096_iterations=100-10,0,0%,100,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=4096_iterations=1000-10,0,0%,1000,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16384_iterations=1-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16384_iterations=10-10,0,0%,10,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16384_iterations=100-10,0,0%,100,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=16384_iterations=1000-10,0,0%,1000,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=65536_iterations=1-10,0,0%,1,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=65536_iterations=10-10,0,0%,10,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=65536_iterations=100-10,0,0%,100,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+StringByteConversion/size=65536_iterations=1000-10,0,0%,1001,0%,?,p=0.002 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
+geomean,,,,,?,,,,+0.00%,,,,+0.00%,

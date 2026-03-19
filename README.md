@@ -85,6 +85,23 @@ In this benchmark, `append(dst, src...)` wins most of the grid, especially when 
 [Detailed line view](assets/BenchmarkAppend-detail.png)
 
 [Benchmark results](assets/BenchmarkAppend.txt)
+## Building a slice from scratch
+
+When you know the final length up front, should you `append` into a growing slice, `append` into a preallocated slice, or pre-size the slice and fill by index?
+
+> [!TIP]
+> if the final length is known, do not grow from `nil`
+> use `make([]T, 0, n)` + `append` as the readable default
+> on hot paths, benchmark `make([]T, n)` + index writes; it wins `23/27` cells here and beats preallocated `append` by up to about `54%`
+> plain `append` growth is never best here and can be about `4x` slower with many more allocations
+
+![build slice graph](assets/BenchmarkBuildSlice.png)
+
+[Detailed line view](assets/BenchmarkBuildSlice-detail.png)
+
+Across `8B`, `32B`, and `128B` elements from `10` to `100 000` items, plain growth never wins. `make([]T, 0, n)` + `append` consistently removes most of that cost, and pre-sized index writes usually take the remaining lead, especially once the output is non-trivial. At `32B x 100 000`, for example, growing with `append` takes about `967µs`, `16.4 MiB/op`, and `29 allocs/op`, while pre-sized indexing drops that to about `242µs`, `3.2 MiB/op`, and `2 allocs/op`.
+
+[Benchmark results](assets/BenchmarkBuildSlice.txt)
 ## Strings concatenation
 
 Is it more efficient to `"str1" + var`, `fmt.Sprintf()`, `strings.Join()` or `strings.Builder`? When does it make sense to add `sync.Pool`?
@@ -115,6 +132,25 @@ For the removed large-size region, a separate large-case-only matrix keeps the r
 In that large-case matrix, `sync.Pool + strings.Builder` does win several `500` to `5000` byte cases at `500+` concatenations per operation, but it still increases or matches allocations, so it should stay an opt-in benchmark target rather than a default recommendation.
 
 [Large-case benchmark results](assets/BenchmarkConcatLarge.txt)
+## Read-only conversions: `string` vs `[]byte`
+
+How expensive is repeatedly crossing the `string` / `[]byte` boundary when the hot path only needs to scan read-only payloads?
+
+This benchmark measures repeated read-only scans over ASCII payloads. It does not cover mutating the converted slice, retaining converted values, or escape-heavy API boundaries.
+
+> [!TIP]
+> keep data in the domain you already have on hot paths
+> avoid repeated `string(b)` conversions in loops; here they are about `26-55%` slower and, from `64B` upward, allocate once per conversion
+> on this Go `1.26.1` toolchain, read-only `[]byte(s)` stays close to the direct paths and shows `0 allocs/op` here
+> if you need a conversion, do it once outside the loop
+
+![string byte conversion graph](assets/BenchmarkStringByteConversion.png)
+
+[Detailed line view](assets/BenchmarkStringByteConversion-detail.png)
+
+Across `16B` to `64 KiB` payloads and `1` to `1000` repeated scans, `string(b)` is the consistently bad path: at `64B x 1000` it is about `55%` slower than direct bytes (`25.2µs` vs `16.2µs`), and at `64 KiB x 1000` it burns about `65 MiB/op` and about `1000 allocs/op`. The direct `string` path and the read-only `[]byte(s)` path stay roughly tied with the direct-byte baseline, so the practical rule from this benchmark is to worry about repeated `string(b)` first and treat `[]byte(s)` as toolchain-sensitive.
+
+[Benchmark results](assets/BenchmarkStringByteConversion.txt)
 ## If vs switch
 
 Is there even any difference? In theory, `switch` should be faster (at least for some types) if the
@@ -327,6 +363,23 @@ This section is about locality and CPU prefetch behavior over the same `O(n)` wo
 This benchmark prebuilds one `[]record` plus two index orders: identity and a fixed permutation. Both variants read the same `64B` records exactly once per pass, sum the same hot fields, allocate nothing, and differ only in access order. In this run, the fixed random walk was about `9-19%` faster from `64` through `2 048` records, then linear pulled ahead at `4 096` and widened to about `13%` at `8 192`, `29%` at `32 768`, and `44%` at `65 536`. The practical rule is not that random access is "better"; locality effects can flip at small working sets, but contiguous layout and traversal order become increasingly valuable once the walk grows past the smallest caches.
 
 [Benchmark results](assets/BenchmarkLinearVsRandomAccess.txt)
+## Range over values vs index access
+
+How much does `for _, v := range values` cost when each iteration copies a whole record, and when is it worth switching to index access or even `[]*T`?
+
+> [!TIP]
+> for hot loops over `[]T`, prefer `for i := range values` once records are more than tiny
+> indexed iteration wins `26/30` cells in this benchmark
+> here, `range` over values is about `2.3x` slower at `16B`, about `5.4x` slower at `128B`, and about `11.8x` slower at `512B` on the `100`-record row
+> `[]*T` only helps in a few very large `256-512B` cases and is usually still slower than indexing into `[]T`
+
+![range copy graph](assets/BenchmarkRangeCopy.png)
+
+[Detailed line view](assets/BenchmarkRangeCopy-detail.png)
+
+This benchmark scans hot fields from `16B` to `512B` records across lengths `10` to `100 000`. Indexed iteration is the stable winner, while `range` over values pays a full-record copy each trip and widens dramatically with size. `[]*T` avoids the value copy but adds indirection, so it only takes a few largest-record cells rather than becoming a general replacement for indexed iteration.
+
+[Benchmark results](assets/BenchmarkRangeCopy.txt)
 ## Notes
 
 - More "Rules of thumb" will be added over time.

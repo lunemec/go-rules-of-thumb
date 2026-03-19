@@ -26,6 +26,31 @@
       "subset": "Appended slice size"
     }
   },
+  "BenchmarkBuildSlice": {
+    "x_param": "size",
+    "y_param": "length",
+    "summary_kind": "winner_heatmap",
+    "detail_kind": "facet_lines",
+    "axis_labels": {
+      "x": "Element size (bytes)",
+      "y": "Final slice length",
+      "metric": "ns/op"
+    },
+    "implementation_order": [
+      "append_growth",
+      "append_prealloc",
+      "index_presized"
+    ],
+    "implementation_labels": {
+      "append_growth": "append to growing slice",
+      "append_prealloc": "append with prealloc",
+      "index_presized": "index into presized slice"
+    },
+    "param_labels": {
+      "size": "Element size (bytes)",
+      "length": "Final slice length"
+    }
+  },
   "BenchmarkAoSVsSoA": {
     "x_param": "size",
     "y_param": null,
@@ -309,6 +334,33 @@
       "size": "Result size (bytes)"
     }
   },
+  "BenchmarkStringByteConversion": {
+    "x_param": "size",
+    "y_param": "iterations",
+    "summary_kind": "winner_heatmap",
+    "detail_kind": "facet_lines",
+    "axis_labels": {
+      "x": "Payload size (bytes)",
+      "y": "Repeated conversions per operation",
+      "metric": "ns/op"
+    },
+    "implementation_order": [
+      "bytes_direct",
+      "string_direct",
+      "string_to_bytes",
+      "bytes_to_string"
+    ],
+    "implementation_labels": {
+      "bytes_direct": "[]byte direct",
+      "string_direct": "string direct",
+      "string_to_bytes": "string -> []byte",
+      "bytes_to_string": "[]byte -> string"
+    },
+    "param_labels": {
+      "size": "Payload size (bytes)",
+      "iterations": "Repeated conversions per operation"
+    }
+  },
   "BenchmarkValuesVsPointers": {
     "x_param": "size",
     "y_param": null,
@@ -378,6 +430,31 @@
     },
     "param_labels": {
       "records": "64B records per traversal"
+    }
+  },
+  "BenchmarkRangeCopy": {
+    "x_param": "size",
+    "y_param": "length",
+    "summary_kind": "winner_heatmap",
+    "detail_kind": "facet_lines",
+    "axis_labels": {
+      "x": "Record size (bytes)",
+      "y": "Records scanned per operation",
+      "metric": "ns/op"
+    },
+    "implementation_order": [
+      "range_value",
+      "index_value",
+      "range_pointer"
+    ],
+    "implementation_labels": {
+      "range_value": "range value copy",
+      "index_value": "index access",
+      "range_pointer": "range over []*T"
+    },
+    "param_labels": {
+      "size": "Record size (bytes)",
+      "length": "Records scanned per operation"
     }
   },
   "BenchmarkDeduplication": {
