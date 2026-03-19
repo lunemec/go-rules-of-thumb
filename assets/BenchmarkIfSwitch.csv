@@ -2,26 +2,68 @@ goos: darwin
 goarch: arm64
 pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
 cpu: Apple M5
-,BenchmarkIfSwitch-if.txt,,BenchmarkIfSwitch-if_5.txt,,,,BenchmarkIfSwitch-switch.txt,,,,BenchmarkIfSwitch-switch_5.txt,,,
-,sec/op,CI,sec/op,CI,vs base,P,sec/op,CI,vs base,P,sec/op,CI,vs base,P
-IfSwitch/size=1-10,1.7190000000000002e-09,5%,1.6685000000000002e-09,15%,~,p=0.058 n=6,1.7145000000000002e-09,16%,~,p=0.669 n=6,1.8050000000000003e-09,14%,+5.00%,p=0.013 n=6
-IfSwitch/size=10-10,7.661499999999999e-09,4%,8.5045e-09,0%,+11.00%,p=0.002 n=6,7.551e-09,5%,~,p=0.240 n=6,1.1860000000000002e-08,5%,+54.80%,p=0.002 n=6
-IfSwitch/size=100-10,6.213e-08,18%,7.894e-08,0%,+27.06%,p=0.002 n=6,6.806e-08,6%,~,p=0.240 n=6,1.0905000000000001e-07,5%,+75.52%,p=0.002 n=6
-IfSwitch/size=1000-10,5.8475e-07,6%,7.162500000000001e-07,0%,+22.49%,p=0.002 n=6,5.727e-07,11%,~,p=0.589 n=6,1.047e-06,5%,+79.05%,p=0.002 n=6
-geomean,2.630057943642286e-08,,2.99284474603265e-08,,+13.79%,,2.6652642370337468e-08,,+1.34%,,3.953971746697781e-08,,+50.34%,
+,BenchmarkIfSwitch-if.txt,,BenchmarkIfSwitch-switch.txt,,,
+,sec/op,CI,sec/op,CI,vs base,P
+IfSwitch/cases=3_workload=first-10,1.0650000000000001e-07,5%,1.0650000000000001e-07,3%,~,p=0.729 n=6
+IfSwitch/cases=3_workload=middle-10,1.456e-07,18%,1.534e-07,13%,~,p=1.000 n=6
+IfSwitch/cases=3_workload=last-10,2.177e-07,6%,1.7705000000000001e-07,5%,-18.67%,p=0.002 n=6
+IfSwitch/cases=3_workload=miss-10,2.5420000000000004e-07,8%,2.1750000000000004e-07,14%,-14.44%,p=0.009 n=6
+IfSwitch/cases=3_workload=cycle-10,2.1145e-07,17%,2.1040000000000003e-07,8%,~,p=0.699 n=6
+IfSwitch/cases=3_workload=random-10,3.333e-07,3%,3.3475e-07,4%,~,p=0.394 n=6
+IfSwitch/cases=5_workload=first-10,1.0675e-07,4%,1.3550000000000002e-07,4%,+26.93%,p=0.002 n=6
+IfSwitch/cases=5_workload=middle-10,2.269e-07,9%,2.3245000000000002e-07,1%,~,p=0.065 n=6
+IfSwitch/cases=5_workload=last-10,3.0770000000000004e-07,12%,3.3255e-07,9%,~,p=0.180 n=6
+IfSwitch/cases=5_workload=miss-10,3.9255e-07,10%,1.7395000000000002e-07,7%,-55.69%,p=0.002 n=6
+IfSwitch/cases=5_workload=cycle-10,2.7085e-07,10%,2.3055e-07,5%,-14.88%,p=0.002 n=6
+IfSwitch/cases=5_workload=random-10,4.2470000000000004e-07,5%,3.3715e-07,3%,-20.61%,p=0.002 n=6
+IfSwitch/cases=9_workload=first-10,1.0790000000000001e-07,6%,1.5450000000000001e-07,4%,+43.19%,p=0.002 n=6
+IfSwitch/cases=9_workload=middle-10,2.291e-07,5%,1.5910000000000002e-07,5%,-30.55%,p=0.002 n=6
+IfSwitch/cases=9_workload=last-10,4.186e-07,6%,1.5965000000000003e-07,6%,-61.86%,p=0.002 n=6
+IfSwitch/cases=9_workload=miss-10,4.1360000000000005e-07,4%,1.5665000000000002e-07,3%,-62.13%,p=0.002 n=6
+IfSwitch/cases=9_workload=cycle-10,4.184e-07,17%,1.7135e-07,18%,-59.05%,p=0.002 n=6
+IfSwitch/cases=9_workload=random-10,5.178999999999999e-07,9%,2.971e-07,9%,-42.63%,p=0.002 n=6
+geomean,2.53638974487183e-07,,1.9681681895281893e-07,,-22.40%,
 
-,BenchmarkIfSwitch-if.txt,,BenchmarkIfSwitch-if_5.txt,,,,BenchmarkIfSwitch-switch.txt,,,,BenchmarkIfSwitch-switch_5.txt,,,
-,B/op,CI,B/op,CI,vs base,P,B/op,CI,vs base,P,B/op,CI,vs base,P
-IfSwitch/size=1-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
-IfSwitch/size=10-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
-IfSwitch/size=100-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
-IfSwitch/size=1000-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
-geomean,,,,,+0.00%,,,,+0.00%,,,,+0.00%,
+,BenchmarkIfSwitch-if.txt,,BenchmarkIfSwitch-switch.txt,,,
+,B/op,CI,B/op,CI,vs base,P
+IfSwitch/cases=3_workload=first-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=3_workload=middle-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=3_workload=last-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=3_workload=miss-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=3_workload=cycle-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=3_workload=random-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=5_workload=first-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=5_workload=middle-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=5_workload=last-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=5_workload=miss-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=5_workload=cycle-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=5_workload=random-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=9_workload=first-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=9_workload=middle-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=9_workload=last-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=9_workload=miss-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=9_workload=cycle-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=9_workload=random-10,0,0%,0,0%,~,p=1.000 n=6
+geomean,,,,,+0.00%,
 
-,BenchmarkIfSwitch-if.txt,,BenchmarkIfSwitch-if_5.txt,,,,BenchmarkIfSwitch-switch.txt,,,,BenchmarkIfSwitch-switch_5.txt,,,
-,allocs/op,CI,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P,allocs/op,CI,vs base,P
-IfSwitch/size=1-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
-IfSwitch/size=10-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
-IfSwitch/size=100-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
-IfSwitch/size=1000-10,0,0%,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6,0,0%,~,p=1.000 n=6
-geomean,,,,,+0.00%,,,,+0.00%,,,,+0.00%,
+,BenchmarkIfSwitch-if.txt,,BenchmarkIfSwitch-switch.txt,,,
+,allocs/op,CI,allocs/op,CI,vs base,P
+IfSwitch/cases=3_workload=first-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=3_workload=middle-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=3_workload=last-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=3_workload=miss-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=3_workload=cycle-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=3_workload=random-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=5_workload=first-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=5_workload=middle-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=5_workload=last-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=5_workload=miss-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=5_workload=cycle-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=5_workload=random-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=9_workload=first-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=9_workload=middle-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=9_workload=last-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=9_workload=miss-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=9_workload=cycle-10,0,0%,0,0%,~,p=1.000 n=6
+IfSwitch/cases=9_workload=random-10,0,0%,0,0%,~,p=1.000 n=6
+geomean,,,,,+0.00%,

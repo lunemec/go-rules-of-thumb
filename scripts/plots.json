@@ -240,28 +240,26 @@
     }
   },
   "BenchmarkIfSwitch": {
-    "x_param": "size",
-    "y_param": null,
-    "summary_kind": "value_heatmap",
-    "detail_kind": null,
+    "x_param": "cases",
+    "y_param": "workload",
+    "summary_kind": "winner_heatmap",
+    "detail_kind": "facet_lines",
     "axis_labels": {
-      "x": "Condition checks per operation",
-      "y": "ns/op"
+      "x": "Linear chain length (cases)",
+      "y": "Input workload",
+      "metric": "ns/op"
     },
     "implementation_order": [
       "if",
-      "switch",
-      "if_5",
-      "switch_5"
+      "switch"
     ],
     "implementation_labels": {
-      "if": "if (1 case)",
-      "switch": "switch (1 case)",
-      "if_5": "if (5 cases)",
-      "switch_5": "switch (5 cases)"
+      "if": "if chain",
+      "switch": "switch"
     },
     "param_labels": {
-      "size": "Condition checks per operation"
+      "cases": "Linear chain length (cases)",
+      "workload": "Input workload"
     }
   },
   "BenchmarkIterate": {

@@ -2,30 +2,72 @@ goos: darwin
 goarch: arm64
 pkg: github.com/lunemec/go-rule-of-thumb/benchmarks/benchmarks
 cpu: Apple M5
-                      │ BenchmarkIfSwitch-if.txt │     BenchmarkIfSwitch-if_5.txt      │    BenchmarkIfSwitch-switch.txt    │    BenchmarkIfSwitch-switch_5.txt    │
-                      │          sec/op          │    sec/op     vs base               │    sec/op     vs base              │    sec/op      vs base               │
-IfSwitch/size=1-10                  1.719n ±  5%   1.669n ± 15%        ~ (p=0.058 n=6)   1.715n ± 16%       ~ (p=0.669 n=6)    1.805n ± 14%   +5.00% (p=0.013 n=6)
-IfSwitch/size=10-10                 7.661n ±  4%   8.505n ±  0%  +11.00% (p=0.002 n=6)   7.551n ±  5%       ~ (p=0.240 n=6)   11.860n ±  5%  +54.80% (p=0.002 n=6)
-IfSwitch/size=100-10                62.13n ± 18%   78.94n ±  0%  +27.06% (p=0.002 n=6)   68.06n ±  6%       ~ (p=0.240 n=6)   109.05n ±  5%  +75.52% (p=0.002 n=6)
-IfSwitch/size=1000-10               584.8n ±  6%   716.3n ±  0%  +22.49% (p=0.002 n=6)   572.7n ± 11%       ~ (p=0.589 n=6)   1047.0n ±  5%  +79.05% (p=0.002 n=6)
-geomean                             26.30n         29.93n        +13.79%                 26.65n        +1.34%                  39.54n        +50.34%
+                                    │ BenchmarkIfSwitch-if.txt │    BenchmarkIfSwitch-switch.txt     │
+                                    │          sec/op          │    sec/op     vs base               │
+IfSwitch/cases=3_workload=first-10                106.5n ±  5%   106.5n ±  3%        ~ (p=0.729 n=6)
+IfSwitch/cases=3_workload=middle-10               145.6n ± 18%   153.4n ± 13%        ~ (p=1.000 n=6)
+IfSwitch/cases=3_workload=last-10                 217.7n ±  6%   177.1n ±  5%  -18.67% (p=0.002 n=6)
+IfSwitch/cases=3_workload=miss-10                 254.2n ±  8%   217.5n ± 14%  -14.44% (p=0.009 n=6)
+IfSwitch/cases=3_workload=cycle-10                211.4n ± 17%   210.4n ±  8%        ~ (p=0.699 n=6)
+IfSwitch/cases=3_workload=random-10               333.3n ±  3%   334.8n ±  4%        ~ (p=0.394 n=6)
+IfSwitch/cases=5_workload=first-10                106.8n ±  4%   135.5n ±  4%  +26.93% (p=0.002 n=6)
+IfSwitch/cases=5_workload=middle-10               226.9n ±  9%   232.5n ±  1%        ~ (p=0.065 n=6)
+IfSwitch/cases=5_workload=last-10                 307.7n ± 12%   332.5n ±  9%        ~ (p=0.180 n=6)
+IfSwitch/cases=5_workload=miss-10                 392.5n ± 10%   174.0n ±  7%  -55.69% (p=0.002 n=6)
+IfSwitch/cases=5_workload=cycle-10                270.9n ± 10%   230.5n ±  5%  -14.88% (p=0.002 n=6)
+IfSwitch/cases=5_workload=random-10               424.7n ±  5%   337.1n ±  3%  -20.61% (p=0.002 n=6)
+IfSwitch/cases=9_workload=first-10                107.9n ±  6%   154.5n ±  4%  +43.19% (p=0.002 n=6)
+IfSwitch/cases=9_workload=middle-10               229.1n ±  5%   159.1n ±  5%  -30.55% (p=0.002 n=6)
+IfSwitch/cases=9_workload=last-10                 418.6n ±  6%   159.7n ±  6%  -61.86% (p=0.002 n=6)
+IfSwitch/cases=9_workload=miss-10                 413.6n ±  4%   156.7n ±  3%  -62.13% (p=0.002 n=6)
+IfSwitch/cases=9_workload=cycle-10                418.4n ± 17%   171.3n ± 18%  -59.05% (p=0.002 n=6)
+IfSwitch/cases=9_workload=random-10               517.9n ±  9%   297.1n ±  9%  -42.63% (p=0.002 n=6)
+geomean                                           253.6n         196.8n        -22.40%
 
-                      │ BenchmarkIfSwitch-if.txt │     BenchmarkIfSwitch-if_5.txt     │    BenchmarkIfSwitch-switch.txt    │   BenchmarkIfSwitch-switch_5.txt   │
-                      │           B/op           │    B/op     vs base                │    B/op     vs base                │    B/op     vs base                │
-IfSwitch/size=1-10                  0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
-IfSwitch/size=10-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
-IfSwitch/size=100-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
-IfSwitch/size=1000-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
-geomean                                        ²               +0.00%               ²               +0.00%               ²               +0.00%               ²
+                                    │ BenchmarkIfSwitch-if.txt │    BenchmarkIfSwitch-switch.txt    │
+                                    │           B/op           │    B/op     vs base                │
+IfSwitch/cases=3_workload=first-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=3_workload=middle-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=3_workload=last-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=3_workload=miss-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=3_workload=cycle-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=3_workload=random-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=5_workload=first-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=5_workload=middle-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=5_workload=last-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=5_workload=miss-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=5_workload=cycle-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=5_workload=random-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=9_workload=first-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=9_workload=middle-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=9_workload=last-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=9_workload=miss-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=9_workload=cycle-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=9_workload=random-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+geomean                                                      ²               +0.00%               ²
 ¹ all samples are equal
 ² summaries must be >0 to compute geomean
 
-                      │ BenchmarkIfSwitch-if.txt │     BenchmarkIfSwitch-if_5.txt     │    BenchmarkIfSwitch-switch.txt    │   BenchmarkIfSwitch-switch_5.txt   │
-                      │        allocs/op         │ allocs/op   vs base                │ allocs/op   vs base                │ allocs/op   vs base                │
-IfSwitch/size=1-10                  0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
-IfSwitch/size=10-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
-IfSwitch/size=100-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
-IfSwitch/size=1000-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹   0.000 ± 0%       ~ (p=1.000 n=6) ¹
-geomean                                        ²               +0.00%               ²               +0.00%               ²               +0.00%               ²
+                                    │ BenchmarkIfSwitch-if.txt │    BenchmarkIfSwitch-switch.txt    │
+                                    │        allocs/op         │ allocs/op   vs base                │
+IfSwitch/cases=3_workload=first-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=3_workload=middle-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=3_workload=last-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=3_workload=miss-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=3_workload=cycle-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=3_workload=random-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=5_workload=first-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=5_workload=middle-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=5_workload=last-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=5_workload=miss-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=5_workload=cycle-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=5_workload=random-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=9_workload=first-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=9_workload=middle-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=9_workload=last-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=9_workload=miss-10                 0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=9_workload=cycle-10                0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+IfSwitch/cases=9_workload=random-10               0.000 ± 0%     0.000 ± 0%       ~ (p=1.000 n=6) ¹
+geomean                                                      ²               +0.00%               ²
 ¹ all samples are equal
 ² summaries must be >0 to compute geomean

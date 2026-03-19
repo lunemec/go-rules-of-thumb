@@ -94,8 +94,6 @@ $MASK graph "BenchmarkAssert"
 ```bash
 $MASK bench_one "BenchmarkIfSwitch" "if"
 $MASK bench_one "BenchmarkIfSwitch" "switch"
-$MASK bench_one "BenchmarkIfSwitch" "if_5"
-$MASK bench_one "BenchmarkIfSwitch" "switch_5"
 $MASK benchstat "BenchmarkIfSwitch"
 $MASK graph "BenchmarkIfSwitch"
 ```

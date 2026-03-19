@@ -110,16 +110,20 @@ compiler is able to transform it into a jump table.
 
 > [!TIP]
 > use whichever is more readable  
-> for single-case branches, `if` and `switch` are effectively equal  
-> for longer linear chains, `if` is slightly to moderately faster in this benchmark
+> when hits are usually the first case, `if` stays competitive and often wins  
+> on this benchmark, `switch` usually wins once misses or later/mixed hits are common, especially by `9` cases
 
 ![if switch graph](assets/BenchmarkIfSwitch.png)
 
+[Detailed line view](assets/BenchmarkIfSwitch-detail.png)
+
 [Benchmark results](assets/BenchmarkIfSwitch.txt)
 
-The 1-case versions are basically a wash here. The 5-case `switch` is consistently slower than the 5-case `if` chain, so the data does not support the idea that `switch` is a free performance win.
+This benchmark compares dense integer equality chains of `3`, `5`, and `9` cases across six deterministic input patterns: `first`, `middle`, `last`, `miss`, `cycle`, and `random`.
 
-It looks like Go does not support jump tables here? The tests I tried compile into same code for both switch/if statements. You can try to hand-roll jump table [similar to the #19791](https://github.com/golang/go/issues/19791).
+There is no single winner. `if` only clearly leads on `first` hits and stays roughly tied on the shorter chains, while `switch` pulls ahead on most `miss`, mixed, and later-hit workloads. By `9` cases, `switch` wins every workload except `first`, often by a wide margin; by `5` cases, the result is already split between `if` on `first` and `switch` on `miss`, `cycle`, and `random`. So the old “longer linear chains favor `if`” conclusion does not hold on these measurements.
+
+This benchmark shows measured behavior for these dense integer chains on this toolchain and hardware. It does not establish which compiler lowering strategy produced the result.
 
 Read more:
 
